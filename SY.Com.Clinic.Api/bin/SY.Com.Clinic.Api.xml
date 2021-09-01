@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SY.Com.Clinic.Api</name>
+    </assembly>
+    <members>
+        <member name="T:SY.Com.Clinic.Api.SwaggerConfig">
+            <summary>
+            SwaggerConfig
+            </summary>
+        </member>
+        <member name="M:SY.Com.Clinic.Api.SwaggerConfig.Register">
+            <summary>
+            Register
+            </summary>
+        </member>
+        <member name="T:SY.Com.Clinic.Api.App_Start.SwaggerNet">
+            <summary>
+            SwaggerNet
+            </summary>
+        </member>
+        <member name="M:SY.Com.Clinic.Api.App_Start.SwaggerNet.PreStart">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SY.Com.Clinic.Api.App_Start.SwaggerNet.PostStart">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Clinic.Api.WebApiConfig">
+            <summary>
+            WebApiConfig Class
+            </summary>
+        </member>
+        <member name="M:SY.Com.Clinic.Api.WebApiConfig.Register(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Register Route
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="T:SY.Com.Clinic.Api.Controllers.DefaultController">
+            <summary>
+            默认-接口测试
+            </summary>
+        </member>
+        <member name="M:SY.Com.Clinic.Api.Controllers.DefaultController.get">
+            <summary>
+            测试接口
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SY.Com.Clinic.Api.WebApiApplication">
+            <summary>
+            Global
+            </summary>
+        </member>
+        <member name="M:SY.Com.Clinic.Api.WebApiApplication.Application_Start">
+            <summary>
+            Application Start
+            </summary>
+        </member>
+    </members>
+</doc>
