@@ -8,5 +8,6 @@ namespace SY.Com.Clinic.Service
 {
     public class Class1
     {
+
     }
 }
