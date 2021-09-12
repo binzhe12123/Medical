@@ -1,4 +1,4 @@
-Use Medical
+Use Clinic
 go
 
 

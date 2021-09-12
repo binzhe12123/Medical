@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
@@ -9,52 +8,38 @@ using System.Threading.Tasks;
 
 namespace SY.Com.Clinic.Repository
 {
-    public class IDbConnection : DbConnection
+    /// <summary>
+    /// 用来返回需要的sqlconnection,dapper的时候使用
+    /// </summary>
+    public class IDbConnection
     {
-        private DbConnectionInternal _innerConnection;        
-        public IDbConnection(string connectionstring)
+        //private static IDbConnection _idbconnection;
+        private DbConnection _dbconnection;
+        //private static object obj = new object();
+        public IDbConnection(string connection)
         {
-            this.ConnectionString = connectionstring;
+            _dbconnection = new SqlConnection(connection);
         }
 
-        public override string ConnectionString { get; set; }
-
-        public override string Database => "";
-
-        public override string DataSource => "";
-
-        public override string ServerVersion => throw new NotImplementedException();
-
-        public override ConnectionState State => throw new NotImplementedException();
-        public IDbConnection()
+        public DbConnection getConnection()
         {
-            GC.SuppressFinalize(this);
-            _innerConnection = DbConnectionClosedNeverOpened.SingletonInstance;
+            return _dbconnection;
         }
 
-        public override void ChangeDatabase(string databaseName)
-        {
-            throw new NotImplementedException();
-        }
+        //public IDbConnection getInstance()
+        //{
+        //    if(_idbconnection == null)
+        //    {
+        //        lock (obj)
+        //        {
+        //            if (_idbconnection == null)
+        //            {
+        //                _idbconnection = new IDbConnection();
+        //            }
+        //        }
+        //    }
+        //    return _idbconnection;
+        //}
 
-        public override void Close()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void Open()
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override DbTransaction BeginDbTransaction(IsolationLevel isolationLevel)
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override DbCommand CreateDbCommand()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

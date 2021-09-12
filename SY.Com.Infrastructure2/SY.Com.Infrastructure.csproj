@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3639D96D-CE09-45E8-9D55-D38F49ABC328}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MK.FrameWork</RootNamespace>
+    <AssemblyName>MK.FrameWork</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AopSdk">
+      <HintPath>..\packages\AopSdk.dll</HintPath>
+    </Reference>
+    <Reference Include="asm-3.3.1">
+      <HintPath>..\packages\监管平台\asm-3.3.1.dll</HintPath>
+    </Reference>
+    <Reference Include="asm-commons-3.3.1">
+      <HintPath>..\packages\监管平台\asm-commons-3.3.1.dll</HintPath>
+    </Reference>
+    <Reference Include="asm-tree-3.3.1">
+      <HintPath>..\packages\监管平台\asm-tree-3.3.1.dll</HintPath>
+    </Reference>
+    <Reference Include="asm-util-3.3.1">
+      <HintPath>..\packages\监管平台\asm-util-3.3.1.dll</HintPath>
+    </Reference>
+    <Reference Include="bcprov-jdk16-1.46">
+      <HintPath>..\packages\监管平台\bcprov-jdk16-1.46.dll</HintPath>
+    </Reference>
+    <Reference Include="byte-buddy-1.7.11">
+      <HintPath>..\packages\监管平台\byte-buddy-1.7.11.dll</HintPath>
+    </Reference>
+    <Reference Include="CacheManager.Core, Version=1.1.0.0, Culture=neutral, PublicKeyToken=5b450b4fb65c4cdb, processorArchitecture=MSIL">
+      <HintPath>..\packages\CacheManager.Core.1.1.0\lib\net45\CacheManager.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CacheManager.SystemRuntimeCaching, Version=1.1.0.0, Culture=neutral, PublicKeyToken=5b450b4fb65c4cdb, processorArchitecture=MSIL">
+      <HintPath>..\packages\CacheManager.SystemRuntimeCaching.1.1.0\lib\net45\CacheManager.SystemRuntimeCaching.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="cglib-nodep-2.2.2">
+      <HintPath>..\packages\监管平台\cglib-nodep-2.2.2.dll</HintPath>
+    </Reference>
+    <Reference Include="ChineseConverter">
+      <HintPath>..\packages\ToolGood.Words\ChineseConverter.dll</HintPath>
+    </Reference>
+    <Reference Include="ChnCharInfo">
+      <HintPath>..\packages\ToolGood.Words\ChnCharInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="commons-codec-1.11">
+      <HintPath>..\packages\监管平台\commons-codec-1.11.dll</HintPath>
+    </Reference>
+    <Reference Include="commons-crypto-1.0.0">
+      <HintPath>..\packages\监管平台\commons-crypto-1.0.0.dll</HintPath>
+    </Reference>
+    <Reference Include="commons-lang3-3.7">
+      <HintPath>..\packages\监管平台\commons-lang3-3.7.dll</HintPath>
+    </Reference>
+    <Reference Include="disruptor-3.3.6">
+      <HintPath>..\packages\监管平台\disruptor-3.3.6.dll</HintPath>
+    </Reference>
+    <Reference Include="F2FPayDll">
+      <HintPath>..\packages\F2FPayDll.dll</HintPath>
+    </Reference>
+    <Reference Include="fastjson-1.2.40">
+      <HintPath>..\packages\监管平台\fastjson-1.2.40.dll</HintPath>
+    </Reference>
+    <Reference Include="health.dc-sdk-1.0.0">
+      <HintPath>..\packages\监管平台\health.dc-sdk-1.0.0.dll</HintPath>
+    </Reference>
+    <Reference Include="httpclient-4.5.2">
+      <HintPath>..\packages\监管平台\httpclient-4.5.2.dll</HintPath>
+    </Reference>
+    <Reference Include="httpcore-4.4.10">
+      <HintPath>..\packages\监管平台\httpcore-4.4.10.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Core">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Security, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.Runtime">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.Runtime.JNI">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.Runtime.JNI.dll</HintPath>
+    </Reference>
+    <Reference Include="jackson-core-2.8.10">
+      <HintPath>..\packages\监管平台\jackson-core-2.8.10.dll</HintPath>
+    </Reference>
+    <Reference Include="jna-4.5.2">
+      <HintPath>..\packages\监管平台\jna-4.5.2.dll</HintPath>
+    </Reference>
+    <Reference Include="JWT, Version=7.0.0.0, Culture=neutral, PublicKeyToken=6f98bca0f40f2ecf, processorArchitecture=MSIL">
+      <HintPath>..\packages\JWT.7.2.0\lib\net40\JWT.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LitJson">
+      <HintPath>..\MK.Clinic.Ref\ThirdDll\LitJson.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=2.1.3.1, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\NPOI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.1.3.1, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\NPOI.OOXML.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.1.3.1, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\NPOI.OpenXml4Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.1.3.1, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StackExchange.Redis, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MK.Clinic.Ref\ThirdDll\StackExchange.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ToolGood.PinYin.Build">
+      <HintPath>..\packages\ToolGood.Words\ToolGood.PinYin.Build.dll</HintPath>
+    </Reference>
+    <Reference Include="ToolGood.PinYin.WordsBuild">
+      <HintPath>..\packages\ToolGood.Words\ToolGood.PinYin.WordsBuild.dll</HintPath>
+    </Reference>
+    <Reference Include="ToolGood.Words">
+      <HintPath>..\packages\ToolGood.Words\ToolGood.Words.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CacheManager.cs" />
+    <Compile Include="ColumnAttr.cs" />
+    <Compile Include="CommonEnum.cs" />
+    <Compile Include="ConfigHelper.cs" />
+    <Compile Include="DataCache.cs" />
+    <Compile Include="DataExportHelper.cs" />
+    <Compile Include="DataTableHelper.cs" />
+    <Compile Include="DateTimeHelper.cs" />
+    <Compile Include="DEncrypt.cs" />
+    <Compile Include="Disposable.cs" />
+    <Compile Include="Enum\EnumHelper.cs" />
+    <Compile Include="ExceptionExtent.cs" />
+    <Compile Include="JWTHelper.cs" />
+    <Compile Include="KeyWordReplace.cs" />
+    <Compile Include="ListHelper.cs" />
+    <Compile Include="Log4Net\LogType.cs" />
+    <Compile Include="NpoiHelper.cs" />
+    <Compile Include="SelException\CustomException.cs" />
+    <Compile Include="HiCache.cs" />
+    <Compile Include="HtmlEncodeAttribute.cs" />
+    <Compile Include="HttpClientHelper.cs" />
+    <Compile Include="HttpHelper.cs" />
+    <Compile Include="HttpProc.cs" />
+    <Compile Include="INIFile.cs" />
+    <Compile Include="IOHelper.cs" />
+    <Compile Include="JSONHelper.cs" />
+    <Compile Include="Local.cs" />
+    <Compile Include="Log4Net\Log4NetHelper.cs" />
+    <Compile Include="ModelToDataTable.cs" />
+    <Compile Include="PageValidate.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Redis\RedisConnectionHelp.cs" />
+    <Compile Include="Redis\RedisHelper.cs" />
+    <Compile Include="RegexHelper.cs" />
+    <Compile Include="RMB.cs" />
+    <Compile Include="SingleProvider.cs" />
+    <Compile Include="SqlParameterHelper.cs" />
+    <Compile Include="StringHelper.cs" />
+    <Compile Include="StringPlus.cs" />
+    <Compile Include="SZJG\SZJGInterface.cs" />
+    <Compile Include="SZJG\SZJG_Task_Model.cs" />
+    <Compile Include="SZJG\SZJG_Task_Object.cs" />
+    <Compile Include="ThirdModel.cs" />
+    <Compile Include="TimeParser.cs" />
+    <Compile Include="ModelHandler.cs" />
+    <Compile Include="TypeConverter.cs" />
+    <Compile Include="UnZipStream.cs" />
+    <Compile Include="UploadHelper.cs" />
+    <Compile Include="UrlOper.cs" />
+    <Compile Include="ValueHelper.cs" />
+    <Compile Include="WXPayClass.cs" />
+    <Compile Include="XmlUtil.cs" />
+    <Compile Include="ZipStream.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

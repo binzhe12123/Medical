@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SY.Com.Clinic.Model", "SY.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SY.Com.Clinic.Repository", "SY.Com.Clinic.Repository\SY.Com.Clinic.Repository.csproj", "{B66DA2D4-9C7B-4C5E-BAA2-4CBB5CC48E11}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SY.Com.Infrastructure", "SY.Com.Infrastructure2\SY.Com.Infrastructure.csproj", "{3639D96D-CE09-45E8-9D55-D38F49ABC328}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{B66DA2D4-9C7B-4C5E-BAA2-4CBB5CC48E11}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B66DA2D4-9C7B-4C5E-BAA2-4CBB5CC48E11}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B66DA2D4-9C7B-4C5E-BAA2-4CBB5CC48E11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3639D96D-CE09-45E8-9D55-D38F49ABC328}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3639D96D-CE09-45E8-9D55-D38F49ABC328}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3639D96D-CE09-45E8-9D55-D38F49ABC328}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3639D96D-CE09-45E8-9D55-D38F49ABC328}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
