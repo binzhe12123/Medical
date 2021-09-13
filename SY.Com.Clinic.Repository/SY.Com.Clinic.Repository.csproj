@@ -63,7 +63,7 @@
       <Project>{d060b4c3-1eb8-4e25-a60c-2b66d027bba0}</Project>
       <Name>SY.Com.Clinic.Model</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SY.Com.Infrastructure2\SY.Com.Infrastructure.csproj">
+    <ProjectReference Include="..\SY.Com.Infrastructure\SY.Com.Infrastructure.csproj">
       <Project>{3639d96d-ce09-45e8-9d55-d38f49abc328}</Project>
       <Name>SY.Com.Infrastructure</Name>
     </ProjectReference>

@@ -20,6 +20,7 @@ namespace SY.Com.Clinic.Api
         {
             var thisAssembly = typeof(SwaggerConfig).Assembly;
             var xmlFile = string.Format("{0}\\bin\\SY.Com.Clinic.Api.xml", System.AppDomain.CurrentDomain.BaseDirectory);
+            var xmlFile2 = string.Format("{0}\\bin\\SY.Com.Clinic.Model.xml", System.AppDomain.CurrentDomain.BaseDirectory);
             GlobalConfiguration.Configuration
                 .EnableSwagger(c =>
                     {
@@ -108,7 +109,8 @@ namespace SY.Com.Clinic.Api
                         // those comments into the generated docs and UI. You can enable this by providing the path to one or
                         // more Xml comment files.
                         //
-                        if (System.IO.File.Exists(xmlFile)) { c.IncludeXmlComments(xmlFile); }                        
+                        if (System.IO.File.Exists(xmlFile)) { c.IncludeXmlComments(xmlFile); }
+                        if (System.IO.File.Exists(xmlFile2)) { c.IncludeXmlComments(xmlFile2); }
                         //c.IncludeXmlComments(GetXmlCommentsPath());
 
                         // Swashbuckle makes a best attempt at generating Swagger compliant JSON schemas for the various types

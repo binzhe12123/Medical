@@ -30,7 +30,12 @@ namespace SY.Com.Clinic.Api.Model
         /// <summary>
         /// 密码错误
         /// </summary>
-        密码错误
+        密码错误,
+        /// <summary>
+        /// 保护码错误
+        /// </summary>
+        保护码错误,
+
     }
 
 

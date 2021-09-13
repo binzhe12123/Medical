@@ -8,6 +8,7 @@ using System.Data.Common;
 using System.Collections.Generic;
 using System.Xml;
 using System.Text.RegularExpressions;
+using SY.Com.Infrastructure;
 
 namespace SY.Com.Clinic.Repository
 {
@@ -966,7 +967,47 @@ namespace SY.Com.Clinic.Repository
             }
         }
 
-        
+        /// <summary>
+        /// 执行查询语句,返回实体(类,能够new),没查询到数据就返回null
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="id"></param>
+        /// <param name="SQLString"></param>
+        /// <param name="cmdParms"></param>
+        /// <returns></returns>
+        public static T Query<T>(Int64 id, string SQLString, params SqlParameter[] cmdParms) where T : class, new()
+        {
+            using (SqlConnection connection = new SqlConnection(PubConst.GetDbconnectionString(id)))
+            {
+                SqlCommand cmd = new SqlCommand();
+                PrepareCommand(cmd, connection, null, SQLString, cmdParms);
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    DataSet ds = new DataSet();
+                    try
+                    {
+                        da.Fill(ds, "ds");
+                        cmd.Parameters.Clear();
+                        //connection.Close();
+                        if (ds == null || ds.Tables.Count < 1 || ds.Tables[0].Rows.Count < 1)
+                        {
+                            return null;
+                        }
+                        else
+                        {
+                            return ListHelper.DataTableToSingleFiled<T>(ds.Tables[0]);
+                        }
+                    }
+                    catch (System.Data.SqlClient.SqlException ex)
+                    {
+                        throw ex;
+                    }
+                }
+
+            }
+        }
+
+
 
         /// <summary>
         /// 

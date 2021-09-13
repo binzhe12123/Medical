@@ -23,14 +23,7 @@ namespace SY.Com.Clinic.Repository
                 SqlParameter[] param = new SqlParameter[] {
                     new SqlParameter("@UserName",SqlDbType.NVarChar){ Value = mod.UserName}                    
                 };
-                DataSet ds = DbHelperSQL.Query(0, sql, param);
-                if (ds == null || ds.Tables.Count < 1 || ds.Tables[0].Rows.Count < 1)
-                {
-                    return null;
-                }
-                else {
-                    return ListHelper.DataTableToSingleFiled<UserModel>(ds.Tables[0]);
-                }
+                return DbHelperSQL.Query<UserModel>(0, sql, param);
             }
         }
 
@@ -44,25 +37,37 @@ namespace SY.Com.Clinic.Repository
                     new SqlParameter("@UserName",SqlDbType.NVarChar){ Value = mod.UserName},
                     new SqlParameter("@Password",SqlDbType.NVarChar){ Value = mod.Password},
                     new SqlParameter("@Phone",SqlDbType.NVarChar){ Value = mod.Phone},
-                    new SqlParameter("@VirifyCode",SqlDbType.NVarChar){ Value = mod.VirifyCOde},
+                    new SqlParameter("@VirifyCode",SqlDbType.NVarChar){ Value = mod.VirifyCode},
                     new SqlParameter("@Sex",SqlDbType.Int){ Value = mod.Sex}
                 };
             int result = DbHelperSQL.ExecuteSql(0, sql, param);
             return true;
         }
 
-        //重置密码
+        #region 重置密码
         public bool Reset(UserModel mod)
         {
-            string sql = " Update User Set [PassWord] = @Password Where ID = @ID And VirifyCOde = @VirifyCOde ";
+            string sql = " Update User Set [PassWord] = @Password Where ID = @ID ";
             SqlParameter[] param = new SqlParameter[] {
                     new SqlParameter("@ID",SqlDbType.Int){ Value = mod.Id},
-                    new SqlParameter("@Password",SqlDbType.NVarChar){ Value = mod.Password},
-                    new SqlParameter("@Password",SqlDbType.NVarChar){ Value = mod.VirifyCOde}
+                    new SqlParameter("@Password",SqlDbType.NVarChar){ Value = mod.Password}                    
                 };
             int result = DbHelperSQL.ExecuteSql(0, sql, param);
             return true;
         }
+
+        public UserModel QueryReset(UserModel mod)
+        {
+            string sql = " Select * From User Where UserName = @UserName And VirifyCode = @VirifyCode And IsDelete = 0 ";
+            SqlParameter[] param = new SqlParameter[] {
+                    new SqlParameter("@ID",SqlDbType.Int){ Value = mod.Id},
+                    new SqlParameter("@UserName",SqlDbType.NVarChar){ Value = mod.UserName},
+                    new SqlParameter("@VirifyCode",SqlDbType.NVarChar){ Value = mod.VirifyCode}
+                };
+            return DbHelperSQL.Query<UserModel>(0, sql, param);
+        }
+
+        #endregion
 
         //修改信息
         public bool Update(UserModel mod)

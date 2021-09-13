@@ -108,7 +108,6 @@ E:\代码\门诊\SY.Com.Clinic.Api\obj\Debug\SY.Com.Clinic.Api.csproj.CoreCompil
 E:\代码\门诊\SY.Com.Clinic.Api\obj\Debug\SY.Com.Clinic.Api.csproj.CopyComplete
 E:\代码\门诊\SY.Com.Clinic.Api\obj\Debug\SY.Com.Clinic.Api.dll
 E:\代码\门诊\SY.Com.Clinic.Api\obj\Debug\SY.Com.Clinic.Api.pdb
-E:\代码\门诊\SY.Com.Clinic.Api\bin\MK.FrameWork.dll
 E:\代码\门诊\SY.Com.Clinic.Api\bin\SY.Com.Clinic.Model.dll
 E:\代码\门诊\SY.Com.Clinic.Api\bin\SY.Com.Clinic.Repository.dll
 E:\代码\门诊\SY.Com.Clinic.Api\bin\CacheManager.Core.dll
@@ -137,9 +136,11 @@ E:\代码\门诊\SY.Com.Clinic.Api\bin\IKVM.Runtime.JNI.dll
 E:\代码\门诊\SY.Com.Clinic.Api\bin\jna-4.5.2.dll
 E:\代码\门诊\SY.Com.Clinic.Api\bin\SY.Com.Clinic.Model.pdb
 E:\代码\门诊\SY.Com.Clinic.Api\bin\SY.Com.Clinic.Repository.pdb
-E:\代码\门诊\SY.Com.Clinic.Api\bin\MK.FrameWork.pdb
-E:\代码\门诊\SY.Com.Clinic.Api\bin\MK.FrameWork.dll.config
 E:\代码\门诊\SY.Com.Clinic.Api\bin\CacheManager.Core.xml
 E:\代码\门诊\SY.Com.Clinic.Api\bin\JWT.pdb
 E:\代码\门诊\SY.Com.Clinic.Api\bin\JWT.xml
 E:\代码\门诊\SY.Com.Clinic.Api\bin\CacheManager.SystemRuntimeCaching.xml
+E:\代码\门诊\SY.Com.Clinic.Api\bin\SY.Com.Clinic.Model.xml
+E:\代码\门诊\SY.Com.Clinic.Api\bin\SY.Com.Infrastructure.dll
+E:\代码\门诊\SY.Com.Clinic.Api\bin\SY.Com.Infrastructure.pdb
+E:\代码\门诊\SY.Com.Clinic.Api\bin\SY.Com.Infrastructure.dll.config

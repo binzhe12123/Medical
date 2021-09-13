@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SY.Com.Clinic.Model", "SY.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SY.Com.Clinic.Repository", "SY.Com.Clinic.Repository\SY.Com.Clinic.Repository.csproj", "{B66DA2D4-9C7B-4C5E-BAA2-4CBB5CC48E11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SY.Com.Infrastructure", "SY.Com.Infrastructure2\SY.Com.Infrastructure.csproj", "{3639D96D-CE09-45E8-9D55-D38F49ABC328}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SY.Com.Infrastructure", "SY.Com.Infrastructure\SY.Com.Infrastructure.csproj", "{3639D96D-CE09-45E8-9D55-D38F49ABC328}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

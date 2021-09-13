@@ -7,8 +7,8 @@
     <ProjectGuid>{3639D96D-CE09-45E8-9D55-D38F49ABC328}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MK.FrameWork</RootNamespace>
-    <AssemblyName>MK.FrameWork</AssemblyName>
+    <RootNamespace>SY.Com.Infrastructure</RootNamespace>
+    <AssemblyName>SY.Com.Infrastructure</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -199,6 +199,7 @@
     <Compile Include="ListHelper.cs" />
     <Compile Include="Log4Net\LogType.cs" />
     <Compile Include="NpoiHelper.cs" />
+    <Compile Include="ReflectionExtention.cs" />
     <Compile Include="SelException\CustomException.cs" />
     <Compile Include="HiCache.cs" />
     <Compile Include="HtmlEncodeAttribute.cs" />

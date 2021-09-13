@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace SY.Com.Clinic.Model
 {
+    /// <summary>
+    /// 用户模型
+    /// </summary>
     public class UserModel
     {
         /// <summary>
@@ -55,7 +58,7 @@ namespace SY.Com.Clinic.Model
         /// <summary>
         /// 重置密码用
         /// </summary>
-        public string VirifyCOde { get; set; }
+        public string VirifyCode { get; set; }
 
         /// <summary>
         /// 状态：0:正常，-1:禁用    
@@ -71,5 +74,39 @@ namespace SY.Com.Clinic.Model
         /// 是否删除:0:正常,-1:删除    
         /// </summary>
         public int IsDelete { get; set; }
+    }
+
+    /// <summary>
+    /// 用户登录模型
+    /// </summary>
+    public class UserLoginModel
+    {
+        /// <summary>
+        /// 账号
+        /// </summary>
+        public string UserName { get; set; }
+        /// <summary>
+        /// 密码
+        /// </summary>
+        public string Password { get; set; }
+    }
+
+    /// <summary>
+    /// 用户重置密码
+    /// </summary>
+    public class UserResetModel
+    {
+        /// <summary>
+        /// 账号
+        /// </summary>
+        public string UserName { get; set; }
+        /// <summary>
+        /// 密码
+        /// </summary>
+        public string Password { get; set; }
+        /// <summary>
+        /// 保护码
+        /// </summary>
+        public string VirifyCode { get; set; }
     }
 }
