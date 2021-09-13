@@ -109,12 +109,14 @@
     <Content Include="SwaggerUI\lib\jquery.wiggle.min.js" />
     <Content Include="SwaggerUI\lib\swagger.js" />
     <Content Include="SwaggerUI\lib\underscore-min.js" />
+    <EmbeddedResource Include="SwaggerUI\Swagger-Custom.js" />
     <Content Include="SwaggerUI\swagger-ui.js" />
     <Content Include="SwaggerUI\swagger-ui.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\SwaggerConfig.cs" />
+    <Compile Include="App_Start\SwaggerControllerDescProvider.cs" />
     <Compile Include="App_Start\SwaggerNet.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
@@ -123,6 +125,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Model\EnumErrorCode.cs" />
     <Compile Include="Model\InputMessage.cs" />
     <Compile Include="Model\OutPutMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

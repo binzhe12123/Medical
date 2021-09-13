@@ -19,10 +19,9 @@ namespace SY.Com.Clinic.Repository
             //通过账号密码获取实体,如果不存在实体为空
             using (var con = _dbMedical.getConnection())
             {
-                string sql = " Select * From User Where UserName = @UserName And [Password]=@Password ";
+                string sql = " Select * From User Where UserName = @UserName And IsDelete = 0 ";
                 SqlParameter[] param = new SqlParameter[] {
-                    new SqlParameter("@UserName",SqlDbType.NVarChar){ Value = mod.UserName},
-                    new SqlParameter("@Password",SqlDbType.NVarChar){ Value = mod.Password}
+                    new SqlParameter("@UserName",SqlDbType.NVarChar){ Value = mod.UserName}                    
                 };
                 DataSet ds = DbHelperSQL.Query(0, sql, param);
                 if (ds == null || ds.Tables.Count < 1 || ds.Tables[0].Rows.Count < 1)
@@ -38,14 +37,14 @@ namespace SY.Com.Clinic.Repository
         //注册
         public bool Register(UserModel mod)
         {
-            string sql = " Insert Into User(ID,Name,Phone,UserName,[Password],Sex,VirifyCOde) Values(@ID,@Name,@Phone,@UserName,@Password,@Sex,@VirifyCOde) ";
+            string sql = " Insert Into User(ID,Name,Phone,UserName,[Password],Sex,VirifyCode) Values(@ID,@Name,@Phone,@UserName,@Password,@Sex,@VirifyCode) ";
             SqlParameter[] param = new SqlParameter[] {
                     new SqlParameter("@ID",SqlDbType.Int){ Value = IDBH.getID(IDName.User.ToString())},
                     new SqlParameter("@Name",SqlDbType.NVarChar){ Value = mod.Name},
                     new SqlParameter("@UserName",SqlDbType.NVarChar){ Value = mod.UserName},
                     new SqlParameter("@Password",SqlDbType.NVarChar){ Value = mod.Password},
                     new SqlParameter("@Phone",SqlDbType.NVarChar){ Value = mod.Phone},
-                    new SqlParameter("@VirifyCOde",SqlDbType.NVarChar){ Value = mod.VirifyCOde},
+                    new SqlParameter("@VirifyCode",SqlDbType.NVarChar){ Value = mod.VirifyCOde},
                     new SqlParameter("@Sex",SqlDbType.Int){ Value = mod.Sex}
                 };
             int result = DbHelperSQL.ExecuteSql(0, sql, param);

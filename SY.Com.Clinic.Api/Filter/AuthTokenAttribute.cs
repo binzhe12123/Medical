@@ -24,14 +24,14 @@ namespace SY.Com.Clinic.Api.Filter
             //{
             //    return;
             //}
-            var verifyResult = actionContext.Request.Headers.Authorization != null &&  //要求请求中需要带有Authorization头
-                               actionContext.Request.Headers.Authorization.Parameter == "123456"; //并且Authorization参数为123456则验证通过
+            //var verifyResult = actionContext.Request.Headers.Authorization != null &&  //要求请求中需要带有Authorization头
+            //                   actionContext.Request.Headers.Authorization.Parameter == "123456"; //并且Authorization参数为123456则验证通过
 
-            if (!verifyResult)
-            {
-                //如果验证不通过，则返回401错误，并且Body中写入错误原因
-                //actionContext.Response = new HttpResponseMessage(HttpStatusCode.Unauthorized);//actionContext.Request.CreateErrorResponse(HttpStatusCode.Unauthorized, new HttpError("Token 不正确"));
-            }
+            //if (!verifyResult)
+            //{
+            //    //如果验证不通过，则返回401错误，并且Body中写入错误原因
+            //    //actionContext.Response = new HttpResponseMessage(HttpStatusCode.Unauthorized);//actionContext.Request.CreateErrorResponse(HttpStatusCode.Unauthorized, new HttpError("Token 不正确"));
+            //}
         }
     }
 }

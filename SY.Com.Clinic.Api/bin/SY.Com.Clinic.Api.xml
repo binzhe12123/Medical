@@ -14,6 +14,32 @@
             Register
             </summary>
         </member>
+        <member name="T:SY.Com.Clinic.Api.SwaggerControllerDescProvider">
+            <summary>
+            swagger显示控制器的描述
+            </summary>
+        </member>
+        <member name="M:SY.Com.Clinic.Api.SwaggerControllerDescProvider.#ctor(Swashbuckle.Swagger.ISwaggerProvider,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="swaggerProvider"></param>
+            <param name="xml">xml文档路径</param>
+        </member>
+        <member name="M:SY.Com.Clinic.Api.SwaggerControllerDescProvider.GetSwagger(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="rootUrl"></param>
+            <param name="apiVersion"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Clinic.Api.SwaggerControllerDescProvider.GetControllerDesc">
+            <summary>
+            从API文档中读取控制器描述
+            </summary>
+            <returns>所有控制器描述</returns>
+        </member>
         <member name="T:SY.Com.Clinic.Api.App_Start.SwaggerNet">
             <summary>
             SwaggerNet
@@ -60,7 +86,14 @@
             <summary>
             用户登录
             </summary>
-            <param name="mod"></param>
+            <param name="mod">账号和密码</param>
+            <returns>成功返回用户信息</returns>
+        </member>
+        <member name="M:SY.Com.Clinic.Api.Controllers.UserController.Register(SY.Com.Clinic.Model.UserModel)">
+            <summary>
+            用户注册
+            </summary>
+            <param name="mod">Phone,Password必填</param>
             <returns></returns>
         </member>
         <member name="T:SY.Com.Clinic.Api.Filter.AuthTokenAttribute">
@@ -82,6 +115,36 @@
         <member name="M:SY.Com.Clinic.Api.WebApiApplication.Application_Start">
             <summary>
             Application Start
+            </summary>
+        </member>
+        <member name="T:SY.Com.Clinic.Api.Model.ErrorCode">
+            <summary>
+            错误代码
+            </summary>
+        </member>
+        <member name="F:SY.Com.Clinic.Api.Model.ErrorCode.程序异常">
+            <summary>
+            程序异常
+            </summary>
+        </member>
+        <member name="F:SY.Com.Clinic.Api.Model.ErrorCode.入参数错误">
+            <summary>
+            入参错误
+            </summary>
+        </member>
+        <member name="F:SY.Com.Clinic.Api.Model.ErrorCode.用户不存在">
+            <summary>
+            用户不存在
+            </summary>
+        </member>
+        <member name="F:SY.Com.Clinic.Api.Model.ErrorCode.用户被禁用">
+            <summary>
+            账号被禁用
+            </summary>
+        </member>
+        <member name="F:SY.Com.Clinic.Api.Model.ErrorCode.密码错误">
+            <summary>
+            密码错误
             </summary>
         </member>
         <member name="T:SY.Com.Clinic.Api.Model.InputMessage`1">
@@ -120,6 +183,11 @@
             结果,-1:系统异常,-2:逻辑异常,0:正常
             </summary>
         </member>
+        <member name="P:SY.Com.Clinic.Api.Model.OutPutMessage`1.ErrCode">
+            <summary>
+            错误码
+            </summary>
+        </member>
         <member name="P:SY.Com.Clinic.Api.Model.OutPutMessage`1.ErrMes">
             <summary>
             错误信息
@@ -129,6 +197,19 @@
             <summary>
             报文体
             </summary>
+        </member>
+        <member name="M:SY.Com.Clinic.Api.Model.OutPutMessage`1.sysException(System.String)">
+            <summary>
+            系统异常
+            </summary>
+            <param name="message">错误信息</param>
+        </member>
+        <member name="M:SY.Com.Clinic.Api.Model.OutPutMessage`1.busExceptino(SY.Com.Clinic.Api.Model.ErrorCode,System.String)">
+            <summary>
+            业务异常
+            </summary>
+            <param name="errcode">错误码</param>
+            <param name="message">错误信息</param>
         </member>
     </members>
 </doc>
