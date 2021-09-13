@@ -51,6 +51,29 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:SY.Com.Clinic.Api.Controllers.UserController">
+            <summary>
+            用户接口
+            </summary>
+        </member>
+        <member name="M:SY.Com.Clinic.Api.Controllers.UserController.Login(SY.Com.Clinic.Model.UserModel)">
+            <summary>
+            用户登录
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SY.Com.Clinic.Api.Filter.AuthTokenAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SY.Com.Clinic.Api.Filter.AuthTokenAttribute.OnAuthorization(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            
+            </summary>
+            <param name="actionContext"></param>
+        </member>
         <member name="T:SY.Com.Clinic.Api.WebApiApplication">
             <summary>
             Global
@@ -59,6 +82,52 @@
         <member name="M:SY.Com.Clinic.Api.WebApiApplication.Application_Start">
             <summary>
             Application Start
+            </summary>
+        </member>
+        <member name="T:SY.Com.Clinic.Api.Model.InputMessage`1">
+            <summary>
+            输入公共报文
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:SY.Com.Clinic.Api.Model.InputMessage`1.ClinicID">
+            <summary>
+            机构ID
+            </summary>
+        </member>
+        <member name="P:SY.Com.Clinic.Api.Model.InputMessage`1.UserID">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:SY.Com.Clinic.Api.Model.InputMessage`1.token">
+            <summary>
+            登录token 
+            </summary>
+        </member>
+        <member name="P:SY.Com.Clinic.Api.Model.InputMessage`1.Data">
+            <summary>
+            报文体
+            </summary>
+        </member>
+        <member name="T:SY.Com.Clinic.Api.Model.OutPutMessage`1">
+            <summary>
+            统一输出参数
+            </summary>
+        </member>
+        <member name="P:SY.Com.Clinic.Api.Model.OutPutMessage`1.Result">
+            <summary>
+            结果,-1:系统异常,-2:逻辑异常,0:正常
+            </summary>
+        </member>
+        <member name="P:SY.Com.Clinic.Api.Model.OutPutMessage`1.ErrMes">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="P:SY.Com.Clinic.Api.Model.OutPutMessage`1.Data">
+            <summary>
+            报文体
             </summary>
         </member>
     </members>

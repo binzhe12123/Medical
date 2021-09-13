@@ -12,7 +12,7 @@ namespace SY.Com.Infrastructure
     /// DataTable与实体类互相转换
     /// </summary>
     /// <typeparam name="T">实体类</typeparam>
-    public class ModelHandler<T> where T : new()
+    public  class ModelHandler<T> where T : new()
     {
         #region DataTable转换成实体类
 
@@ -21,7 +21,7 @@ namespace SY.Com.Infrastructure
         /// </summary>
         /// <param name="ds">DataSet</param>
         /// <returns></returns>
-        public List<T> FillModel(DataSet ds)
+        public static List<T> FillModel(DataSet ds)
         {
             if (ds == null || ds.Tables[0] == null || ds.Tables[0].Rows.Count == 0)
             {
@@ -29,14 +29,14 @@ namespace SY.Com.Infrastructure
             }
             else
             {
-                return FillModel(ds.Tables[0]);
+                return ModelHandler<T>.FillModel(ds.Tables[0]);
             }
         }
 
         /// <summary>  
         /// 填充对象列表：用DataSet的第index个表填充实体类
         /// </summary>  
-        public List<T> FillModel(DataSet ds, int index)
+        public static List<T> FillModel(DataSet ds, int index)
         {
             if (ds == null || ds.Tables.Count <= index || ds.Tables[index].Rows.Count == 0)
             {
@@ -44,14 +44,14 @@ namespace SY.Com.Infrastructure
             }
             else
             {
-                return FillModel(ds.Tables[index]);
+                return ModelHandler<T>.FillModel(ds.Tables[index]);
             }
         }
 
         /// <summary>  
         /// 填充对象列表：用DataTable填充实体类
         /// </summary>  
-        public List<T> FillModel(DataTable dt)
+        public static List<T> FillModel(DataTable dt)
         {
             if (dt == null || dt.Rows.Count == 0)
             {

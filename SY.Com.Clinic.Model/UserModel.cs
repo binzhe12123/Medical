@@ -52,6 +52,10 @@ namespace SY.Com.Clinic.Model
         /// 头像    
         /// </summary>
         public string Imagepath { get; set; }
+        /// <summary>
+        /// 重置密码用
+        /// </summary>
+        public string VirifyCOde { get; set; }
 
         /// <summary>
         /// 状态：0:正常，-1:禁用    
