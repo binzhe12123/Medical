@@ -111,12 +111,70 @@ namespace SY.Com.Clinic.Repository
         }
 
         //修改诊所信息
+        public bool Update(ClinicModel mod)
+        {
+            string sql = @" Update Clinic 
+                            Set Code=@Code,Name=@Name,
+                            ,Category=@Category,Imagepath=@Imagepath,ServiceStart=@ServiceStart,ServiceEnd=@ServiceEnd
+                            ,Phone=@Phone,Boss=@Boss
+                            Where Id = @ID";
+            SqlParameter[] param = new SqlParameter[] {
+                new SqlParameter("@Code",SqlDbType.NVarChar){Value = mod.Code},
+                new SqlParameter("@Name",SqlDbType.NVarChar){Value = mod.Name},
+                new SqlParameter("@Category",SqlDbType.NVarChar){Value = mod.Category},
+                new SqlParameter("@Imagepath",SqlDbType.NVarChar){Value = mod.Imagepath},
+                new SqlParameter("@ServiceStart",SqlDbType.NVarChar){Value = mod.ServiceStart},
+                new SqlParameter("@ServiceEnd",SqlDbType.NVarChar){Value = mod.ServiceEnd},
+                new SqlParameter("@Phone",SqlDbType.NVarChar){Value = mod.Phone},
+                new SqlParameter("@ID",SqlDbType.Int){Value = mod.Id}
+            };
+            DbHelperSQL.ExecuteSql(0, sql, param);
+            return true;
+
+        }
 
         //删除诊所
+        public bool Delete(int clinicid)
+        {
+            string sql = " Update Clinic Set IsDelete = -1 Where ID = @ID ";
+            SqlParameter[] param = new SqlParameter[] {
+                new SqlParameter("@ID",SqlDbType.Int){Value = clinicid}
+            };
+            DbHelperSQL.ExecuteSql(0, sql, param);
+            return true;
+        }
 
-        //获取诊所下用户
+        //禁用诊所
+        public bool Undisalbe(int clinicid)
+        {
+            string sql = " Update Clinic Set [state] = -1 Where ID = @ID ";
+            SqlParameter[] param = new SqlParameter[] {
+                new SqlParameter("@ID",SqlDbType.Int){Value = clinicid}
+            };
+            DbHelperSQL.ExecuteSql(0, sql, param);
+            return true;
+        }
 
-        //或者诊所类型
+
+        //获取诊所类型
+        public IEnumerable<string>  ClinicCategory()
+        {
+            string categorys = "社康中心、中医诊所、中医馆、中医门诊部、西医诊所、西医门诊部、口腔诊所、口腔门诊部、中西医结合诊所、中西医结合门诊部、医务室";
+            return categorys.Split(',').ToList();
+        }
+
+        //获取用户的诊所列表
+        public IEnumerable<ClinicModel> getClinic(int userid)
+        {
+            string sql = @" Select * From  Clinic as c
+                            Inner Join UserClinic as uc on c.Id = uc.ClinicID
+                            Where c.IsDelete = 0 And c.State = 0 And uc.IsDelete = 0 And uc.State = 0 And uc.UserID = @UserID ";
+            SqlParameter[] param = new SqlParameter[] {
+                new SqlParameter("@UserID",SqlDbType.Int){Value = userid}
+            };
+            return DbHelperSQL.QueryList<ClinicModel>(0, sql, param);
+        }
+
 
 
 
