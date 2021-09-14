@@ -144,3 +144,17 @@ E:\代码\门诊\SY.Com.Clinic.Api\bin\SY.Com.Clinic.Model.xml
 E:\代码\门诊\SY.Com.Clinic.Api\bin\SY.Com.Infrastructure.dll
 E:\代码\门诊\SY.Com.Clinic.Api\bin\SY.Com.Infrastructure.pdb
 E:\代码\门诊\SY.Com.Clinic.Api\bin\SY.Com.Infrastructure.dll.config
+E:\代码\门诊\SY.Com.Clinic.Api\bin\Dapper.dll
+E:\代码\门诊\SY.Com.Clinic.Api\bin\IKVM.OpenJDK.Util.dll
+E:\代码\门诊\SY.Com.Clinic.Api\bin\IKVM.OpenJDK.Text.dll
+E:\代码\门诊\SY.Com.Clinic.Api\bin\IKVM.OpenJDK.XML.API.dll
+E:\代码\门诊\SY.Com.Clinic.Api\bin\IKVM.OpenJDK.SwingAWT.dll
+E:\代码\门诊\SY.Com.Clinic.Api\bin\IKVM.OpenJDK.Management.dll
+E:\代码\门诊\SY.Com.Clinic.Api\bin\IKVM.OpenJDK.Naming.dll
+E:\代码\门诊\SY.Com.Clinic.Api\bin\IKVM.OpenJDK.Beans.dll
+E:\代码\门诊\SY.Com.Clinic.Api\bin\IKVM.OpenJDK.Media.dll
+E:\代码\门诊\SY.Com.Clinic.Api\bin\IKVM.AWT.WinForms.dll
+E:\代码\门诊\SY.Com.Clinic.Api\bin\IKVM.OpenJDK.Charsets.dll
+E:\代码\门诊\SY.Com.Clinic.Api\bin\IKVM.OpenJDK.Corba.dll
+E:\代码\门诊\SY.Com.Clinic.Api\bin\IKVM.OpenJDK.Remoting.dll
+E:\代码\门诊\SY.Com.Clinic.Api\bin\Dapper.xml

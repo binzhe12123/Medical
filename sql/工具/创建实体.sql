@@ -1,4 +1,4 @@
-declare @TableName sysname = 'Clinic'
+declare @TableName sysname = 'Employee'
 declare @Result varchar(max) = '
 /// <summary>
 ///  ' +  @TableName +

@@ -45,7 +45,7 @@ namespace SY.Com.Clinic.Repository
         /// </summary>
         /// <param name="name"></param>
         /// <param name="step"></param>
-        public static int getBH(string name,int ClinicID, int step = 1)
+        public static long getBH(string name,int ClinicID, int step = 1)
         {
             DataSet ds;
             string sql = @" 
@@ -62,7 +62,7 @@ namespace SY.Com.Clinic.Repository
             }
             if (ds != null && ds.Tables != null && ds.Tables[0].Rows.Count > 0)
             {
-                return int.Parse(ds.Tables[0].Rows[0]["BH"].ToString());
+                return long.Parse(ds.Tables[0].Rows[0]["BH"].ToString());
             }
             else
             {
@@ -78,5 +78,6 @@ namespace SY.Com.Clinic.Repository
         User,
         Clinic,
         Employee,
+        Department,
     }
 }

@@ -44,6 +44,8 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="ClinicModel.cs" />
+    <Compile Include="DepartmentModel.cs" />
+    <Compile Include="EmployeeModel.cs" />
     <Compile Include="ModelBase.cs" />
     <Compile Include="ProfessionModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

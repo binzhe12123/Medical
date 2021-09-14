@@ -49,6 +49,8 @@
     <Compile Include="ClinicRepository.cs" />
     <Compile Include="CommandInfo.cs" />
     <Compile Include="DbHelperSQL.cs" />
+    <Compile Include="DepartRepository.cs" />
+    <Compile Include="EmployeeRepository.cs" />
     <Compile Include="HashtableEx.cs" />
     <Compile Include="ID.cs" />
     <Compile Include="IDbConnection.cs" />

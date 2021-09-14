@@ -66,6 +66,11 @@
             </summary>
             <param name="config"></param>
         </member>
+        <member name="T:SY.Com.Clinic.Api.Controllers.ClinicController">
+            <summary>
+            诊所相关接口
+            </summary>
+        </member>
         <member name="T:SY.Com.Clinic.Api.Controllers.DefaultController">
             <summary>
             默认-接口测试

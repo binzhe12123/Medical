@@ -51,13 +51,13 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'机构ID' , @lev
 
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'用户ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Employee', @level2type=N'COLUMN',@level2name=N'UserId'
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'角色' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Employee', @level2type=N'COLUMN',@level2name=N'Roles'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'角色' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Employee', @level2type=N'COLUMN',@level2name=N'RoleKeys'
 
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'姓名' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Employee', @level2type=N'COLUMN',@level2name=N'Name'
 
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'电话' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Employee', @level2type=N'COLUMN',@level2name=N'Phone'
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'编码' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Employee', @level2type=N'COLUMN',@level2name=N'Code'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'编码' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Employee', @level2type=N'COLUMN',@level2name=N'YBCode'
 
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'是否删除:0:正常,-1:禁用' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Employee', @level2type=N'COLUMN',@level2name=N'State'
 
@@ -81,8 +81,6 @@ Create Table Enum
 
 begin --Description
 
-EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'主键' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=
-N'TABLE',@level1name=N'Enum', @level2type=N'COLUMN',@level2name=N'ID'
 
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'枚举名称' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Enum', @level2type=N'COLUMN',@level2name=N'Name'
 
@@ -119,3 +117,42 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'枚举' , @level
 end
 
 
+
+
+Create	Table Department
+(
+	ID int primary key identity(1,1),
+	SysId int,
+	ClinicId int,
+	BH bigint,
+	Name nvarchar(200),
+	BureauCode nvarchar(100),
+	Code nvarchar(100),
+	Kind int,
+	Star int,
+	Descrition nvarchar(200),	
+	CreateTime datetime not null default(getdate()),
+	IsDelete int not null default(0)
+)
+
+begin --Description
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'主键ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Department', @level2type=N'COLUMN',@level2name=N'ID'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'科室名称' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Department', @level2type=N'COLUMN',@level2name=N'Name'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'医保编码' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Department', @level2type=N'COLUMN',@level2name=N'BureauCode'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'自定义编码' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Department', @level2type=N'COLUMN',@level2name=N'Code'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'分类' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Department', @level2type=N'COLUMN',@level2name=N'Kind'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'是否常规:0:否,1:是' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Department', @level2type=N'COLUMN',@level2name=N'Star'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'描述' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Department', @level2type=N'COLUMN',@level2name=N'Descrition'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'是否删除:0:正常,-1:删除' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Department', @level2type=N'COLUMN',@level2name=N'IsDelete'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'科室表' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Department'
+
+end
