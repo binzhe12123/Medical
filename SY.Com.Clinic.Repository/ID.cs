@@ -76,6 +76,7 @@ namespace SY.Com.Clinic.Repository
     enum IDName
     {
         User,
-        Clinic
+        Clinic,
+        Employee,
     }
 }

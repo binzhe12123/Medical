@@ -119,6 +119,7 @@
     <Compile Include="App_Start\SwaggerControllerDescProvider.cs" />
     <Compile Include="App_Start\SwaggerNet.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ClinicController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Filter\AuthTokenAttribute.cs" />

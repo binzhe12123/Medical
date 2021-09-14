@@ -28,11 +28,12 @@ namespace SY.Com.Clinic.Repository
         }
 
         //注册
-        public bool Register(UserModel mod)
+        public int Register(UserModel mod)
         {
             string sql = " Insert Into User(ID,Name,Phone,UserName,[Password],Sex,VirifyCode) Values(@ID,@Name,@Phone,@UserName,@Password,@Sex,@VirifyCode) ";
+            int id = IDBH.getID(IDName.User.ToString());
             SqlParameter[] param = new SqlParameter[] {
-                    new SqlParameter("@ID",SqlDbType.Int){ Value = IDBH.getID(IDName.User.ToString())},
+                    new SqlParameter("@ID",SqlDbType.Int){ Value = id},
                     new SqlParameter("@Name",SqlDbType.NVarChar){ Value = mod.Name},
                     new SqlParameter("@UserName",SqlDbType.NVarChar){ Value = mod.UserName},
                     new SqlParameter("@Password",SqlDbType.NVarChar){ Value = mod.Password},
@@ -40,8 +41,8 @@ namespace SY.Com.Clinic.Repository
                     new SqlParameter("@VirifyCode",SqlDbType.NVarChar){ Value = mod.VirifyCode},
                     new SqlParameter("@Sex",SqlDbType.Int){ Value = mod.Sex}
                 };
-            int result = DbHelperSQL.ExecuteSql(0, sql, param);
-            return true;
+            DbHelperSQL.ExecuteSql(0, sql, param);
+            return id;            
         }
 
         #region 重置密码

@@ -36,6 +36,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'全局ID表' , @l
 
 end 
 
+
 Create Table [User]
 (
 	Id int primary key,
@@ -97,7 +98,9 @@ Create Table Clinic
 	Imagepath nvarchar(200),
 	ServiceStart datetime,
 	ServiceEnd datetime,
-	[State] int,
+	Phone nvarchar(100),
+	Boss int,
+	[State] int not null default(0),
 	CreateTime datetime not null default(getdate()),
 	IsDelete int not null default(0)	
 )
@@ -118,6 +121,10 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'服务开始时间' 
 
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'服务结束时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Clinic', @level2type=N'COLUMN',@level2name=N'ServiceEnd'
 
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'电话' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Clinic', @level2type=N'COLUMN',@level2name=N'Phone'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'老板' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Clinic', @level2type=N'COLUMN',@level2name=N'Boss'
+
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'是否删除:0:正常,-1:禁用' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Clinic', @level2type=N'COLUMN',@level2name=N'state'
 
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Clinic', @level2type=N'COLUMN',@level2name=N'CreateTime'
@@ -134,7 +141,7 @@ Create Table UserClinic
 	ClinicID int,
 	UserID int,
 	Boss int,
-	[State] int,
+	[State] int not null default(0),
 	CreateTime datetime not null default(getdate()),
 	IsDelete int not null default(0)	
 )

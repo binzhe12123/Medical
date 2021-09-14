@@ -63,9 +63,9 @@ namespace SY.Com.Clinic.Api.Controllers
         /// <param name="inmod">Phone,Password必填</param>
         /// <returns></returns>
         [HttpPost]
-        public OutPutMessage<bool> Register(InputMessage<UserModel> inmod)
+        public OutPutMessage<int> Register(InputMessage<UserModel> inmod)
         {
-            OutPutMessage<bool> outmod = new OutPutMessage<bool>();
+            OutPutMessage<int> outmod = new OutPutMessage<int>();
             try
             {
                 UserModel mod = inmod.Data;
@@ -131,6 +131,7 @@ namespace SY.Com.Clinic.Api.Controllers
             }
 
         }
+
 
 
     }

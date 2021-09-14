@@ -36,8 +36,8 @@ Create Table Employee
 	SFZH nvarchar(100),
 	YBCode nvarchar(100),	
 	Imagepath nvarchar(200),	
-	[State] int,
-	IsDelete int,	
+	[State] int not null default(0),
+	IsDelete int not null default(0),	
 	CreateTime datetime not null default(getdate())
 )
 
