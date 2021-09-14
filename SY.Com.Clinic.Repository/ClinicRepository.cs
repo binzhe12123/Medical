@@ -112,7 +112,6 @@ namespace SY.Com.Clinic.Repository
 
         //修改诊所信息
 
-
         //删除诊所
 
         //获取诊所下用户
