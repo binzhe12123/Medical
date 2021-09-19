@@ -66,11 +66,6 @@
             </summary>
             <param name="config"></param>
         </member>
-        <member name="T:SY.Com.Clinic.Api.Controllers.ClinicController">
-            <summary>
-            诊所相关接口
-            </summary>
-        </member>
         <member name="T:SY.Com.Clinic.Api.Controllers.DefaultController">
             <summary>
             默认-接口测试
@@ -80,32 +75,6 @@
             <summary>
             测试接口
             </summary>
-            <returns></returns>
-        </member>
-        <member name="T:SY.Com.Clinic.Api.Controllers.UserController">
-            <summary>
-            用户接口
-            </summary>
-        </member>
-        <member name="M:SY.Com.Clinic.Api.Controllers.UserController.Login(SY.Com.Clinic.Api.Model.InputMessage{SY.Com.Clinic.Model.UserLoginModel})">
-            <summary>
-            用户登录
-            </summary>
-            <param name="inmod">UserName和Password必填</param>
-            <returns>成功返回用户信息</returns>
-        </member>
-        <member name="M:SY.Com.Clinic.Api.Controllers.UserController.Register(SY.Com.Clinic.Api.Model.InputMessage{SY.Com.Clinic.Model.UserModel})">
-            <summary>
-            用户注册
-            </summary>
-            <param name="inmod">Phone,Password必填</param>
-            <returns></returns>
-        </member>
-        <member name="M:SY.Com.Clinic.Api.Controllers.UserController.Reset(SY.Com.Clinic.Api.Model.InputMessage{SY.Com.Clinic.Model.UserResetModel})">
-            <summary>
-            用户重置密码
-            </summary>
-            <param name="inmod">UserName,Password,VirifyCode必填</param>
             <returns></returns>
         </member>
         <member name="T:SY.Com.Clinic.Api.Filter.AuthTokenAttribute">

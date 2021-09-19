@@ -69,6 +69,7 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Ô±¹¤±í' , @lev
 end
 
 
+
 Create Table Enum
 (	
 	ClinicID int,	

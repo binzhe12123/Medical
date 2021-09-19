@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SY.Com.Clinic.Model
+namespace SY.Com.Medical.BLL
 {
-    public class ModelBase
+    public class CURDOperator
     {
+
     }
 }

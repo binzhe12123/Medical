@@ -16,18 +16,18 @@ namespace Domain
     /// 按照约定Model就是
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class DomainBase<T,M> where T : class where M : ModelBase
+    public class DomainBase<T,M> where T : class where M : BaseRequest
     {
         //包含一个repository用来调用数据层
         RepositoryBase<M> repository;
-        ModelBase model;
+        BaseRequest model;
         public DomainBase()
         {
             repository = new RepositoryBase<M>();            
         }        
 
         //通过反射获取一个Model对象
-        protected ModelBase GetModelInstan()
+        protected BaseRequest GetModelInstan()
         {
             Type type = this.GetType();
             string typename = $"{type.Name}Model";
@@ -39,7 +39,7 @@ namespace Domain
         }
 
         //通过反射给Model赋值
-        protected virtual ModelBase GetModelData()
+        protected virtual BaseRequest GetModelData()
         {
             var domaintype = this.GetType();
             var modeltype = model.GetType();

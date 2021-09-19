@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SY.Com.Clinic.Repository
 {
-    public class RepositoryBase<T> where T : ModelBase
+    public class RepositoryBase<T> where T : BaseRequest
     {
 
 

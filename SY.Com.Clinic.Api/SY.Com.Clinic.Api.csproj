@@ -119,9 +119,7 @@
     <Compile Include="App_Start\SwaggerControllerDescProvider.cs" />
     <Compile Include="App_Start\SwaggerNet.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\ClinicController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Filter\AuthTokenAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -146,14 +144,6 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SY.Com.Clinic.Model\SY.Com.Clinic.Model.csproj">
-      <Project>{d060b4c3-1eb8-4e25-a60c-2b66d027bba0}</Project>
-      <Name>SY.Com.Clinic.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SY.Com.Clinic.Repository\SY.Com.Clinic.Repository.csproj">
-      <Project>{b66da2d4-9c7b-4c5e-baa2-4cbb5cc48e11}</Project>
-      <Name>SY.Com.Clinic.Repository</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SY.Com.Infrastructure\SY.Com.Infrastructure.csproj">
       <Project>{3639d96d-ce09-45e8-9d55-d38f49abc328}</Project>
       <Name>SY.Com.Infrastructure</Name>

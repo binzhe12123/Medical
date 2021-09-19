@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using SY.Com.Medical.BLL;
 
 namespace SY.Com.Clinic.Api.Controllers
 {
@@ -18,6 +19,8 @@ namespace SY.Com.Clinic.Api.Controllers
         /// <returns></returns>
         public object get()
         {
+            Class1 clas = new Class1();
+            
             return new  { ID = 1, Name = "tianlei" };
         }
     }
