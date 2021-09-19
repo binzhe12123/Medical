@@ -2,6 +2,7 @@ using System.Web.Http;
 using WebActivatorEx;
 using SY.Com.Clinic.Api;
 using Swashbuckle.Application;
+using System.Linq;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
@@ -18,7 +19,8 @@ namespace SY.Com.Clinic.Api
         public static void Register()
         {
             var thisAssembly = typeof(SwaggerConfig).Assembly;
-
+            var xmlFile = string.Format("{0}\\bin\\SY.Com.Clinic.Api.xml", System.AppDomain.CurrentDomain.BaseDirectory);
+            var xmlFile2 = string.Format("{0}\\bin\\SY.Com.Clinic.Model.xml", System.AppDomain.CurrentDomain.BaseDirectory);
             GlobalConfiguration.Configuration
                 .EnableSwagger(c =>
                     {
@@ -67,7 +69,7 @@ namespace SY.Com.Clinic.Api
                         //c.BasicAuth("basic")
                         //    .Description("Basic HTTP Authentication");
                         //
-						// NOTE: You must also configure 'EnableApiKeySupport' below in the SwaggerUI section
+                        // NOTE: You must also configure 'EnableApiKeySupport' below in the SwaggerUI section
                         //c.ApiKey("apiKey")
                         //    .Description("API Key Authentication")
                         //    .Name("apiKey")
@@ -107,6 +109,8 @@ namespace SY.Com.Clinic.Api
                         // those comments into the generated docs and UI. You can enable this by providing the path to one or
                         // more Xml comment files.
                         //
+                        if (System.IO.File.Exists(xmlFile)) { c.IncludeXmlComments(xmlFile); }
+                        if (System.IO.File.Exists(xmlFile2)) { c.IncludeXmlComments(xmlFile2); }
                         //c.IncludeXmlComments(GetXmlCommentsPath());
 
                         // Swashbuckle makes a best attempt at generating Swagger compliant JSON schemas for the various types
@@ -176,14 +180,14 @@ namespace SY.Com.Clinic.Api
                         // with the same path (sans query string) and HTTP method. You can workaround this by providing a
                         // custom strategy to pick a winner or merge the descriptions for the purposes of the Swagger docs
                         //
-                        //c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
+                        c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
 
                         // Wrap the default SwaggerGenerator with additional behavior (e.g. caching) or provide an
                         // alternative implementation for ISwaggerProvider with the CustomProvider option.
                         //
-                        //c.CustomProvider((defaultProvider) => new CachingSwaggerProvider(defaultProvider));
+                        c.CustomProvider((defaultProvider) => new SwaggerControllerDescProvider(defaultProvider, xmlFile));
                     })
-                .EnableSwaggerUi(c =>
+                .EnableSwaggerUi("doc/{*assetPath}",c =>
                     {
                         // Use the "DocumentTitle" option to change the Document title.
                         // Very helpful when you have multiple Swagger pages open, to tell them apart.
@@ -200,7 +204,7 @@ namespace SY.Com.Clinic.Api
                         // has loaded. The file must be included in your project as an "Embedded Resource", and then the resource's
                         // "Logical Name" is passed to the method as shown above.
                         //
-                        //c.InjectJavaScript(thisAssembly, "Swashbuckle.Dummy.SwaggerExtensions.testScript1.js");
+                        c.InjectJavaScript(thisAssembly, "SY.Com.Clinic.Api.SwaggerUI.Swagger-Custom.js");
 
                         // The swagger-ui renders boolean data types as a dropdown. By default, it provides "true" and "false"
                         // strings as the possible choices. You can use this option to change these to something else,

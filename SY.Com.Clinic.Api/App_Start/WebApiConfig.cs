@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SY.Com.Clinic.Api.Filter;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -17,6 +18,8 @@ namespace SY.Com.Clinic.Api
         public static void Register(HttpConfiguration config)
         {
             // Web API 配置和服务
+            //注册验证过滤器
+            config.Filters.Add(new AuthTokenAttribute());
 
             // Web API 路由
             config.MapHttpAttributeRoutes();
