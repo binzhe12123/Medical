@@ -1,4 +1,7 @@
-﻿using SY.Com.Medical.Entity;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration.Json;
+using SY.Com.Medical.Entity;
+using SY.Com.Medical.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +16,11 @@ namespace SY.Com.Medical.BLL
     /// <typeparam name="T"></typeparam>
     public class CURDObject<T> where T : BaseEntity
     {
+        protected BaseRepository<T> db;
+        public T Entity { get; set; }
+
+
+
         #region 单条记录操作
         /// <summary>
         /// 单表单记录查询
@@ -21,7 +29,7 @@ namespace SY.Com.Medical.BLL
         /// <returns></returns>
         protected T Get(int Id)
         {
-            return default(T);
+            return db.Get(Id);
         }
 
 
@@ -32,7 +40,7 @@ namespace SY.Com.Medical.BLL
         /// <returns></returns>
         protected int Create(T t)
         {
-            return 0;
+            return db.Create(t);
         }
 
         /// <summary>
@@ -41,7 +49,7 @@ namespace SY.Com.Medical.BLL
         /// <param name="t"></param>
         protected void Update(T t)
         {
-
+            db.Update(t);
         }
 
         /// <summary>
@@ -50,7 +58,7 @@ namespace SY.Com.Medical.BLL
         /// <param name="t"></param>
         protected void Delete(T t)
         {
-
+            db.Delete(t);
         }
 
         #endregion
@@ -60,10 +68,9 @@ namespace SY.Com.Medical.BLL
         /// 单表多记录查询
         /// </summary>
         /// <returns></returns>
-        protected IEnumerable<T> Gets()
+        protected IEnumerable<T> Gets(T t)
         {
-            IEnumerable<T> result = new List<T>();
-            return result;
+            return db.Gets(t);
         }
 
         /// <summary>
@@ -72,7 +79,7 @@ namespace SY.Com.Medical.BLL
         /// <param name="tcol"></param>
         protected void Update(IEnumerable<T> collection)
         {
-
+            db.Update(collection);
         }
 
         /// <summary>
@@ -81,7 +88,7 @@ namespace SY.Com.Medical.BLL
         /// <param name="collection"></param>
         protected void Insert(IEnumerable<T> collection)
         {
-
+            db.Insert(collection);
         }
 
         #endregion

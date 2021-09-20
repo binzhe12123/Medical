@@ -11,7 +11,7 @@ namespace SY.Com.Medical.Model
     /// 返回
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class BaseResponse<T>
+    public class BaseResponse<T> 
     {
         /// <summary>
         /// 结果,-1:系统异常,-2:逻辑异常,0:正常

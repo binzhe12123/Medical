@@ -15,4 +15,15 @@
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SY.Com.Medical.BLL\SY.Com.Medical.BLL.csproj" />
+    <ProjectReference Include="..\SY.Com.Medical.Model\SY.Com.Medical.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

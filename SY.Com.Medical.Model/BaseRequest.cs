@@ -10,7 +10,7 @@ namespace SY.Com.Medical.Model
     /// 输入参数
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class BaseRequest<T>
+    public class BaseRequest<T> where T : BaseModel
     {
         /// <summary>
         /// 租户ID

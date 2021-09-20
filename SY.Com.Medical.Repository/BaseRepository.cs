@@ -23,7 +23,7 @@ namespace SY.Com.Medical.Repository
         public static object obj = new object();
         protected IDbConnection _db;
         private string strconnection;
-        protected IConfiguration Configuration;
+
 
         /// <summary>
         /// 根据业务层反射类获取数据库连接
@@ -31,24 +31,31 @@ namespace SY.Com.Medical.Repository
         /// </summary>
         protected BaseRepository()
         {
-             Configuration = new ConfigurationBuilder()
+            IConfiguration Configuration;
+            Configuration = new ConfigurationBuilder()
             .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
             .Add(new JsonConfigurationSource { Path = "appsettings.json", ReloadOnChange = true })
-            .Build();            
+            .Build();
             Type t = this.GetType();
-            if(t.Namespace == "SY.Com.Medical.BLL.Clinic")
+            if (t.Namespace == "SY.Com.Medical.Repository.Clinic")
             {
                 strconnection = Configuration.GetSection("Medical_Clinic").Value;
-                _db = new SqlConnection(strconnection);
-            }else if(t.Namespace == "SY.Com.Medical.BLL.Platform")
+            }
+            else if (t.Namespace == "SY.Com.Medical.Repository.Platform")
             {
                 strconnection = Configuration.GetSection("Medical_Platform").Value;
-                _db = new SqlConnection(strconnection);
             }
             else
             {
                 throw new DllNotFoundException("无法找到数据库");
             }
+            _db = new SqlConnection(strconnection);
+
+        }
+
+        protected void SetDB(string strconnection)
+        {
+            _db = new SqlConnection(strconnection);
         }
 
         /// <summary>
@@ -56,7 +63,7 @@ namespace SY.Com.Medical.Repository
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        protected virtual T Get(int Id)
+        public virtual T Get(int Id)
         {
             Type t = typeof(T);
             string tableName = ReadAttribute<DB_TableAttribute>.getKey(t).ToString();
@@ -74,7 +81,7 @@ namespace SY.Com.Medical.Repository
         /// </summary>
         /// <param name="t"></param>
         /// <returns></returns>
-        protected virtual int Create(T t)
+        public virtual int Create(T t)
         {
             int ireturn = 0;
             string tableName = ReadAttribute<DB_TableAttribute>.getKey(t).ToString();//获取表名
@@ -116,7 +123,7 @@ namespace SY.Com.Medical.Repository
         /// 值类型默认值,则不更新.引用类型空不更新
         /// </summary>
         /// <param name="t"></param>
-        protected virtual void Update(T t)
+        public virtual void Update(T t)
         {            
             string tableName = ReadAttribute<DB_TableAttribute>.getKey(t).ToString();//获取表名
             string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(t).ToString();
@@ -151,7 +158,7 @@ namespace SY.Com.Medical.Repository
         /// 删除单条记录
         /// </summary>
         /// <param name="t"></param>
-        protected void Delete(T t)
+        public void Delete(T t)
         {
             string tableName = ReadAttribute<DB_TableAttribute>.getKey(t).ToString();
             string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(t).ToString();
@@ -167,7 +174,7 @@ namespace SY.Com.Medical.Repository
         /// 单表多记录查询
         /// </summary>
         /// <returns></returns>
-        protected IEnumerable<T> Gets(T t)
+        public IEnumerable<T> Gets(T t)
         {
             string tableName = ReadAttribute<DB_TableAttribute>.getKey(t).ToString();//获取表名
             string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(t).ToString();
@@ -216,7 +223,7 @@ namespace SY.Com.Medical.Repository
         /// 单表多记录查询-分页
         /// </summary>
         /// <returns></returns>
-        protected Tuple<IEnumerable<T>,int> GetsPage(T t,int pageSize,int pageIndex)
+        public Tuple<IEnumerable<T>,int> GetsPage(T t,int pageSize,int pageIndex)
         {
             string tableName = ReadAttribute<DB_TableAttribute>.getKey(t).ToString();//获取表名
             string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(t).ToString();
@@ -272,7 +279,7 @@ namespace SY.Com.Medical.Repository
             return result;
         }
 
-        protected void Update(IEnumerable<T> collection)
+        public void Update(IEnumerable<T> collection)
         {
             var t = collection.FirstOrDefault();
             string tableName = ReadAttribute<DB_TableAttribute>.getKey(t).ToString();//获取表名
@@ -310,7 +317,7 @@ namespace SY.Com.Medical.Repository
         /// 多条记录插入
         /// </summary>
         /// <param name="collection"></param>
-        protected void Insert(IEnumerable<T> collection)
+        public void Insert(IEnumerable<T> collection)
         {
             var t = collection.FirstOrDefault();
             
@@ -338,7 +345,7 @@ namespace SY.Com.Medical.Repository
                 }
                 else if (prop.IsDefined(typeof(DB_NotColumAttribute), false))
                 {
-
+                    //非列直接跳过
                 }
                 else
                 {
@@ -358,7 +365,7 @@ namespace SY.Com.Medical.Repository
         /// <param name="name"></param>
         /// <param name="step"></param>
         /// <returns></returns>
-        protected int getID(string name,int step = 1)
+        public int getID(string name,int step = 1)
         {
             string sql = @" 
                             Update IDGlobal Set ID = ID + @step Where Name = @Name ;
@@ -376,7 +383,7 @@ namespace SY.Com.Medical.Repository
         /// <param name="name"></param>
         /// <param name="step"></param>
         /// <returns></returns>
-        protected long getBH(int TenantId,string name, int step = 1)
+        public long getBH(int TenantId,string name, int step = 1)
         {
             string sql = @" 
                             Update BHGlobal Set BH = BH + @step Where TenantId=@TenantId And Name = @Name ;

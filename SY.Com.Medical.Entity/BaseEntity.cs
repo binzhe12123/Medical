@@ -14,9 +14,9 @@ namespace SY.Com.Medical.Entity
     public class BaseEntity
     {
         /// <summary>
-        /// 启用/禁用枚举
+        /// 是否可用:枚举    
         /// </summary>
-        public  Enalbe IsEnalbe { get; set; }
+        public Enalbe Enalbe { get; set; }
 
         /// <summary>
         /// 启用禁用
@@ -28,7 +28,9 @@ namespace SY.Com.Medical.Entity
         [DB_Limit("CreateTimeStart", "CreateTimeEnd")]
         public DateTime CreateTime { get; set; }
 
+        [DB_NotColum]
         public DateTime CreateTimeStart { get; set; }
+        [DB_NotColum]
         public DateTime CreateTimeEnd { get; set; }
 
     }

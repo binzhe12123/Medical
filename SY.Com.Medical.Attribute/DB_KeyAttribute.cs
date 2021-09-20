@@ -9,7 +9,7 @@ namespace SY.Com.Medical.Attribute
     /// <summary>
     /// 数据库唯一键值(用于查询单条记录)
     /// </summary>
-    [System.AttributeUsage(System.AttributeTargets.Property, Inherited = false, AllowMultiple = false)]
+    [System.AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct, Inherited = false, AllowMultiple = false)]
 
     public class DB_KeyAttribute : DBBaseAttribute
     {
