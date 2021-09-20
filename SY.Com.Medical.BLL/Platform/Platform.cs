@@ -15,9 +15,9 @@ namespace SY.Com.Medical.BLL.Platform
             db = new PlatformsRepository();
         }
 
-        public void initEntity(PlatformCReq model)
+        public void initEntity(BaseModel model)
         {
-            this.ModelToBLL<PlatformsEntity, PlatformCReq>(model);
+            this.ModelToBLL<PlatformsEntity, BaseModel>(model);
         }
 
         public BaseResponse<PlatformCRes>  insert()
@@ -25,6 +25,13 @@ namespace SY.Com.Medical.BLL.Platform
             int platformid = base.Create(Entity);
             PlatformCRes datas = new PlatformCRes { PlatformId =  platformid}  ;
             BaseResponse<PlatformCRes> result = new BaseResponse<PlatformCRes>() {  Data = datas  };
+            return result;
+        }
+
+        public BaseResponse<PlatformsEntity> Get()
+        {
+            PlatformsEntity entity = base.Get(Entity.PlatformId);
+            BaseResponse<PlatformsEntity> result = new BaseResponse<PlatformsEntity>() { Data = entity };
             return result;
         }
 

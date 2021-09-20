@@ -11,12 +11,23 @@ namespace SY.Com.Medical.Experiment
         static void Main(string[] args)
         {
 
-            PlatformCReq request = new PlatformCReq() { PlatformName = "test", VersionId=1};
-            Platform service = new Platform();
-            service.initEntity(request);
-            service.Entity.CreateTime = DateTime.Now;
-            var result= service.insert();            
-            Console.WriteLine($"Hello World{result.Data.PlatformId}");
+            //{
+            //    PlatformCReq request = new PlatformCReq() { PlatformName = "test", VersionId = 1 };
+            //    Platform service = new Platform();
+            //    service.initEntity(request);
+            //    service.Entity.CreateTime = DateTime.Now;
+            //    var result = service.insert();
+            //}
+            //
+            {
+                Platform bll = new Platform();
+                bll.initEntity(new PlatformQReq() { PlatformId = 0 });
+                bll.Entity.IsDelete = Enum.Delete.正常;
+                var response = bll.Get();
+                Console.WriteLine($"Hello World{response.Data.PlatformName}");
+            }
+        
+            
         }
     }
 }

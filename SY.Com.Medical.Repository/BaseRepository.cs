@@ -63,17 +63,15 @@ namespace SY.Com.Medical.Repository
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        public virtual T Get(int Id)
+        public virtual T Get(int id,string tableName,string tablekey)
         {
-            Type t = typeof(T);
-            string tableName = ReadAttribute<DB_TableAttribute>.getKey(t).ToString();
-            string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(t).ToString();
+            Type t = typeof(T);            
             if (tableName == "")
             {
                 tableName = t.Name.Replace("Entity", "");
             }
             string sql = $" Select * From {tableName} Where {tablekey} = @Id ";
-            return _db.QueryFirst<T>(sql, new object[] {  Id });
+            return _db.QueryFirst<T>(sql, new {  Id = id });
         }
 
         /// <summary>

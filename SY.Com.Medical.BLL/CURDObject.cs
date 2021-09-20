@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Json;
+using SY.Com.Medical.Attribute;
 using SY.Com.Medical.Entity;
 using SY.Com.Medical.Repository;
 using System;
@@ -29,7 +30,9 @@ namespace SY.Com.Medical.BLL
         /// <returns></returns>
         protected T Get(int Id)
         {
-            return db.Get(Id);
+            string tableName = ReadAttribute<DB_TableAttribute>.getKey(Entity).ToString();
+            string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(Entity).ToString();
+            return db.Get(Id, tableName, tablekey);
         }
 
 
