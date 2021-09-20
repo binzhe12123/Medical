@@ -3,27 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SY.Com.Infrastructure", "SY.Com.Infrastructure\SY.Com.Infrastructure.csproj", "{3639D96D-CE09-45E8-9D55-D38F49ABC328}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SY.Com.Medical.BLL", "SY.Com.Medical.BLL\SY.Com.Medical.BLL.csproj", "{DC367F15-C209-41D0-ACFA-FD67CB7B47E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SY.Com.Medical.BLL", "SY.Com.Medical.BLL\SY.Com.Medical.BLL.csproj", "{DC367F15-C209-41D0-ACFA-FD67CB7B47E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SY.Com.Medical.Test", "SY.Com.Medical.Test\SY.Com.Medical.Test.csproj", "{7B7644B3-88AF-4E7B-8172-8F9EDD73F3B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SY.Com.Medical.Test", "SY.Com.Medical.Test\SY.Com.Medical.Test.csproj", "{7B7644B3-88AF-4E7B-8172-8F9EDD73F3B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SY.Com.Medical.Experiment", "SY.Com.Medical.Experiment\SY.Com.Medical.Experiment.csproj", "{9C7191C9-1E00-4C9E-BDE7-5DC7C719A9A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SY.Com.Medical.Experiment", "SY.Com.Medical.Experiment\SY.Com.Medical.Experiment.csproj", "{9C7191C9-1E00-4C9E-BDE7-5DC7C719A9A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SY.Com.Medical.Entity", "SY.Com.Medical.Entity\SY.Com.Medical.Entity.csproj", "{3F651290-2545-4279-B0A5-0F6646A2F936}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SY.Com.Medical.Entity", "SY.Com.Medical.Entity\SY.Com.Medical.Entity.csproj", "{3F651290-2545-4279-B0A5-0F6646A2F936}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SY.Com.Medical.Enum", "SY.Com.Medical.Enum\SY.Com.Medical.Enum.csproj", "{5321CC5E-FAD6-47C5-BB1B-450175CEB0E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SY.Com.Medical.Enum", "SY.Com.Medical.Enum\SY.Com.Medical.Enum.csproj", "{5321CC5E-FAD6-47C5-BB1B-450175CEB0E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SY.Com.Medical.Repository", "SY.Com.Medical.Repository\SY.Com.Medical.Repository.csproj", "{00623A71-0C52-4616-B0DF-0DA5C8FA464B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SY.Com.Medical.Repository", "SY.Com.Medical.Repository\SY.Com.Medical.Repository.csproj", "{00623A71-0C52-4616-B0DF-0DA5C8FA464B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SY.Com.Medical.WebApi", "SY.Com.Medical.WebApi\SY.Com.Medical.WebApi.csproj", "{1759412C-CF9A-4A5C-8F0A-39D06F0DA789}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SY.Com.Medical.WebApi", "SY.Com.Medical.WebApi\SY.Com.Medical.WebApi.csproj", "{1759412C-CF9A-4A5C-8F0A-39D06F0DA789}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SY.Com.Medical.Model", "SY.Com.Medical.Model\SY.Com.Medical.Model.csproj", "{4FFD1BAC-348E-44DC-A5C6-4877E8BFEB8D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SY.Com.Medical.Model", "SY.Com.Medical.Model\SY.Com.Medical.Model.csproj", "{4FFD1BAC-348E-44DC-A5C6-4877E8BFEB8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SY.Com.Medical.Attribute", "SY.Com.Medical.Attribute\SY.Com.Medical.Attribute.csproj", "{77F2207A-76A9-48B7-84E5-ED30C4307027}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SY.Com.Medical.Attribute", "SY.Com.Medical.Attribute\SY.Com.Medical.Attribute.csproj", "{77F2207A-76A9-48B7-84E5-ED30C4307027}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SY.Com.Medical.Infrastructure", "SY.Com.Medical.Infrastructure\SY.Com.Medical.Infrastructure.csproj", "{EF4C8ABE-8168-4982-9C8C-C2DA1BD9FAB3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SY.Com.Medical.Infrastructure", "SY.Com.Medical.Infrastructure\SY.Com.Medical.Infrastructure.csproj", "{EF4C8ABE-8168-4982-9C8C-C2DA1BD9FAB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +29,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3639D96D-CE09-45E8-9D55-D38F49ABC328}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3639D96D-CE09-45E8-9D55-D38F49ABC328}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3639D96D-CE09-45E8-9D55-D38F49ABC328}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3639D96D-CE09-45E8-9D55-D38F49ABC328}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DC367F15-C209-41D0-ACFA-FD67CB7B47E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DC367F15-C209-41D0-ACFA-FD67CB7B47E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC367F15-C209-41D0-ACFA-FD67CB7B47E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
