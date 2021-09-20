@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SY.Com.Medical.Attribute\SY.Com.Medical.Attribute.csproj" />
     <ProjectReference Include="..\SY.Com.Medical.Enum\SY.Com.Medical.Enum.csproj" />
   </ItemGroup>
 

@@ -6,26 +6,42 @@ using System.Threading.Tasks;
 
 namespace SY.Com.Medical.Attribute
 {
-    public class ReadAttribute<T> where T : BaseAttribute
+    /// <summary>
+    /// 处理自定义DBAttribu的一些场景
+    /// 比如读取Table属性名称
+    /// 读取key属性名称
+    /// 读取Limit属性start和end
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public class ReadAttribute<T> where T : DBBaseAttribute
     {
         /// <summary>
-        /// 获取属性的唯一字符串
+        /// 读取自定义DBAttribu的名称,适用于Table/Key
         /// </summary>
         /// <param name="t"></param>
         /// <returns></returns>
-        public static string getString<S>(S t)
+        public static object getKey<S>(S s)
         {            
             // Using reflection.  
-            System.Attribute[] attrs = System.Attribute.GetCustomAttributes(t.GetType());  // Reflection.  
+            System.Attribute[] attrs = System.Attribute.GetCustomAttributes(s.GetType());  // Reflection.  
             // Displaying output.  
             foreach (System.Attribute attr in attrs)
-            {
+            {                
                 if (attr is T)
                 {
-                    return ((T)attr).strResult ?? throw new NullReferenceException("Attribute查找失败");
+                    return ((T)attr).GetKey();                    
                 }
             }
             return "";
         }
+
+        public static string getWhere<S>(S s,T t)
+        {
+            System.Attribute[] attrs = System.Attribute.GetCustomAttributes(s.GetType());
+            return t.GetWhere(s);
+        }
+
+
+
     }
 }

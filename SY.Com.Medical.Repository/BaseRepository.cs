@@ -56,17 +56,17 @@ namespace SY.Com.Medical.Repository
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        protected T Get(int Id)
+        protected virtual T Get(int Id)
         {
             Type t = typeof(T);
-            string tableName = ReadAttribute<DB_TableAttribute>.getString(t);
-            string tablekey = ReadAttribute<DB_KeyAttribute>.getString(t);
+            string tableName = ReadAttribute<DB_TableAttribute>.getKey(t).ToString();
+            string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(t).ToString();
             if (tableName == "")
             {
                 tableName = t.Name.Replace("Entity", "");
             }
             string sql = $" Select * From {tableName} Where {tablekey} = @Id ";
-            return _db.QueryFirst<T>(sql, new object[] { Id });
+            return _db.QueryFirst<T>(sql, new object[] {  Id });
         }
 
         /// <summary>
@@ -74,15 +74,13 @@ namespace SY.Com.Medical.Repository
         /// </summary>
         /// <param name="t"></param>
         /// <returns></returns>
-        protected int Create(T t)
+        protected virtual int Create(T t)
         {
             int ireturn = 0;
-            string tableName = ReadAttribute<DB_TableAttribute>.getString(t);//获取表名
-            string tablekey = ReadAttribute<DB_KeyAttribute>.getString(t);
+            string tableName = ReadAttribute<DB_TableAttribute>.getKey(t).ToString();//获取表名
+            string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(t).ToString();
             List<string> columns = new List<string>();
             List<string> param = new List<string>();
-            string entityPrimkey = "";
-            string entityPrimvalue = "";
             if (tableName == "")
             {
                 tableName = t.GetType().Name.Replace("Entity", "");//如果反射没获取到用实体名称去掉Entity试试
@@ -98,7 +96,9 @@ namespace SY.Com.Medical.Repository
                     param.Add($"@{tablekey}");
                     prop.SetValue(t, ireturn);
                 }
-                else {
+                else if (prop.IsDefined(typeof(DB_NotColumAttribute), false)) { 
+                    
+                } else {
                     columns.Add(prop.Name);
                     param.Add($"@{prop.Name}");
                 }
@@ -116,10 +116,167 @@ namespace SY.Com.Medical.Repository
         /// 值类型默认值,则不更新.引用类型空不更新
         /// </summary>
         /// <param name="t"></param>
-        protected void Update(T t)
+        protected virtual void Update(T t)
         {            
-            string tableName = ReadAttribute<DB_TableAttribute>.getString(t);//获取表名
-            string tablekey = ReadAttribute<DB_KeyAttribute>.getString(t);
+            string tableName = ReadAttribute<DB_TableAttribute>.getKey(t).ToString();//获取表名
+            string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(t).ToString();
+            string entityPrimkey = "";
+            string entityPrimvalue = "";
+            List<string> updateColumns = new List<string>();
+            if (tableName == "")
+            {
+                tableName = t.GetType().Name.Replace("Entity", "");//如果反射没获取到用实体名称去掉Entity试试
+            }
+            PropertyInfo[] properties = t.GetType().GetProperties();
+            foreach (PropertyInfo prop in properties)
+            {
+                if (prop.IsDefined(typeof(DB_KeyAttribute), false))
+                {
+                    entityPrimkey = prop.Name;
+                    entityPrimvalue = prop.GetValue(t).ToString();
+                }else if (prop.IsDefined(typeof(DB_NotColumAttribute), false))
+                {
+
+                }else if(!DefaultValue.IsDefaultValue(prop.PropertyType, prop.GetValue(t)))
+                {
+                    updateColumns.Add($"{prop.Name}=@{prop.Name}");
+                }
+            }
+            string strcolum = string.Join(',', updateColumns);
+            string sql = $" Update {tableName} Set {strcolum} Where {tablekey}=@{entityPrimkey} ";
+            _db.Execute(sql, t);
+        }
+
+        /// <summary>
+        /// 删除单条记录
+        /// </summary>
+        /// <param name="t"></param>
+        protected void Delete(T t)
+        {
+            string tableName = ReadAttribute<DB_TableAttribute>.getKey(t).ToString();
+            string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(t).ToString();
+            if (tableName == "")
+            {
+                tableName = t.GetType().Name.Replace("Entity", "");
+            }
+            string sql = $" Update {tableName} Where {tablekey} = @{tablekey} ";
+            _db.Execute(sql, new object[] { tablekey = t.GetType().GetProperty(tablekey).GetValue(t).ToString() });
+        }
+
+        /// <summary>
+        /// 单表多记录查询
+        /// </summary>
+        /// <returns></returns>
+        protected IEnumerable<T> Gets(T t)
+        {
+            string tableName = ReadAttribute<DB_TableAttribute>.getKey(t).ToString();//获取表名
+            string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(t).ToString();
+            List<string> whereColumns = new List<string>();
+            if (tableName == "")
+            {
+                tableName = t.GetType().Name.Replace("Entity", "");//如果反射没获取到用实体名称去掉Entity试试
+            }
+            PropertyInfo[] properties = t.GetType().GetProperties();
+            foreach (PropertyInfo prop in properties)
+            {
+                //排除主键,排除默认值或空值的键,处理各种Attribute
+                if (prop.IsDefined(typeof(DB_KeyAttribute), false))
+                {
+
+                }
+                else if (prop.IsDefined(typeof(DB_NotColumAttribute), false))
+                {
+
+                }
+                else if (!DefaultValue.IsDefaultValue(prop.PropertyType, prop.GetValue(t)))
+                {
+                    if(prop.IsDefined(typeof(DBBaseAttribute), false))
+                    {
+                        foreach(var attr in prop.GetCustomAttributes())
+                        {
+                            if(attr is DBBaseAttribute)
+                            {
+                                var temp = ReadAttribute<DB_LimitAttribute>.getWhere<T>(t, (DB_LimitAttribute)attr);
+                                whereColumns.Add(temp);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        whereColumns.Add($" And {prop.Name}=@{prop.Name}");
+                    }
+                }
+            }
+            string strcolum = string.Join(',', whereColumns);
+            string sql = $" Select * From {tableName} Where 1=1 {whereColumns} ";
+            return _db.Query<T>(sql, t);
+        }
+
+        /// <summary>
+        /// 单表多记录查询-分页
+        /// </summary>
+        /// <returns></returns>
+        protected Tuple<IEnumerable<T>,int> GetsPage(T t,int pageSize,int pageIndex)
+        {
+            string tableName = ReadAttribute<DB_TableAttribute>.getKey(t).ToString();//获取表名
+            string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(t).ToString();
+            List<string> whereColumns = new List<string>();
+            if (tableName == "")
+            {
+                tableName = t.GetType().Name.Replace("Entity", "");//如果反射没获取到用实体名称去掉Entity试试
+            }
+            PropertyInfo[] properties = t.GetType().GetProperties();
+            foreach (PropertyInfo prop in properties)
+            {
+                //排除主键,排除默认值或空值的键,处理各种Attribute
+                if (prop.IsDefined(typeof(DB_KeyAttribute), false))
+                {
+
+                }
+                else if (prop.IsDefined(typeof(DB_NotColumAttribute), false))
+                {
+
+                }
+                else if (!DefaultValue.IsDefaultValue(prop.PropertyType, prop.GetValue(t)))
+                {
+                    if (prop.IsDefined(typeof(DBBaseAttribute), false))
+                    {
+                        foreach (var attr in prop.GetCustomAttributes())
+                        {
+                            if (attr is DBBaseAttribute)
+                            {
+                                var temp = ReadAttribute<DB_LimitAttribute>.getWhere<T>(t, (DB_LimitAttribute)attr);
+                                whereColumns.Add(temp);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        whereColumns.Add($" And {prop.Name}=@{prop.Name}");
+                    }
+                }
+            }
+            string strcolum = string.Join(',', whereColumns);
+            string sql = @$" 
+            Select  count(1) as nums From {tableName} Where 1=1 {whereColumns}
+            Select * From
+            (
+                Select  ROW_NUMBER() over(order by {tablekey} desc) as row_id,* From {tableName} Where 1=1 {whereColumns} 
+            )t
+            Where t.row_id between {(pageIndex-1) * pageSize + 1} and { pageIndex * pageSize }
+            ";
+            var multi  = _db.QueryMultiple(sql, t);
+            int count = multi.Read<int>().First();
+            IEnumerable<T> datas = multi.Read<T>();            
+            Tuple<IEnumerable<T>, int> result = new Tuple<IEnumerable<T>, int>(datas,count);
+            return result;
+        }
+
+        protected void Update(IEnumerable<T> collection)
+        {
+            var t = collection.FirstOrDefault();
+            string tableName = ReadAttribute<DB_TableAttribute>.getKey(t).ToString();//获取表名
+            string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(t).ToString();
             string entityPrimkey = "";
             string entityPrimvalue = "";
             List<string> updateColumns = new List<string>();
@@ -135,16 +292,65 @@ namespace SY.Com.Medical.Repository
                     entityPrimkey = prop.Name;
                     entityPrimvalue = prop.GetValue(t).ToString();
                 }
-                else if(!DefaultValue.IsDefaultValue(prop.PropertyType, prop.GetValue(t)))
+                else if (prop.IsDefined(typeof(DB_NotColumAttribute), false))
+                {
+
+                }
+                else if (!DefaultValue.IsDefaultValue(prop.PropertyType, prop.GetValue(t)))
                 {
                     updateColumns.Add($"{prop.Name}=@{prop.Name}");
                 }
             }
             string strcolum = string.Join(',', updateColumns);
             string sql = $" Update {tableName} Set {strcolum} Where {tablekey}=@{entityPrimkey} ";
-            _db.Execute(sql, t);
+            _db.Execute(sql, collection);
         }
 
+        /// <summary>
+        /// 多条记录插入
+        /// </summary>
+        /// <param name="collection"></param>
+        protected void Insert(IEnumerable<T> collection)
+        {
+            var t = collection.FirstOrDefault();
+            
+            string tableName = ReadAttribute<DB_TableAttribute>.getKey(t).ToString();//获取表名
+            string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(t).ToString();
+            List<string> columns = new List<string>();
+            List<string> param = new List<string>();
+            if (tableName == "")
+            {
+                tableName = t.GetType().Name.Replace("Entity", "");//如果反射没获取到用实体名称去掉Entity试试
+            }
+            int maxid = getID(tableName, collection.Count());
+            PropertyInfo[] properties = t.GetType().GetProperties();
+            foreach (PropertyInfo prop in properties)
+            {
+                //主键可能字段属性名称和Attribute不一致
+                if (prop.IsDefined(typeof(DB_KeyAttribute), false))
+                {
+                    columns.Add(tablekey);
+                    param.Add($"@{tablekey}");
+                    foreach(var item in collection)
+                    {
+                        prop.SetValue(item, maxid--);
+                    }
+                }
+                else if (prop.IsDefined(typeof(DB_NotColumAttribute), false))
+                {
+
+                }
+                else
+                {
+                    columns.Add(prop.Name);
+                    param.Add($"@{prop.Name}");
+                }
+            }
+            string strcolum = string.Join(',', columns);
+            string strparam = string.Join(',', param);
+            string sql = $" Insert Into {tableName}({strcolum}) Values({strparam}) ";
+            _db.Execute(sql, t);
+        }
 
         /// <summary>
         /// 获取全局

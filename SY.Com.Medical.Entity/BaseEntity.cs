@@ -1,4 +1,5 @@
-﻿using SY.Com.Medical.Enum;
+﻿using SY.Com.Medical.Attribute;
+using SY.Com.Medical.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,8 +25,11 @@ namespace SY.Com.Medical.Entity
         /// <summary>
         /// 记录创建时间
         /// </summary>
+        [DB_Limit("CreateTimeStart", "CreateTimeEnd")]
         public DateTime CreateTime { get; set; }
 
+        public DateTime CreateTimeStart { get; set; }
+        public DateTime CreateTimeEnd { get; set; }
 
     }
 }
