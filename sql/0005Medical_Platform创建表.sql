@@ -1,5 +1,6 @@
 
 
+
 Create Table Platforms
 (
 	PlatformId int primary key,

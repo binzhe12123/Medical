@@ -16,7 +16,7 @@ namespace SY.Com.Medical.Entity
         /// <summary>
         /// 是否可用:枚举    
         /// </summary>
-        public Enalbe Enalbe { get; set; }
+        public Enable IsEnable { get; set; }
 
         /// <summary>
         /// 启用禁用

@@ -29,5 +29,27 @@ namespace SY.Com.Medical.BLL
         }
 
 
+        /// <summary>
+        /// Entity转Model
+        /// </summary>
+        /// <typeparam name="U"></typeparam>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        public static U EntityToModel<U>(this BaseEntity entity)  where U : BaseModel
+        {
+
+            Type modtype = typeof(U);
+            Type entitytype = entity.GetType();
+            var model = (U)Activator.CreateInstance(modtype);
+            foreach (var prop in modtype.GetProperties())
+            {
+                var bllpro = entitytype.GetProperty(prop.Name);
+                if (bllpro != null)
+                {
+                    bllpro.SetValue(model, prop.GetValue(entity));
+                }
+            }
+            return model;
+        }
     }
 }

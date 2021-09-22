@@ -31,19 +31,14 @@ namespace SY.Com.Medical.Repository
         /// </summary>
         protected BaseRepository()
         {
-            IConfiguration Configuration;
-            Configuration = new ConfigurationBuilder()
-            .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-            .Add(new JsonConfigurationSource { Path = "appsettings.json", ReloadOnChange = true })
-            .Build();
             Type t = this.GetType();
             if (t.Namespace == "SY.Com.Medical.Repository.Clinic")
             {
-                strconnection = Configuration.GetSection("Medical_Clinic").Value;
+                strconnection = ReadConfig.GetConfigSection("Medical_Clinic");
             }
             else if (t.Namespace == "SY.Com.Medical.Repository.Platform")
             {
-                strconnection = Configuration.GetSection("Medical_Platform").Value;
+                strconnection = ReadConfig.GetConfigSection("Medical_Platform"); 
             }
             else
             {
@@ -53,10 +48,6 @@ namespace SY.Com.Medical.Repository
 
         }
 
-        protected void SetDB(string strconnection)
-        {
-            _db = new SqlConnection(strconnection);
-        }
 
         /// <summary>
         /// 单表单记录查询
@@ -89,14 +80,14 @@ namespace SY.Com.Medical.Repository
             if (tableName == "")
             {
                 tableName = t.GetType().Name.Replace("Entity", "");//如果反射没获取到用实体名称去掉Entity试试
-            }
-            ireturn = getID(tableName);
+            }            
             PropertyInfo[] properties = t.GetType().GetProperties();
             foreach(PropertyInfo prop in properties)
             {
                 //主键可能字段属性名称和Attribute不一致
                 if (prop.IsDefined(typeof(DB_KeyAttribute), false))
                 {
+                    ireturn = getID(tableName);
                     columns.Add(tablekey);
                     param.Add($"@{tablekey}");
                     prop.SetValue(t, ireturn);
@@ -164,8 +155,8 @@ namespace SY.Com.Medical.Repository
             {
                 tableName = t.GetType().Name.Replace("Entity", "");
             }
-            string sql = $" Update {tableName} Where {tablekey} = @{tablekey} ";
-            _db.Execute(sql, new object[] { tablekey = t.GetType().GetProperty(tablekey).GetValue(t).ToString() });
+            string sql = $" Update {tableName} Set IsDelete = { ((int)Enum.Delete.删除) } Where {tablekey} = @Id ";
+            _db.Execute(sql, new { Id = t.GetType().GetProperty(tablekey).GetValue(t).ToString() });
         }
 
         /// <summary>
@@ -176,7 +167,7 @@ namespace SY.Com.Medical.Repository
         {
             string tableName = ReadAttribute<DB_TableAttribute>.getKey(t).ToString();//获取表名
             string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(t).ToString();
-            List<string> whereColumns = new List<string>();
+            StringBuilder whereColumns = new StringBuilder();
             if (tableName == "")
             {
                 tableName = t.GetType().Name.Replace("Entity", "");//如果反射没获取到用实体名称去掉Entity试试
@@ -201,18 +192,17 @@ namespace SY.Com.Medical.Repository
                         {
                             if(attr is DBBaseAttribute)
                             {
-                                var temp = ReadAttribute<DB_LimitAttribute>.getWhere<T>(t, (DB_LimitAttribute)attr);
-                                whereColumns.Add(temp);
+                                var temp = ReadAttribute<DB_LimitAttribute>.getWhere(prop, (DB_LimitAttribute)attr);
+                                whereColumns.Append(temp);
                             }
                         }
                     }
                     else
                     {
-                        whereColumns.Add($" And {prop.Name}=@{prop.Name}");
+                        whereColumns.Append($" And {prop.Name}=@{prop.Name}");
                     }
                 }
             }
-            string strcolum = string.Join(',', whereColumns);
             string sql = $" Select * From {tableName} Where 1=1 {whereColumns} ";
             return _db.Query<T>(sql, t);
         }
@@ -225,7 +215,7 @@ namespace SY.Com.Medical.Repository
         {
             string tableName = ReadAttribute<DB_TableAttribute>.getKey(t).ToString();//获取表名
             string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(t).ToString();
-            List<string> whereColumns = new List<string>();
+            StringBuilder whereColumns = new StringBuilder();
             if (tableName == "")
             {
                 tableName = t.GetType().Name.Replace("Entity", "");//如果反射没获取到用实体名称去掉Entity试试
@@ -251,17 +241,16 @@ namespace SY.Com.Medical.Repository
                             if (attr is DBBaseAttribute)
                             {
                                 var temp = ReadAttribute<DB_LimitAttribute>.getWhere<T>(t, (DB_LimitAttribute)attr);
-                                whereColumns.Add(temp);
+                                whereColumns.Append(temp);
                             }
                         }
                     }
                     else
                     {
-                        whereColumns.Add($" And {prop.Name}=@{prop.Name}");
+                        whereColumns.Append($" And {prop.Name}=@{prop.Name}");
                     }
                 }
             }
-            string strcolum = string.Join(',', whereColumns);
             string sql = @$" 
             Select  count(1) as nums From {tableName} Where 1=1 {whereColumns}
             Select * From
@@ -277,6 +266,10 @@ namespace SY.Com.Medical.Repository
             return result;
         }
 
+        /// <summary>
+        /// 批量修改
+        /// </summary>
+        /// <param name="collection"></param>
         public void Update(IEnumerable<T> collection)
         {
             var t = collection.FirstOrDefault();
@@ -312,7 +305,7 @@ namespace SY.Com.Medical.Repository
         }
 
         /// <summary>
-        /// 多条记录插入
+        /// 批量插入
         /// </summary>
         /// <param name="collection"></param>
         public void Insert(IEnumerable<T> collection)
@@ -354,7 +347,7 @@ namespace SY.Com.Medical.Repository
             string strcolum = string.Join(',', columns);
             string strparam = string.Join(',', param);
             string sql = $" Insert Into {tableName}({strcolum}) Values({strparam}) ";
-            _db.Execute(sql, t);
+            _db.Execute(sql, collection);
         }
 
         /// <summary>

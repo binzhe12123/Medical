@@ -17,7 +17,7 @@ namespace SY.Com.Medical.BLL
     /// <typeparam name="T"></typeparam>
     public class CURDObject<T> where T : BaseEntity
     {
-        protected BaseRepository<T> db;
+        public BaseRepository<T> db;
         public T Entity { get; set; }
 
 
@@ -28,7 +28,7 @@ namespace SY.Com.Medical.BLL
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        protected T Get(int Id)
+        public T Get(int Id)
         {
             string tableName = ReadAttribute<DB_TableAttribute>.getKey(Entity).ToString();
             string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(Entity).ToString();
@@ -41,7 +41,7 @@ namespace SY.Com.Medical.BLL
         /// </summary>
         /// <param name="t"></param>
         /// <returns></returns>
-        protected int Create(T t)
+        public int Create(T t)
         {
             return db.Create(t);
         }
@@ -50,7 +50,7 @@ namespace SY.Com.Medical.BLL
         /// 修改单条记录
         /// </summary>
         /// <param name="t"></param>
-        protected void Update(T t)
+        public void Update(T t)
         {
             db.Update(t);
         }
@@ -59,7 +59,7 @@ namespace SY.Com.Medical.BLL
         /// 删除单条记录
         /// </summary>
         /// <param name="t"></param>
-        protected void Delete(T t)
+        public void Delete(T t)
         {
             db.Delete(t);
         }
@@ -71,16 +71,21 @@ namespace SY.Com.Medical.BLL
         /// 单表多记录查询
         /// </summary>
         /// <returns></returns>
-        protected IEnumerable<T> Gets(T t)
+        public IEnumerable<T> Gets(T t)
         {
             return db.Gets(t);
+        }
+
+        public Tuple<IEnumerable<T>, int> GetsPage(T t, int pageSize, int pageIndex)
+        {
+            return db.GetsPage(t, pageSize, pageIndex);
         }
 
         /// <summary>
         /// 多条记录更新
         /// </summary>
         /// <param name="tcol"></param>
-        protected void Update(IEnumerable<T> collection)
+        public void Update(IEnumerable<T> collection)
         {
             db.Update(collection);
         }
@@ -89,7 +94,7 @@ namespace SY.Com.Medical.BLL
         /// 多条记录插入
         /// </summary>
         /// <param name="collection"></param>
-        protected void Insert(IEnumerable<T> collection)
+        public void Insert(IEnumerable<T> collection)
         {
             db.Insert(collection);
         }

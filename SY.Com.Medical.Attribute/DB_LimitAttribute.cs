@@ -14,6 +14,7 @@ namespace SY.Com.Medical.Attribute
     {        
         public DB_LimitAttribute(string start,string end)
         {
+            dic = new Dictionary<string, object>();
             dic.Add("start", start);
             dic.Add("end", end);
         }

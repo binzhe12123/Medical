@@ -38,7 +38,7 @@ namespace SY.Com.Medical.Infrastructure
             }
             else if (t == typeof(DateTime))
             {
-                return (DateTime?)obj == null;
+                return (DateTime)obj == default(DateTime);
             }
             else if (t == typeof(float))
             {

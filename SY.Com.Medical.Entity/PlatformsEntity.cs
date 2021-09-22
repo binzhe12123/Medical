@@ -13,7 +13,8 @@ namespace SY.Com.Medical.Entity
     {
         /// <summary>
         /// 主键id    
-        /// </summary>        
+        /// </summary>    
+        [DB_Key("PlatformId")]
         public int PlatformId { get; set; }
 
         /// <summary>

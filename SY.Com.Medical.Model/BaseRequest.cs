@@ -19,7 +19,7 @@ namespace SY.Com.Medical.Model
         /// <summary>
         /// 用户ID
         /// </summary>
-        public int UsersID { get; set; }
+        public int UserID { get; set; }
         /// <summary>
         /// 登录token 
         /// </summary>
