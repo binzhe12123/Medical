@@ -19,4 +19,8 @@
     <ProjectReference Include="..\SY.Com.Medical.Model\SY.Com.Medical.Model.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Clinic\" />
+  </ItemGroup>
+
 </Project>

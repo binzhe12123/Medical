@@ -33,7 +33,7 @@ namespace SY.Com.Medical.Entity
         /// <summary>
         /// 父路由,一级菜单为0    
         /// </summary>
-        public int? MenuParent { get; set; }
+        public int MenuParent { get; set; }
 
     }
 }
