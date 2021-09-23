@@ -35,6 +35,14 @@ namespace SY.Com.Medical.Enum
         /// 保护码错误
         /// </summary>
         保护码错误,
+        /// <summary>
+        /// 业务逻辑错误
+        /// </summary>
+        业务逻辑错误,
+        /// <summary>
+        /// 用户已存在
+        /// </summary>
+        用户已存在,
 
     }
 }

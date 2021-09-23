@@ -18,6 +18,10 @@ namespace SY.Com.Medical.Entity
         /// 员工角色Id    
         /// </summary>
         public int RoleId { get; set; }
+        /// <summary>
+        /// 租户Id
+        /// </summary>
+        public string TenantId { get; set; }
 
         /// <summary>
         /// 员工角色名称    

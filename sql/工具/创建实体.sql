@@ -1,4 +1,4 @@
-declare @TableName sysname = 'Platforms'
+declare @TableName sysname = 'UserTenants'
 declare @Result varchar(max) = '
 /// <summary>
 ///  ' +  @TableName +

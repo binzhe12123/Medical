@@ -4,4 +4,23 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>E:\代码\门诊\SY.Com.Medical.WebApi\SY.Com.Medical.WebApi.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DocumentFormat.OpenXml" Version="2.13.1" />
+    <PackageReference Include="Microsoft.Extensions.PlatformAbstractions" Version="1.1.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SY.Com.Medical.Attribute\SY.Com.Medical.Attribute.csproj" />
+    <ProjectReference Include="..\SY.Com.Medical.BLL\SY.Com.Medical.BLL.csproj" />
+    <ProjectReference Include="..\SY.Com.Medical.Entity\SY.Com.Medical.Entity.csproj" />
+    <ProjectReference Include="..\SY.Com.Medical.Enum\SY.Com.Medical.Enum.csproj" />
+    <ProjectReference Include="..\SY.Com.Medical.Infrastructure\SY.Com.Medical.Infrastructure.csproj" />
+    <ProjectReference Include="..\SY.Com.Medical.Model\SY.Com.Medical.Model.csproj" />
+  </ItemGroup>
+
 </Project>

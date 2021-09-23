@@ -12,23 +12,24 @@ namespace SY.Com.Medical.Entity
     ///  租户科室    
     /// </summary>
     [DB_Table("TenantDepartments")]
-    [DB_Key("Id")]
+    [DB_Key("TenantDepartmentId")]
     public class TenantDepartmentEntity : BaseEntity
     {
         /// <summary>
-        /// 自增id    
+        /// 主键    
         /// </summary>
-        public int Id { get; set; }
+        [DB_Key("TenantDepartmentId")]
+        public int TenantDepartmentId { get; set; }
 
         /// <summary>
         /// 无    
         /// </summary>
-        public int? TenantId { get; set; }
+        public int TenantId { get; set; }
 
         /// <summary>
         /// 科室id    
         /// </summary>
-        public int? DepartmentId { get; set; }
+        public int DepartmentId { get; set; }
         
 
     }

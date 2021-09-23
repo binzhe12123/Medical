@@ -22,7 +22,7 @@ namespace SY.Com.Medical.Repository.Platform
         public UserEntity Get(string Account,string Pwd)
         {
             string sql = " Select * From Users Where Account =@Account And Pwd=@Pwd ";
-            return _db.QueryFirst<UserEntity>(sql, new { Account = Account, Pwd = Pwd });
+            return _db.QueryFirstOrDefault<UserEntity>(sql, new { Account = Account, Pwd = Pwd });
         }
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace SY.Com.Medical.Repository.Platform
         public UserEntity Get(string Account)
         {
             string sql = " Select * From Users Where Account = @Account ";
-            return _db.QueryFirst<UserEntity>(sql, new { Account = Account });
+            return _db.QueryFirstOrDefault<UserEntity>(sql, new { Account = Account });
         }
         
         /// <summary>
@@ -45,7 +45,7 @@ namespace SY.Com.Medical.Repository.Platform
         public UserEntity GetReSet(string Account,string YZM)
         {
             string sql = " Select * From Users Where Account = @Account And YZM = @YZM ";
-            return _db.QueryFirst<UserEntity>(sql, new { Account = Account, YZM= YZM });
+            return _db.QueryFirstOrDefault<UserEntity>(sql, new { Account = Account, YZM= YZM });
         }
 
     }

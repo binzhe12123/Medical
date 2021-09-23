@@ -80,7 +80,8 @@ namespace SY.Com.Medical.BLL.Platform
             response.TenantId = TenantID;
             response.TenantName = request.Data.TenantName;
             return response;
-        }
+        }        
+
 
     }
 }

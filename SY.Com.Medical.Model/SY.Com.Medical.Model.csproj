@@ -4,6 +4,10 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>E:\代码\门诊\SY.Com.Medical.Model\SY.Com.Medical.Model.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\SY.Com.Medical.Enum\SY.Com.Medical.Enum.csproj" />
   </ItemGroup>

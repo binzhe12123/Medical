@@ -16,15 +16,18 @@ namespace SY.Com.Medical.Entity
         /// <summary>
         /// 是否可用:枚举    
         /// </summary>
+        [DB_Default(typeof(Enable))]
         public Enable IsEnable { get; set; }
 
         /// <summary>
         /// 启用禁用
         /// </summary>
+        [DB_Default(typeof(Delete))]
         public Delete IsDelete { get; set; }
         /// <summary>
         /// 记录创建时间
         /// </summary>
+        [DB_Default(typeof(DateTime))]
         [DB_Limit("CreateTimeStart", "CreateTimeEnd")]
         public DateTime CreateTime { get; set; }
 

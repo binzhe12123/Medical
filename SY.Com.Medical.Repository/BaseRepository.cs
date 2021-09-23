@@ -62,7 +62,7 @@ namespace SY.Com.Medical.Repository
                 tableName = t.Name.Replace("Entity", "");
             }
             string sql = $" Select * From {tableName} Where {tablekey} = @Id ";
-            return _db.QueryFirst<T>(sql, new {  Id = id });
+            return _db.QueryFirstOrDefault<T>(sql, new {  Id = id });
         }
 
         /// <summary>
@@ -92,9 +92,15 @@ namespace SY.Com.Medical.Repository
                     param.Add($"@{tablekey}");
                     prop.SetValue(t, ireturn);
                 }
-                else if (prop.IsDefined(typeof(DB_NotColumAttribute), false)) { 
-                    
-                } else {
+                else if (prop.IsDefined(typeof(DB_NotColumAttribute), false)) {
+
+                }else {
+                    if (prop.IsDefined(typeof(DB_DefaultAttribute), false))
+                    {
+                        var attr = (DB_DefaultAttribute)prop.GetCustomAttribute(typeof(DB_DefaultAttribute));
+                        var defaultvalue = attr.getDefault();
+                        prop.SetValue(t, defaultvalue);
+                    }
                     columns.Add(prop.Name);
                     param.Add($"@{prop.Name}");
                 }

@@ -19,6 +19,7 @@ namespace SY.Com.Medical.Entity
         /// <summary>
         /// 用户id    
         /// </summary>
+        [DB_Key("UserId")]
         public int UserId { get; set; }
 
         /// <summary>
