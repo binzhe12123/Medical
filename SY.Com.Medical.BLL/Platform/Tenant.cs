@@ -75,13 +75,29 @@ namespace SY.Com.Medical.BLL.Platform
             if(TenantID > 0)
             {
                 db.CreateUserTenant(request.UserID, TenantID, Enum.IsBoss.是);
-            }
+                //创建员工
+                User ubll = new User();
+                Employee embll = new Employee();
+                EmployeeModel emmod = new EmployeeModel();
+                UserModel ummod = ubll.getUser(request.UserID);
+                var mod = CloneClass.Clone<UserModel, EmployeeModel>(ummod,emmod);
+                embll.createEmployee(mod);
+            }            
             UserTenantResponse response = new UserTenantResponse();
             response.TenantId = TenantID;
             response.TenantName = request.Data.TenantName;
             return response;
         }        
 
+        /// <summary>
+        /// 修改租户信息
+        /// </summary>
+        /// <param name="request"></param>
+        public void UpdateTenant(BaseRequest<TenantRequest> request)
+        {
+            var entity = curdObj.ModelToBLL<TenantEntity, TenantRequest>(request.Data);
+            db.Update(entity);
+        }
 
     }
 }

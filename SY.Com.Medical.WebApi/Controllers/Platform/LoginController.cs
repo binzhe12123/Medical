@@ -60,8 +60,35 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
                 if(userbll.ExistsAccount(request.Data.Account))
                 {
                     return result.busExceptino(Enum.ErrorCode.用户不存在,"用户已存在,请重新登录");
-                }
+                }                
                 result.Data = userbll.Register(request.Data);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                if (ex is MyException)
+                {
+                    return result.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
+                }
+                else
+                {
+                    return result.sysException(ex.Message);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 重置密码
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<ResetResponse> reset(BaseRequest<ResetRequest> request)
+        {
+            BaseResponse<ResetResponse> result = new BaseResponse<ResetResponse>();
+            try
+            {
+                result.Data = userbll.Reset(request.Data);
                 return result;
             }
             catch (Exception ex)

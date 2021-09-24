@@ -64,8 +64,14 @@ namespace SY.Com.Medical.Model
         /// 父路由,一级菜单为0    
         /// </summary>
         public int MenuParent { get; set; }
+        /// <summary>
+        /// 子菜单
+        /// </summary>
         public List<MenuResponse> SubMenu { get; set; }
     }
+
+
+
 
 
 }

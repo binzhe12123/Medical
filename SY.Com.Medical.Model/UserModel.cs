@@ -6,9 +6,31 @@ using System.Threading.Tasks;
 
 namespace SY.Com.Medical.Model
 {
-    public class UserModel
+    /// <summary>
+    /// 用户模型
+    /// </summary>
+    public class UserModel : BaseModel
     {
+        /// <summary>
+        /// 用户ID
+        /// </summary>
+        public int UserId { get; set; }
 
+
+        /// <summary>
+        /// 账号    
+        /// </summary>
+        public string Account { get; set; }
+
+        /// <summary>
+        /// 密码md5小写    
+        /// </summary>
+        public string Pwd { get; set; }
+
+        /// <summary>
+        /// 验证码    
+        /// </summary>
+        public string YZM { get; set; }
     }
 
     /// <summary>
@@ -39,6 +61,7 @@ namespace SY.Com.Medical.Model
         /// 用户token
         /// </summary>
         public string token { get; set; }
+
     }
 
     /// <summary>
@@ -89,6 +112,9 @@ namespace SY.Com.Medical.Model
         /// 密码
         /// </summary>
         public string Pwd { get; set; }
+        /// <summary>
+        /// 确认密码
+        /// </summary>
         public string Pwd2 { get; set; }
         /// <summary>
         /// 验证码

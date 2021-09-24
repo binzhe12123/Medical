@@ -14,6 +14,16 @@ namespace SY.Com.Medical.Repository.Platform
     public class UserRepository : BaseRepository<UserEntity>
     {
         /// <summary>
+        /// 通过ID获取
+        /// </summary>
+        /// <param name="UserId"></param>
+        /// <returns></returns>
+        public UserEntity Get(int UserId)
+        {
+            return Get(UserId);
+        }
+
+        /// <summary>
         /// 获取用户-通过账号密码
         /// </summary>
         /// <param name="Account"></param>

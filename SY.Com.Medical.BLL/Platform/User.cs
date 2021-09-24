@@ -1,4 +1,5 @@
 ﻿using SY.Com.Medical.Entity;
+using SY.Com.Medical.Infrastructure;
 using SY.Com.Medical.Model;
 using SY.Com.Medical.Repository.Platform;
 using System;
@@ -25,6 +26,18 @@ namespace SY.Com.Medical.BLL.Platform
             curdObj.Entity =new UserEntity();
             curdObj.db = new UserRepository();
             db = new UserRepository();
+        }
+
+        /// <summary>
+        /// 根据ID获取用户信息
+        /// </summary>
+        /// <param name="UserId"></param>
+        /// <returns></returns>
+        public UserModel getUser(int UserId)
+        {
+            UserModel result = new UserModel();
+            return CloneClass.Clone<UserEntity, UserModel>(db.Get(UserId), result);
+            
         }
 
         /// <summary>
@@ -107,6 +120,7 @@ namespace SY.Com.Medical.BLL.Platform
             response.token = JsonSerializer.Serialize(entity);
             return response;
         }
+
 
 
 

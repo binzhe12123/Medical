@@ -68,6 +68,11 @@ namespace SY.Com.Medical.BLL.Platform
         }
 
 
+        public List<MenuTreeResponse> GetEmployee(int UserId)
+        {            
+            
+            db.MenuByIds(request)
+        }
 
 
     }
