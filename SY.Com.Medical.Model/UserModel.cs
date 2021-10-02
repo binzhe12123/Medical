@@ -36,7 +36,7 @@ namespace SY.Com.Medical.Model
     /// <summary>
     /// 登录入参
     /// </summary>
-    public class LoginRequest :BaseModel
+    public class LoginRequest
     {
         /// <summary>
         /// 账号
@@ -54,14 +54,9 @@ namespace SY.Com.Medical.Model
     public class LoginResponse
     { 
         /// <summary>
-        /// 用户ID
+        /// Jwt验证token,后续请求中放入Header的Authorization中
         /// </summary>
-        public int UserId { get; set; }
-        /// <summary>
-        /// 用户token
-        /// </summary>
-        public string token { get; set; }
-
+        public string access_token { get; set; }
     }
 
     /// <summary>

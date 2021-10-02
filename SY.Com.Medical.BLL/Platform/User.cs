@@ -45,7 +45,7 @@ namespace SY.Com.Medical.BLL.Platform
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public LoginResponse Login(LoginRequest request)
+        public UserModel Login(LoginRequest request)
         {
             UserEntity entity = db.Get(request.Account);
             if(entity == null)
@@ -60,8 +60,8 @@ namespace SY.Com.Medical.BLL.Platform
             {
                 throw new DataStateException("账户状态异常,请联系管理员");
             }
-            LoginResponse response = new LoginResponse();            
-            response.token = JsonSerializer.Serialize(entity);
+            UserModel response = new UserModel();
+            response.Account = entity.Account;
             response.UserId = entity.UserId;            
             return response;
         }        

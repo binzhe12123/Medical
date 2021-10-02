@@ -161,4 +161,28 @@ namespace SY.Com.Medical.Model
 
     }
 
+    /// <summary>
+    /// 邀请员工模型入参
+    /// </summary>
+    public class TenantInviteRequest : BaseModel
+    {
+        /// <summary>
+        /// 账号
+        /// </summary>
+        public string Account { get; set; }
+
+        /// <summary>
+        /// 角色字符串
+        /// </summary>
+        public string Roles { get; set; }
+    }
+
+    /// <summary>
+    /// 邀请员工出参
+    /// </summary>
+    public class TenantInivteResponse : BaseModel
+    {
+
+    }
+
 }

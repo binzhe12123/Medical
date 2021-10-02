@@ -25,7 +25,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<UserTenantResponse> getTenant(BaseRequest<BaseModel> request)
+        public BaseResponse<UserTenantResponse> getTenant(BaseModel request)
         {
             BaseResponse<UserTenantResponse> response = new BaseResponse<UserTenantResponse>();
             try
@@ -52,7 +52,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<List<UserTenantResponse>> getTenants(BaseRequest<BaseModel> request)
+        public BaseResponse<List<UserTenantResponse>> getTenants(BaseModel request)
         {
             BaseResponse<List<UserTenantResponse>> response = new BaseResponse<List<UserTenantResponse>>();
             try {
@@ -77,7 +77,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<UserTenantResponse> createTenant(BaseRequest<TenentCreateRequest> request)
+        public BaseResponse<UserTenantResponse> createTenant(TenentCreateRequest request)
         {
             BaseResponse<UserTenantResponse> response = new BaseResponse<UserTenantResponse>();
             try
@@ -104,7 +104,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<TenantModel> updateTenant(BaseRequest<TenantRequest> request )
+        public BaseResponse<TenantModel> updateTenant(TenantRequest request )
         {
             BaseResponse<TenantModel> response = new BaseResponse<TenantModel>();
             try

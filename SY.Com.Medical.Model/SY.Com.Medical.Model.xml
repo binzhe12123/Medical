@@ -4,6 +4,21 @@
         <name>SY.Com.Medical.Model</name>
     </assembly>
     <members>
+        <member name="T:SY.Com.Medical.Model.BaseModel">
+            <summary>
+            基模型
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BaseModel.TenantId">
+            <summary>
+            租户ID
+            </summary>        
+        </member>
+        <member name="P:SY.Com.Medical.Model.BaseModel.UserId">
+            <summary>
+            用户ID
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.BaseRequest`1">
             <summary>
             输入参数
@@ -69,6 +84,56 @@
             <param name="errcode">错误码</param>
             <param name="message">错误信息</param>
         </member>
+        <member name="T:SY.Com.Medical.Model.EmployeeModel">
+            <summary>
+            员工模型
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.EmployeeModel.EmployeeId">
+            <summary>
+            员工Id    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.EmployeeModel.TenantId">
+            <summary>
+            租户id    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.EmployeeModel.UserId">
+            <summary>
+            用户id    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.EmployeeModel.EmployeeName">
+            <summary>
+            员工姓名    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.EmployeeModel.EmployeePhone">
+            <summary>
+            员工电话    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.EmployeeModel.YBCode">
+            <summary>
+            员工医保编码    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.EmployeeModel.Roles">
+            <summary>
+            员工角色    
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.EmployeeGetModel">
+            <summary>
+            获取员工信息
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.EmployeeGetModel.TenantId">
+            <summary>
+            租户ID
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.MenuModel">
             <summary>
             菜单Model层
@@ -124,6 +189,11 @@
             父路由,一级菜单为0    
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.MenuTreeResponse.SubMenu">
+            <summary>
+            子菜单
+            </summary>
+        </member>
         <member name="P:SY.Com.Medical.Model.PlatformQReq.PlatformId">
             <summary>
             主键id    
@@ -172,6 +242,11 @@
         <member name="P:SY.Com.Medical.Model.PlatformQReq.VersionId">
             <summary>
             版本id    
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.TenantModel">
+            <summary>
+            租户
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.UserTenantRequest">
@@ -244,6 +319,116 @@
             租户类型,枚举    
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Model.TenantRequest">
+            <summary>
+            租户模型入参
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantRequest.TenantId">
+            <summary>
+            租户ID    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantRequest.TenantName">
+            <summary>
+            租户名称    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantRequest.TenantType">
+            <summary>
+            租户类型,枚举    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantRequest.TenantServiceStart">
+            <summary>
+            服务开始时间    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantRequest.TenantServiceEnd">
+            <summary>
+            服务结束时间    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantRequest.YBCode">
+            <summary>
+            医保编码    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantRequest.YBName">
+            <summary>
+            医保名称    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantRequest.YBUrl">
+            <summary>
+            医保程序路径    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantRequest.IsEnable">
+            <summary>
+            是否可用:枚举    
+            </summary>        
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantRequest.IsDelete">
+            <summary>
+            启用禁用
+            </summary>        
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantRequest.CreateTime">
+            <summary>
+            记录创建时间
+            </summary>        
+        </member>
+        <member name="T:SY.Com.Medical.Model.TenantResponse">
+            <summary>
+            租户模型出参
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.TenantInviteRequest">
+            <summary>
+            邀请员工模型入参
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantInviteRequest.Account">
+            <summary>
+            账号
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantInviteRequest.Roles">
+            <summary>
+            角色字符串
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.TenantInivteResponse">
+            <summary>
+            邀请员工出参
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.UserModel">
+            <summary>
+            用户模型
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserModel.UserId">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserModel.Account">
+            <summary>
+            账号    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserModel.Pwd">
+            <summary>
+            密码md5小写    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserModel.YZM">
+            <summary>
+            验证码    
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.LoginRequest">
             <summary>
             登录入参
@@ -264,14 +449,9 @@
             登录出参
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.LoginResponse.UserId">
+        <member name="P:SY.Com.Medical.Model.LoginResponse.access_token">
             <summary>
-            用户ID
-            </summary>
-        </member>
-        <member name="P:SY.Com.Medical.Model.LoginResponse.token">
-            <summary>
-            用户token
+            Jwt验证token,后续请求中放入Header的Authorization中
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.RegisterRequest">
@@ -322,6 +502,11 @@
         <member name="P:SY.Com.Medical.Model.ResetRequest.Pwd">
             <summary>
             密码
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.ResetRequest.Pwd2">
+            <summary>
+            确认密码
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.ResetRequest.YZM">

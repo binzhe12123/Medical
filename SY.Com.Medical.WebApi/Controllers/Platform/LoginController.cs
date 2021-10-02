@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SY.Com.Medical.BLL;
 using SY.Com.Medical.BLL.Platform;
 using SY.Com.Medical.Model;
+using SY.Com.Medical.WebApi.JWT;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +17,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
     /// </summary>
     [Route("api/[controller]/[Action]")]
     [ApiController]
+    [Authorize]
     public class LoginController : ControllerBase
     {
         User userbll = new User();
@@ -23,14 +26,18 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
         /// 用户登录
         /// </summary>
         /// <param name="request"></param>
-        /// <returns></returns>
+        /// <param name="nice">测试</param>
+        /// <returns></returns>       
         [HttpPost]
-        public BaseResponse<LoginResponse> login(BaseRequest<LoginRequest> request)
+        [AllowAnonymous]
+        public BaseResponse<LoginResponse> login(LoginRequest request)
         {
             BaseResponse<LoginResponse> result = new BaseResponse<LoginResponse>();
             try
-            {                
-                result.Data = userbll.Login(request.Data);
+            {
+                result.Data = new LoginResponse();
+                var usermodel = userbll.Login(request);
+                result.Data.access_token = JWTTokenValidationParameters.getSecurityToken(usermodel.UserId, usermodel.Account);
                 return result;
             }
             catch (Exception ex)
@@ -52,16 +59,16 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<RegisterResponse> register(BaseRequest<RegisterRequest> request)
+        public BaseResponse<RegisterResponse> register(RegisterRequest request)
         {
             BaseResponse<RegisterResponse> result = new BaseResponse<RegisterResponse>();
             try
             {
-                if(userbll.ExistsAccount(request.Data.Account))
+                if(userbll.ExistsAccount(request.Account))
                 {
                     return result.busExceptino(Enum.ErrorCode.用户不存在,"用户已存在,请重新登录");
                 }                
-                result.Data = userbll.Register(request.Data);
+                result.Data = userbll.Register(request);
                 return result;
             }
             catch (Exception ex)
@@ -83,12 +90,12 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<ResetResponse> reset(BaseRequest<ResetRequest> request)
+        public BaseResponse<ResetResponse> reset(ResetRequest request)
         {
             BaseResponse<ResetResponse> result = new BaseResponse<ResetResponse>();
             try
             {
-                result.Data = userbll.Reset(request.Data);
+                result.Data = userbll.Reset(request);
                 return result;
             }
             catch (Exception ex)

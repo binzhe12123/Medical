@@ -68,10 +68,14 @@ namespace SY.Com.Medical.BLL.Platform
         }
 
 
+        /// <summary>
+        /// 获取员工的菜单树
+        /// </summary>
+        /// <param name="UserId"></param>
+        /// <returns></returns>
         public List<MenuTreeResponse> GetEmployee(int UserId)
-        {            
-            
-            db.MenuByIds(request)
+        {
+            return new List<MenuTreeResponse>();
         }
 
 
