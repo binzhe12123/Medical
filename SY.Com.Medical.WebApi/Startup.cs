@@ -107,8 +107,8 @@ namespace SY.Com.Medical.WebApi
         /// <param name="env"></param>
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {            
-            
+        {
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -121,7 +121,7 @@ namespace SY.Com.Medical.WebApi
                 //c.ShowExtensions();
             });
             app.UseRouting();
-            app.UseAuthentication();//JWT验证
+            app.UseAuthentication();//JWT验证  
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {

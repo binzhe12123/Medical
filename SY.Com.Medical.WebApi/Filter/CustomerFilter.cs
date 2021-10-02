@@ -28,25 +28,31 @@ namespace SY.Com.Medical.WebApi.Filter
         /// <param name="context"></param>
         public void OnActionExecuting(ActionExecutingContext context)
         {
-            foreach(var item in context.ActionArguments)
-            {
-                //继承自BaseModel
-                if(typeof(BaseModel).IsInstanceOfType(item.Value))
+            try {
+                foreach (var item in context.ActionArguments)
                 {
-                    var request = item.Value;
-                    var type = request.GetType();
-                    var userid = context.HttpContext.User.Claims.ToList().Find(x => x.Type == "UserId")?.Value;
-                    if (userid != null)
+                    //继承自BaseModel
+                    if (typeof(BaseModel).IsInstanceOfType(item.Value))
                     {
-                        type.GetProperty("UserId").SetValue(request, userid);
-                    }
-                    var tenantid = context.HttpContext.Request.Headers["TenantId"].ToString();
-                    if (!string.IsNullOrEmpty(tenantid))
-                    {
-                        type.GetProperty("TenantId").SetValue(request, tenantid);
+                        var request = item.Value;
+                        var type = request.GetType();
+                        var userid = context.HttpContext.User.Claims.ToList().Find(x => x.Type == "UserId")?.Value;
+                        if (userid != null)
+                        {
+                            type.GetProperty("UserId").SetValue(request, int.Parse(userid));
+                        }
+                        var tenantid = context.HttpContext.Request.Headers["TenantId"].ToString();
+                        if (!string.IsNullOrEmpty(tenantid))
+                        {
+                            type.GetProperty("TenantId").SetValue(request, int.Parse(tenantid));
+                        }
                     }
                 }
+            }catch(Exception)
+            {
+                
             }
+
         }
 
         /// <summary>

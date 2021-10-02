@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SY.Com.Medical.BLL.Platform;
 using System;
@@ -12,6 +13,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
     /// 菜单控制器
     /// </summary>
     [Route("api/[controller]/[Action]")]
+    [Authorize]
     [ApiController]
     public class MenuController : ControllerBase
     {
