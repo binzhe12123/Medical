@@ -64,5 +64,6 @@ namespace SY.Com.Medical.Repository.Platform
             return _db.Query<MenuEntity>(sql, new { MenuId = MenuIds.ToArray(), IsEnable = (int)Enable.启用, IsDelete = (int)Enum.Delete.正常 });
         }
 
+
     }
 }

@@ -8,29 +8,23 @@ using System.Threading.Tasks;
 namespace SY.Com.Medical.Entity
 {
     /// <summary>
-    ///  员工角色    
+    /// 角色菜单关系表
     /// </summary>
-    [DB_Table("Roles")]
-    [DB_Key("RoleId")]
-    public class RoleEntity : BaseEntity
+    [DB_Table("RoleMenus")]
+    [DB_Key("Id")]
+    public class RoleMenuEntity : BaseEntity
     {
         /// <summary>
-        /// 员工角色Id    
+        /// 自增主键
+        /// </summary>
+        public int Id { get; set; }
+        /// <summary>
+        /// 菜单id
+        /// </summary>
+        public int MenuId { get; set; }
+        /// <summary>
+        /// 角色id
         /// </summary>
         public int RoleId { get; set; }
-        /// <summary>
-        /// 租户Id
-        /// </summary>
-        public int TenantId { get; set; }
-
-        /// <summary>
-        /// 员工角色名称    
-        /// </summary>
-        public string RoleName { get; set; }
-
-
-
-
     }
-
 }

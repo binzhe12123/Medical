@@ -1,6 +1,7 @@
 ﻿using SY.Com.Medical.Entity;
 using SY.Com.Medical.Model;
 using SY.Com.Medical.Repository.Platform;
+using SY.Com.Medical.Extension;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,13 +15,9 @@ namespace SY.Com.Medical.BLL.Platform
     /// </summary>
     public class Menu
     {
-        private CURDObject<MenuEntity> curdObj;
         private MenuRepository db;
         public Menu()
         {
-            curdObj = new CURDObject<MenuEntity>();
-            curdObj.Entity = new MenuEntity();
-            curdObj.db = new MenuRepository();
             db = new MenuRepository();
         }
 
@@ -32,7 +29,7 @@ namespace SY.Com.Medical.BLL.Platform
         {
             List<MenuResponse> responses = new List<MenuResponse>();
             var entitys = db.getSystem();
-            entitys.ToList().ForEach(entity => responses.Add(entity.EntityToModel<MenuResponse>()));
+            entitys.ToList().ForEach(entity => responses.Add(entity.EntityToDto<MenuResponse>()));
             return responses;
         }
 
@@ -45,7 +42,7 @@ namespace SY.Com.Medical.BLL.Platform
             List<MenuResponse> responses = new List<MenuResponse>();
             List<MenuTreeResponse> responses2 = new List<MenuTreeResponse>();
             var entitys = db.getSystem();
-            entitys.ToList().ForEach(entity => responses.Add(entity.EntityToModel<MenuResponse>()));
+            entitys.ToList().ForEach(entity => responses.Add(entity.EntityToDto<MenuResponse>()));
             responses.ForEach(x =>
             {
                 if (x.MenuParent != 0)
@@ -69,12 +66,13 @@ namespace SY.Com.Medical.BLL.Platform
 
 
         /// <summary>
-        /// 获取员工的菜单树
+        /// 根据多个角色获取菜单
         /// </summary>
         /// <param name="UserId"></param>
         /// <returns></returns>
-        public List<MenuTreeResponse> GetEmployee(int UserId)
+        public List<MenuTreeResponse> GetEmployee(List<Role> roles)
         {
+
             return new List<MenuTreeResponse>();
         }
 

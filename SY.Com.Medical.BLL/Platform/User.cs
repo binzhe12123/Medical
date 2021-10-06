@@ -1,4 +1,5 @@
 ﻿using SY.Com.Medical.Entity;
+using SY.Com.Medical.Extension;
 using SY.Com.Medical.Infrastructure;
 using SY.Com.Medical.Model;
 using SY.Com.Medical.Repository.Platform;
@@ -18,14 +19,11 @@ namespace SY.Com.Medical.BLL.Platform
     /// </summary>
     public class User
     {
-        private CURDObject<UserEntity> curdObj;
         private UserRepository db;
         public User() 
         {
-            curdObj = new CURDObject<UserEntity>();
-            curdObj.Entity =new UserEntity();
-            curdObj.db = new UserRepository();
             db = new UserRepository();
+            
         }
 
         /// <summary>
@@ -73,9 +71,10 @@ namespace SY.Com.Medical.BLL.Platform
         /// <returns></returns>
         public RegisterResponse Register(RegisterRequest request)
         {
-            UserEntity entitytemp = curdObj.ModelToBLL<UserEntity, RegisterRequest>(request);
-            int userid = curdObj.db.Create(entitytemp);
-            var entity = curdObj.Get(userid);            
+            
+            UserEntity entitytemp = request.DtoToEntity<UserEntity>();
+            int userid = db.Create(entitytemp);
+            var entity = db.Get(userid);
             RegisterResponse response = new RegisterResponse();
             response.token = JsonSerializer.Serialize(entity);
             response.UserId = entity.UserId;
@@ -114,7 +113,7 @@ namespace SY.Com.Medical.BLL.Platform
                 throw new DataLogicFails("验证码不符合");
             }
             entity.Pwd = request.Pwd;
-            curdObj.Update(entity);
+            db.Update(entity);
             ResetResponse response = new ResetResponse();
             response.UserId = entity.UserId;
             response.token = JsonSerializer.Serialize(entity);

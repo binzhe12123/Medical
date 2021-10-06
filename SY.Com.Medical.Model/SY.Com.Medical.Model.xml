@@ -84,6 +84,46 @@
             <param name="errcode">错误码</param>
             <param name="message">错误信息</param>
         </member>
+        <member name="T:SY.Com.Medical.Model.DepartmentModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.DepartmentResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.DepartmentResponse.DepartmentId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.DepartmentResponse.DepartmentName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.DepartmentResponse.DepartmentCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.DepartmentCreateRequest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.DepartmentCreateRequest.DepartmentName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.DepartmentCreateRequest.DepartmentCode">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.EmployeeModel">
             <summary>
             员工模型
@@ -127,11 +167,6 @@
         <member name="T:SY.Com.Medical.Model.EmployeeGetModel">
             <summary>
             获取员工信息
-            </summary>
-        </member>
-        <member name="P:SY.Com.Medical.Model.EmployeeGetModel.TenantId">
-            <summary>
-            租户ID
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.MenuModel">
@@ -194,6 +229,21 @@
             子菜单
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Model.MenuKeyValueDto">
+            <summary>
+            菜单键值对
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.MenuKeyValueDto.MenuId">
+            <summary>
+            菜单id
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.MenuKeyValueDto.MenuName">
+            <summary>
+            菜单名称
+            </summary>
+        </member>
         <member name="P:SY.Com.Medical.Model.PlatformQReq.PlatformId">
             <summary>
             主键id    
@@ -242,6 +292,21 @@
         <member name="P:SY.Com.Medical.Model.PlatformQReq.VersionId">
             <summary>
             版本id    
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.RoleModel">
+            <summary>
+            角色信息
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RoleModel.RoleId">
+            <summary>
+            角色ID
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RoleModel.RoleName">
+            <summary>
+            角色名称
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.TenantModel">

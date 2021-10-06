@@ -6,10 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SY.Com.Medical.Entity\SY.Com.Medical.Entity.csproj" />
-    <ProjectReference Include="..\SY.Com.Medical.Enum\SY.Com.Medical.Enum.csproj" />
-    <ProjectReference Include="..\SY.Com.Medical.Extension\SY.Com.Medical.Extension.csproj" />
     <ProjectReference Include="..\SY.Com.Medical.Model\SY.Com.Medical.Model.csproj" />
-    <ProjectReference Include="..\SY.Com.Medical.Repository\SY.Com.Medical.Repository.csproj" />
   </ItemGroup>
 
 </Project>

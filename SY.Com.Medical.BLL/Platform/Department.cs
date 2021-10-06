@@ -2,6 +2,7 @@
 using SY.Com.Medical.Infrastructure;
 using SY.Com.Medical.Model;
 using SY.Com.Medical.Repository.Platform;
+using SY.Com.Medical.Extension;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,13 +16,9 @@ namespace SY.Com.Medical.BLL.Platform
     /// </summary>
     public class Department
     {
-        private CURDObject<DepartmentEntity> curdObj;
         private DepartmentRepository db;
         public Department()
         {
-            curdObj = new CURDObject<DepartmentEntity>();
-            curdObj.Entity = new DepartmentEntity();
-            curdObj.db = new DepartmentRepository();
             db = new DepartmentRepository();
         }
 
@@ -49,7 +46,7 @@ namespace SY.Com.Medical.BLL.Platform
         /// <param name="TenantId"></param>
         public void createDepartment(DepartmentCreateRequest request,int TenantId)
         {
-            var entity = curdObj.ModelToBLL<DepartmentEntity, DepartmentCreateRequest>(request);
+            var entity = request.DtoToEntity<DepartmentEntity>();
             db.InsertDepartment(TenantId, entity);
         }
 

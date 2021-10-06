@@ -2,6 +2,7 @@
 using SY.Com.Medical.Infrastructure;
 using SY.Com.Medical.Model;
 using SY.Com.Medical.Repository.Platform;
+using SY.Com.Medical.Extension;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,13 +16,9 @@ namespace SY.Com.Medical.BLL.Platform
     /// </summary>
     public class Employee
     {
-        private CURDObject<EmployeeEntity> curdObj;
         private EmployeesRepository db;
         public Employee()
         {
-            curdObj = new CURDObject<EmployeeEntity>();
-            curdObj.Entity = new EmployeeEntity();
-            curdObj.db = new EmployeesRepository();
             db = new EmployeesRepository();
         }
 
@@ -62,8 +59,20 @@ namespace SY.Com.Medical.BLL.Platform
         /// <returns></returns>
         public int createEmployee(EmployeeModel request)
         {
-            var entity = curdObj.ModelToBLL<EmployeeEntity, EmployeeModel>(request);
+            var entity = request.DtoToEntity<EmployeeEntity>();
             return db.Create(entity);
         }
+
+        /// <summary>
+        /// 根据用户信息获取员工信息
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public EmployeeModel getEmployee(EmployeeGetModel request)
+        {
+            return db.getByUser(new UserEntity { UserId = request.UserId }).EntityToDto<EmployeeModel>();
+        }
+
+
     }
 }

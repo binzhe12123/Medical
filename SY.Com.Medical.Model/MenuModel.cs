@@ -10,8 +10,9 @@ namespace SY.Com.Medical.Model
     /// 菜单Model层
     /// </summary>
 
-    public class MenuModel
+    public class MenuModel :BaseModel
     {
+
     }
 
     /// <summary>
@@ -70,7 +71,20 @@ namespace SY.Com.Medical.Model
         public List<MenuResponse> SubMenu { get; set; }
     }
 
-
+    /// <summary>
+    /// 菜单键值对
+    /// </summary>
+    public class MenuKeyValueDto:BaseModel
+    {
+        /// <summary>
+        /// 菜单id
+        /// </summary>
+        public int MenuId { get; set; }
+        /// <summary>
+        /// 菜单名称
+        /// </summary>
+        public string MenuName { get; set; }
+    }
 
 
 

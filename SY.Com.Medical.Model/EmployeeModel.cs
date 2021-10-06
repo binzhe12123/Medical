@@ -52,10 +52,6 @@ namespace SY.Com.Medical.Model
     /// </summary>
     public class EmployeeGetModel : BaseModel
     {
-        /// <summary>
-        /// 租户ID
-        /// </summary>
-        public int TenantId { get; set; }
 
     }
 

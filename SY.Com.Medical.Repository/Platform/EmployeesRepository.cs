@@ -36,5 +36,16 @@ namespace SY.Com.Medical.Repository.Platform
             return Create(entity);
         }
 
+        /// <summary>
+        /// 根据用户信息获取员工信息
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public EmployeeEntity getByUser(UserEntity user)
+        {
+            string sql = " Select * From EmployeeEntity Where UserId = @UserId ";
+            return _db.Query<EmployeeEntity>(sql, user).FirstOrDefault();
+        }
+        
     }
 }
