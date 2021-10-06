@@ -9,7 +9,7 @@ namespace SY.Com.Medical.Model
     /// <summary>
     /// 
     /// </summary>
-    public class DepartmentModel
+    public class DepartmentModel : BaseModel
     {
     }
 

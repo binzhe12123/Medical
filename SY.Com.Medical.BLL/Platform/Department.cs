@@ -27,10 +27,10 @@ namespace SY.Com.Medical.BLL.Platform
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public List<DepartmentResponse> getDepartment(DepartmentEntity entity)
+        public List<DepartmentResponse> getDepartment(DepartmentModel request)
         {
             List<DepartmentResponse> result = new List<DepartmentResponse>();
-            var entitys = db.getTenantDepartment(entity.DepartmentId);
+            var entitys = db.getTenantDepartment(request.TenantId);
             foreach(var item in entitys)
             {
                 DepartmentResponse dr = new DepartmentResponse();
@@ -44,12 +44,26 @@ namespace SY.Com.Medical.BLL.Platform
         /// </summary>
         /// <param name="request"></param>
         /// <param name="TenantId"></param>
-        public void createDepartment(DepartmentCreateRequest request,int TenantId)
+        public void createDepartment(DepartmentCreateRequest request)
         {
             var entity = request.DtoToEntity<DepartmentEntity>();
-            db.InsertDepartment(TenantId, entity);
+            db.InsertDepartment( entity);
         }
 
+        /// <summary>
+        /// 编辑科室
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="TenantId"></param>
+        public void updateDepartment(DepartmentResponse request)
+        {
+            db.EditDepartment(request.DtoToEntity<DepartmentEntity>());
+        }
+
+        public void deleteDepartment(DepartmentResponse request)
+        {
+            db.Delete(request.DtoToEntity<DepartmentEntity>());
+        }
         
 
     }

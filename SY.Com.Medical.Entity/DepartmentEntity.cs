@@ -19,6 +19,10 @@ namespace SY.Com.Medical.Entity
         /// </summary>
         [DB_Key("DepartmentId")]
         public int DepartmentId { get; set; }
+        /// <summary>
+        /// 租户ID
+        /// </summary>
+        public int TenantId { get; set; }
 
         /// <summary>
         /// 科室名称    
@@ -30,10 +34,6 @@ namespace SY.Com.Medical.Entity
         /// </summary>
         public string DepartmentCode { get; set; }
 
-        /// <summary>
-        /// 是否初始化给租户，枚举    
-        /// </summary>
-        public int IsInit { get; set; }
 
 
     }

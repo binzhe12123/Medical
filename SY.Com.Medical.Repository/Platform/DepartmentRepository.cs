@@ -23,9 +23,8 @@ namespace SY.Com.Medical.Repository.Platform
         public IEnumerable<DepartmentEntity> getTenantDepartment(int TenantId)
         {
             string sql = @" 
-                            select B.* From TenantDepartments As A
-                            Inner Join Departments As B On A.DepartmentId = B.Departmentid
-                            Where a.TenantId = @TenantId ; ";
+                            select * From Departments                            
+                            Where TenantId = @TenantId ; ";
             var result = _db.Query<DepartmentEntity>(sql, new { TenantId = TenantId });
             return result;
         }
@@ -37,36 +36,47 @@ namespace SY.Com.Medical.Repository.Platform
         /// <param name="TenantId"></param>
         public void CopyToTenant(int TenantId)
         {
-            string sql = @" Select * From Departments Where IsSystem = 1 ";
-            var entitys = _db.Query<DepartmentEntity>(sql);
-            string sql2 = @" Insert Into TenantDepartments(TenantDepartmentId,TenantId,DepartmentId,CreateTime,IsEnable,IsDelete)
-                             Values(@TenantDepartmentId,@TenantId,@DepartmentId,@CreateTime,@IsEnable,@IsDelete)";
-            List<TenantDepartmentEntity> entity2 = new List<TenantDepartmentEntity>();
-            foreach(var item in entitys)
+            string sql3 = @" Select * From Departments Where TenantId =@TenantId  ";
+            var temp =_db.Query(sql3, TenantId);
+            if(temp.Any())
             {
-                var tdentity = CloneClass.Clone<DepartmentEntity, TenantDepartmentEntity>(item, new TenantDepartmentEntity());
-                entity2.Add(tdentity);
+                return;
             }
-            _db.Execute(sql2, entity2);
+            string sql = @" Select * From Departments Where TenantId = 0 ";
+            var entitys = _db.Query<DepartmentEntity>(sql);
+            string sql2 = @" Insert Into Departments(DepartmentsId,TenantId,DepartmentName,DepartmentCode,CreateTime,IsEnable,IsDelete)
+                             Values(@DepartmentsId,@TenantId,@DepartmentName,@DepartmentCode,@CreateTime,@IsEnable,@IsDelete)";
+            _db.Execute(sql2, entitys);
         }
 
+
+
         //插入
-        public void InsertDepartment(int TenantId,DepartmentEntity entity)
+        public void InsertDepartment(DepartmentEntity entity)
         {
+            CopyToTenant(entity.TenantId);
             int DepartmentId = Create(entity);
-            string sql2 = @" Insert Into TenantDepartments(TenantDepartmentId,TenantId,DepartmentId,CreateTime,IsEnable,IsDelete)
-                             Values(@TenantDepartmentId,@TenantId,@DepartmentId,@CreateTime,@IsEnable,@IsDelete)";
+            string sql2 = @" Insert Into Departments(DepartmentsId,TenantId,DepartmentName,DepartmentCode,CreateTime,IsEnable,IsDelete)
+                             Values(@DepartmentsId,@TenantId,@DepartmentName,@DepartmentCode,@CreateTime,@IsEnable,@IsDelete)";
             _db.Execute(sql2, new
             {
-                TenantDepartmentId = getID("TenantDepartments"),
-                TenantId = TenantId,
+                TenantDepartmentId = getID("Departments"),
+                TenantId = entity.TenantId,
                 DepartmentId = DepartmentId
                 ,
                 CreateTime = DateTime.Now,
                 IsEnable = Enable.启用,
                 IsDelete = Enum.Delete.正常
             });
-        }  
+        }
+
+        //编辑
+        public void EditDepartment(DepartmentEntity entity)
+        {
+            CopyToTenant(entity.TenantId);
+            Update(entity);
+        }
+
 
 
     }
