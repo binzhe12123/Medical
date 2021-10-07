@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.PlatformAbstractions;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json.Converters;
 using Swashbuckle.AspNetCore.Swagger;
 using SY.Com.Medical.WebApi.Filter;
 using SY.Com.Medical.WebApi.JWT;
@@ -42,7 +43,7 @@ namespace SY.Com.Medical.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             //配置JWT,Bearer JWT
-            services.AddAuthentication("Bearer")                
+            services.AddAuthentication("Bearer")
             .AddJwtBearer(options => options.TokenValidationParameters = JWTTokenValidationParameters.getParameters());
 
             services.AddControllers(options=>options.Filters.Add(new CustomerFilter()));
@@ -91,12 +92,21 @@ namespace SY.Com.Medical.WebApi
                     Title = "接口文档",
                     Description = "RESTful API for TwBusManagement"
                 });
+                c.OperationFilter<AddTenantIdHeaderParameter>();
                 var basePath = PlatformServices.Default.Application.ApplicationBasePath;
                 var xmlPath = Path.Combine(basePath, "SY.Com.Medical.WebApi.xml");//Api
                 var xmlPath2 = Path.Combine(basePath, "SY.Com.Medical.Model.xml");//Model
+                var xmlPath3 = Path.Combine(basePath, "SY.Com.Medical.Enum.xml");//Enum
                 c.IncludeXmlComments(xmlPath);
                 c.IncludeXmlComments(xmlPath2);
+                c.IncludeXmlComments(xmlPath3);
                 //
+            });
+
+            //配置枚举返回
+            services.AddMvc().AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.Converters.Add(new System.Text.Json.Serialization.JsonStringEnumConverter());
             });
         }
 
@@ -108,7 +118,7 @@ namespace SY.Com.Medical.WebApi
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

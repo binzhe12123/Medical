@@ -16,7 +16,7 @@ namespace SY.Com.Medical.Entity
     {
         /// <summary>
         /// 自增主键
-        /// </summary>
+        /// </summary>        
         public int Id { get; set; }
         /// <summary>
         /// 菜单id

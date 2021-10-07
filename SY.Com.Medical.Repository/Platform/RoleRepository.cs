@@ -67,8 +67,8 @@ namespace SY.Com.Medical.Repository.Platform
             string sql = @" Select * From Menus Where MenuId in(
                                 Select MenuId From RoleMenus Where RoleId in @RoleId
                             ) ";
-            List<int> RoleIds = roles.Select(x => x.RoleId).ToList();
-            return _db.Query<MenuEntity>(sql, new { RoleId = new[] { RoleIds } });
+            List<int> RoleIds = roles.Select(x => x.RoleId).ToList();            
+            return _db.Query<MenuEntity>(sql, new { RoleId = RoleIds.ToArray() });
         }
 
         /// <summary>

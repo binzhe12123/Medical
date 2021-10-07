@@ -20,10 +20,10 @@ namespace SY.Com.Medical.Attribute
         /// </summary>
         /// <param name="t"></param>
         /// <returns></returns>
-        public static object getKey<S>(S s)
+        public static object getKey<S>(S s) where S:Type
         {            
             // Using reflection.  
-            System.Attribute[] attrs = System.Attribute.GetCustomAttributes(s.GetType());  // Reflection.  
+            System.Attribute[] attrs = System.Attribute.GetCustomAttributes(s);  // Reflection.  
             // Displaying output.  
             foreach (System.Attribute attr in attrs)
             {                
@@ -35,10 +35,10 @@ namespace SY.Com.Medical.Attribute
             return "";
         }
 
-        public static string getWhere<S>(S s,T t)
+        public static string getWhere<S>(S s,object v,T t)
         {
-            System.Attribute[] attrs = System.Attribute.GetCustomAttributes(s.GetType());
-            return t.GetWhere(s);
+            //System.Attribute[] attrs = System.Attribute.GetCustomAttributes(s.GetType());
+            return t.GetWhere(s,v);
         }
 
 

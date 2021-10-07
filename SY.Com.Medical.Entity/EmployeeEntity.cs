@@ -17,17 +17,23 @@ namespace SY.Com.Medical.Entity
         /// <summary>
         /// 员工Id    
         /// </summary>
+        [DB_Key("EmployeeId")]
         public int EmployeeId { get; set; }
 
         /// <summary>
         /// 租户id    
         /// </summary>
-        public int? TenantId { get; set; }
+        public int TenantId { get; set; }
 
         /// <summary>
         /// 用户id    
         /// </summary>
-        public int? UserId { get; set; }
+        public int UserId { get; set; }
+
+        /// <summary>
+        /// 性别
+        /// </summary>
+        public Enum.Sex Sex { get; set; }
 
         /// <summary>
         /// 员工姓名    
@@ -48,6 +54,11 @@ namespace SY.Com.Medical.Entity
         /// 员工角色    
         /// </summary>
         public string Roles { get; set; }
+
+        /// <summary>
+        /// 科室
+        /// </summary>
+        public string Departments { get; set; }
 
 
     }

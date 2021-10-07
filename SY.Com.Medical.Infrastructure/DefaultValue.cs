@@ -20,77 +20,90 @@ namespace SY.Com.Medical.Infrastructure
        /// <returns></returns>
         public static bool IsDefaultValue(Type t,object obj)
         {
-            if (t == typeof(Int32))
-            {
-                return (int)obj == 0;
-            }
-            else if (t == typeof(long))
-            {
-                return (long)obj == 0;
-            }
-            else if (t == typeof(decimal))
-            {
-                return (decimal)obj == 0;
-            }
-            else if (t == typeof(string))
-            {
-                return string.IsNullOrEmpty((string)obj);
-            }
-            else if (t == typeof(DateTime))
-            {
-                return (DateTime)obj == default(DateTime);
-            }
-            else if (t == typeof(float))
-            {
-                return (float)obj == 0;
-            }
-            else if (t == typeof(double))
-            {
-                return (double)obj == 0;
-            }
-            else if (t == typeof(bool))
-            {
-                return (bool)obj;
-            }
-            else if (t == typeof(uint))
-            {
-                return (uint)obj == 0;
-            }
-            else if (t == typeof(ulong))
-            {
-                return (ulong)obj == 0;
-            }
-            else if (t == typeof(ushort))
-            {
-                return (ushort)obj == 0;
-            }
-            else if (t == typeof(short))
-            {
-                return (short)obj == 0;
-            }
-            else if (t == typeof(Nullable<Int32>))
-            {
-                return (Nullable<Int32>)obj == null;
-            }
-            else if (t == typeof(Nullable<long>))
-            {
-                return (Nullable<long>)obj == null;
+            try {
+                if (t == typeof(Int32))
+                {
+                    return (int)obj == 0;
+                }
+                else if (t == typeof(long))
+                {
+                    return (long)obj == 0;
+                }
+                else if (t == typeof(decimal))
+                {
+                    return (decimal)obj == 0;
+                }
+                else if (t == typeof(string))
+                {
+                    return string.IsNullOrEmpty((string)obj);
+                }
+                else if (t == typeof(DateTime))
+                {
+                    return (DateTime)obj == default(DateTime);
+                }
+                else if (t == typeof(float))
+                {
+                    return (float)obj == 0;
+                }
+                else if (t == typeof(double))
+                {
+                    return (double)obj == 0;
+                }
+                else if (t == typeof(bool))
+                {
+                    return (bool)obj;
+                }
+                else if (t == typeof(uint))
+                {
+                    return (uint)obj == 0;
+                }
+                else if (t == typeof(ulong))
+                {
+                    return (ulong)obj == 0;
+                }
+                else if (t == typeof(ushort))
+                {
+                    return (ushort)obj == 0;
+                }
+                else if (t == typeof(short))
+                {
+                    return (short)obj == 0;
+                }
+                else if (t == typeof(Nullable<Int32>))
+                {
+                    return (Nullable<Int32>)obj == null;
+                }
+                else if (t == typeof(Nullable<long>))
+                {
+                    return (Nullable<long>)obj == null;
 
-            }
-            else if (t == typeof(Nullable<decimal>))
-            {
-                return (Nullable<decimal>)obj == null;
+                }
+                else if (t == typeof(Nullable<decimal>))
+                {
+                    return (Nullable<decimal>)obj == null;
 
-            }
-            else if (t == typeof(Nullable<bool>))
+                }
+                else if (t == typeof(Nullable<bool>))
+                {
+                    return (Nullable<bool>)obj == null;
+                }
+                else if (t == typeof(Nullable<DateTime>))
+                {
+                    return (Nullable<DateTime>)obj == null;
+                }
+                else if ((int)obj == 0)
+                {
+                    return true;
+                }else if((int)obj != 0)
+                {
+                    return false;
+                }
+                return true;
+            }catch
             {
-                return (Nullable<bool>)obj == null;
+                return true;
             }
-            else if (t == typeof(Nullable<DateTime>))
-            {
-                return (Nullable<DateTime>)obj == null;
-            }
-            return false;
+            
         }
     }
 }

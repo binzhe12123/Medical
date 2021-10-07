@@ -12,27 +12,31 @@ using System.Threading.Tasks;
 namespace SY.Com.Medical.WebApi.Controllers.Platform
 {
     /// <summary>
-    /// 科室控制器
+    /// 员工控制器
     /// </summary>
     [Route("api/[controller]/[Action]")]
-    [Authorize]
     [ApiController]
-    public class DepartmentController : ControllerBase
+    [Authorize]
+    public class EmployeeController : ControllerBase
     {
-        Department bll = new Department();
+        Employee bll = new Employee();
+
         /// <summary>
-        /// 获取科室列表
+        /// 获取租户的员工
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<List<DepartmentResponse>> getList(DepartmentModel request)
+        public BaseResponse<List<EmployeeModel>> getList(EmployeeGetModel request)
         {
-            BaseResponse<List<DepartmentResponse>> result = new BaseResponse<List<DepartmentResponse>>();
-            try {
-                result.Data = bll.getDepartment(request);
+            BaseResponse<List<EmployeeModel>> result = new BaseResponse<List<EmployeeModel>>();
+            try
+            {
+                result.Data = bll.getEmployees(request.UserId);
+                result.Data.AddRange(bll.getEmployeesClose(request.UserId));
                 return result;
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 if (ex is MyException)
                 {
@@ -43,21 +47,20 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
                     return result.sysException(ex.Message);
                 }
             }
-
         }
 
         /// <summary>
-        /// 科室详情
+        /// 获取单个员工信息
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="employeeId"></param>
         /// <returns></returns>
         [HttpGet]
-        public BaseResponse<DepartmentResponse> getDetail(int id)
+        public BaseResponse<EmployeeModel> get(int employeeId)
         {
-            BaseResponse<DepartmentResponse> result = new BaseResponse<DepartmentResponse>();
+            BaseResponse<EmployeeModel> result = new BaseResponse<EmployeeModel>();
             try
             {
-                result.Data = bll.getDetail(id);
+                result.Data = bll.getEmployee(employeeId);
                 return result;
             }
             catch (Exception ex)
@@ -71,21 +74,48 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
                     return result.sysException(ex.Message);
                 }
             }
-
         }
 
         /// <summary>
-        /// 编辑科室
+        /// 邀请
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<bool> update(DepartmentResponse request)
+        public BaseResponse<int> invity(EmployeeInvity request)
+        {
+            BaseResponse<int> result = new BaseResponse<int>();
+            try
+            {
+                result.Data = bll.invite(request.Account,request.TenantId,request.Roles);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                if (ex is MyException)
+                {
+                    return result.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
+                }
+                else
+                {
+                    return result.sysException(ex.Message);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 启用禁用
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<bool> OpenClose(EmployeeOpenClose request)
         {
             BaseResponse<bool> result = new BaseResponse<bool>();
             try
             {
-                bll.updateDepartment(request);
+                var model = bll.getEmployee(request.EmployeeId);
+                bll.updateEmployee(model, request.OpenClose);
                 result.Data = true;
                 return result;
             }
@@ -103,17 +133,17 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
         }
 
         /// <summary>
-        /// 添加科室
+        /// 更新员工信息
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<bool> add(DepartmentCreateRequest request)
+        public BaseResponse<bool> update(EmployeeModel request)
         {
             BaseResponse<bool> result = new BaseResponse<bool>();
             try
             {
-                bll.createDepartment(request);
+                bll.updateEmployee(request,1);
                 result.Data = true;
                 return result;
             }
@@ -129,35 +159,6 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
                 }
             }
         }
-
-        /// <summary>
-        /// 删除科室
-        /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
-        [HttpPost]
-        public BaseResponse<bool> delete(DepartmentResponse request)
-        {
-            BaseResponse<bool> result = new BaseResponse<bool>();
-            try
-            {
-                bll.deleteDepartment(request);
-                result.Data = true;
-                return result;
-            }
-            catch (Exception ex)
-            {
-                if (ex is MyException)
-                {
-                    return result.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
-                }
-                else
-                {
-                    return result.sysException(ex.Message);
-                }
-            }
-        }
-
 
     }
 }

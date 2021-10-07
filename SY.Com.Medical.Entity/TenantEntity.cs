@@ -1,4 +1,5 @@
 ﻿using SY.Com.Medical.Attribute;
+using SY.Com.Medical.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace SY.Com.Medical.Entity
         /// <summary>
         /// 租户ID    
         /// </summary>
+        [DB_Key("TenantId")]
         public int TenantId { get; set; }
 
         /// <summary>
@@ -28,7 +30,7 @@ namespace SY.Com.Medical.Entity
         /// <summary>
         /// 租户类型,枚举    
         /// </summary>
-        public int? TenantType { get; set; }
+        public TenantType TenantType { get; set; }
 
         /// <summary>
         /// 服务开始时间    

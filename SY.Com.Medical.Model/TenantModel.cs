@@ -1,8 +1,10 @@
-﻿using SY.Com.Medical.Enum;
+﻿using Newtonsoft.Json.Converters;
+using SY.Com.Medical.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace SY.Com.Medical.Model
@@ -32,9 +34,9 @@ namespace SY.Com.Medical.Model
     public class UserTenantResponse : BaseModel
     {
         /// <summary>
-        /// 租户ID    
+        /// 租户ID
         /// </summary>
-        public int TenantId { get; set; }
+        public new int TenantId { get; set; }
 
         /// <summary>
         /// 租户名称    
@@ -44,7 +46,8 @@ namespace SY.Com.Medical.Model
         /// <summary>
         /// 租户类型,枚举    
         /// </summary>
-        public int? TenantType { get; set; }
+        
+        public TenantType TenantType { get; set; }
 
         /// <summary>
         /// 服务开始时间    
@@ -71,6 +74,10 @@ namespace SY.Com.Medical.Model
         /// </summary>
         public string YBUrl { get; set; }
 
+        /// <summary>
+        /// 是否老板
+        /// </summary>
+        
         public IsBoss IsBoss {get;set;}
     }
 
@@ -97,10 +104,6 @@ namespace SY.Com.Medical.Model
     /// </summary>
     public class TenantRequest : BaseModel
     {
-        /// <summary>
-        /// 租户ID    
-        /// </summary>
-        public int TenantId { get; set; }
 
         /// <summary>
         /// 租户名称    

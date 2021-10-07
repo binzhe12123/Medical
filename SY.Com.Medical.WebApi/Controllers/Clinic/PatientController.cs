@@ -2,37 +2,42 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SY.Com.Medical.BLL;
-using SY.Com.Medical.BLL.Platform;
+using SY.Com.Medical.BLL.Clinic;
 using SY.Com.Medical.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SY.Com.Medical.WebApi.Controllers.Platform
+namespace SY.Com.Medical.WebApi.Controllers.Clinic
 {
     /// <summary>
-    /// 科室控制器
+    /// 患者信息
     /// </summary>
     [Route("api/[controller]/[Action]")]
-    [Authorize]
     [ApiController]
-    public class DepartmentController : ControllerBase
+    [Authorize]
+    public class PatientController : ControllerBase
     {
-        Department bll = new Department();
+        Patient bll = new Patient();
+
         /// <summary>
-        /// 获取科室列表
+        /// 获取租户患者信息列表
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<List<DepartmentResponse>> getList(DepartmentModel request)
+        public BaseResponse<List<PatientModel>> gets(PatientPage request)
         {
-            BaseResponse<List<DepartmentResponse>> result = new BaseResponse<List<DepartmentResponse>>();
-            try {
-                result.Data = bll.getDepartment(request);
+            BaseResponse<List<PatientModel>> result = new BaseResponse<List<PatientModel>>();
+            try
+            {
+                var tuple = bll.gets(request);
+                result.Data = tuple.Item1;
+                result.CalcPage(tuple.Item2,request.PageIndex,request.PageSize);
                 return result;
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 if (ex is MyException)
                 {
@@ -43,21 +48,20 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
                     return result.sysException(ex.Message);
                 }
             }
-
         }
 
         /// <summary>
-        /// 科室详情
+        /// 获取单个患者信息
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="patientId"></param>
         /// <returns></returns>
         [HttpGet]
-        public BaseResponse<DepartmentResponse> getDetail(int id)
+        public BaseResponse<PatientModel> get(int patientId)
         {
-            BaseResponse<DepartmentResponse> result = new BaseResponse<DepartmentResponse>();
+            BaseResponse<PatientModel> result = new BaseResponse<PatientModel>();
             try
             {
-                result.Data = bll.getDetail(id);
+                result.Data = bll.get(patientId);
                 return result;
             }
             catch (Exception ex)
@@ -71,21 +75,47 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
                     return result.sysException(ex.Message);
                 }
             }
-
         }
 
         /// <summary>
-        /// 编辑科室
+        /// 添加患者
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<bool> update(DepartmentResponse request)
+        public BaseResponse<int> add(PatientAdddto request)
+        {
+            BaseResponse<int> result = new BaseResponse<int>();
+            try
+            {
+                result.Data = bll.add(request);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                if (ex is MyException)
+                {
+                    return result.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
+                }
+                else
+                {
+                    return result.sysException(ex.Message);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 修改患者
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<bool> update(PatientUpdatedto request)
         {
             BaseResponse<bool> result = new BaseResponse<bool>();
             try
             {
-                bll.updateDepartment(request);
+                bll.update(request);
                 result.Data = true;
                 return result;
             }
@@ -103,17 +133,17 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
         }
 
         /// <summary>
-        /// 添加科室
+        /// 删除患者
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<bool> add(DepartmentCreateRequest request)
+        public BaseResponse<bool> delete(PatientDel request)
         {
             BaseResponse<bool> result = new BaseResponse<bool>();
             try
             {
-                bll.createDepartment(request);
+                bll.delete(request.PatientId);
                 result.Data = true;
                 return result;
             }
@@ -129,35 +159,6 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
                 }
             }
         }
-
-        /// <summary>
-        /// 删除科室
-        /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
-        [HttpPost]
-        public BaseResponse<bool> delete(DepartmentResponse request)
-        {
-            BaseResponse<bool> result = new BaseResponse<bool>();
-            try
-            {
-                bll.deleteDepartment(request);
-                result.Data = true;
-                return result;
-            }
-            catch (Exception ex)
-            {
-                if (ex is MyException)
-                {
-                    return result.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
-                }
-                else
-                {
-                    return result.sysException(ex.Message);
-                }
-            }
-        }
-
 
     }
 }

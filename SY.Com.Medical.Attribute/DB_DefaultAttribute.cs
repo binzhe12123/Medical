@@ -24,14 +24,17 @@ namespace SY.Com.Medical.Attribute
                 value = DateTime.Now;
             }else if(t == typeof(Enable))
             {
-                value = (int)Enable.启用;
+                value = (int)Enable.无用;
             }else if(t == typeof(Delete))
             {
-                value = (int)Delete.正常;
+                value = (int)Delete.无用;
             }
             else if (t == typeof(IsBoss))
             {
-                value = (int)IsBoss.不是;
+                value = (int)IsBoss.无用;
+            }else if(t == typeof(Sex))
+            {
+                value = (int)Sex.全部;
             }
         }
 

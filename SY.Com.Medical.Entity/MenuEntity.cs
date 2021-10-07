@@ -18,6 +18,7 @@ namespace SY.Com.Medical.Entity
         /// <summary>
         /// 菜单Id    
         /// </summary>
+        [DB_Key("MenuId")]
         public int MenuId { get; set; }
 
         /// <summary>

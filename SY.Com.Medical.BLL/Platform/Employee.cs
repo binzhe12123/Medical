@@ -23,7 +23,7 @@ namespace SY.Com.Medical.BLL.Platform
         }
 
         /// <summary>
-        /// 获取诊所的员工信息
+        /// 获取诊所的员工信息(启用)
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
@@ -31,12 +31,19 @@ namespace SY.Com.Medical.BLL.Platform
         {
             List<EmployeeModel> result = new List<EmployeeModel>();
             var entitys = db.getTenant(tenantId);
-            foreach(var item in entitys)
-            {
-                EmployeeModel mod = new EmployeeModel();
-                result.Add(CloneClass.Clone<EmployeeEntity, EmployeeModel>(item, mod));
-            }
-            return result;
+            return entitys.EntityToDto<EmployeeModel>();
+        }
+
+        /// <summary>
+        /// 获取诊所员工信息(禁用)
+        /// </summary>
+        /// <param name="tenantId"></param>
+        /// <returns></returns>
+        public List<EmployeeModel> getEmployeesClose(int tenantId)
+        {
+            List<EmployeeModel> result = new List<EmployeeModel>();
+            var entitys = db.getTenantClose(tenantId);
+            return entitys.EntityToDto<EmployeeModel>();
         }
 
         /// <summary>
@@ -50,6 +57,80 @@ namespace SY.Com.Medical.BLL.Platform
             var entity = db.Get(employeeid, "Employees", "EmployeeId");
             CloneClass.Clone<EmployeeEntity, EmployeeModel>(entity, result) ;
             return result;
+        }
+
+        /// <summary>
+        /// 更新员工信息
+        /// </summary>
+        /// <param name="employee"></param>
+        public void updateEmployee(EmployeeModel employee,int OpenClose)
+        {
+            var entity = employee.DtoToEntity<EmployeeEntity>();
+            if (OpenClose == 1)
+            {
+                entity.IsEnable = Enum.Enable.启用;
+            }
+            else {
+                entity.IsEnable = Enum.Enable.禁用;                
+            }
+            db.Update(entity);
+        }
+
+        /// <summary>
+        /// //邀请用户成为员工
+        /// 如果是用户了直接邀请生成员工
+        /// 如果还不是用户,自动注册,密码和验证码默认123456
+        /// </summary>
+        /// <param name="Account"></param>
+        /// <param name="TenantId"></param>
+        /// <param name="roles"></param>
+        /// <returns></returns>
+        public int invite(string Account,int TenantId,string roles)
+        {
+            User us = new User();
+            bool exists = us.ExistsAccount(Account);
+            Department dt = new Department();
+            var departs = dt.getDepartment(new DepartmentModel { TenantId = TenantId });
+            if (exists)
+            {
+                //
+                var user = us.getByAccount(Account);                
+                var em = db.getByUser(new UserEntity { UserId = user.UserId }, TenantId);
+                if (em != null && em.EmployeeId != 0)
+                {
+                    em.IsEnable = Enum.Enable.启用;
+                    em.IsDelete = Enum.Delete.正常;
+                    db.Update(em);
+                    return em.EmployeeId;
+                }
+                else {
+                    EmployeeModel mod = new EmployeeModel()
+                    {
+                        UserId = user.UserId,
+                        Roles = roles,
+                        TenantId = TenantId,
+                        Sex = Enum.Sex.男,
+                        EmployeeName = user.Account,
+                        Departments = departs.FirstOrDefault().DepartmentId.ToString()
+                    };
+                    return createEmployee(mod);
+                }                
+            }
+            else
+            {
+                RegisterRequest mod = new RegisterRequest() { Account = Account, Pwd = "123456", TenantId = TenantId, YZM = "123456" };
+                var res = us.Register(mod);
+                EmployeeModel mod2 = new EmployeeModel()
+                {
+                    UserId = res.UserId,
+                    Roles = roles,
+                    TenantId = TenantId,
+                    Sex = Enum.Sex.男,
+                    EmployeeName = Account,
+                    Departments = departs.FirstOrDefault().DepartmentId.ToString()
+                };
+                return createEmployee(mod2);
+            }
         }
 
         /// <summary>
@@ -70,8 +151,9 @@ namespace SY.Com.Medical.BLL.Platform
         /// <returns></returns>
         public EmployeeModel getEmployee(EmployeeGetModel request)
         {
-            return db.getByUser(new UserEntity { UserId = request.UserId }).EntityToDto<EmployeeModel>();
+            return db.getByUser(new UserEntity { UserId = request.UserId },request.TenantId).EntityToDto<EmployeeModel>();
         }
+
 
 
     }

@@ -21,8 +21,19 @@ namespace SY.Com.Medical.Repository.Platform
         /// <returns></returns>
         public IEnumerable<EmployeeEntity> getTenant(int TenantId)
         {
-            string sql = " Select * From Employees Where TenantId = @TenantId ";
-            return _db.Query<EmployeeEntity>(sql, new { TenantId = TenantId });
+            string sql = " Select * From Employees Where TenantId = @TenantId And IsEnable=@IsEnable ";
+            return _db.Query<EmployeeEntity>(sql, new { TenantId = TenantId, IsEnable=Enum.Enable.启用});
+        }
+
+        /// <summary>
+        /// 获取诊所的员工
+        /// </summary>
+        /// <param name="TenantId"></param>
+        /// <returns></returns>
+        public IEnumerable<EmployeeEntity> getTenantClose(int TenantId)
+        {
+            string sql = " Select * From Employees Where TenantId = @TenantId And IsEnable=@IsEnable ";
+            return _db.Query<EmployeeEntity>(sql, new { TenantId = TenantId, IsEnable = Enum.Enable.禁用 });
         }
 
         //邀请员工
@@ -41,11 +52,12 @@ namespace SY.Com.Medical.Repository.Platform
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        public EmployeeEntity getByUser(UserEntity user)
+        public EmployeeEntity getByUser(UserEntity user,int TenantId)
         {
-            string sql = " Select * From EmployeeEntity Where UserId = @UserId ";
-            return _db.Query<EmployeeEntity>(sql, user).FirstOrDefault();
+            string sql = " Select * From Employees Where UserId = @UserId And TenantId=@TenantId ";
+            return _db.Query<EmployeeEntity>(sql,new { UserId = user.UserId,TenantId=TenantId } ).FirstOrDefault();
         }
-        
+                
+
     }
 }

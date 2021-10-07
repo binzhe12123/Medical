@@ -17,6 +17,7 @@ namespace SY.Com.Medical.Entity
         /// <summary>
         /// 员工角色Id    
         /// </summary>
+        [DB_Key("RoleId")]
         public int RoleId { get; set; }
         /// <summary>
         /// 租户Id

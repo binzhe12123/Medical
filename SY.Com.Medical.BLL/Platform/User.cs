@@ -97,6 +97,17 @@ namespace SY.Com.Medical.BLL.Platform
         }
 
         /// <summary>
+        /// 根据账号获取信息
+        /// </summary>
+        /// <param name="Account"></param>
+        /// <returns></returns>
+        public UserEntity getByAccount(string Account)
+        {
+            var entity = db.Get(Account);
+            return entity;
+        }
+
+        /// <summary>
         /// 重置密码并返回
         /// </summary>
         /// <param name="request"></param>

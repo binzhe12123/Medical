@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SY.Com.Medical.Enum;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,7 +30,7 @@ namespace SY.Com.Medical.Model
         /// <summary>
         /// 
         /// </summary>
-        public string DepartmentCode { get; set; }
+        public string DepartmentCode { get; set; }        
     }
 
     /// <summary>

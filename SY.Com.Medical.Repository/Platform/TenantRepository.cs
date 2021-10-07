@@ -51,5 +51,17 @@ namespace SY.Com.Medical.Repository.Platform
             return _db.Execute(sql, new { UserId = UserId, TenantId = TenantId, IsBoss = (int)isboss, IsEnable = (int)Enable.启用, IsDelete = (int)Enum.Delete.正常 });
         }
 
+        /// <summary>
+        /// 删除租户及其关系
+        /// </summary>
+        /// <param name="TenantId"></param>
+        /// <param name="UserId"></param>
+        public void DeleteTenant(int TenantId,int UserId)
+        {
+            string sql = @" Update Tenants Set IsDelete = @IsDelete Where TenantId=@TenantId;
+                            Update UserTenants Set IsDelete =@IsDelete Where TenantId=@TenantId And UserId=@UserId ";
+            _db.Execute(sql, new { UserId = UserId, TenantId = TenantId, IsDelete = (int)Enum.Delete.删除 });
+        }
+
     }
 }

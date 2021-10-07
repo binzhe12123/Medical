@@ -17,14 +17,10 @@ namespace SY.Com.Medical.Model
         public int EmployeeId { get; set; }
 
         /// <summary>
-        /// 租户id    
+        /// 性别
         /// </summary>
-        public int? TenantId { get; set; }
+        public Enum.Sex Sex { get; set; }
 
-        /// <summary>
-        /// 用户id    
-        /// </summary>
-        public int? UserId { get; set; }
 
         /// <summary>
         /// 员工姓名    
@@ -45,6 +41,11 @@ namespace SY.Com.Medical.Model
         /// 员工角色    
         /// </summary>
         public string Roles { get; set; }
+
+        /// <summary>
+        /// 科室
+        /// </summary>
+        public string Departments { get; set; }
     }
 
     /// <summary>
@@ -52,6 +53,37 @@ namespace SY.Com.Medical.Model
     /// </summary>
     public class EmployeeGetModel : BaseModel
     {
+
+    }
+
+    /// <summary>
+    /// 邀请员工dto
+    /// </summary>
+    public class EmployeeInvity : BaseModel
+    {
+        /// <summary>
+        /// 角色
+        /// </summary>
+        public string Roles { get; set; }
+        /// <summary>
+        /// 账号
+        /// </summary>
+        public string Account { get; set; }
+    }
+
+    /// <summary>
+    /// 启用禁用员工DTO
+    /// </summary>
+    public class EmployeeOpenClose : BaseModel
+    {
+        /// <summary>
+        /// 员工Id    
+        /// </summary>
+        public int EmployeeId { get; set; }
+        /// <summary>
+        /// 1:启用,2:禁用
+        /// </summary>
+        public int OpenClose { get; set; }
 
     }
 

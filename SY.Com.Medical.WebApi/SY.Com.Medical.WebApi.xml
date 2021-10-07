@@ -4,6 +4,126 @@
         <name>SY.Com.Medical.WebApi</name>
     </assembly>
     <members>
+        <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.PatientController">
+            <summary>
+            患者信息
+            </summary>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PatientController.gets(SY.Com.Medical.Model.PatientPage)">
+            <summary>
+            获取租户患者信息列表
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PatientController.get(System.Int32)">
+            <summary>
+            获取单个患者信息
+            </summary>
+            <param name="patientId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PatientController.add(SY.Com.Medical.Model.PatientAdddto)">
+            <summary>
+            添加患者
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PatientController.update(SY.Com.Medical.Model.PatientUpdatedto)">
+            <summary>
+            修改患者
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PatientController.delete(SY.Com.Medical.Model.PatientDel)">
+            <summary>
+            删除患者
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SY.Com.Medical.WebApi.Controllers.Platform.DepartmentController">
+            <summary>
+            科室控制器
+            </summary>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.DepartmentController.getList(SY.Com.Medical.Model.DepartmentModel)">
+            <summary>
+            获取科室列表
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.DepartmentController.getDetail(System.Int32)">
+            <summary>
+            科室详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.DepartmentController.update(SY.Com.Medical.Model.DepartmentResponse)">
+            <summary>
+            编辑科室
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.DepartmentController.add(SY.Com.Medical.Model.DepartmentCreateRequest)">
+            <summary>
+            添加科室
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.DepartmentController.delete(SY.Com.Medical.Model.DepartmentResponse)">
+            <summary>
+            删除科室
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SY.Com.Medical.WebApi.Controllers.Platform.EmployeeController">
+            <summary>
+            员工控制器
+            </summary>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.EmployeeController.getList(SY.Com.Medical.Model.EmployeeGetModel)">
+            <summary>
+            获取租户的员工
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.EmployeeController.get(System.Int32)">
+            <summary>
+            获取单个员工信息
+            </summary>
+            <param name="employeeId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.EmployeeController.invity(SY.Com.Medical.Model.EmployeeInvity)">
+            <summary>
+            邀请
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.EmployeeController.OpenClose(SY.Com.Medical.Model.EmployeeOpenClose)">
+            <summary>
+            启用禁用
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.EmployeeController.update(SY.Com.Medical.Model.EmployeeModel)">
+            <summary>
+            更新员工信息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Platform.LoginController">
             <summary>
             登录相关
@@ -69,6 +189,20 @@
             <param name="request"></param>
             <returns></returns>
         </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.TenantController.deleteTenant(SY.Com.Medical.Model.BaseModel)">
+            <summary>
+            删除租户
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.TenantController.getMenu(SY.Com.Medical.Model.EmployeeGetModel)">
+            <summary>
+            获取用户的菜单
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
         <member name="T:SY.Com.Medical.WebApi.Filter.CustomerFilter">
             <summary>
             获取JWT中的user信息和head中传入的TenantId
@@ -97,6 +231,29 @@
             <summary>
             获取参数自定义绑定
             </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:SY.Com.Medical.WebApi.Filter.ExceptionFilter">
+            <summary>
+            统一处理异常
+            </summary>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Filter.ExceptionFilter.OnException(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
+            <summary>
+            全局异常处理
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:SY.Com.Medical.WebApi.Filter.AddTenantIdHeaderParameter">
+            <summary>
+            自定义swagger的header中tenantid
+            </summary>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Filter.AddTenantIdHeaderParameter.Apply(Microsoft.OpenApi.Models.OpenApiOperation,Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext)">
+            <summary>
+            增加TenantId
+            </summary>
+            <param name="operation"></param>
             <param name="context"></param>
         </member>
         <member name="T:SY.Com.Medical.WebApi.JWT.AuthTokenHeaderParameter">

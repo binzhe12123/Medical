@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SY.Com.Medical.Enum</name>
+    </assembly>
+    <members>
+        <member name="T:SY.Com.Medical.Enum.Delete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.Delete.无用">
+            <summary>
+            无用
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.Delete.正常">
+            <summary>
+            正常
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.Delete.删除">
+            <summary>
+            已删除
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Enum.Enable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.Enable.无用">
+            <summary>
+            无用
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.Enable.启用">
+            <summary>
+             启用
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.Enable.禁用">
+            <summary>
+            禁用
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Enum.IsBoss">
+            <summary>
+            是否老板
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.IsBoss.无用">
+            <summary>
+            无用
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.IsBoss.是">
+            <summary>
+            老板
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.IsBoss.不是">
+            <summary>
+            员工
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Enum.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.Sex.全部">
+            <summary>
+            全部
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.Sex.男">
+            <summary>
+            男
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.Sex.女">
+            <summary>
+            女
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Enum.ErrorCode">
+            <summary>
+            错误代码
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.ErrorCode.程序异常">
+            <summary>
+            程序异常
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.ErrorCode.入参数错误">
+            <summary>
+            入参错误
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.ErrorCode.用户不存在">
+            <summary>
+            用户不存在
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.ErrorCode.用户被禁用">
+            <summary>
+            账号被禁用
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.ErrorCode.密码错误">
+            <summary>
+            密码错误
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.ErrorCode.保护码错误">
+            <summary>
+            保护码错误
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.ErrorCode.业务逻辑错误">
+            <summary>
+            业务逻辑错误
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.ErrorCode.用户已存在">
+            <summary>
+            用户已存在
+            </summary>
+        </member>
+    </members>
+</doc>

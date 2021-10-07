@@ -85,6 +85,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
             try
             {
                 response.Data = tenantbll.CreateTenant(request);
+
                 return response;
             }
             catch (Exception ex)
@@ -128,7 +129,60 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
             }
         }
 
+        /// <summary>
+        /// 删除租户
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<bool> deleteTenant(BaseModel request)
+        {
+            BaseResponse<bool> response = new BaseResponse<bool>();
+            try
+            {
+                tenantbll.DeleteTenant(request.TenantId,request.UserId);
+                response.Data = true;
+                return response;
+            }
+            catch (Exception ex)
+            {
+                if (ex is MyException)
+                {
+                    return response.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
+                }
+                else
+                {
+                    return response.sysException(ex.Message);
+                }
+            }
+        }
 
+        /// <summary>
+        /// 获取用户的菜单
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<List<MenuResponse>> getMenu(EmployeeGetModel request)
+        {
+            BaseResponse<List<MenuResponse>> response = new BaseResponse<List<MenuResponse>>();
+            try
+            {                
+                response.Data = tenantbll.GetMenu(request);
+                return response;
+            }
+            catch (Exception ex)
+            {
+                if (ex is MyException)
+                {
+                    return response.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
+                }
+                else
+                {
+                    return response.sysException(ex.Message);
+                }
+            }
+        }
 
     }
 }

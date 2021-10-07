@@ -71,6 +71,11 @@
             报文体
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.BaseResponse`1.TotalPage">
+            <summary>
+            一共多少页
+            </summary>
+        </member>
         <member name="M:SY.Com.Medical.Model.BaseResponse`1.sysException(System.String)">
             <summary>
             系统异常
@@ -83,6 +88,14 @@
             </summary>
             <param name="errcode">错误码</param>
             <param name="message">错误信息</param>
+        </member>
+        <member name="M:SY.Com.Medical.Model.BaseResponse`1.CalcPage(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            计算分页
+            </summary>
+            <param name="totalCount"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
         </member>
         <member name="T:SY.Com.Medical.Model.DepartmentModel">
             <summary>
@@ -134,14 +147,9 @@
             员工Id    
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.EmployeeModel.TenantId">
+        <member name="P:SY.Com.Medical.Model.EmployeeModel.Sex">
             <summary>
-            租户id    
-            </summary>
-        </member>
-        <member name="P:SY.Com.Medical.Model.EmployeeModel.UserId">
-            <summary>
-            用户id    
+            性别
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.EmployeeModel.EmployeeName">
@@ -164,9 +172,44 @@
             员工角色    
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.EmployeeModel.Departments">
+            <summary>
+            科室
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.EmployeeGetModel">
             <summary>
             获取员工信息
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.EmployeeInvity">
+            <summary>
+            邀请员工dto
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.EmployeeInvity.Roles">
+            <summary>
+            角色
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.EmployeeInvity.Account">
+            <summary>
+            账号
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.EmployeeOpenClose">
+            <summary>
+            启用禁用员工DTO
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.EmployeeOpenClose.EmployeeId">
+            <summary>
+            员工Id    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.EmployeeOpenClose.OpenClose">
+            <summary>
+            1:启用,2:禁用
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.MenuModel">
@@ -242,6 +285,221 @@
         <member name="P:SY.Com.Medical.Model.MenuKeyValueDto.MenuName">
             <summary>
             菜单名称
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.PageModel">
+            <summary>
+            分页模型
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PageModel.PageSize">
+            <summary>
+            每页数量
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PageModel.PageIndex">
+            <summary>
+            第几页
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.PatientModel">
+            <summary>
+            患者dto模型
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientModel.PatientId">
+            <summary>
+            患者ID
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientModel.PatientName">
+            <summary>
+            患者姓名    
+            </summary>    
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientModel.PatientPinYin">
+            <summary>
+            姓名拼音    
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientModel.Phone">
+            <summary>
+            电话（手机号）    
+            </summary>       
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientModel.Sex">
+            <summary>
+            性别    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientModel.CSRQ">
+            <summary>
+            出生日期    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientModel.SFZ">
+            <summary>
+            身份证号    
+            </summary>     
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientModel.YBDNH">
+            <summary>
+            医保电脑号    
+            </summary>  
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientModel.YBKH">
+            <summary>
+            医保卡号    
+            </summary>      
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientModel.Addr">
+            <summary>
+            地址    
+            </summary>      
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientModel.SearchKey">
+            <summary>
+            搜索
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.PatientPage">
+            <summary>
+            患者分页查询模型
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientPage.SearchKey">
+            <summary>
+            搜索   
+            </summary>    
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientPage.Phone">
+            <summary>
+            电话（手机号）    
+            </summary>       
+        </member>
+        <member name="T:SY.Com.Medical.Model.PatientAdddto">
+            <summary>
+            添加
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientAdddto.PatientName">
+            <summary>
+            患者姓名    
+            </summary>    
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientAdddto.PatientPinYin">
+            <summary>
+            姓名拼音    
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientAdddto.Phone">
+            <summary>
+            电话（手机号）    
+            </summary>       
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientAdddto.Sex">
+            <summary>
+            性别    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientAdddto.CSRQ">
+            <summary>
+            出生日期    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientAdddto.SFZ">
+            <summary>
+            身份证号    
+            </summary>     
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientAdddto.YBDNH">
+            <summary>
+            医保电脑号    
+            </summary>  
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientAdddto.YBKH">
+            <summary>
+            医保卡号    
+            </summary>      
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientAdddto.Addr">
+            <summary>
+            地址    
+            </summary>              
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientAdddto.SearchKey">
+            <summary>
+            搜索
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.PatientUpdatedto">
+            <summary>
+            修改
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientUpdatedto.PatientId">
+            <summary>
+            患者ID
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientUpdatedto.PatientName">
+            <summary>
+            患者姓名    
+            </summary>    
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientUpdatedto.PatientPinYin">
+            <summary>
+            姓名拼音    
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientUpdatedto.Phone">
+            <summary>
+            电话（手机号）    
+            </summary>       
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientUpdatedto.Sex">
+            <summary>
+            性别    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientUpdatedto.CSRQ">
+            <summary>
+            出生日期    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientUpdatedto.SFZ">
+            <summary>
+            身份证号    
+            </summary>     
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientUpdatedto.YBDNH">
+            <summary>
+            医保电脑号    
+            </summary>  
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientUpdatedto.YBKH">
+            <summary>
+            医保卡号    
+            </summary>      
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientUpdatedto.Addr">
+            <summary>
+            地址    
+            </summary>              
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientUpdatedto.SearchKey">
+            <summary>
+            搜索
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.PatientDel">
+            <summary>
+            删除患者dto
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientDel.PatientId">
+            <summary>
+            患者ID
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.PlatformQReq.PlatformId">
@@ -331,7 +589,7 @@
         </member>
         <member name="P:SY.Com.Medical.Model.UserTenantResponse.TenantId">
             <summary>
-            租户ID    
+            租户ID
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.UserTenantResponse.TenantName">
@@ -369,6 +627,11 @@
             医保程序路径    
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.UserTenantResponse.IsBoss">
+            <summary>
+            是否老板
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.TenentCreateRequest">
             <summary>
             创建租户入参
@@ -387,11 +650,6 @@
         <member name="T:SY.Com.Medical.Model.TenantRequest">
             <summary>
             租户模型入参
-            </summary>
-        </member>
-        <member name="P:SY.Com.Medical.Model.TenantRequest.TenantId">
-            <summary>
-            租户ID    
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.TenantRequest.TenantName">

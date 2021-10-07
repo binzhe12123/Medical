@@ -31,6 +31,11 @@ namespace SY.Com.Medical.Model
         public T Data { get; set; }
 
         /// <summary>
+        /// 一共多少页
+        /// </summary>
+        public int TotalPage { get; set; }
+
+        /// <summary>
         /// 系统异常
         /// </summary>
         /// <param name="message">错误信息</param>
@@ -54,5 +59,18 @@ namespace SY.Com.Medical.Model
             ErrMes = message;
             return this;
         }
+
+        /// <summary>
+        /// 计算分页
+        /// </summary>
+        /// <param name="totalCount"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        public void CalcPage(int totalCount,int pageIndex,int pageSize)
+        {
+            int extent = totalCount % pageSize == 0 ? 0 : 1;
+            TotalPage = totalCount / pageSize + extent;
+        }
+
     }
 }

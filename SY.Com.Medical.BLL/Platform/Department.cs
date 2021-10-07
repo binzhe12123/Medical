@@ -30,13 +30,17 @@ namespace SY.Com.Medical.BLL.Platform
         public List<DepartmentResponse> getDepartment(DepartmentModel request)
         {
             List<DepartmentResponse> result = new List<DepartmentResponse>();
-            var entitys = db.getTenantDepartment(request.TenantId);
-            foreach(var item in entitys)
-            {
-                DepartmentResponse dr = new DepartmentResponse();
-                result.Add(CloneClass.Clone<DepartmentEntity, DepartmentResponse>(item, dr));
-            }
-            return result;
+            return db.getTenantDepartment(request.TenantId).EntityToDto<DepartmentResponse>();
+        }
+
+        /// <summary>
+        /// 获取科室详情
+        /// </summary>
+        /// <param name="departmentId"></param>
+        /// <returns></returns>
+        public DepartmentResponse getDetail(int departmentId)
+        {
+            return db.Get(departmentId).EntityToDto<DepartmentResponse>();
         }
 
         /// <summary>
@@ -60,6 +64,10 @@ namespace SY.Com.Medical.BLL.Platform
             db.EditDepartment(request.DtoToEntity<DepartmentEntity>());
         }
 
+        /// <summary>
+        /// 删除科室
+        /// </summary>
+        /// <param name="request"></param>
         public void deleteDepartment(DepartmentResponse request)
         {
             db.Delete(request.DtoToEntity<DepartmentEntity>());

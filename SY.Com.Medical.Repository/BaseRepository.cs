@@ -22,6 +22,7 @@ namespace SY.Com.Medical.Repository
     {
         public static object obj = new object();
         protected IDbConnection _db;
+        private IDbConnection _dbid;
         private string strconnection;
 
 
@@ -45,6 +46,7 @@ namespace SY.Com.Medical.Repository
                 throw new DllNotFoundException("无法找到数据库");
             }
             _db = new SqlConnection(strconnection);
+            _dbid = new SqlConnection(ReadConfig.GetConfigSection("Medical_Platform"));
 
         }
 
@@ -86,8 +88,8 @@ namespace SY.Com.Medical.Repository
         public virtual int Create(T t)
         {
             int ireturn = 0;
-            string tableName = ReadAttribute<DB_TableAttribute>.getKey(t).ToString();//获取表名
-            string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(t).ToString();
+            string tableName = ReadAttribute<DB_TableAttribute>.getKey(t.GetType()).ToString();//获取表名
+            string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(t.GetType()).ToString();
             List<string> columns = new List<string>();
             List<string> param = new List<string>();
             if (tableName == "")
@@ -133,8 +135,8 @@ namespace SY.Com.Medical.Repository
         /// <param name="t"></param>
         public virtual void Update(T t)
         {            
-            string tableName = ReadAttribute<DB_TableAttribute>.getKey(t).ToString();//获取表名
-            string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(t).ToString();
+            string tableName = ReadAttribute<DB_TableAttribute>.getKey(t.GetType()).ToString();//获取表名
+            string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(t.GetType()).ToString();
             string entityPrimkey = "";
             string entityPrimvalue = "";
             List<string> updateColumns = new List<string>();
@@ -168,8 +170,8 @@ namespace SY.Com.Medical.Repository
         /// <param name="t"></param>
         public void Delete(T t)
         {
-            string tableName = ReadAttribute<DB_TableAttribute>.getKey(t).ToString();
-            string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(t).ToString();
+            string tableName = ReadAttribute<DB_TableAttribute>.getKey(t.GetType()).ToString();
+            string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(t.GetType()).ToString();
             if (tableName == "")
             {
                 tableName = t.GetType().Name.Replace("Entity", "");
@@ -184,8 +186,8 @@ namespace SY.Com.Medical.Repository
         /// <returns></returns>
         public IEnumerable<T> Gets(T t)
         {
-            string tableName = ReadAttribute<DB_TableAttribute>.getKey(t).ToString();//获取表名
-            string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(t).ToString();
+            string tableName = ReadAttribute<DB_TableAttribute>.getKey(t.GetType()).ToString();//获取表名
+            string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(t.GetType()).ToString();
             StringBuilder whereColumns = new StringBuilder();
             if (tableName == "")
             {
@@ -209,9 +211,13 @@ namespace SY.Com.Medical.Repository
                     {
                         foreach(var attr in prop.GetCustomAttributes())
                         {
-                            if(attr is DBBaseAttribute)
+                            if(attr is DB_LimitAttribute)
                             {
-                                var temp = ReadAttribute<DB_LimitAttribute>.getWhere(prop, (DB_LimitAttribute)attr);
+                                var temp = ReadAttribute<DB_LimitAttribute>.getWhere(prop,t, (DB_LimitAttribute)attr);
+                                whereColumns.Append(temp);
+                            }else if(attr is DB_LikeAttribute)
+                            {
+                                var temp = ReadAttribute<DB_LikeAttribute>.getWhere(prop,t, (DB_LikeAttribute)attr);
                                 whereColumns.Append(temp);
                             }
                         }
@@ -228,12 +234,13 @@ namespace SY.Com.Medical.Repository
 
         /// <summary>
         /// 单表多记录查询-分页
+        /// 多条件Search分页列表查询
         /// </summary>
         /// <returns></returns>
         public Tuple<IEnumerable<T>,int> GetsPage(T t,int pageSize,int pageIndex)
         {
-            string tableName = ReadAttribute<DB_TableAttribute>.getKey(t).ToString();//获取表名
-            string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(t).ToString();
+            string tableName = ReadAttribute<DB_TableAttribute>.getKey(t.GetType()).ToString();//获取表名
+            string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(t.GetType()).ToString();
             StringBuilder whereColumns = new StringBuilder();
             if (tableName == "")
             {
@@ -257,9 +264,14 @@ namespace SY.Com.Medical.Repository
                     {
                         foreach (var attr in prop.GetCustomAttributes())
                         {
-                            if (attr is DBBaseAttribute)
+                            if (attr is DB_LimitAttribute)
                             {
-                                var temp = ReadAttribute<DB_LimitAttribute>.getWhere<T>(t, (DB_LimitAttribute)attr);
+                                var temp = ReadAttribute<DB_LimitAttribute>.getWhere(prop,t, (DB_LimitAttribute)attr);
+                                whereColumns.Append(temp);
+                            }
+                            else if (attr is DB_LikeAttribute)
+                            {
+                                var temp = ReadAttribute<DB_LikeAttribute>.getWhere(prop,t, (DB_LikeAttribute)attr);
                                 whereColumns.Append(temp);
                             }
                         }
@@ -285,6 +297,8 @@ namespace SY.Com.Medical.Repository
             return result;
         }
 
+
+
         /// <summary>
         /// 批量修改
         /// </summary>
@@ -292,8 +306,8 @@ namespace SY.Com.Medical.Repository
         public void Update(IEnumerable<T> collection)
         {
             var t = collection.FirstOrDefault();
-            string tableName = ReadAttribute<DB_TableAttribute>.getKey(t).ToString();//获取表名
-            string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(t).ToString();
+            string tableName = ReadAttribute<DB_TableAttribute>.getKey(t.GetType()).ToString();//获取表名
+            string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(t.GetType()).ToString();
             string entityPrimkey = "";
             string entityPrimvalue = "";
             List<string> updateColumns = new List<string>();
@@ -331,8 +345,8 @@ namespace SY.Com.Medical.Repository
         {
             var t = collection.FirstOrDefault();
             
-            string tableName = ReadAttribute<DB_TableAttribute>.getKey(t).ToString();//获取表名
-            string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(t).ToString();
+            string tableName = ReadAttribute<DB_TableAttribute>.getKey(t.GetType()).ToString();//获取表名
+            string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(t.GetType()).ToString();
             List<string> columns = new List<string>();
             List<string> param = new List<string>();
             if (tableName == "")
@@ -382,7 +396,7 @@ namespace SY.Com.Medical.Repository
                             Select ID From IDGlobal Where Name = @Name; ";
             lock (obj)
             {
-                return _db.QueryFirst<int>(sql, new { Name = name, step = step });
+                return _dbid.QueryFirst<int>(sql, new { Name = name, step = step });
             }
         }
 
@@ -400,7 +414,7 @@ namespace SY.Com.Medical.Repository
                             Select BH From BHGlobal Where ClinicId=@ClinicId And Name = @Name;  ";
             lock (obj)
             {
-                return _db.QueryFirst<long>(sql, new { TenantId= TenantId, Name = name, step = step });
+                return _dbid.QueryFirst<long>(sql, new { TenantId= TenantId, Name = name, step = step });
             }
         }
 

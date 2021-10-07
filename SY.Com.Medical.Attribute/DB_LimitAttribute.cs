@@ -24,17 +24,17 @@ namespace SY.Com.Medical.Attribute
             return null;
         }
 
-        public override string GetWhere(object t)
+        public override string GetWhere(object t,object v)
         {
             string result = "";
             foreach(var prop in t.GetType().GetProperties())
             {
                 if(prop.Name.ToLower() == dic["start"].ToString())
                 {
-                    result += $" And {prop.Name} >= @{dic["start"]} ";
+                    result += $" And {prop.Name} >= @{ prop.GetValue(v)} ";
                 }else if (prop.Name.ToLower() == dic["end"].ToString())
                 {
-                    result += $" And {prop.Name} <= @{dic["end"]} ";
+                    result += $" And {prop.Name} <= @{prop.GetValue(v)} ";
                 }
             }
             return result;

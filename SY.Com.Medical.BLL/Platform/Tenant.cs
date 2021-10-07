@@ -35,8 +35,8 @@ namespace SY.Com.Medical.BLL.Platform
             List<UserTenantResponse> responsesboss = new List<UserTenantResponse>();
             if (join.Any()) join.ToList().ForEach(entity => responsesjoin.Add(entity.EntityToDto<UserTenantResponse>()));
             if (boss.Any()) boss.ToList().ForEach(entity => responsesboss.Add(entity.EntityToDto<UserTenantResponse>()));
-            if (responsesjoin.Any()) responsesjoin.ForEach(response => response.IsBoss = Enum.IsBoss.是);
-            if (responsesboss.Any()) responsesboss.ForEach(response => response.IsBoss = Enum.IsBoss.不是);
+            if (responsesjoin.Any()) responsesjoin.ForEach(response => response.IsBoss = Enum.IsBoss.不是);
+            if (responsesboss.Any()) responsesboss.ForEach(response => response.IsBoss = Enum.IsBoss.是);
             return responsesjoin.Concat(responsesboss);
         }
 
@@ -53,8 +53,8 @@ namespace SY.Com.Medical.BLL.Platform
             List<UserTenantResponse> responsesboss = new List<UserTenantResponse>();
             if (join.Any()) join.ToList().ForEach(entity => responsesjoin.Add(entity.EntityToDto<UserTenantResponse>()));
             if (boss.Any()) boss.ToList().ForEach(entity => responsesboss.Add(entity.EntityToDto<UserTenantResponse>()));
-            if (responsesjoin.Any()) responsesjoin.ForEach(response => response.IsBoss = Enum.IsBoss.是);
-            if (responsesboss.Any()) responsesboss.ForEach(response => response.IsBoss = Enum.IsBoss.不是);
+            if (responsesjoin.Any()) responsesjoin.ForEach(response => response.IsBoss = Enum.IsBoss.不是);
+            if (responsesboss.Any()) responsesboss.ForEach(response => response.IsBoss = Enum.IsBoss.是);
             return responsesjoin.Concat(responsesboss).ToList().Find(x => x.TenantId == request.TenantId);
         }
 
@@ -79,11 +79,19 @@ namespace SY.Com.Medical.BLL.Platform
                 EmployeeModel emmod = new EmployeeModel();
                 UserModel ummod = ubll.getUser(request.UserId);
                 var mod = CloneClass.Clone<UserModel, EmployeeModel>(ummod, emmod);
+                mod.TenantId = TenantID;
+                mod.Roles = "1,2";
                 embll.createEmployee(mod);
             }
             UserTenantResponse response = new UserTenantResponse();
             response.TenantId = TenantID;
             response.TenantName = request.TenantName;
+            response.TenantType = request.TenantType;
+            response.TenantServiceStart = entity.TenantServiceStart;
+            response.TenantServiceEnd = entity.TenantServiceEnd;
+            //
+            DepartmentRepository dbdepart = new DepartmentRepository();
+            dbdepart.CopyToTenant(TenantID);
             return response;
         }
 
@@ -98,13 +106,22 @@ namespace SY.Com.Medical.BLL.Platform
         }
 
         /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="TenantId"></param>
+        public void DeleteTenant(int TenantId,int UserId)
+        {
+            db.DeleteTenant(TenantId, UserId);            
+        }
+
+        /// <summary>
         /// 点击进入租户
         /// 根据用户信息获取员工信息
         /// 根据员工角色信息获取菜单信息
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public List<MenuModel> GetMenu(EmployeeGetModel request)
+        public List<MenuResponse> GetMenu(EmployeeGetModel request)
         {
             Employee em = new Employee();
             var emmodel = em.getEmployee(request);            
@@ -114,7 +131,7 @@ namespace SY.Com.Medical.BLL.Platform
                 listrole.Add(new RoleEntity() { RoleId = int.Parse(item) });
             }
             RoleRepository dbrole = new RoleRepository();
-            return dbrole.getMenus(listrole).EntityToDto<MenuModel>();
+            return dbrole.getMenus(listrole).EntityToDto<MenuResponse>();
         }
 
 
