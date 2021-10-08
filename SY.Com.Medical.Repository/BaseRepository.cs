@@ -81,6 +81,30 @@ namespace SY.Com.Medical.Repository
         }
 
         /// <summary>
+        /// 获取表的单条记录及导航记录(只有单个导航属性)
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public virtual T Get<D>(int id,Func<T,D,T> func,string OnSplit = "")
+        {
+            Type t = typeof(T);
+            string tableName = ReadAttribute<DB_TableAttribute>.getKey(t).ToString();//获取表名
+            string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(t).ToString();
+            Type d = typeof(D);
+            string tableName2 = ReadAttribute<DB_TableAttribute>.getKey(t).ToString();//获取表名
+            string tablekey2 = ReadAttribute<DB_KeyAttribute>.getKey(t).ToString();
+            string sql = @$" Select {tableName}.*,{tableName2}.* 
+                             From  {tableName}
+                             Inner Join {tableName2} On {tableName}.{OnSplit} = {tableName2}.{OnSplit}
+                             Where {tableName}.{tablekey} = @id ";
+            if (OnSplit == "")
+            {
+                OnSplit = tablekey2;
+            }                
+            return _db.Query<T, D, T>(sql.ToString(), func, new { Id = id }, splitOn: OnSplit).Distinct().FirstOrDefault();
+        }
+
+        /// <summary>
         /// 新增单条记录,并返回新增记录唯一id
         /// </summary>
         /// <param name="t"></param>
@@ -214,11 +238,11 @@ namespace SY.Com.Medical.Repository
                             if(attr is DB_LimitAttribute)
                             {
                                 var temp = ReadAttribute<DB_LimitAttribute>.getWhere(prop,t, (DB_LimitAttribute)attr);
-                                whereColumns.Append(temp);
+                                whereColumns.Append(" And " + temp.Tostring());
                             }else if(attr is DB_LikeAttribute)
                             {
                                 var temp = ReadAttribute<DB_LikeAttribute>.getWhere(prop,t, (DB_LikeAttribute)attr);
-                                whereColumns.Append(temp);
+                                whereColumns.Append(" And " + temp.Tostring());
                             }
                         }
                     }
@@ -230,6 +254,70 @@ namespace SY.Com.Medical.Repository
             }
             string sql = $" Select * From {tableName} Where 1=1 {whereColumns} ";
             return _db.Query<T>(sql, t);
+        }
+
+        /// <summary>
+        /// 单表多记录查询,单表包含导航属性
+        /// </summary>
+        /// <typeparam name="D"></typeparam>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        public IEnumerable<T> Gets<D>(T t,Func<T, D, T> func, string OnSplit = "")
+        {
+            string tableName = ReadAttribute<DB_TableAttribute>.getKey(t.GetType()).ToString();//获取表名
+            string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(t.GetType()).ToString();
+            StringBuilder whereColumns = new StringBuilder();
+            if (tableName == "")
+            {
+                tableName = t.GetType().Name.Replace("Entity", "");//如果反射没获取到用实体名称去掉Entity试试
+            }
+            //导航表
+            Type d = typeof(D);
+            string tableName2 = ReadAttribute<DB_TableAttribute>.getKey(d).ToString();//获取表名
+            string tablekey2 = ReadAttribute<DB_KeyAttribute>.getKey(d).ToString();
+            PropertyInfo[] properties = t.GetType().GetProperties();
+            foreach (PropertyInfo prop in properties)
+            {
+                //排除主键,排除默认值或空值的键,处理各种Attribute
+                if (prop.IsDefined(typeof(DB_KeyAttribute), false))
+                {
+
+                }
+                else if (prop.IsDefined(typeof(DB_NotColumAttribute), false))
+                {
+
+                }
+                else if (!DefaultValue.IsDefaultValue(prop.PropertyType, prop.GetValue(t)))
+                {
+                    if (prop.IsDefined(typeof(DBBaseAttribute), false))
+                    {
+                        foreach (var attr in prop.GetCustomAttributes())
+                        {
+                            if (attr is DB_LimitAttribute)
+                            {
+                                var temp = ReadAttribute<DB_LimitAttribute>.getWhere(prop, t, (DB_LimitAttribute)attr);
+                                whereColumns.Append( $" And {tableName}." + temp.Tostring());
+                            }
+                            else if (attr is DB_LikeAttribute)
+                            {
+                                var temp = ReadAttribute<DB_LikeAttribute>.getWhere(prop, t, (DB_LikeAttribute)attr);
+                                whereColumns.Append($" And {tableName}." + temp.Tostring());
+                            }
+                        }
+                    }
+                    else
+                    {
+                        whereColumns.Append($" And {tableName}.{prop.Name}=@{prop.Name}");
+                    }
+                }
+            }
+            string sql = @$"                            
+                            Select {tableName}.*,{tableName2}.* 
+                             From  {tableName}                            
+                             Inner Join {tableName2} On {tableName}.{OnSplit} = {tableName2}.{OnSplit}
+                             Where 1=1 {whereColumns}
+                              ";
+            return _db.Query<T,D,T>(sql,func, t, splitOn : OnSplit);
         }
 
         /// <summary>
@@ -407,14 +495,26 @@ namespace SY.Com.Medical.Repository
         /// <param name="name"></param>
         /// <param name="step"></param>
         /// <returns></returns>
-        public long getBH(int TenantId,string name, int step = 1)
+        public long getBH(int tenantId,string tableName, int step = 1)
         {
             string sql = @" 
-                            Update BHGlobal Set BH = BH + @step Where TenantId=@TenantId And Name = @Name ;
-                            Select BH From BHGlobal Where ClinicId=@ClinicId And Name = @Name;  ";
+                        if exists( select BH From BHGlobal Where TenantId = @TenantId And Name=@Name )
+                        Begin
+	                        if exists( select BH From BHGlobal Where TenantId = @TenantId And Name=@Name And BHdate = @day )
+	                        Begin
+		                        Update BHGlobal Set BH = BH + @step Where TenantId=@TenantId And Name = @Name 
+	                        End Else Begin
+		                        Update BHGlobal Set BH = 0 + @step,BHdate=getdate() Where TenantId=@TenantId And Name = @Name
+	                        End
+                        End Else Begin
+
+	                        Insert Into BHGlobal(Name,TenantId)
+	                        Values(@Name,@TenantId)
+                        End
+                        Select BH From BHGlobal Where TenantId=@TenantId And Name = @Name;  ";
             lock (obj)
             {
-                return _dbid.QueryFirst<long>(sql, new { TenantId= TenantId, Name = name, step = step });
+                return _dbid.QueryFirst<long>(sql, new { TenantId= tenantId, Name = tableName, step = step,day = DateTime.Now.ToShortDateString() });
             }
         }
 

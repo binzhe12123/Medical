@@ -12,11 +12,11 @@ using System.Threading.Tasks;
 namespace SY.Com.Medical.WebApi.Controllers.Platform
 {
     /// <summary>
-    /// 科室控制器
+    /// 科室控制器abc
     /// </summary>
     [Route("api/[controller]/[Action]")]
     [Authorize]
-    [ApiController]
+    [ApiController]    
     public class DepartmentController : ControllerBase
     {
         Department bll = new Department();

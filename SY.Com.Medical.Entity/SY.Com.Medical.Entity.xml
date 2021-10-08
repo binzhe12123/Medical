@@ -1,0 +1,413 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SY.Com.Medical.Entity</name>
+    </assembly>
+    <members>
+        <member name="T:SY.Com.Medical.Entity.BaseEntity">
+            <summary>
+            基础实体
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.BaseEntity.IsEnable">
+            <summary>
+            是否可用:枚举    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.BaseEntity.IsDelete">
+            <summary>
+            启用禁用
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.BaseEntity.CreateTime">
+            <summary>
+            记录创建时间
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Entity.DepartmentEntity">
+            <summary>
+             科室实体    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.DepartmentEntity.DepartmentId">
+            <summary>
+            科室ID    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.DepartmentEntity.TenantId">
+            <summary>
+            租户ID
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.DepartmentEntity.DepartmentName">
+            <summary>
+            科室名称    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.DepartmentEntity.DepartmentCode">
+            <summary>
+            科室编码    
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Entity.EmployeeEntity">
+            <summary>
+             员工实体    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.EmployeeEntity.EmployeeId">
+            <summary>
+            员工Id    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.EmployeeEntity.TenantId">
+            <summary>
+            租户id    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.EmployeeEntity.UserId">
+            <summary>
+            用户id    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.EmployeeEntity.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.EmployeeEntity.EmployeeName">
+            <summary>
+            员工姓名    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.EmployeeEntity.EmployeePhone">
+            <summary>
+            员工电话    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.EmployeeEntity.YBCode">
+            <summary>
+            员工医保编码    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.EmployeeEntity.Roles">
+            <summary>
+            员工角色    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.EmployeeEntity.Departments">
+            <summary>
+            科室
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Entity.MenuEntity">
+            <summary>
+             菜单    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.MenuEntity.MenuId">
+            <summary>
+            菜单Id    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.MenuEntity.MenuName">
+            <summary>
+            菜单名称    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.MenuEntity.MenuRoute">
+            <summary>
+            菜单路由    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.MenuEntity.MenuParent">
+            <summary>
+            父路由,一级菜单为0    
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Entity.PatientEntity">
+            <summary>
+             患者实体    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PatientEntity.PatientId">
+            <summary>
+            主键ID    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PatientEntity.TenantId">
+            <summary>
+            租户ID    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PatientEntity.PatientName">
+            <summary>
+            患者姓名    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PatientEntity.PatientPinYin">
+            <summary>
+            姓名拼音    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PatientEntity.Phone">
+            <summary>
+            电话（手机号）    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PatientEntity.Sex">
+            <summary>
+            性别    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PatientEntity.CSRQ">
+            <summary>
+            出生日期    
+            </summary>        
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PatientEntity.SFZ">
+            <summary>
+            身份证号    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PatientEntity.YBDNH">
+            <summary>
+            医保电脑号    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PatientEntity.YBKH">
+            <summary>
+            医保卡号    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PatientEntity.Addr">
+            <summary>
+            地址    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PlatformsEntity.PlatformId">
+            <summary>
+            主键id    
+            </summary>    
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PlatformsEntity.PlatformName">
+            <summary>
+            平台名称    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PlatformsEntity.LogoImage">
+            <summary>
+            logo    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PlatformsEntity.LogoIco">
+            <summary>
+            ico    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PlatformsEntity.UrlAdd">
+            <summary>
+            url    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PlatformsEntity.ServicePhone">
+            <summary>
+            服务电话    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PlatformsEntity.Title">
+            <summary>
+            标题    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PlatformsEntity.Slogan">
+            <summary>
+            标语口号    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PlatformsEntity.Record">
+            <summary>
+            备案信息    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PlatformsEntity.VersionId">
+            <summary>
+            版本id    
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Entity.RoleEntity">
+            <summary>
+             员工角色    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.RoleEntity.RoleId">
+            <summary>
+            员工角色Id    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.RoleEntity.TenantId">
+            <summary>
+            租户Id
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.RoleEntity.RoleName">
+            <summary>
+            员工角色名称    
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Entity.RoleMenuEntity">
+            <summary>
+            角色菜单关系表
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.RoleMenuEntity.Id">
+            <summary>
+            自增主键
+            </summary>        
+        </member>
+        <member name="P:SY.Com.Medical.Entity.RoleMenuEntity.MenuId">
+            <summary>
+            菜单id
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.RoleMenuEntity.RoleId">
+            <summary>
+            角色id
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Entity.TenantDepartmentEntity">
+            <summary>
+             租户科室    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.TenantDepartmentEntity.TenantDepartmentId">
+            <summary>
+            主键    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.TenantDepartmentEntity.TenantId">
+            <summary>
+            无    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.TenantDepartmentEntity.DepartmentId">
+            <summary>
+            科室id    
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Entity.TenantEntity">
+            <summary>
+             租户    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.TenantEntity.TenantId">
+            <summary>
+            租户ID    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.TenantEntity.TenantName">
+            <summary>
+            租户名称    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.TenantEntity.TenantType">
+            <summary>
+            租户类型,枚举    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.TenantEntity.TenantServiceStart">
+            <summary>
+            服务开始时间    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.TenantEntity.TenantServiceEnd">
+            <summary>
+            服务结束时间    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.TenantEntity.YBCode">
+            <summary>
+            医保编码    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.TenantEntity.YBName">
+            <summary>
+            医保名称    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.TenantEntity.YBUrl">
+            <summary>
+            医保程序路径    
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Entity.TenantMenuEntity">
+            <summary>
+             租户菜单    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.TenantMenuEntity.Id">
+            <summary>
+            自增id    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.TenantMenuEntity.MenuId">
+            <summary>
+            菜单id    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.TenantMenuEntity.TenantId">
+            <summary>
+            租户id    
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Entity.UserEntity">
+            <summary>
+             用户    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.UserEntity.UserId">
+            <summary>
+            用户id    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.UserEntity.Account">
+            <summary>
+            账号    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.UserEntity.Pwd">
+            <summary>
+            密码md5小写    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.UserEntity.YZM">
+            <summary>
+            验证码    
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Entity.UserTenantEntity">
+            <summary>
+             用户关联租户    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.UserTenantEntity.Id">
+            <summary>
+            无    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.UserTenantEntity.UsersId">
+            <summary>
+            无    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.UserTenantEntity.TenantId">
+            <summary>
+            租户ID    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.UserTenantEntity.IsBoss">
+            <summary>
+            是否老板    
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -46,7 +46,7 @@
         </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Platform.DepartmentController">
             <summary>
-            科室控制器
+            科室控制器abc
             </summary>
         </member>
         <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.DepartmentController.getList(SY.Com.Medical.Model.DepartmentModel)">

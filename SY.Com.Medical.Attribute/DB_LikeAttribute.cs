@@ -13,11 +13,10 @@ namespace SY.Com.Medical.Attribute
     [System.AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Property, Inherited = false, AllowMultiple = false)]
     public class DB_LikeAttribute : DBBaseAttribute
     {
-        public override string GetWhere(object t,object v)
+        public override SqlWhereMod GetWhere(object t,object v)
         {
             PropertyInfo prop = (PropertyInfo)t;
-            string result = $" And {prop.Name} Like '%{ prop.GetValue(v) }%'";
-            return result;
+            return new SqlWhereMod { Column = prop.Name, Param = $"'%{ prop.GetValue(v) }%'", Operator = "Like" };            
         }
     }
 }

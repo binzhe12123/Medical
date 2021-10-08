@@ -20,6 +20,19 @@ namespace SY.Com.Medical.Attribute
         protected virtual IEnumerable<string> GetKeys() => dic.Keys.AsEnumerable();
         public virtual object GetKey() => Name;
         protected virtual object GetValue(string key) => dic[key];
-        public virtual string GetWhere(object t,object v) => "";
+        public virtual SqlWhereMod GetWhere(object t,object v) => new SqlWhereMod();
     }
+
+    public class SqlWhereMod
+    {
+        public string Column { get; set; }
+        public string Param { get; set; }
+        public string Operator { get; set; }
+        public string Tostring()
+        {
+            return Column + Operator + Param;
+        }
+    }
+    
+
 }

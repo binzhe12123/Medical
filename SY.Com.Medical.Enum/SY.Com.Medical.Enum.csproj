@@ -8,4 +8,8 @@
     <DocumentationFile>E:\代码\门诊\SY.Com.Medical.Enum\SY.Com.Medical.Enum.xml</DocumentationFile>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>E:\代码\门诊\SY.Com.Medical.Enum\SY.Com.Medical.Enum.xml</DocumentationFile>
+  </PropertyGroup>
+
 </Project>

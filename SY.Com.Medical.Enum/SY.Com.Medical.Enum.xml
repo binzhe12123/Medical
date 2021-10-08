@@ -4,6 +4,41 @@
         <name>SY.Com.Medical.Enum</name>
     </assembly>
     <members>
+        <member name="T:SY.Com.Medical.Enum.CaseBookType">
+            <summary>
+            门诊病历类型
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.CaseBookType.门诊全科">
+            <summary>
+            全科
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.CaseBookType.门诊中医">
+            <summary>
+            中医
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.CaseBookType.门诊西医">
+            <summary>
+            西医
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.CaseBookType.门诊口腔">
+            <summary>
+            口腔
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.CaseBookType.门诊儿科">
+            <summary>
+            儿科
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.CaseBookType.门诊妇科">
+            <summary>
+            妇科
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Enum.Delete">
             <summary>
             是否删除

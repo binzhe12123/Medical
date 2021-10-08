@@ -24,17 +24,21 @@ namespace SY.Com.Medical.Attribute
             return null;
         }
 
-        public override string GetWhere(object t,object v)
+        public override SqlWhereMod GetWhere(object t,object v)
         {
-            string result = "";
+            SqlWhereMod result = new SqlWhereMod();            
             foreach(var prop in t.GetType().GetProperties())
             {
                 if(prop.Name.ToLower() == dic["start"].ToString())
                 {
-                    result += $" And {prop.Name} >= @{ prop.GetValue(v)} ";
+                    result.Column = prop.Name;
+                    result.Param = $"'{prop.GetValue(v)}'";
+                    result.Operator = ">=";
                 }else if (prop.Name.ToLower() == dic["end"].ToString())
                 {
-                    result += $" And {prop.Name} <= @{prop.GetValue(v)} ";
+                    result.Column = prop.Name;
+                    result.Param = $"'{prop.GetValue(v)}'";
+                    result.Operator = "<=";                    
                 }
             }
             return result;
