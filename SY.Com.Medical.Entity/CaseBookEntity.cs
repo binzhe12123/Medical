@@ -18,6 +18,7 @@ namespace SY.Com.Medical.Entity
         /// <summary>
         /// 主键ID    
         /// </summary>
+        [DB_Key("CaseBookId")]
         public int CaseBookId { get; set; }
 
         /// <summary>
@@ -38,7 +39,7 @@ namespace SY.Com.Medical.Entity
         /// <summary>
         /// 医生ID,对应Role是医生的EmployeeId    
         /// </summary>
-        public int? DoctorId { get; set; }
+        public int DoctorId { get; set; }
 
         /// <summary>
         /// 科室id    

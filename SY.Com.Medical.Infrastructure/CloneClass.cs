@@ -10,7 +10,7 @@ namespace SY.Com.Medical.Infrastructure
     {
 
         /// <summary>
-        /// 对象clone,把t转成u
+        /// 对象clone,把t转成u,可以进行多深度转换
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <typeparam name="U"></typeparam>

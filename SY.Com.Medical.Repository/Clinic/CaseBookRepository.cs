@@ -42,5 +42,24 @@ namespace SY.Com.Medical.Repository.Clinic
                 return casebook;
             }, "PatientId");
         }
+
+        /// <summary>
+        /// 获取有导航属性的多条记录 - 分页
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="pageIndex"></param>
+        /// <returns></returns>
+        public Tuple<IEnumerable<CaseBookEntity>,int> getPages(CaseBookEntity entity,int pageSize,int pageIndex)
+        {
+            
+            var datas = GetsPage<PatientEntity>(entity, (casebook, patien) =>
+            {
+                casebook.PatientInfo = patien;
+                return casebook;
+            }, pageSize, pageIndex, "PatientId");
+            Tuple<IEnumerable<CaseBookEntity>, int> result = new Tuple<IEnumerable<CaseBookEntity>, int>(datas.Item1,datas.Item2);
+            return result;
+        }
     }
 }

@@ -97,6 +97,276 @@
             <param name="pageIndex"></param>
             <param name="pageSize"></param>
         </member>
+        <member name="T:SY.Com.Medical.Model.CaseBookModel">
+            <summary>
+            病历全模型
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookModel.CaseBookId">
+            <summary>
+            主键ID    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookModel.PatientId">
+            <summary>
+            患者ID    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookModel.OutPatientId">
+            <summary>
+            门诊ID    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookModel.DoctorId">
+            <summary>
+            医生ID,对应Role是医生的EmployeeId    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookModel.DepartmentId">
+            <summary>
+            科室id    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookModel.CaseBookTypeId">
+            <summary>
+            病历类型枚举ID    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookModel.CaseBookBH">
+            <summary>
+            病历编号    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookModel.Complaint">
+            <summary>
+            主诉    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookModel.Diagnosis">
+            <summary>
+            诊断    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookModel.Disease">
+            <summary>
+            疾病    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookModel.OutPatientDate">
+            <summary>
+            门诊日期    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookModel.CaseOrder">
+            <summary>
+            医嘱    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookModel.PastCase">
+            <summary>
+            现病史    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookModel.HistoryCase">
+            <summary>
+            既往史    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookModel.Physical">
+            <summary>
+            体格检查    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookModel.Opinions">
+            <summary>
+            治疗意见    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookModel.Tooth">
+            <summary>
+            牙位    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookModel.Place">
+            <summary>
+            部位    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookModel.DoctorName">
+            <summary>
+            医生姓名    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookModel.DepartmentName">
+            <summary>
+            科室    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookModel.PatientInfo">
+            <summary>
+            患者导航属性
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.CaseBookAdd">
+            <summary>
+            病历新增模型
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookAdd.PatientId">
+            <summary>
+            患者ID    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookAdd.DoctorId">
+            <summary>
+            医生ID,对应Role是医生的EmployeeId    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookAdd.CaseBookTypeId">
+            <summary>
+            病历类型枚举ID    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookAdd.Complaint">
+            <summary>
+            主诉    
+            </summary>        
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookAdd.Diagnosis">
+            <summary>
+            诊断    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookAdd.Disease">
+            <summary>
+            疾病    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookAdd.CaseOrder">
+            <summary>
+            医嘱    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookAdd.PastCase">
+            <summary>
+            现病史    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookAdd.HistoryCase">
+            <summary>
+            既往史    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookAdd.Physical">
+            <summary>
+            体格检查    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookAdd.Opinions">
+            <summary>
+            治疗意见    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookAdd.Tooth">
+            <summary>
+            牙位    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookAdd.Place">
+            <summary>
+            部位    
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.CaseBookUpdate">
+            <summary>
+            病历修改模型
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookUpdate.CaseBookId">
+            <summary>
+            病历ID主键   
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookUpdate.DoctorId">
+            <summary>
+            医生ID,对应Role是医生的EmployeeId    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookUpdate.CaseBookTypeId">
+            <summary>
+            病历类型枚举ID    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookUpdate.Complaint">
+            <summary>
+            主诉    
+            </summary>        
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookUpdate.Diagnosis">
+            <summary>
+            诊断    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookUpdate.Disease">
+            <summary>
+            疾病    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookUpdate.CaseOrder">
+            <summary>
+            医嘱    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookUpdate.PastCase">
+            <summary>
+            现病史    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookUpdate.HistoryCase">
+            <summary>
+            既往史    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookUpdate.Physical">
+            <summary>
+            体格检查    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookUpdate.Opinions">
+            <summary>
+            治疗意见    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookUpdate.Tooth">
+            <summary>
+            牙位    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookUpdate.Place">
+            <summary>
+            部位    
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.CaseBookDelete">
+            <summary>
+            病历删除模型
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookDelete.CaseBookId">
+            <summary>
+            病历ID主键   
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.CaseBookPage">
+            <summary>
+            病历分页模型
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookPage.PatientId">
+            <summary>
+            患者ID    
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.DepartmentModel">
             <summary>
             

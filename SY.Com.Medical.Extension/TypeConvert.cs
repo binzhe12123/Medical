@@ -22,15 +22,16 @@ namespace SY.Com.Medical.Extension
             Type modtype = dto.GetType();
             Type entitytype = typeof(E);
             E entity = (E)Activator.CreateInstance(typeof(E));
-            foreach (var prop in modtype.GetProperties())
-            {
-                var pro = entitytype.GetProperty(prop.Name);
-                if (pro != null)
-                {
-                    pro.SetValue(entity, prop.GetValue(dto));
-                }
-            }
-            return entity;
+            return (E)DeepCopyByReflection(dto, entity);
+            //foreach (var prop in modtype.GetProperties())
+            //{
+            //    var pro = entitytype.GetProperty(prop.Name);
+            //    if (pro != null)
+            //    {
+            //        pro.SetValue(entity, prop.GetValue(dto));
+            //    }
+            //}
+            //return entity;
         }
 
         /// <summary>
@@ -79,15 +80,50 @@ namespace SY.Com.Medical.Extension
             Type modtype = typeof(D);
             Type entitytype = entity.GetType();
             D dto = (D)Activator.CreateInstance(typeof(D));
-            foreach (var prop in entitytype.GetProperties())
+            return (D)DeepCopyByReflection(entity, dto);
+            //foreach (var prop in entitytype.GetProperties())
+            //{                
+            //    var pro = modtype.GetProperty(prop.Name);
+            //    if (pro != null)
+            //    {
+            //        pro.SetValue(dto, prop.GetValue(entity));                  
+            //    }
+            //}
+            //return dto;
+        }
+
+        /// <summary>
+        /// 深度拷贝并转换数据类型,暂时不兼容Struct
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        private static Object DeepCopyByReflection(Object source,Object target)
+        {
+            //if (source is string || source.GetType().IsValueType)
+            //{
+            //    target = source;
+            //    return target;
+            //}                
+            foreach (var sourceProp in source.GetType().GetProperties())
             {
-                var pro = modtype.GetProperty(prop.Name);
-                if (pro != null)
+                var targetProp = target.GetType().GetProperty(sourceProp.Name);
+                if(targetProp == null)
                 {
-                    pro.SetValue(dto, prop.GetValue(entity));
+                    continue;
+                }
+                //引用类型继续递归,值类型复制值
+                if ( targetProp.PropertyType.IsClass && targetProp.PropertyType.FullName != "System.String")
+                {
+                    targetProp.SetValue(target, DeepCopyByReflection(sourceProp.GetValue(source), Activator.CreateInstance(targetProp.PropertyType)));
+                }
+                else
+                {
+                    targetProp.SetValue(target, sourceProp.GetValue(source));
                 }
             }
-            return dto;
+
+            return target;
         }
 
         /// <summary>

@@ -50,6 +50,14 @@ namespace SY.Com.Medical.Repository
 
         }
 
+        //制定数据库
+        public BaseRepository(string strconnection)
+        {
+            _db = new SqlConnection(strconnection);
+            _dbid = new SqlConnection(ReadConfig.GetConfigSection("Medical_Platform"));
+
+        }
+
         /// <summary>
         /// 单表单记录查询
         /// </summary>
@@ -60,7 +68,7 @@ namespace SY.Com.Medical.Repository
             Type t = typeof(T);
             string tableName = ReadAttribute<DB_TableAttribute>.getKey(t).ToString();//获取表名
             string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(t).ToString();
-            string sql = $" Select * From {tableName} Where {tablekey} = @Id ";
+            string sql = $" Select * From {tableName} Where {tablekey} = @Id And IsDelete = 1 ";
             return _db.QueryFirstOrDefault<T>(sql, new { Id = id });
         }
 
@@ -76,7 +84,7 @@ namespace SY.Com.Medical.Repository
             {
                 tableName = t.Name.Replace("Entity", "");
             }
-            string sql = $" Select * From {tableName} Where {tablekey} = @Id ";
+            string sql = $" Select * From {tableName} Where {tablekey} = @Id And IsDelete = 1 ";
             return _db.QueryFirstOrDefault<T>(sql, new {  Id = id });
         }
 
@@ -91,12 +99,12 @@ namespace SY.Com.Medical.Repository
             string tableName = ReadAttribute<DB_TableAttribute>.getKey(t).ToString();//获取表名
             string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(t).ToString();
             Type d = typeof(D);
-            string tableName2 = ReadAttribute<DB_TableAttribute>.getKey(t).ToString();//获取表名
-            string tablekey2 = ReadAttribute<DB_KeyAttribute>.getKey(t).ToString();
+            string tableName2 = ReadAttribute<DB_TableAttribute>.getKey(d).ToString();//获取表名
+            string tablekey2 = ReadAttribute<DB_KeyAttribute>.getKey(d).ToString();
             string sql = @$" Select {tableName}.*,{tableName2}.* 
                              From  {tableName}
                              Inner Join {tableName2} On {tableName}.{OnSplit} = {tableName2}.{OnSplit}
-                             Where {tableName}.{tablekey} = @id ";
+                             Where {tableName}.{tablekey} = @id And {tableName}.IsDelete = 0 ";
             if (OnSplit == "")
             {
                 OnSplit = tablekey2;
@@ -252,7 +260,7 @@ namespace SY.Com.Medical.Repository
                     }
                 }
             }
-            string sql = $" Select * From {tableName} Where 1=1 {whereColumns} ";
+            string sql = $" Select * From {tableName} Where 1=1 {whereColumns} And IsDelete = 1 ";
             return _db.Query<T>(sql, t);
         }
 
@@ -315,9 +323,9 @@ namespace SY.Com.Medical.Repository
                             Select {tableName}.*,{tableName2}.* 
                              From  {tableName}                            
                              Inner Join {tableName2} On {tableName}.{OnSplit} = {tableName2}.{OnSplit}
-                             Where 1=1 {whereColumns}
+                             Where 1=1 And IsDelete = 1 {whereColumns} 
                               ";
-            return _db.Query<T,D,T>(sql,func, t, splitOn : OnSplit);
+            return _db.Query<T,D,T>(sql,func, t, splitOn : OnSplit).Distinct();
         }
 
         /// <summary>
@@ -355,12 +363,12 @@ namespace SY.Com.Medical.Repository
                             if (attr is DB_LimitAttribute)
                             {
                                 var temp = ReadAttribute<DB_LimitAttribute>.getWhere(prop,t, (DB_LimitAttribute)attr);
-                                whereColumns.Append(temp);
+                                whereColumns.Append($" And {tableName}." + temp.Tostring());                                
                             }
                             else if (attr is DB_LikeAttribute)
                             {
                                 var temp = ReadAttribute<DB_LikeAttribute>.getWhere(prop,t, (DB_LikeAttribute)attr);
-                                whereColumns.Append(temp);
+                                whereColumns.Append($" And {tableName}." + temp.Tostring());
                             }
                         }
                     }
@@ -374,7 +382,8 @@ namespace SY.Com.Medical.Repository
             Select  count(1) as nums From {tableName} Where 1=1 {whereColumns}
             Select * From
             (
-                Select  ROW_NUMBER() over(order by {tablekey} desc) as row_id,* From {tableName} Where 1=1 {whereColumns} 
+                Select  ROW_NUMBER() over(order by {tablekey} desc) as row_id,* From {tableName} 
+                Where 1=1 And IsDelete = 1 {whereColumns} 
             )t
             Where t.row_id between {(pageIndex-1) * pageSize + 1} and { pageIndex * pageSize }
             ";
@@ -384,6 +393,87 @@ namespace SY.Com.Medical.Repository
             Tuple<IEnumerable<T>, int> result = new Tuple<IEnumerable<T>, int>(datas,count);
             return result;
         }
+
+        /// <summary>
+        /// 单表多记录查询-分页,带导航属性(一个)
+        /// </summary>
+        /// <typeparam name="D"></typeparam>
+        /// <param name="t"></param>
+        /// <param name="func"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="OnSplit"></param>
+        /// <returns></returns>
+        public Tuple<IEnumerable<T>, int> GetsPage<D>(T t,Func<T,D,T> func, int pageSize, int pageIndex, string OnSplit = "")
+        {
+            string tableName = ReadAttribute<DB_TableAttribute>.getKey(t.GetType()).ToString();//获取表名
+            string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(t.GetType()).ToString();
+            //导航表
+            var d = typeof(D);
+            string tableName2 = ReadAttribute<DB_TableAttribute>.getKey(d).ToString();//获取表名
+            string tablekey2 = ReadAttribute<DB_KeyAttribute>.getKey(d).ToString();
+            StringBuilder whereColumns = new StringBuilder();
+            if (tableName == "")
+            {
+                tableName = t.GetType().Name.Replace("Entity", "");//如果反射没获取到用实体名称去掉Entity试试
+            }
+            PropertyInfo[] properties = t.GetType().GetProperties();
+            foreach (PropertyInfo prop in properties)
+            {
+                //排除主键,排除默认值或空值的键,处理各种Attribute
+                if (prop.IsDefined(typeof(DB_KeyAttribute), false))
+                {
+
+                }
+                else if (prop.IsDefined(typeof(DB_NotColumAttribute), false))
+                {
+
+                }
+                else if (!DefaultValue.IsDefaultValue(prop.PropertyType, prop.GetValue(t)))
+                {
+                    if (prop.IsDefined(typeof(DBBaseAttribute), false))
+                    {
+                        foreach (var attr in prop.GetCustomAttributes())
+                        {
+                            if (attr is DB_LimitAttribute)
+                            {
+                                var temp = ReadAttribute<DB_LimitAttribute>.getWhere(prop, t, (DB_LimitAttribute)attr);
+                                whereColumns.Append($" And {tableName}." + temp.Tostring());
+                            }
+                            else if (attr is DB_LikeAttribute)
+                            {
+                                var temp = ReadAttribute<DB_LikeAttribute>.getWhere(prop, t, (DB_LikeAttribute)attr);
+                                whereColumns.Append($" And {tableName}." + temp.Tostring());
+                            }
+                        }
+                    }
+                    else
+                    {
+                        whereColumns.Append($" And {tableName}.{prop.Name}=@{prop.Name}");
+                    }
+                }
+            }
+            string sqlcount = @$"        
+                Select  count(1) as nums  
+                From {tableName}
+                Where 1=1 And IsDelete = 1 {whereColumns};";
+            string sql= @$"            
+            Select {tableName}.*,{tableName2}.* 
+            From
+            (
+                Select  ROW_NUMBER() over(order by {tablekey} desc) as row_id,{tableName}.*
+                From {tableName}                 
+                Where 1=1 And IsDelete = 1 {whereColumns} 
+            ) as {tableName}
+            Inner Join {tableName2} On  {tableName}.{OnSplit} = {tableName2}.{OnSplit}
+            Where {tableName}.row_id between {(pageIndex - 1) * pageSize + 1} and { pageIndex * pageSize } ";
+            int count = _db.Query<int>(sqlcount, t).FirstOrDefault();
+            IEnumerable<T> datas = _db.Query<T,D,T>(sql,func,t,splitOn: OnSplit).Distinct();
+            Tuple<IEnumerable<T>, int> result = new Tuple<IEnumerable<T>, int>(datas, count);            
+            return result;
+        }
+
+
 
 
 
@@ -472,7 +562,7 @@ namespace SY.Com.Medical.Repository
         }
 
         /// <summary>
-        /// 获取全局
+        /// 获取全局唯一ID,手动输入表名
         /// </summary>
         /// <param name="name"></param>
         /// <param name="step"></param>
@@ -485,6 +575,28 @@ namespace SY.Com.Medical.Repository
             lock (obj)
             {
                 return _dbid.QueryFirst<int>(sql, new { Name = name, step = step });
+            }
+        }
+
+        /// <summary>
+        /// 获取全局唯一ID,自动解析表名
+        /// </summary>
+        /// <param name="step"></param>
+        /// <returns></returns>
+        public int getID(int step = 1)
+        {
+            Type t = typeof(T);
+            string tableName = ReadAttribute<DB_TableAttribute>.getKey(t).ToString();//获取表名
+            if(string.IsNullOrEmpty(tableName))
+            {
+                throw new Exception("获取唯一ID失败,未解析到表名");
+            }
+            string sql = @" 
+                            Update IDGlobal Set ID = ID + @step Where Name = @Name ;
+                            Select ID From IDGlobal Where Name = @Name; ";
+            lock (obj)
+            {
+                return _dbid.QueryFirst<int>(sql, new { Name = tableName, step = step });
             }
         }
 
@@ -515,6 +627,37 @@ namespace SY.Com.Medical.Repository
             lock (obj)
             {
                 return _dbid.QueryFirst<long>(sql, new { TenantId= tenantId, Name = tableName, step = step,day = DateTime.Now.ToShortDateString() });
+            }
+        }
+
+        /// <summary>
+        /// 获取全局租户编号,自动解析表名
+        /// </summary>
+        /// <param name="tenantId"></param>
+        /// <param name="step"></param>
+        /// <returns></returns>
+        public long getBH(int tenantId, int step = 1)
+        {
+            Type t = typeof(T);
+            string tableName = ReadAttribute<DB_TableAttribute>.getKey(t).ToString();//获取表名
+            string sql = @" 
+                        if exists( select BH From BHGlobal Where TenantId = @TenantId And Name=@Name )
+                        Begin
+	                        if exists( select BH From BHGlobal Where TenantId = @TenantId And Name=@Name And BHdate = @day )
+	                        Begin
+		                        Update BHGlobal Set BH = BH + @step Where TenantId=@TenantId And Name = @Name 
+	                        End Else Begin
+		                        Update BHGlobal Set BH = 0 + @step,BHdate=getdate() Where TenantId=@TenantId And Name = @Name
+	                        End
+                        End Else Begin
+
+	                        Insert Into BHGlobal(Name,TenantId)
+	                        Values(@Name,@TenantId)
+                        End
+                        Select BH From BHGlobal Where TenantId=@TenantId And Name = @Name;  ";
+            lock (obj)
+            {
+                return _dbid.QueryFirst<long>(sql, new { TenantId = tenantId, Name = tableName, step = step, day = DateTime.Now.ToShortDateString() });
             }
         }
 

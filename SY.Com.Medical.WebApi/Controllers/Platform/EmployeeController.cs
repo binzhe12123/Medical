@@ -32,8 +32,8 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
             BaseResponse<List<EmployeeModel>> result = new BaseResponse<List<EmployeeModel>>();
             try
             {
-                result.Data = bll.getEmployees(request.UserId);
-                result.Data.AddRange(bll.getEmployeesClose(request.UserId));
+                result.Data = bll.getEmployees(request.TenantId);
+                result.Data.AddRange(bll.getEmployeesClose(request.TenantId));
                 return result;
             }
             catch (Exception ex)

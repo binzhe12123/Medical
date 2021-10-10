@@ -5,10 +5,6 @@ VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SY.Com.Medical.BLL", "SY.Com.Medical.BLL\SY.Com.Medical.BLL.csproj", "{DC367F15-C209-41D0-ACFA-FD67CB7B47E4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SY.Com.Medical.Test", "SY.Com.Medical.Test\SY.Com.Medical.Test.csproj", "{7B7644B3-88AF-4E7B-8172-8F9EDD73F3B7}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SY.Com.Medical.Experiment", "SY.Com.Medical.Experiment\SY.Com.Medical.Experiment.csproj", "{9C7191C9-1E00-4C9E-BDE7-5DC7C719A9A3}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SY.Com.Medical.Entity", "SY.Com.Medical.Entity\SY.Com.Medical.Entity.csproj", "{3F651290-2545-4279-B0A5-0F6646A2F936}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SY.Com.Medical.Enum", "SY.Com.Medical.Enum\SY.Com.Medical.Enum.csproj", "{5321CC5E-FAD6-47C5-BB1B-450175CEB0E7}"
@@ -25,7 +21,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SY.Com.Medical.Infrastructu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SY.Com.Medical.CodeGenerator", "SY.Com.Medical.CodeGenerator\SY.Com.Medical.CodeGenerator.csproj", "{C026CCB6-E3BE-4AEF-9244-5A1D7D2CB6FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SY.Com.Medical.Extension", "SY.Com.Medical.Extension\SY.Com.Medical.Extension.csproj", "{494628F7-AEA5-4EB5-85FE-16BA299FB08C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SY.Com.Medical.Extension", "SY.Com.Medical.Extension\SY.Com.Medical.Extension.csproj", "{494628F7-AEA5-4EB5-85FE-16BA299FB08C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{86D02C01-07FB-4474-8B34-09F20BF1D54C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeGenerator", "CodeGenerator\CodeGenerator.csproj", "{C5FB95C7-41F3-4333-8C75-1862B0062F4F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,14 +37,6 @@ Global
 		{DC367F15-C209-41D0-ACFA-FD67CB7B47E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC367F15-C209-41D0-ACFA-FD67CB7B47E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC367F15-C209-41D0-ACFA-FD67CB7B47E4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7B7644B3-88AF-4E7B-8172-8F9EDD73F3B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7B7644B3-88AF-4E7B-8172-8F9EDD73F3B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7B7644B3-88AF-4E7B-8172-8F9EDD73F3B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7B7644B3-88AF-4E7B-8172-8F9EDD73F3B7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9C7191C9-1E00-4C9E-BDE7-5DC7C719A9A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9C7191C9-1E00-4C9E-BDE7-5DC7C719A9A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9C7191C9-1E00-4C9E-BDE7-5DC7C719A9A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9C7191C9-1E00-4C9E-BDE7-5DC7C719A9A3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3F651290-2545-4279-B0A5-0F6646A2F936}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3F651290-2545-4279-B0A5-0F6646A2F936}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F651290-2545-4279-B0A5-0F6646A2F936}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -81,9 +73,16 @@ Global
 		{494628F7-AEA5-4EB5-85FE-16BA299FB08C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{494628F7-AEA5-4EB5-85FE-16BA299FB08C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{494628F7-AEA5-4EB5-85FE-16BA299FB08C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5FB95C7-41F3-4333-8C75-1862B0062F4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5FB95C7-41F3-4333-8C75-1862B0062F4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5FB95C7-41F3-4333-8C75-1862B0062F4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5FB95C7-41F3-4333-8C75-1862B0062F4F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C5FB95C7-41F3-4333-8C75-1862B0062F4F} = {86D02C01-07FB-4474-8B34-09F20BF1D54C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F4EAFF33-6351-466F-ABC4-0440C55FEC20}

@@ -44,6 +44,41 @@
             <param name="request"></param>
             <returns></returns>
         </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PatientController.getCaseBooks(SY.Com.Medical.Model.CaseBookPage)">
+            <summary>
+            获取患者的病历列表-分页
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PatientController.getCaseBook(System.Int32)">
+            <summary>
+            获取单份病历
+            </summary>
+            <param name="caseBookId">病历ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PatientController.addCaseBook(SY.Com.Medical.Model.CaseBookAdd)">
+            <summary>
+            新增病历
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PatientController.updateCaseBook(SY.Com.Medical.Model.CaseBookUpdate)">
+            <summary>
+            修改病历
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PatientController.deleteCaseBook(SY.Com.Medical.Model.CaseBookDelete)">
+            <summary>
+            删除病历
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Platform.DepartmentController">
             <summary>
             科室控制器abc
