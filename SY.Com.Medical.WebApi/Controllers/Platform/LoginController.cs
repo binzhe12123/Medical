@@ -17,7 +17,6 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
     /// </summary>
     [Route("api/[controller]/[Action]")]
     [ApiController]
-    [Authorize]
     public class LoginController : ControllerBase
     {
         User userbll = new User();
@@ -59,6 +58,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
+        [AllowAnonymous]
         public BaseResponse<RegisterResponse> register(RegisterRequest request)
         {
             BaseResponse<RegisterResponse> result = new BaseResponse<RegisterResponse>();
@@ -90,6 +90,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
+        [AllowAnonymous]
         public BaseResponse<ResetResponse> reset(ResetRequest request)
         {
             BaseResponse<ResetResponse> result = new BaseResponse<ResetResponse>();
