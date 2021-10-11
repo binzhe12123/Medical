@@ -32,4 +32,9 @@
     <ProjectReference Include="..\SY.Com.Medical.Repository\SY.Com.Medical.Repository.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="GenEntity\" />
+    <Folder Include="GenRepository\" />
+  </ItemGroup>
+
 </Project>

@@ -126,7 +126,7 @@ namespace SY.Com.Medical.Entity
         /// </summary>
         [DB_NotColum]
         [DB_Navigate("Patients", "PatientId")]
-        public PatientEntity PatientInfo { get; set; }
+        public PatientEntity Patient { get; set; }
 
 
 

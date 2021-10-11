@@ -2,6 +2,8 @@
 using SY.Com.Medical.Entity;
 using SY.Com.Medical.Repository;
 using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace CodeGenerator
 {
@@ -9,25 +11,30 @@ namespace CodeGenerator
     {
         static void Main(string[] args)
         {
-            CodeGenRepository wuha = new CodeGenRepository();
-            wuha.getString();
+            EntityGen eg = new EntityGen("CaseBooks", "CaseBookId", dbName.Clinic, "PatientEntity", "PatientId");
+            Console.WriteLine(eg.getCode());
+            eg.GenFile();
+            RepositoryGen rg = new RepositoryGen("CaseBooks", "CaseBookId", dbName.Clinic, "PatientEntity", "PatientId");
+            Console.WriteLine(rg.getCode()); 
+            rg.GenFile();
             Console.WriteLine("Hello World!");
         }
     }
 
     public class CodeGenRepository :  BaseRepository<BaseEntity>
     {
-        public CodeGenRepository() : base("server=.;database=Medical_Platform;uid=sa;pwd=sql2021")
+        //"server=.;database=Medical_Platform;uid=sa;pwd=sql2021"
+        public CodeGenRepository(string connection) : base(connection)
         {
             /*
                "Medical_Platform": "server=.;database=Medical_Platform;uid=sa;pwd=sql2021",
       "Medical_Clinic": "server=.;database=Medical_Clinic;uid=sa;pwd=sql2021"
              */
         }
-        public string getString()
+        public IEnumerable<ColumnEntity> getString(string tableName)
         {
             #region  获取实体sql语句
-            string sql = @"    SELECT
+            string sql = @$"    SELECT
         replace(col.name, ' ', '_') ColumnName,
         column_id ColumnId,
         prop.value ColName,
@@ -71,11 +78,29 @@ namespace CodeGenerator
         join sys.types typ on
             col.system_type_id = typ.system_type_id AND col.user_type_id = typ.user_type_id
             LEFT JOIN sys.extended_properties prop ON col.object_id = prop.major_id AND col.column_id = prop.minor_id
-    where object_id = object_id('UserTenants')
+    where object_id = object_id('{tableName}')
 ";
             #endregion
-            var result = _db.Query(sql).AsList();
-            return "";
+            var result = _db.Query<ColumnEntity>(sql);
+            return result;
         }
+    }
+
+    public enum dbName
+    {
+        Platform = 1,
+        Clinic = 2
+    }
+
+    public class ColumnEntity
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public string ColumnName { get; set; }
+        public int ColumnId { get; set; }
+        public string ColName { get; set; }
+        public string ColumnType { get; set; }
+        public string NullableSign { get; set; }
     }
 }

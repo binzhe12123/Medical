@@ -24,7 +24,7 @@ namespace SY.Com.Medical.Repository.Clinic
         {
             return Get<PatientEntity>(id, (casebook, patien) =>
             {
-                casebook.PatientInfo = patien;
+                casebook.Patient = patien;
                 return casebook;
             }, "PatientId");
         }
@@ -38,7 +38,7 @@ namespace SY.Com.Medical.Repository.Clinic
         {
             return Gets<PatientEntity>(entity, (casebook, patien) =>
             {
-                casebook.PatientInfo = patien;
+                casebook.Patient = patien;
                 return casebook;
             }, "PatientId");
         }
@@ -55,7 +55,7 @@ namespace SY.Com.Medical.Repository.Clinic
             
             var datas = GetsPage<PatientEntity>(entity, (casebook, patien) =>
             {
-                casebook.PatientInfo = patien;
+                casebook.Patient = patien;
                 return casebook;
             }, pageSize, pageIndex, "PatientId");
             Tuple<IEnumerable<CaseBookEntity>, int> result = new Tuple<IEnumerable<CaseBookEntity>, int>(datas.Item1,datas.Item2);

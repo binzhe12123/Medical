@@ -1,5 +1,7 @@
-﻿using System;
+﻿using SY.Com.Medical.Entity;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,20 +13,42 @@ namespace CodeGenerator
     /// </summary>
     public class EntityGen
     {
-
-        public string NameSpace { get; private set; }
+        public CodeGenRepository db { get; set; }
         public string EntityName { get; private set; }
         public string TableName { get;private set; }
         public string TableKey { get;private set; }
-        private string Using { get; set; }
-        private string Namespace { get; set; }
-        
+        public string ClassName { get; private set; }
+        private string TextUsing { get; set; }
+        private string TextNamespace { get; set; }
+        private string TextClass { get; set; }
+        private FileGen fg { get; set; }
+        private string NavigateEntity { get; set; }
+        private string NavigateKey { get; set; }
 
-        public EntityGen(string tablename,string tablekey,string DataBase)
+
+        public EntityGen(string tablename,string tablekey, dbName dbName, string navigate = "", string navigatekey = "")
         {
+            if (dbName == dbName.Platform)
+            {
+                db = new CodeGenRepository("server=.;database=Medical_Platform;uid=sa;pwd=sql2021");
+            }
+            else if (dbName == dbName.Clinic){
+                db = new CodeGenRepository("server=.;database=Medical_Clinic;uid=sa;pwd=sql2021");
+            }else
+            {
+                throw new Exception("数据库名称不对");
+            }
             TableName = tablename;
             TableKey = tablekey;
-            NameSpace = DataBase;
+            ClassName = TableName.Substring(TableName.Length - 1, 1) == "s"
+                ? TableName.Substring(0, TableName.Length - 1) : TableName;//Table是复数命名,class单数形式  
+            fg = new FileGen();
+            NavigateEntity = navigate;
+            NavigateKey = navigatekey;
+            if(!string.IsNullOrEmpty(NavigateEntity) && string.IsNullOrEmpty(NavigateKey))
+            {
+                throw new Exception("导航属性必须要具备匹配的Id名称");
+            }
         }
 
         public string Gen()
@@ -34,22 +58,89 @@ namespace CodeGenerator
             return result;
         }
 
-        private string GenUsing()
+        /// <summary>
+        /// Using
+        /// </summary>
+        private void GenUsing()
         {
-            return @"
-                    using SY.Com.Medical.Attribute;
-                    using SY.Com.Medical.Enum;
-                    using System;
-                    using System.Collections.Generic;
-                    using System.Linq;
-                    using System.Text;
-                    using System.Threading.Tasks;
-                    ";
+            TextUsing = @"using SY.Com.Medical.Attribute;
+using SY.Com.Medical.Enum;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+";
         }
 
-        private string GenNameSpance(string body)
+        /// <summary>
+        /// NameSpace
+        /// </summary>
+        private void GenNameSpace()
         {
-            return @"";
+            TextNamespace =  @"namespace SY.Com.Medical.Entity
+{
+    /// <summary>
+    /// 实体
+    /// </summary>
+    [DB_Table("+ "\"" + TableName + "\"" +@")]
+    [DB_Key("+ "\"" + TableKey + "\"" + @")]
+    #Class#
+} ";
+        }
+
+        private void GenClass()
+        {                   
+            StringBuilder txt = new StringBuilder();
+            txt.Append($"public class {ClassName}Entity : BaseEntity ");
+            txt.Append("\r\n\t{ ");
+            // 数据库读出表信息
+            var columns = db.getString(TableName);
+            //每一列生成一个Property
+            foreach(var column in columns)
+            {
+                //BaseEntity中的属性就不需要重复了
+                if (typeof(BaseEntity).GetProperty(column.ColumnName) != null) continue;                
+                txt.Append("\r\n\t\t///<summary> ");
+                txt.Append($"\r\n\t\t///{column.ColName ??  ""}");
+                txt.Append("\r\n\t\t///<summary> ");
+                if(column.ColumnName.ToLower() == TableKey.ToLower())
+                {
+                    txt.Append("\r\n\t\t[DB_Key(\""+ TableKey + "\")]");
+                }
+                txt.Append($"\r\n\t\tpublic {column.ColumnType} {column.ColumnName} {{get;set;}} ");
+            }
+            //导航属性
+            if(!string.IsNullOrEmpty(NavigateEntity))
+            {
+                txt.Append("\r\n\t\t///<summary> ");
+                txt.Append($"\r\n\t\t///导航属性");
+                txt.Append("\r\n\t\t///<summary> ");
+                txt.Append("\r\n\t\t[DB_NotColum]");
+                txt.Append("\r\n\t\t[DB_Navigate(\"" + NavigateEntity.Replace("Entity","s") + "\",\"" + NavigateKey + "\")]");
+                txt.Append($"\r\n\t\tpublic {NavigateEntity} {NavigateEntity.Replace("Entity", "")} {{get;set;}} ");                
+            }
+            txt.Append("\r\n\t}");
+            TextClass = txt.ToString();
+        }
+
+        /// <summary>
+        /// 获取文本
+        /// </summary>
+        /// <returns></returns>
+        public string getCode()
+        {
+            GenUsing();
+            GenNameSpace();
+            GenClass();
+            return TextUsing + TextNamespace.Replace("#Class#", TextClass);
+        }
+
+        public void GenFile()
+        {
+            string className = TableName.Substring(TableName.Length - 1, 1) == "s"
+    ? TableName.Substring(0, TableName.Length - 1) : TableName;//Table是复数命名,class单数形式 
+            fg.Gen("GenEntity",$"{className}Entity.cs",getCode());
         }
 
     }
