@@ -902,6 +902,11 @@
             是否老板
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.UserTenantResponse.LogoImg">
+            <summary>
+            租户图片
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.TenentCreateRequest">
             <summary>
             创建租户入参
@@ -1077,11 +1082,6 @@
             用户ID
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.RegisterResponse.token">
-            <summary>
-            用户token
-            </summary>
-        </member>
         <member name="T:SY.Com.Medical.Model.ResetRequest">
             <summary>
             重置密码入参
@@ -1115,11 +1115,6 @@
         <member name="P:SY.Com.Medical.Model.ResetResponse.UserId">
             <summary>
             用户ID
-            </summary>
-        </member>
-        <member name="P:SY.Com.Medical.Model.ResetResponse.token">
-            <summary>
-            用户token
             </summary>
         </member>
     </members>

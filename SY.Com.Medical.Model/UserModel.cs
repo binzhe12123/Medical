@@ -88,10 +88,6 @@ namespace SY.Com.Medical.Model
         /// 用户ID
         /// </summary>
         public int UserId { get; set; }
-        /// <summary>
-        /// 用户token
-        /// </summary>
-        public string token { get; set; }
     }
 
     /// <summary>
@@ -127,10 +123,6 @@ namespace SY.Com.Medical.Model
         /// 用户ID
         /// </summary>
         public int UserId { get; set; }
-        /// <summary>
-        /// 用户token
-        /// </summary>
-        public string token { get; set; }
     }
 
 }

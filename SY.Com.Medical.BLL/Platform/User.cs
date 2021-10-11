@@ -73,10 +73,11 @@ namespace SY.Com.Medical.BLL.Platform
         {
             
             UserEntity entitytemp = request.DtoToEntity<UserEntity>();
+            entitytemp.IsEnable = Enum.Enable.启用;
+            entitytemp.IsDelete = Enum.Delete.正常;
             int userid = db.Create(entitytemp);
             var entity = db.Get(userid);
             RegisterResponse response = new RegisterResponse();
-            response.token = JsonSerializer.Serialize(entity);
             response.UserId = entity.UserId;
             return response;
         }
@@ -127,7 +128,6 @@ namespace SY.Com.Medical.BLL.Platform
             db.Update(entity);
             ResetResponse response = new ResetResponse();
             response.UserId = entity.UserId;
-            response.token = JsonSerializer.Serialize(entity);
             return response;
         }
 

@@ -29,7 +29,7 @@ namespace SY.Com.Medical.Entity
         /// </summary>
         [DB_Default(typeof(DateTime))]
         [DB_Limit("CreateTimeStart", "CreateTimeEnd")]
-        public DateTime CreateTime { get; set; }
+        public DateTime? CreateTime { get; set; }
 
         [DB_NotColum]
         public DateTime CreateTimeStart { get; set; }

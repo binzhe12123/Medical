@@ -196,16 +196,16 @@
             租户控制器
             </summary>
         </member>
-        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.TenantController.getTenant(SY.Com.Medical.Model.BaseModel)">
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.TenantController.getTenants(SY.Com.Medical.Model.BaseModel)">
             <summary>
-            获取租户详情
+            获取用户租户列表
             </summary>
             <param name="request"></param>
             <returns></returns>
         </member>
-        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.TenantController.getTenants(SY.Com.Medical.Model.BaseModel)">
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.TenantController.getTenant(SY.Com.Medical.Model.BaseModel)">
             <summary>
-            获取用户租户列表
+            获取租户详情
             </summary>
             <param name="request"></param>
             <returns></returns>

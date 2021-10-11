@@ -45,8 +45,7 @@ namespace SY.Com.Medical.Model
 
         /// <summary>
         /// 租户类型,枚举    
-        /// </summary>
-        
+        /// </summary>        
         public TenantType TenantType { get; set; }
 
         /// <summary>
@@ -79,6 +78,10 @@ namespace SY.Com.Medical.Model
         /// </summary>
         
         public IsBoss IsBoss {get;set;}
+        /// <summary>
+        /// 租户图片
+        /// </summary>
+        public string LogoImg { get; set; }
     }
 
     /// <summary>

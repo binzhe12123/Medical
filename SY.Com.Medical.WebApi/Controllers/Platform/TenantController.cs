@@ -22,6 +22,33 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
         Tenant tenantbll = new Tenant();
 
         /// <summary>
+        /// 获取用户租户列表
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<List<UserTenantResponse>> getTenants(BaseModel request)
+        {
+            BaseResponse<List<UserTenantResponse>> response = new BaseResponse<List<UserTenantResponse>>();
+            try
+            {
+                response.Data = tenantbll.GetTenants(request).ToList();
+                return response;
+            }
+            catch (Exception ex)
+            {
+                if (ex is MyException)
+                {
+                    return response.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
+                }
+                else
+                {
+                    return response.sysException(ex.Message);
+                }
+            }
+        }
+
+        /// <summary>
         /// 获取租户详情
         /// </summary>
         /// <param name="request"></param>
@@ -48,30 +75,6 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
             }
         }
 
-        /// <summary>
-        /// 获取用户租户列表
-        /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
-        [HttpPost]
-        public BaseResponse<List<UserTenantResponse>> getTenants(BaseModel request)
-        {
-            BaseResponse<List<UserTenantResponse>> response = new BaseResponse<List<UserTenantResponse>>();
-            try {
-                response.Data = tenantbll.GetTenants(request).ToList();                
-                return response;
-            }catch(Exception ex)
-            {
-                if (ex is MyException)
-                {
-                    return response.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
-                }
-                else
-                {
-                    return response.sysException(ex.Message);
-                }
-            }
-        }
 
         /// <summary>
         /// 创建租户

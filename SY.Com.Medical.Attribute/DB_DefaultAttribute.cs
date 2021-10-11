@@ -22,19 +22,23 @@ namespace SY.Com.Medical.Attribute
             }else if(t == typeof(DateTime))
             {
                 value = DateTime.Now;
-            }else if(t == typeof(Enable))
+            }else if(t == typeof(DateTime?))
             {
-                value = (int)Enable.无用;
+                value = DateTime.Now;
+            }
+            else if(t == typeof(Enable))
+            {
+                value = (int)Enable.启用;
             }else if(t == typeof(Delete))
             {
-                value = (int)Delete.无用;
+                value = (int)Delete.正常;
             }
             else if (t == typeof(IsBoss))
             {
-                value = (int)IsBoss.无用;
+                value = (int)IsBoss.不是;
             }else if(t == typeof(Sex))
             {
-                value = (int)Sex.全部;
+                value = (int)Sex.男;
             }
         }
 

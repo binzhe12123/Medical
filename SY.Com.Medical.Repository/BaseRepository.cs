@@ -142,7 +142,7 @@ namespace SY.Com.Medical.Repository
                 else if (prop.IsDefined(typeof(DB_NotColumAttribute), false)) {
 
                 }else {
-                    if (prop.IsDefined(typeof(DB_DefaultAttribute), false))
+                    if (prop.GetValue(t) == null && prop.IsDefined(typeof(DB_DefaultAttribute), false))
                     {
                         var attr = (DB_DefaultAttribute)prop.GetCustomAttribute(typeof(DB_DefaultAttribute));
                         var defaultvalue = attr.getDefault();
