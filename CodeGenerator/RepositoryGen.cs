@@ -22,21 +22,24 @@ namespace CodeGenerator
         private string OnSplit { get; set; }
 
 
-        public RepositoryGen(string tablename, string tablekey, dbName dbName,string navigate="",string onsplit = "")
+        public RepositoryGen(GenParam param)
         {
-            TableName = tablename;
-            TableKey = tablekey;
+            TableName = param.TableName;
+            TableKey = param.TableKey;
             ClassName = TableName.Substring(TableName.Length - 1, 1) == "s"
     ? TableName.Substring(0, TableName.Length - 1) : TableName;//Table是复数命名,class单数形式    
             fg = new FileGen();
-            dbname = dbName.ToString();
-            Navigate = navigate;
-            if(!string.IsNullOrEmpty(navigate) && string.IsNullOrEmpty(onsplit))
+            dbname = param.dbname.ToString();
+            Navigate = param.Navigate;
+            if(!string.IsNullOrEmpty(param.Navigate) && string.IsNullOrEmpty(param.Navikey))
             {
                 throw new Exception("有导航属性,必须也要有OnSplit");
             }
-            OnSplit = onsplit;
+            OnSplit = param.Navikey;
+            Navigate += "Entity";
         }
+
+
 
         public string Gen()
         {

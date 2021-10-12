@@ -870,7 +870,7 @@
         <member name="P:SY.Com.Medical.Model.UserTenantResponse.TenantType">
             <summary>
             租户类型,枚举    
-            </summary>
+            </summary>        
         </member>
         <member name="P:SY.Com.Medical.Model.UserTenantResponse.TenantServiceStart">
             <summary>

@@ -134,7 +134,7 @@
             科室    
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Entity.CaseBookEntity.PatientInfo">
+        <member name="P:SY.Com.Medical.Entity.CaseBookEntity.Patient">
             <summary>
             患者导航属性
             </summary>

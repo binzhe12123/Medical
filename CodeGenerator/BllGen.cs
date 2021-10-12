@@ -21,20 +21,21 @@ namespace CodeGenerator
         private string OnSplit { get; set; }
 
 
-        public BllGen(string tablename, string tablekey, dbName dbName, string navigate = "", string onsplit = "")
+        public BllGen(GenParam param)
         {
-            TableName = tablename;
-            TableKey = tablekey;
+            TableName = param.TableName;
+            TableKey = param.TableKey;
             ClassName = TableName.Substring(TableName.Length - 1, 1) == "s"
     ? TableName.Substring(0, TableName.Length - 1) : TableName;//Table是复数命名,class单数形式    
             fg = new FileGen();
-            dbname = dbName.ToString();
-            Navigate = navigate;
-            if (!string.IsNullOrEmpty(navigate) && string.IsNullOrEmpty(onsplit))
+            dbname = param.dbname.ToString();
+            Navigate = param.Navigate;
+            if (!string.IsNullOrEmpty(param.Navigate) && string.IsNullOrEmpty(param.Navikey))
             {
                 throw new Exception("有导航属性,必须也要有OnSplit");
             }
-            OnSplit = onsplit;
+            OnSplit = param.Navikey;
+            Navigate += "Model";
         }
 
         public string Gen()
@@ -49,11 +50,11 @@ namespace CodeGenerator
         /// </summary>
         private void GenUsing()
         {
-            TextUsing = @"using SY.Com.Medical.BLL.Platform;
+            TextUsing = @"using SY.Com.Medical.BLL."+ dbname + @";
 using SY.Com.Medical.Entity;
 using SY.Com.Medical.Extension;
 using SY.Com.Medical.Model;
-using SY.Com.Medical.Repository.Clinic;
+using SY.Com.Medical.Repository."+ dbname +@";
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -80,16 +81,20 @@ using System.Threading.Tasks;
         {
             StringBuilder txt = new StringBuilder();
             txt.Append($"public class {ClassName} ");
-            txt.Append($"\tprivate {ClassName}Repository db;");
-            txt.Append($"\tpublic {ClassName}()");
-            txt.Append("\t{");
-            txt.Append("\t\tdb = new CaseBookRepository();");
-            txt.Append("\t}");
-            
+            txt.Append("\r\n\t{");
+            txt.Append($"\r\n\t\tprivate {ClassName}Repository db;");
+            txt.Append($"\r\n\t\tpublic {ClassName}()");
+            txt.Append("\r\n\t\t{");
+            txt.Append($"\r\n\t\t\tdb = new {ClassName}Repository();");
+            txt.Append("\r\n\t\t}");
+
+
             txt.Append(txtGetNavigate());
             txt.Append(txtGenNavigateMany());
-            txt.Append(txtGenNavigatePages());
-            
+            txt.Append(txtGenAdd());
+            txt.Append(txtGenUpdate());
+            txt.Append(txtGenDelete());
+            txt.Append("\r\n\t}");
             TextClass = txt.ToString();
         }
 
@@ -108,13 +113,9 @@ using System.Threading.Tasks;
             txt.Append("\r\n\t\t///<summary> ");
             txt.Append("\r\n\t\t///<param name=\"id\"></param>");
             txt.Append("\r\n\t\t/// <returns></returns>");
-            txt.Append($"\r\n\t\tpublic {ClassName}Entity getOne(int id)");
+            txt.Append($"\r\n\t\tpublic {ClassName}Model getOne(int id)");
             txt.Append("\r\n\t\t{");
-            txt.Append($"\r\n\t\t\treturn Get<{Navigate}>(id,(main,sub)=>");
-            txt.Append("\r\n\t\t\t{");
-            txt.Append($"\r\n\t\t\t\tmain.{Navigate.Replace("Entity", "")} = sub;");
-            txt.Append($"\r\n\t\t\t\treturn main;");
-            txt.Append("\r\n\t\t\t},\"" + OnSplit + "\");");
+            txt.Append($"\r\n\t\t\treturn db.getOne(id).EntityToDto<{ClassName}Model>();");
             txt.Append("\r\n\t\t}");
             return txt.ToString();
         }
@@ -128,45 +129,75 @@ using System.Threading.Tasks;
             if (string.IsNullOrEmpty(Navigate)) return "";
             StringBuilder txt = new StringBuilder();
             txt.Append("\r\n\t\t///<summary> ");
-            txt.Append($"\r\n\t\t///获取有导航属性的多条记录");
+            txt.Append($"\r\n\t\t///获取有导航属性的多条记录-分页");
             txt.Append("\r\n\t\t///<summary> ");
-            txt.Append("\r\n\t\t///<param name=\"entity\"></param>");
+            txt.Append("\r\n\t\t///<param name=\"request\"></param>");
             txt.Append("\r\n\t\t/// <returns></returns>");
-            txt.Append($"\r\n\t\tpublic IEnumerable<{ClassName}Entity> getMany({ClassName}Entity entity)");
+            txt.Append($"\r\n\t\tpublic Tuple<IEnumerable<{ClassName}Model>,int> getMany({ClassName}Model request,int pageSize,int pageIndex)");
             txt.Append("\r\n\t\t{");
-            txt.Append($"\r\n\t\t\treturn Gets<{Navigate}>(entity,(main,sub)=>");
-            txt.Append("\r\n\t\t\t{");
-            txt.Append($"\r\n\t\t\t\tmain.{Navigate.Replace("Entity", "")} = sub;");
-            txt.Append($"\r\n\t\t\t\treturn main;");
-            txt.Append("\r\n\t\t\t},\"" + OnSplit + "\");");
+            txt.Append($"\r\n\t\t\tvar datas  = db.getPages(request.DtoToEntity<{ClassName}Entity>(), pageSize, pageIndex);");            
+            txt.Append($"\r\n\t\t\tTuple<IEnumerable<{ClassName}Model>, int> result = new(datas.Item1.EntityToDto<{ClassName}Model>(), datas.Item2);");
+            txt.Append($"\r\n\t\t\treturn result;");
             txt.Append("\r\n\t\t}");
             return txt.ToString();
         }
 
         /// <summary>
-        /// 生成导航的getPages
+        /// 生成add
         /// </summary>
         /// <returns></returns>
-        private string txtGenNavigatePages()
+        private string txtGenAdd()
         {
             if (string.IsNullOrEmpty(Navigate)) return "";
             StringBuilder txt = new StringBuilder();
             txt.Append("\r\n\t\t///<summary> ");
-            txt.Append($"\r\n\t\t///获取有导航属性的多条记录 - 分页");
+            txt.Append($"\r\n\t\t///新增");
             txt.Append("\r\n\t\t///<summary> ");
-            txt.Append("\r\n\t\t///<param name=\"entity\"></param>");
-            txt.Append("\r\n\t\t///<param name=\"pageSize\"></param>");
-            txt.Append("\r\n\t\t///<param name=\"pageIndex\"></param>");
+            txt.Append("\r\n\t\t///<param name=\"request\"></param>");
             txt.Append("\r\n\t\t/// <returns></returns>");
-            txt.Append($"\r\n\t\tpublic Tuple<IEnumerable<{ClassName}Entity>,int> getPages({ClassName}Entity entity,int pageSize,int pageIndex)");
+            txt.Append($"\r\n\t\tpublic int add({ClassName}Add request)");
             txt.Append("\r\n\t\t{");
-            txt.Append($"\r\n\t\t\tvar datas = GetsPage<{Navigate}>(entity,(main,sub)=>");
-            txt.Append("\r\n\t\t\t{");
-            txt.Append($"\r\n\t\t\t\tmain.{Navigate.Replace("Entity", "")} = sub;");
-            txt.Append($"\r\n\t\t\t\treturn main;");
-            txt.Append("\r\n\t\t\t},pageSize, pageIndex, \"" + OnSplit + "\");");
-            txt.Append($"\r\n\t\t\tTuple<IEnumerable<{ClassName}Entity>, int> result = new Tuple<IEnumerable<{ClassName}Entity>, int>(datas.Item1, datas.Item2);");
-            txt.Append("\r\n\t\t\treturn result;");
+            txt.Append($"\r\n\t\t\treturn db.Create(request.DtoToEntity<{ClassName}Entity>());");
+            txt.Append("\r\n\t\t}");
+            return txt.ToString();
+        }
+
+        /// <summary>
+        /// 生成update
+        /// </summary>
+        /// <returns></returns>
+        private string txtGenUpdate()
+        {
+            if (string.IsNullOrEmpty(Navigate)) return "";
+            StringBuilder txt = new StringBuilder();
+            txt.Append("\r\n\t\t///<summary> ");
+            txt.Append($"\r\n\t\t///新增");
+            txt.Append("\r\n\t\t///<summary> ");
+            txt.Append("\r\n\t\t///<param name=\"request\"></param>");
+            txt.Append("\r\n\t\t/// <returns></returns>");
+            txt.Append($"\r\n\t\tpublic void update({ClassName}Update request)");
+            txt.Append("\r\n\t\t{");
+            txt.Append($"\r\n\t\t\tdb.Update(request.DtoToEntity<{ClassName}Entity>());");
+            txt.Append("\r\n\t\t}");
+            return txt.ToString();
+        }
+
+        /// <summary>
+        /// 生成add/update/delete
+        /// </summary>
+        /// <returns></returns>
+        private string txtGenDelete()
+        {
+            if (string.IsNullOrEmpty(Navigate)) return "";
+            StringBuilder txt = new StringBuilder();
+            txt.Append("\r\n\t\t///<summary> ");
+            txt.Append($"\r\n\t\t///新增");
+            txt.Append("\r\n\t\t///<summary> ");
+            txt.Append("\r\n\t\t///<param name=\"request\"></param>");
+            txt.Append("\r\n\t\t/// <returns></returns>");
+            txt.Append($"\r\n\t\tpublic void delete({ClassName}Delete request)");
+            txt.Append("\r\n\t\t{");
+            txt.Append($"\r\n\t\t\tdb.Delete(request.DtoToEntity<{ClassName}Entity>());");
             txt.Append("\r\n\t\t}");
             return txt.ToString();
         }
@@ -185,7 +216,7 @@ using System.Threading.Tasks;
 
         public void GenFile()
         {
-            fg.Gen("GenRepository", $"{ClassName}Repository.cs", getCode());
+            fg.Gen("GenBll", $"{ClassName}.cs", getCode());
         }
     }
 

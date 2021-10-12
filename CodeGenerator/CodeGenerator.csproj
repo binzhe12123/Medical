@@ -33,7 +33,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="GenBll\" />
     <Folder Include="GenEntity\" />
+    <Folder Include="GenModel\" />
     <Folder Include="GenRepository\" />
   </ItemGroup>
 

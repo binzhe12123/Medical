@@ -11,12 +11,15 @@ namespace CodeGenerator
     {
         static void Main(string[] args)
         {
-            EntityGen eg = new EntityGen("CaseBooks", "CaseBookId", dbName.Clinic, "PatientEntity", "PatientId");
-            Console.WriteLine(eg.getCode());
+            var tableObject = new GenParam{ TableName = "CaseBooks", TableKey = "CaseBookId", dbname = dbName.Clinic, Navigate = "Patient", Navikey = "PatientId" };
+            EntityGen eg = new EntityGen(tableObject);            
             eg.GenFile();
-            RepositoryGen rg = new RepositoryGen("CaseBooks", "CaseBookId", dbName.Clinic, "PatientEntity", "PatientId");
-            Console.WriteLine(rg.getCode()); 
+            RepositoryGen rg = new RepositoryGen(tableObject);
             rg.GenFile();
+            ModelGen mg = new ModelGen(tableObject);
+            mg.GenFile();
+            BllGen bg = new BllGen(tableObject);
+            bg.GenFile();
             Console.WriteLine("Hello World!");
         }
     }
@@ -70,7 +73,7 @@ namespace CodeGenerator
             else 'UNKNOWN_' + typ.name
         end ColumnType,
         case
-            when col.is_nullable = 1 and typ.name in ('bigint', 'bit', 'date', 'datetime', 'datetime2', 'datetimeoffset', 'decimal', 'float', 'int', 'money', 'numeric', 'real', 'smalldatetime', 'smallint', 'smallmoney', 'time', 'tinyint', 'uniqueidentifier')
+            when col.is_nullable = 1 and typ.name in ( 'date', 'datetime', 'datetime2',  'smalldatetime', 'time')
             then '?'
             else ''
         end NullableSign
@@ -103,4 +106,14 @@ namespace CodeGenerator
         public string ColumnType { get; set; }
         public string NullableSign { get; set; }
     }
+
+    public class GenParam
+    {
+        public string TableName { get; set; }// "CaseBooks",
+        public string TableKey { get; set; }// "CaseBookId"
+        public dbName dbname { get; set; } // dbName.Clinic
+        public string Navigate { get; set; }// "Patient"
+        public string Navikey { get; set; }//"PatientId"
+    }
+
 }

@@ -164,5 +164,70 @@
             用户已存在
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Enum.TenantType">
+            <summary>
+            租户类型
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.TenantType.社康中心">
+            <summary>
+            社康中心
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.TenantType.中医诊所">
+            <summary>
+            中医诊所
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.TenantType.中医馆">
+            <summary>
+            中医馆
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.TenantType.中医门诊部">
+            <summary>
+            中医门诊部
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.TenantType.西医诊所">
+            <summary>
+            西医诊所
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.TenantType.西医门诊部">
+            <summary>
+            西医门诊部
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.TenantType.口腔诊所">
+            <summary>
+            口腔诊所
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.TenantType.口腔门诊部">
+            <summary>
+            口腔门诊部
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.TenantType.中西医结合诊所">
+            <summary>
+            中西医结合诊所
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.TenantType.中西医结合门诊部">
+            <summary>
+            中西医结合门诊部
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.TenantType.医务室">
+            <summary>
+            医务室
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.TenantType.其他">
+            <summary>
+            其他
+            </summary>
+        </member>
     </members>
 </doc>
