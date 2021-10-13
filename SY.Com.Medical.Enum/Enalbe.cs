@@ -23,7 +23,7 @@ namespace SY.Com.Medical.Enum
         /// <summary>
         /// 禁用
         /// </summary>
-        禁用
+        禁用=2
     }
 
     /// <summary>

@@ -84,7 +84,15 @@ namespace SY.Com.Medical.Repository.Platform
             Update(entity);
         }
 
-
+        /// <summary>
+        /// 禁用/启用
+        /// </summary>
+        /// <param name="entity"></param>
+        public void disable(DepartmentEntity entity)
+        {
+            string sql = " Update Departments Set IsEnable = @IsEnable Where DepartmentId =@DepartmentId ";
+            _db.Execute(sql, new { DepartmentId = entity.DepartmentId, IsEnable = entity.IsEnable });
+        }
 
     }
 }

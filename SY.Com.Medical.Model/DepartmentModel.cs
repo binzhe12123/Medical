@@ -60,4 +60,20 @@ namespace SY.Com.Medical.Model
         public int DepartmentId { get; set; }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    public class DepartmentDisalbe : BaseModel
+    {
+        /// <summary>
+        /// 科室id 
+        /// </summary>
+        public int DepartmentId { get; set; }
+
+        /// <summary>
+        /// 禁用/启用
+        /// </summary>
+        public Enable enalbe { get; set; }
+    }
+
 }

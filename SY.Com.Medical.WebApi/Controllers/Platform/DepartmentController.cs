@@ -161,6 +161,22 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
             }
         }
 
+        /// <summary>
+        /// 禁用启用
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<bool> disalbe(DepartmentDisalbe request)
+        {
+            BaseResponse<bool> result = new BaseResponse<bool>();
+            bll.disable(request);
+            result.Data = true;
+            return result;
+        }
+
+
+
 
     }
 }

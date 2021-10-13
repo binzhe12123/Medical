@@ -36,6 +36,10 @@ namespace SY.Com.Medical.Entity
         /// 验证码    
         /// </summary>
         public string YZM { get; set; }
+        /// <summary>
+        /// 头像图片
+        /// </summary>
+        public string LogoImg { get; set; }
 
 
     }

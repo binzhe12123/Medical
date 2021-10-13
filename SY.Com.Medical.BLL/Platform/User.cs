@@ -60,7 +60,8 @@ namespace SY.Com.Medical.BLL.Platform
             }
             UserModel response = new UserModel();
             response.Account = entity.Account;
-            response.UserId = entity.UserId;            
+            response.UserId = entity.UserId;
+            response.LogoImg = entity.LogoImg;
             return response;
         }        
 

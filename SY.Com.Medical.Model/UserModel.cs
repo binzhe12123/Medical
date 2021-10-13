@@ -27,6 +27,10 @@ namespace SY.Com.Medical.Model
         /// 验证码    
         /// </summary>
         public string YZM { get; set; }
+        /// <summary>
+        /// 头像图片
+        /// </summary>
+        public string LogoImg { get; set; }
     }
 
     /// <summary>
@@ -47,12 +51,21 @@ namespace SY.Com.Medical.Model
     /// <summary>
     /// 登录出参
     /// </summary>
-    public class LoginResponse
+    public class LoginResponse : BaseModel
     { 
         /// <summary>
         /// Jwt验证token,后续请求中放入Header的Authorization中
         /// </summary>
         public string access_token { get; set; }
+        /// <summary>
+        /// 账号
+        /// </summary>
+        public string Account { get; set; }
+        /// <summary>
+        /// 头像路径全路径
+        /// </summary>
+        public string LogoImg { get; set; }
+
     }
 
     /// <summary>

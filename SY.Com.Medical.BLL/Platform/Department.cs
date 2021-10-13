@@ -72,6 +72,15 @@ namespace SY.Com.Medical.BLL.Platform
         {
             db.Delete(request.DtoToEntity<DepartmentEntity>());
         }
+
+        /// <summary>
+        /// 禁用/启用
+        /// </summary>
+        /// <param name="request"></param>
+        public void disable(DepartmentDisalbe request)
+        {
+            db.disable(request.DtoToEntity<DepartmentEntity>());
+        }
         
 
     }
