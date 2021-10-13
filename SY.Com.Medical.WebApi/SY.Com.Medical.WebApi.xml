@@ -119,6 +119,13 @@
             <param name="request"></param>
             <returns></returns>
         </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.DepartmentController.disalbe(SY.Com.Medical.Model.DepartmentDisalbe)">
+            <summary>
+            禁用启用
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Platform.EmployeeController">
             <summary>
             员工控制器
@@ -262,6 +269,11 @@
             </summary>
             <param name="request"></param>
             <returns></returns>
+        </member>
+        <member name="T:SY.Com.Medical.WebApi.Controllers.Platform.UserController">
+            <summary>
+            用户控制器
+            </summary>
         </member>
         <member name="T:SY.Com.Medical.WebApi.Filter.CustomerFilter">
             <summary>

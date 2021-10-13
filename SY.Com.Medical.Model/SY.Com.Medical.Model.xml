@@ -422,6 +422,21 @@
             科室id 
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Model.DepartmentDisalbe">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.DepartmentDisalbe.DepartmentId">
+            <summary>
+            科室id 
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.DepartmentDisalbe.enalbe">
+            <summary>
+            禁用/启用
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.EmployeeModel">
             <summary>
             员工模型
@@ -1077,6 +1092,11 @@
             验证码    
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.UserModel.LogoImg">
+            <summary>
+            头像图片
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.LoginRequest">
             <summary>
             登录入参
@@ -1100,6 +1120,16 @@
         <member name="P:SY.Com.Medical.Model.LoginResponse.access_token">
             <summary>
             Jwt验证token,后续请求中放入Header的Authorization中
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.LoginResponse.Account">
+            <summary>
+            账号
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.LoginResponse.LogoImg">
+            <summary>
+            头像路径全路径
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.RegisterRequest">
