@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace SY.Com.Medical.Enum
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class DBEnum
     {
     }

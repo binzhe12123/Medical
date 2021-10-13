@@ -25,6 +25,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{86D02C01
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeGenerator", "CodeGenerator\CodeGenerator.csproj", "{C5FB95C7-41F3-4333-8C75-1862B0062F4F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Play", "Play\Play.csproj", "{F928DA72-0AAD-43CF-A9A6-A08C11340985}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,12 +73,17 @@ Global
 		{C5FB95C7-41F3-4333-8C75-1862B0062F4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5FB95C7-41F3-4333-8C75-1862B0062F4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5FB95C7-41F3-4333-8C75-1862B0062F4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F928DA72-0AAD-43CF-A9A6-A08C11340985}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F928DA72-0AAD-43CF-A9A6-A08C11340985}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F928DA72-0AAD-43CF-A9A6-A08C11340985}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F928DA72-0AAD-43CF-A9A6-A08C11340985}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C5FB95C7-41F3-4333-8C75-1862B0062F4F} = {86D02C01-07FB-4474-8B34-09F20BF1D54C}
+		{F928DA72-0AAD-43CF-A9A6-A08C11340985} = {86D02C01-07FB-4474-8B34-09F20BF1D54C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F4EAFF33-6351-466F-ABC4-0440C55FEC20}

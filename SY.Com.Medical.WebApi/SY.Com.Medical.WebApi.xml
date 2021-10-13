@@ -191,6 +191,32 @@
             菜单控制器
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.WebApi.Controllers.Platform.SettingController">
+            <summary>
+            配置控制器
+            </summary>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.SettingController.getKeyValue(System.String)">
+            <summary>
+            获取枚举键值对
+            </summary>
+            <param name="Name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SY.Com.Medical.WebApi.Controllers.Platform.StaticFileController">
+            <summary>
+            静态资源
+            </summary>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.StaticFileController.UpLoadStaticFile(System.Collections.Generic.List{Microsoft.AspNetCore.Http.IFormFile},SY.Com.Medical.Enum.StaticFileType,SY.Com.Medical.Enum.StaticFileBusiness)">
+            <summary>
+            上传静态资源
+            </summary>
+            <param name="files">Form表单提交图片</param>
+            <param name="type">文件类型枚举</param>
+            <param name="bus">上传业务枚举</param>
+            <returns></returns>
+        </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Platform.TenantController">
             <summary>
             租户控制器

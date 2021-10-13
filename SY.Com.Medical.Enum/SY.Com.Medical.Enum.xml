@@ -4,6 +4,11 @@
         <name>SY.Com.Medical.Enum</name>
     </assembly>
     <members>
+        <member name="T:SY.Com.Medical.Enum.DBEnum">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Enum.CaseBookType">
             <summary>
             门诊病历类型
@@ -162,6 +167,76 @@
         <member name="F:SY.Com.Medical.Enum.ErrorCode.用户已存在">
             <summary>
             用户已存在
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Enum.StaticFileBusiness">
+            <summary>
+            静态文件业务类型
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.StaticFileBusiness.无">
+            <summary>
+            默认
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.StaticFileBusiness.用户头像上传">
+            <summary>
+            用户头像上传
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.StaticFileBusiness.租户图片上传">
+            <summary>
+            租户图片上传
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Enum.StaticFileType">
+            <summary>
+            静态文件类型
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.StaticFileType.无">
+            <summary>
+            默认值,无意义
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.StaticFileType.图片">
+            <summary>
+            图片
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.StaticFileType.Excel">
+            <summary>
+            Excel格式
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.StaticFileType.Word">
+            <summary>
+            Word文件
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.StaticFileType.压缩文件">
+            <summary>
+            压缩文件
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.StaticFileType.Json文件">
+            <summary>
+            Json文件
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.StaticFileType.XML文件">
+            <summary>
+            XML文件
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.StaticFileType.Html">
+            <summary>
+            Html文件
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.StaticFileType.其他">
+            <summary>
+            其他类型文件
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Enum.TenantType">

@@ -482,6 +482,21 @@
             1:启用,2:禁用
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Model.KeyValueModel">
+            <summary>
+            获取键值对
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KeyValueModel.key">
+            <summary>
+            键
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KeyValueModel.value">
+            <summary>
+            值
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.MenuModel">
             <summary>
             菜单Model层
@@ -835,6 +850,26 @@
         <member name="P:SY.Com.Medical.Model.RoleModel.RoleName">
             <summary>
             角色名称
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.StaticFileModel">
+            <summary>
+            静态资源上传模型
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.StaticFileModel.StaticFileType">
+            <summary>
+            资源类型
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.StaticFileModel.StaticFileBusiness">
+            <summary>
+            业务类型
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.StaticFileModel.fileExtension">
+            <summary>
+            文件后缀名
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.TenantModel">
