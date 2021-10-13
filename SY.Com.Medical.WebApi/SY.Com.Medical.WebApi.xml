@@ -112,7 +112,7 @@
             <param name="request"></param>
             <returns></returns>
         </member>
-        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.DepartmentController.delete(SY.Com.Medical.Model.DepartmentResponse)">
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.DepartmentController.delete(SY.Com.Medical.Model.DepartmentDelete)">
             <summary>
             删除科室
             </summary>
@@ -169,7 +169,6 @@
             用户登录
             </summary>
             <param name="request"></param>
-            <param name="nice">测试</param>
             <returns></returns>       
         </member>
         <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.LoginController.register(SY.Com.Medical.Model.RegisterRequest)">
@@ -346,6 +345,24 @@
             </summary>
             <param name="UserId"></param>
             <param name="Account"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SY.Com.Medical.WebApi.Program">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Program.Main(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="args"></param>
             <returns></returns>
         </member>
         <member name="T:SY.Com.Medical.WebApi.Startup">

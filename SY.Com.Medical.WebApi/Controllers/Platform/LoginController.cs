@@ -25,7 +25,6 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
         /// 用户登录
         /// </summary>
         /// <param name="request"></param>
-        /// <param name="nice">测试</param>
         /// <returns></returns>       
         [HttpPost]
         [AllowAnonymous]

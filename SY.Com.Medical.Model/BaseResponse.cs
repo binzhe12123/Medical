@@ -36,6 +36,11 @@ namespace SY.Com.Medical.Model
         public int TotalPage { get; set; }
 
         /// <summary>
+        /// 一共多少记录
+        /// </summary>
+        public int TotalCount { get; set; }
+
+        /// <summary>
         /// 系统异常
         /// </summary>
         /// <param name="message">错误信息</param>
@@ -68,6 +73,7 @@ namespace SY.Com.Medical.Model
         /// <param name="pageSize"></param>
         public void CalcPage(int totalCount,int pageIndex,int pageSize)
         {
+            TotalCount = totalCount;
             int extent = totalCount % pageSize == 0 ? 0 : 1;
             TotalPage = totalCount / pageSize + extent;
         }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SY.Com.Medical.Attribute;
 using SY.Com.Medical.BLL;
 using SY.Com.Medical.BLL.Platform;
 using SY.Com.Medical.Model;
@@ -15,8 +16,9 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
     /// 科室控制器abc
     /// </summary>
     [Route("api/[controller]/[Action]")]
-    [Authorize]
-    [ApiController]    
+    [Authorize]    
+    [ApiController]
+    [Api_Tenant]
     public class DepartmentController : ControllerBase
     {
         Department bll = new Department();
@@ -26,6 +28,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
+        [Api_Tenant]
         public BaseResponse<List<DepartmentResponse>> getList(DepartmentModel request)
         {
             BaseResponse<List<DepartmentResponse>> result = new BaseResponse<List<DepartmentResponse>>();
@@ -136,7 +139,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<bool> delete(DepartmentResponse request)
+        public BaseResponse<bool> delete(DepartmentDelete request)
         {
             BaseResponse<bool> result = new BaseResponse<bool>();
             try

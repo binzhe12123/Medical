@@ -76,6 +76,11 @@
             一共多少页
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.BaseResponse`1.TotalCount">
+            <summary>
+            一共多少记录
+            </summary>
+        </member>
         <member name="M:SY.Com.Medical.Model.BaseResponse`1.sysException(System.String)">
             <summary>
             系统异常
@@ -379,17 +384,17 @@
         </member>
         <member name="P:SY.Com.Medical.Model.DepartmentResponse.DepartmentId">
             <summary>
-            
+            科室id
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.DepartmentResponse.DepartmentName">
             <summary>
-            
+            科室名称
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.DepartmentResponse.DepartmentCode">
             <summary>
-            
+            科室编码
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.DepartmentCreateRequest">
@@ -405,6 +410,16 @@
         <member name="P:SY.Com.Medical.Model.DepartmentCreateRequest.DepartmentCode">
             <summary>
             
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.DepartmentDelete">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.DepartmentDelete.DepartmentId">
+            <summary>
+            科室id 
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.EmployeeModel">
@@ -957,6 +972,11 @@
             租户类型,枚举    
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.TenentCreateRequest.LogoImg">
+            <summary>
+            图片路径(相对),通过图片上传接口返回的路径
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.TenantRequest">
             <summary>
             租户模型入参
@@ -1040,11 +1060,6 @@
         <member name="T:SY.Com.Medical.Model.UserModel">
             <summary>
             用户模型
-            </summary>
-        </member>
-        <member name="P:SY.Com.Medical.Model.UserModel.UserId">
-            <summary>
-            用户ID
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.UserModel.Account">

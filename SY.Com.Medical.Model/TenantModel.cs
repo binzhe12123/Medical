@@ -99,6 +99,11 @@ namespace SY.Com.Medical.Model
         /// </summary>
         public TenantType TenantType { get; set; }
 
+        /// <summary>
+        /// 图片路径(相对),通过图片上传接口返回的路径
+        /// </summary>
+        public string LogoImg { get; set; }
+
 
     }
 

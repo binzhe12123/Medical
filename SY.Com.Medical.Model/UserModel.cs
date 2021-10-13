@@ -11,10 +11,6 @@ namespace SY.Com.Medical.Model
     /// </summary>
     public class UserModel : BaseModel
     {
-        /// <summary>
-        /// 用户ID
-        /// </summary>
-        public int UserId { get; set; }
 
 
         /// <summary>

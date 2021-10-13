@@ -141,12 +141,15 @@ namespace SY.Com.Medical.Repository
                 }
                 else if (prop.IsDefined(typeof(DB_NotColumAttribute), false)) {
 
-                }else {
-                    if (prop.GetValue(t) == null && prop.IsDefined(typeof(DB_DefaultAttribute), false))
+                } else{
+                    if ( prop.IsDefined(typeof(DB_DefaultAttribute), false))
                     {
-                        var attr = (DB_DefaultAttribute)prop.GetCustomAttribute(typeof(DB_DefaultAttribute));
-                        var defaultvalue = attr.getDefault();
-                        prop.SetValue(t, defaultvalue);
+                        if(prop.GetValue(t) == null || (int)prop.GetValue(t) == 0)
+                        {
+                            var attr = (DB_DefaultAttribute)prop.GetCustomAttribute(typeof(DB_DefaultAttribute));
+                            var defaultvalue = attr.getDefault();
+                            prop.SetValue(t, defaultvalue);
+                        }
                     }
                     columns.Add(prop.Name);
                     param.Add($"@{prop.Name}");

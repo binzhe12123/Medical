@@ -49,7 +49,7 @@ namespace SY.Com.Medical.BLL.Platform
         /// <param name="request"></param>
         /// <param name="TenantId"></param>
         public void createDepartment(DepartmentCreateRequest request)
-        {
+        {   
             var entity = request.DtoToEntity<DepartmentEntity>();
             db.InsertDepartment( entity);
         }
@@ -68,7 +68,7 @@ namespace SY.Com.Medical.BLL.Platform
         /// 删除科室
         /// </summary>
         /// <param name="request"></param>
-        public void deleteDepartment(DepartmentResponse request)
+        public void deleteDepartment(DepartmentDelete request)
         {
             db.Delete(request.DtoToEntity<DepartmentEntity>());
         }

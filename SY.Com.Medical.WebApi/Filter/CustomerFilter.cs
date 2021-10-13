@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc.Filters;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Controllers;
+using Microsoft.AspNetCore.Mvc.Filters;
+using SY.Com.Medical.Attribute;
+using SY.Com.Medical.BLL;
 using SY.Com.Medical.Model;
 using System;
 using System.Collections.Generic;
@@ -28,7 +32,27 @@ namespace SY.Com.Medical.WebApi.Filter
         /// <param name="context"></param>
         public void OnActionExecuting(ActionExecutingContext context)
         {
-            try {
+            try
+            {
+                var tenantid = context.HttpContext.Request.Headers["TenantId"].ToString();
+                if (string.IsNullOrEmpty(tenantid) || tenantid == "0")
+                {
+                    foreach (var prop in context.Controller.GetType().GetCustomAttributesData())
+                    {
+                        if (prop.AttributeType.Name == nameof(Api_TenantAttribute))
+                        {
+                            throw new MyException("TenantId非法");
+                        }
+                    }
+                    var controllerActionDescriptor = context.ActionDescriptor as ControllerActionDescriptor;
+                    foreach (var prop in controllerActionDescriptor.MethodInfo.GetCustomAttributesData())
+                    {
+                        if (prop.AttributeType.Name == nameof(Api_TenantAttribute))
+                        {                            
+                            throw new MyException("TenantId非法");
+                        }
+                    }
+                }
                 foreach (var item in context.ActionArguments)
                 {
                     //继承自BaseModel
@@ -41,17 +65,22 @@ namespace SY.Com.Medical.WebApi.Filter
                         {
                             type.GetProperty("UserId").SetValue(request, int.Parse(userid));
                         }
-                        var tenantid = context.HttpContext.Request.Headers["TenantId"].ToString();
-                        if (!string.IsNullOrEmpty(tenantid))
-                        {
-                            type.GetProperty("TenantId").SetValue(request, int.Parse(tenantid));
-                        }
+                        type.GetProperty("TenantId").SetValue(request, int.Parse(tenantid));
                     }
                 }
-            }catch(Exception)
-            {
-                
             }
+            catch(Exception ex)
+            {
+                if (ex is MyException)
+                {
+                    context.Result = new JsonResult(new BaseResponse<string>().busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message));
+                }
+                else
+                {
+                    context.Result = new JsonResult(new BaseResponse<string>().sysException(ex.Message));
+                }
+            }
+
 
         }
 

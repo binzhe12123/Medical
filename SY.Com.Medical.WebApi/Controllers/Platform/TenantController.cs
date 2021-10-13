@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SY.Com.Medical.Attribute;
 using SY.Com.Medical.BLL;
 using SY.Com.Medical.BLL.Platform;
 using SY.Com.Medical.Model;
@@ -17,6 +18,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
     [Route("api/[controller]/[Action]")]
     [Authorize]
     [ApiController]
+    [Api_Tenant]
     public class TenantController : ControllerBase
     {
         Tenant tenantbll = new Tenant();

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SY.Com.Medical.Attribute;
 using SY.Com.Medical.BLL;
 using SY.Com.Medical.BLL.Clinic;
 using SY.Com.Medical.Model;
@@ -17,6 +18,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
     [Route("api/[controller]/[Action]")]
     [ApiController]
     [Authorize]
+    [Api_Tenant]
     public class PatientController : ControllerBase
     {
         Patient bll = new Patient();

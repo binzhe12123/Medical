@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Filters;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using SY.Com.Medical.BLL;
 using SY.Com.Medical.Model;
 using System;
@@ -19,16 +20,20 @@ namespace SY.Com.Medical.WebApi.Filter
         /// <param name="context"></param>
         public void OnException(ExceptionContext context)
         {
-            //BaseResponse<string> result = new BaseResponse<string>();            
-            //if (context.Exception is MyException)
-            //{
-            //    result.busExceptino(Enum.ErrorCode.业务逻辑错误, context.Exception.Message);
-            //}
-            //else
-            //{
-            //    context.Result = result.sysException(context.Exception.Message);
-            //}
-            throw new NotImplementedException();
+            if (context.ExceptionHandled == false)
+            {
+                if(context.Exception is MyException)
+                {
+                    context.Result = new JsonResult(new BaseResponse<string>().busExceptino(Enum.ErrorCode.业务逻辑错误, context.Exception.Message));
+                }
+                else
+                {
+                    context.Result = new JsonResult(new BaseResponse<string>().sysException(context.Exception.Message));
+                }                
+            }
+            context.ExceptionHandled = true;
         }
+
+
     }
 }

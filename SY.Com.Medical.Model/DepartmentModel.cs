@@ -20,17 +20,18 @@ namespace SY.Com.Medical.Model
     public class DepartmentResponse : BaseModel
     {
         /// <summary>
-        /// 
+        /// 科室id
         /// </summary>
         public int DepartmentId { get; set; }
         /// <summary>
-        /// 
+        /// 科室名称
         /// </summary>
         public string DepartmentName { get; set; }
         /// <summary>
-        /// 
+        /// 科室编码
         /// </summary>
-        public string DepartmentCode { get; set; }        
+        public string DepartmentCode { get; set; }
+
     }
 
     /// <summary>
@@ -46,6 +47,17 @@ namespace SY.Com.Medical.Model
         /// 
         /// </summary>
         public string DepartmentCode { get; set; }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public class DepartmentDelete : BaseModel
+    {
+        /// <summary>
+        /// 科室id 
+        /// </summary>
+        public int DepartmentId { get; set; }
     }
 
 }

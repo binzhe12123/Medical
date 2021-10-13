@@ -46,8 +46,11 @@ namespace SY.Com.Medical.WebApi
             services.AddAuthentication("Bearer")
             .AddJwtBearer(options => options.TokenValidationParameters = JWTTokenValidationParameters.getParameters());
 
-            services.AddControllers(options=>options.Filters.Add(new CustomerFilter()));
-
+            services.AddControllers(options=> options.Filters.Add(new CustomerFilter()));
+            services.AddMvc(opt =>
+            {
+                opt.Filters.Add<ExceptionFilter>();
+            });
             //ÅäÖÃ¿çÓò´¦Àí
             services.AddCors(options =>
             {
