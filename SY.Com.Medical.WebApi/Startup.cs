@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.PlatformAbstractions;
 using Microsoft.OpenApi.Models;
@@ -13,6 +14,7 @@ using Swashbuckle.AspNetCore.Swagger;
 using SY.Com.Medical.WebApi.Filter;
 using SY.Com.Medical.WebApi.Format;
 using SY.Com.Medical.WebApi.JWT;
+using System;
 using System.IO;
 
 namespace SY.Com.Medical.WebApi

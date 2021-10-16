@@ -33,7 +33,8 @@ namespace SY.Com.Medical.BLL.Platform
             {
                 throw new MyException("图片不能超过10M");
             }
-            string dir = System.Environment.CurrentDirectory + "/File/";
+            
+            string dir = System.Environment.CurrentDirectory + "/wwwroot/";
             string sortpath = fb.getPath();//获取路径
             string strDateTime = DateTime.Now.ToString("yyMMddhhmmssfff"); //取得时间字符串
             string strRan = Convert.ToString(new Random().Next(100, 999)); //生成三位随机数
@@ -44,7 +45,8 @@ namespace SY.Com.Medical.BLL.Platform
                 Directory.CreateDirectory(filepath);
             }
             FileStream fs = new FileStream(filepath + filename, FileMode.OpenOrCreate);
-            mstream.CopyTo(fs);
+            fs.Write(mstream.GetBuffer(), 0, mstream.GetBuffer().Length);
+            //mstream.CopyTo(fs);
             fs.Flush();
             fs.Close();
             mstream.Close();

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SY.Com.Medical.Attribute;
@@ -20,7 +21,6 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
     [Route("api/[controller]/[action]")]
     [ApiController]
     [Authorize]
-    [Api_Tenant]
     public class StaticFileController : ControllerBase
     {
         /// <summary>
@@ -31,13 +31,13 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
         /// <param name="bus">上传业务枚举</param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<List<string>> UpLoadStaticFile([FromForm]List<IFormFile> files, [FromForm] StaticFileType type, [FromForm] StaticFileBusiness bus)
+        public BaseResponse<List<string>> UpLoadStaticFile([FromForm]List<IFormFile> files, [FromForm] StaticFileType staticFileType, [FromForm] StaticFileBusiness staticFileBusiness)
         {
             BaseResponse<List<string>> result = new BaseResponse<List< string>>();
             result.Data = new List<string>();
             try
-            {
-                StaticFileModel request = new StaticFileModel() { StaticFileType = type, StaticFileBusiness = bus };
+            {                
+                StaticFileModel request = new StaticFileModel() { StaticFileType = staticFileType, StaticFileBusiness = staticFileBusiness };
                 if (files.Count < 1)
                 {
                     throw new MyException("为上传任何文件");
@@ -55,7 +55,8 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
                         ms.Flush();
                         //执行文件保存
                         string filepath = fileupload.SaveFile(ms);
-                        result.Data.Add(filepath);
+                        ms.Close();
+                        result.Data.Add(Request.Host.Value + filepath);
                     }
                 }
                 //返回文件路径

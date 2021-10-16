@@ -35,7 +35,7 @@ namespace SY.Com.Medical.BLL.Platform
     {        
         public override string getPath()
         {
-            return "/temamt/logo/";
+            return "/tenant/logo/";
         }
     }
 

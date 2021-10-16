@@ -477,6 +477,11 @@
             科室
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.EmployeeModel.LogoImg">
+            <summary>
+            头像
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.EmployeeGetModel">
             <summary>
             获取员工信息

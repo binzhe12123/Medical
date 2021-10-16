@@ -382,7 +382,7 @@ namespace SY.Com.Medical.Repository
                 }
             }
             string sql = @$" 
-            Select  count(1) as nums From {tableName} Where 1=1 {whereColumns}
+            Select  count(1) as nums From {tableName} Where 1=1 And IsDelete = 1 {whereColumns}
             Select * From
             (
                 Select  ROW_NUMBER() over(order by {tablekey} desc) as row_id,* From {tableName} 

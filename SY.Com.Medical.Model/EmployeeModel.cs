@@ -46,6 +46,10 @@ namespace SY.Com.Medical.Model
         /// 科室
         /// </summary>
         public string Departments { get; set; }
+        /// <summary>
+        /// 头像
+        /// </summary>
+        public string LogoImg { get; set; }
     }
 
     /// <summary>

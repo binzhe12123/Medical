@@ -16,7 +16,6 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
-    [Api_Tenant]
     public class SettingController : ControllerBase
     {
         Setting bll = new Setting();
