@@ -31,10 +31,10 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
         /// <param name="bus">上传业务枚举</param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<Dictionary<string, string>> UpLoadStaticFile([FromForm]List<IFormFile> files, [FromForm] StaticFileType type, [FromForm] StaticFileBusiness bus)
+        public BaseResponse<List<string>> UpLoadStaticFile([FromForm]List<IFormFile> files, [FromForm] StaticFileType type, [FromForm] StaticFileBusiness bus)
         {
-            BaseResponse<Dictionary<string,string>> result = new BaseResponse<Dictionary<string, string>>();
-            result.Data = new Dictionary<string,string>();
+            BaseResponse<List<string>> result = new BaseResponse<List< string>>();
+            result.Data = new List<string>();
             try
             {
                 StaticFileModel request = new StaticFileModel() { StaticFileType = type, StaticFileBusiness = bus };
@@ -55,7 +55,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
                         ms.Flush();
                         //执行文件保存
                         string filepath = fileupload.SaveFile(ms);
-                        result.Data.Add(item.FileName,filepath);
+                        result.Data.Add(filepath);
                     }
                 }
                 //返回文件路径

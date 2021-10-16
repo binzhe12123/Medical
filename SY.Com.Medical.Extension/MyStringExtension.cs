@@ -47,6 +47,10 @@ namespace SY.Com.Medical.Extension
         public static string GetPinYinHead(this String str)
         {
             string result = string.Empty;
+            if (string.IsNullOrEmpty(str))
+            {
+                return "";
+            }
             foreach (char item in str)
             {
                 if (('a' <= item && item <= 'z') || ('A' <= item && item <= 'Z'))

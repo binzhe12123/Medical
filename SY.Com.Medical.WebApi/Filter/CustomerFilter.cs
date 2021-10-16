@@ -5,6 +5,7 @@ using SY.Com.Medical.Attribute;
 using SY.Com.Medical.BLL;
 using SY.Com.Medical.Model;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -22,7 +23,33 @@ namespace SY.Com.Medical.WebApi.Filter
         /// <param name="context"></param>
         public void OnActionExecuted(ActionExecutedContext context)
         {
-            
+            //var response = ((Microsoft.AspNetCore.Mvc.ObjectResult)context.Result).Value;
+            //var datavalue = response.GetType().GetProperty("Data").GetValue(response);
+            ////如果返回值是数组,就循环数组
+            //if (datavalue.GetType().IsGenericType && datavalue.GetType().GetGenericTypeDefinition() == typeof(List<>))
+            //{
+            //    for (int i = 0; i < ((IList)datavalue).Count; i++)
+            //    {
+            //        var datavalueitem = ((IList)datavalue)[i];
+            //        foreach (var e in datavalueitem.GetType().GetProperties())
+            //        {
+            //            if (e.GetValue(datavalueitem) != null && e.GetValue(datavalueitem).GetType().IsEnum)
+            //            {
+            //                e.SetValue(datavalueitem, e.GetValue(datavalueitem).GetHashCode());
+            //            }
+            //        }
+            //    }
+            //}
+            //else {
+            //    foreach (var e in datavalue.GetType().GetProperties())
+            //    {
+            //        if (e.GetValue(datavalue) != null && e.GetValue(datavalue).GetType().IsEnum)
+            //        {
+            //            e.SetValue(datavalue, (int)e.GetValue(datavalue));
+            //        }
+            //    }
+            //}
+
         }
 
         /// <summary>
@@ -65,7 +92,10 @@ namespace SY.Com.Medical.WebApi.Filter
                         {
                             type.GetProperty("UserId").SetValue(request, int.Parse(userid));
                         }
-                        type.GetProperty("TenantId").SetValue(request, int.Parse(tenantid));
+                        if(!string.IsNullOrEmpty(tenantid))
+                        {
+                            type.GetProperty("TenantId").SetValue(request, int.Parse(tenantid));
+                        }                        
                     }
                 }
             }

@@ -19,7 +19,7 @@ namespace SY.Com.Medical.Model
         /// <summary>
         /// 性别
         /// </summary>
-        public Enum.Sex Sex { get; set; }
+        public int Sex { get; set; }
 
 
         /// <summary>

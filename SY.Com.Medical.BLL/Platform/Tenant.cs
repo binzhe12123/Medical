@@ -35,8 +35,8 @@ namespace SY.Com.Medical.BLL.Platform
             List<UserTenantResponse> responsesboss = new List<UserTenantResponse>();
             if (join.Any()) join.ToList().ForEach(entity => responsesjoin.Add(entity.EntityToDto<UserTenantResponse>()));
             if (boss.Any()) boss.ToList().ForEach(entity => responsesboss.Add(entity.EntityToDto<UserTenantResponse>()));
-            if (responsesjoin.Any()) responsesjoin.ForEach(response => response.IsBoss = Enum.IsBoss.不是);
-            if (responsesboss.Any()) responsesboss.ForEach(response => response.IsBoss = Enum.IsBoss.是);
+            if (responsesjoin.Any()) responsesjoin.ForEach(response => response.IsBoss = (int)Enum.IsBoss.不是);
+            if (responsesboss.Any()) responsesboss.ForEach(response => response.IsBoss = (int)Enum.IsBoss.是);
             return responsesjoin.Concat(responsesboss);
         }
 
@@ -53,8 +53,8 @@ namespace SY.Com.Medical.BLL.Platform
             List<UserTenantResponse> responsesboss = new List<UserTenantResponse>();
             if (join.Any()) join.ToList().ForEach(entity => responsesjoin.Add(entity.EntityToDto<UserTenantResponse>()));
             if (boss.Any()) boss.ToList().ForEach(entity => responsesboss.Add(entity.EntityToDto<UserTenantResponse>()));
-            if (responsesjoin.Any()) responsesjoin.ForEach(response => response.IsBoss = Enum.IsBoss.不是);
-            if (responsesboss.Any()) responsesboss.ForEach(response => response.IsBoss = Enum.IsBoss.是);
+            if (responsesjoin.Any()) responsesjoin.ForEach(response => response.IsBoss = (int)Enum.IsBoss.不是);
+            if (responsesboss.Any()) responsesboss.ForEach(response => response.IsBoss = (int)Enum.IsBoss.是);
             return responsesjoin.Concat(responsesboss).ToList().Find(x => x.TenantId == request.TenantId);
         }
 

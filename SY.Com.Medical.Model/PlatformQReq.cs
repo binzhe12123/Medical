@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace SY.Com.Medical.Model
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class PlatformQReq : BaseModel
     {
         /// <summary>

@@ -41,7 +41,7 @@ namespace SY.Com.Medical.Model
         /// <summary>
         /// 病历类型枚举ID    
         /// </summary>
-        public CaseBookType CaseBookTypeId { get; set; }
+        public int CaseBookTypeId { get ; set; }
 
         /// <summary>
         /// 病历编号    

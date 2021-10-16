@@ -17,8 +17,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
     /// </summary>
     [Route("api/[controller]/[Action]")]
     [Authorize]
-    [ApiController]
-    [Api_Tenant]
+    [ApiController]    
     public class TenantController : ControllerBase
     {
         Tenant tenantbll = new Tenant();
@@ -56,6 +55,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
+        [Api_Tenant]
         public BaseResponse<UserTenantResponse> getTenant(BaseModel request)
         {
             BaseResponse<UserTenantResponse> response = new BaseResponse<UserTenantResponse>();
@@ -84,6 +84,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
+        [Api_Tenant]
         public BaseResponse<UserTenantResponse> createTenant(TenentCreateRequest request)
         {
             BaseResponse<UserTenantResponse> response = new BaseResponse<UserTenantResponse>();
@@ -112,6 +113,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
+        [Api_Tenant]
         public BaseResponse<TenantModel> updateTenant(TenantRequest request )
         {
             BaseResponse<TenantModel> response = new BaseResponse<TenantModel>();
@@ -140,6 +142,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
+        [Api_Tenant]
         public BaseResponse<bool> deleteTenant(BaseModel request)
         {
             BaseResponse<bool> response = new BaseResponse<bool>();
@@ -168,6 +171,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
+        [Api_Tenant]
         public BaseResponse<List<MenuResponse>> getMenu(EmployeeGetModel request)
         {
             BaseResponse<List<MenuResponse>> response = new BaseResponse<List<MenuResponse>>();

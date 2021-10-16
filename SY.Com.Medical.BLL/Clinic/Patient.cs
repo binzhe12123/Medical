@@ -51,7 +51,7 @@ namespace SY.Com.Medical.BLL.Clinic
         /// <returns></returns>
         public int add(PatientAdddto request)
         {
-            //拼音
+            //拼音            
             request.PatientPinYin = request.PatientName.GetPinYinHead();
             //搜索字段
             request.SearchKey = request.PatientName + request.PatientPinYin + request.Phone;            

@@ -11,6 +11,7 @@ using Microsoft.OpenApi.Models;
 using Newtonsoft.Json.Converters;
 using Swashbuckle.AspNetCore.Swagger;
 using SY.Com.Medical.WebApi.Filter;
+using SY.Com.Medical.WebApi.Format;
 using SY.Com.Medical.WebApi.JWT;
 using System.IO;
 
@@ -46,10 +47,16 @@ namespace SY.Com.Medical.WebApi
             services.AddAuthentication("Bearer")
             .AddJwtBearer(options => options.TokenValidationParameters = JWTTokenValidationParameters.getParameters());
 
-            services.AddControllers(options=> options.Filters.Add(new CustomerFilter()));
+            services.AddControllers(options => options.Filters.Add(new CustomerFilter()));
             services.AddMvc(opt =>
             {
                 opt.Filters.Add<ExceptionFilter>();
+            }).AddJsonOptions(option =>
+            {
+                //原样输出,默认会把首字母小写
+                //option.JsonSerializerOptions.PropertyNamingPolicy = null;
+                option.JsonSerializerOptions.Converters.Add(new DateConverter());
+                option.JsonSerializerOptions.Converters.Add(new DateTimeNullableConverter());
             });
             //配置跨域处理
             services.AddCors(options =>

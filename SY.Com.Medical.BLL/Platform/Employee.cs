@@ -109,7 +109,7 @@ namespace SY.Com.Medical.BLL.Platform
                         UserId = user.UserId,
                         Roles = roles,
                         TenantId = TenantId,
-                        Sex = Enum.Sex.男,
+                        Sex = (int)Enum.Sex.男,
                         EmployeeName = user.Account,
                         Departments = departs.FirstOrDefault().DepartmentId.ToString()
                     };
@@ -125,7 +125,7 @@ namespace SY.Com.Medical.BLL.Platform
                     UserId = res.UserId,
                     Roles = roles,
                     TenantId = TenantId,
-                    Sex = Enum.Sex.男,
+                    Sex = (int)Enum.Sex.男,
                     EmployeeName = Account,
                     Departments = departs.FirstOrDefault().DepartmentId.ToString()
                 };

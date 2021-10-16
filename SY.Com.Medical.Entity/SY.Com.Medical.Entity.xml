@@ -499,6 +499,11 @@
             验证码    
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Entity.UserEntity.LogoImg">
+            <summary>
+            头像图片
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Entity.UserTenantEntity">
             <summary>
              用户关联租户    

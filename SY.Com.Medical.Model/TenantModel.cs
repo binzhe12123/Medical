@@ -3,6 +3,7 @@ using SY.Com.Medical.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
@@ -46,16 +47,17 @@ namespace SY.Com.Medical.Model
         /// <summary>
         /// 租户类型,枚举    
         /// </summary>        
-        public TenantType TenantType { get; set; }
+        //public TenantType TenantType { get; set; }
+        public int TenantType { get; set; }
 
         /// <summary>
         /// 服务开始时间    
-        /// </summary>
+        /// </summary>        
         public DateTime? TenantServiceStart { get; set; }
 
         /// <summary>
         /// 服务结束时间    
-        /// </summary>
+        /// </summary>            
         public DateTime? TenantServiceEnd { get; set; }
 
         /// <summary>
@@ -77,7 +79,7 @@ namespace SY.Com.Medical.Model
         /// 是否老板
         /// </summary>
         
-        public IsBoss IsBoss {get;set;}
+        public int IsBoss {get;set;}
         /// <summary>
         /// 租户图片
         /// </summary>
@@ -97,7 +99,7 @@ namespace SY.Com.Medical.Model
         /// <summary>
         /// 租户类型,枚举    
         /// </summary>
-        public TenantType TenantType { get; set; }
+        public int TenantType { get; set; }
 
         /// <summary>
         /// 图片路径(相对),通过图片上传接口返回的路径
@@ -121,7 +123,7 @@ namespace SY.Com.Medical.Model
         /// <summary>
         /// 租户类型,枚举    
         /// </summary>
-        public int? TenantType { get; set; }
+        public int TenantType { get; set; }
 
         /// <summary>
         /// 服务开始时间    

@@ -817,6 +817,36 @@
             患者ID
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Model.PlatformCReq">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PlatformCReq.PlatformName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PlatformCReq.VersionId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.PlatformCRes">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PlatformCRes.PlatformId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.PlatformQReq">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="P:SY.Com.Medical.Model.PlatformQReq.PlatformId">
             <summary>
             主键id    
@@ -940,12 +970,12 @@
         <member name="P:SY.Com.Medical.Model.UserTenantResponse.TenantServiceStart">
             <summary>
             服务开始时间    
-            </summary>
+            </summary>        
         </member>
         <member name="P:SY.Com.Medical.Model.UserTenantResponse.TenantServiceEnd">
             <summary>
             服务结束时间    
-            </summary>
+            </summary>            
         </member>
         <member name="P:SY.Com.Medical.Model.UserTenantResponse.YBCode">
             <summary>

@@ -328,6 +328,94 @@
             <param name="operation"></param>
             <param name="context"></param>
         </member>
+        <member name="T:SY.Com.Medical.WebApi.Format.DateConverter">
+            <summary>
+            短期日
+            </summary>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Format.DateConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            
+            </summary>
+            <param name="reader"></param>
+            <param name="typeToConvert"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Format.DateConverter.Write(System.Text.Json.Utf8JsonWriter,System.DateTime,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+            <param name="value"></param>
+            <param name="options"></param>
+        </member>
+        <member name="T:SY.Com.Medical.WebApi.Format.DateTimeConverter">
+            <summary>
+            长日期
+            </summary>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Format.DateTimeConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            
+            </summary>
+            <param name="reader"></param>
+            <param name="typeToConvert"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Format.DateTimeConverter.Write(System.Text.Json.Utf8JsonWriter,System.DateTime,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+            <param name="value"></param>
+            <param name="options"></param>
+        </member>
+        <member name="T:SY.Com.Medical.WebApi.Format.MillisecondTimeConverter">
+            <summary>
+            毫秒日期
+            </summary>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Format.MillisecondTimeConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            
+            </summary>
+            <param name="reader"></param>
+            <param name="typeToConvert"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Format.MillisecondTimeConverter.Write(System.Text.Json.Utf8JsonWriter,System.DateTime,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+            <param name="value"></param>
+            <param name="options"></param>
+        </member>
+        <member name="T:SY.Com.Medical.WebApi.Format.DateTimeNullableConverter">
+            <summary>
+            DateTimeNullable 长日期
+            </summary>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Format.DateTimeNullableConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            
+            </summary>
+            <param name="reader"></param>
+            <param name="typeToConvert"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Format.DateTimeNullableConverter.Write(System.Text.Json.Utf8JsonWriter,System.Nullable{System.DateTime},System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+            <param name="value"></param>
+            <param name="options"></param>
+        </member>
         <member name="T:SY.Com.Medical.WebApi.JWT.AuthTokenHeaderParameter">
             <summary>
             Swagger用来显示JWT
