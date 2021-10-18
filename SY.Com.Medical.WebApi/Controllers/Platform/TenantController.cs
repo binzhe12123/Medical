@@ -83,8 +83,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        [HttpPost]
-        [Api_Tenant]
+        [HttpPost]        
         public BaseResponse<UserTenantResponse> createTenant(TenentCreateRequest request)
         {
             BaseResponse<UserTenantResponse> response = new BaseResponse<UserTenantResponse>();

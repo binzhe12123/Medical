@@ -1,0 +1,568 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="./js/jquery-1.9.1.min.js"></script>
+    <script src="./js/sweetalert.min.js"></script>
+    <title>省医保接口测试</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .header {
+            height: 70px;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            line-height: 70px;
+        }
+
+        .content {
+            margin: 0 auto;
+            width: 98%;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 90%;
+            margin: 0 auto;
+            height: 60px;
+            background-color: #fff;
+            justify-content: center;
+        }
+
+        .title {
+            font-weight: bold;
+            font-size: 18px;
+            flex: 1;
+        }
+
+        p.empty {
+            margin: 5px 20px;
+            flex: 1;
+            padding: 0 5px;
+        }
+
+        .btn {
+            padding: 0px 5px;
+            cursor: pointer;
+            border-radius: 6px;
+            background-color: #31C37C;
+            color: #ffff;
+            border: 1px solid #ddd;
+            text-align: center;
+            height: 45px;
+            flex: 1;
+            outline: none;
+            margin: 5px 20px;
+            font-family: cursive;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+            .btn:hover {
+                background-color: #288E5C;
+                box-shadow: 0px 3px 15px 8px #CFE7DB;
+            }
+    </style>
+</head>
+<body>
+    <div class="main" id="main">
+        <header class="header">
+            <h2>省医保接口对接测试</h2>
+        </header>
+        <div class="content">
+            <p class="title">机构设置</p>
+            机构编码：<input type="text" value="H44030900226" id="fixmedins_code" />
+            机构名称:<input type="text" value="龙华区人民医院" id="fixmedins_name" />
+            签到流水号:<input type="text" value="sign_no" id="sign_no" />
+            医保接口地址:<input type="text" value="http://localhost:8002/SZSI_Smart/api/SYB/Down" id="txtUrl" style="width:320px;" />
+            <p class="title">经办人信息</p>
+            经办人编号:<input type="text" value="mks" id="opter_code" />
+            经办人名称:<input type="text" value="测试用户1" id="opter_name" />
+            <p class="title" 患者信息></p>
+            患者编号:<input type="text" value="44030000000645017014" id="psn_no" />
+            患者姓名:<input type="text" value="崔桂玲" id="psn_name" />
+            身份证:<input type="text" value="420528198310290065" id="certno" />
+            余额:<input type="text" value="" id="balc" />
+            人员类别:<input type="text" value="" id="psn_type" />
+            险种类型:<input type="text" value="" id="insutype" />
+            参保地医保区划:<input type="text" value="440300" id="insuplc_admdvs" />
+            <p class="title">医生信息</p>
+            医生编码:<input type="text" value="H12345" id="dr_code" />
+            医生姓名:<input type="text" value="张医生" id="dr_name" />
+            科室编码:<input type="text" value="A50" id="dept_code" />
+            科室名称:<input type="text" value="中医科" id="dept_name" />
+            科别:<input type="text" value="中医科" id="caty" />
+            <p class="title">就诊信息</p>
+            医疗类别:<input type="text" value="11" id="med_type" />
+            <p class="title">目录信息</p>
+            <table>
+                <tr>
+                    <th>目录编码</th>
+                    <th>机构编码</th>
+                    <th>名称</th>
+                    <th>单价</th>
+                </tr>
+                <tr>
+                    <td><input type="text" value="XA11GAW043A013010100002" id="mlbm_001" /></td>
+                    <td><input type="text" value="XA11GAW043A013010100002" id="jgbm_001" /></td>
+                    <td><input type="text" value="维生素C泡腾片" id="mlmc_001" /></td>
+                    <td><input type="text" value="2" id="mldj_001" /></td>
+                </tr>
+            </table>
+            <p class="title">诊断信息</p>
+            <p class="title">电子医保设置</p>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Key</th>
+                    <th>通道</th>
+                    <th>appid</th>
+                    <th>mchid</th>
+                </tr>
+                <tr>
+                    <td><input type="text" id="txtwx_id" value="30000028" /></td>
+                    <td><input type="text" id="txtwx_key" value="3899ecd971c9094d0592cea6e70350d5" /></td>
+                    <td><input type="text" id="txtwx_channel" value="123456" /></td>
+                    <td><input type="text" id="txtwx_appid" value="wx7cbe815c3a154eb3" /></td>
+                    <td><input type="text" id="txtwx_mchid" value="1601806609" /></td>
+                </tr>
+            </table>
+        </div>
+        <div class="container">
+            <p class="title">自动测试2</p>
+            <button type="button" class="btn" id="autoInterface">自动</button>
+            <p class="empty"></p>
+            <p class="empty"></p>
+            <p class="empty"></p>
+            <p class="empty"></p>
+            <p class="empty"></p>
+        </div>
+        <div class="container">            
+            <p class="title">自动测试</p>
+            <button type="button" class="btn" id="AutoTestYB">自动测试医保接口</button>
+            <button type="button" class="btn" id="clearTaskLink">清理</button>
+            <p class="empty"></p>
+            <p class="empty"></p>
+            <p class="empty"></p>
+            <p class="empty"></p>
+        </div>
+        <div class="container">
+            <p class="title">其他</p>
+            <button type="button" class="btn" id="SYB9001">签到</button>
+            <button type="button" class="btn" id="SYB9002">签退</button>
+            <button type="button" class="btn" id="SYB9101">文件上传</button>
+            <button type="button" class="btn" id="SYB9102">文件下载</button>
+            <p class="empty"></p>
+            <p class="empty"></p>
+        </div>
+        <div class="container">
+            <p class="title">目录下载1</p>
+            <button type="button" class="btn" id="SYB1301">西药</button>
+            <button type="button" class="btn" id="SYB1302">中药</button>
+            <button type="button" class="btn" id="SYB1303">医疗机构制剂目录下载</button>
+            <button type="button" class="btn" id="SYB1304">民族药品目录下载</button>
+            <button type="button" class="btn" id="SYB1305">医疗服务项目目录下载</button>
+            <button type="button" class="btn" id="SYB1306">医用耗材目录下载</button>
+
+        </div>
+        <div class="container">
+            <p class="title">目录下载2</p>
+            <button type="button" class="btn" id="SYB1312">医保目录信息下载</button>
+            <button type="button" class="btn" id="SYB1314">中医疾病目录下载</button>
+            <button type="button" class="btn" id="SYB1315">中医证候目录下载</button>
+            <button type="button" class="btn" id="SYB1316">医疗目录与医保目录匹配信息下载</button>
+            <button type="button" class="btn" id="SYB1317">医药机构目录匹配信息下载</button>
+            <button type="button" class="btn" id="SYB1318">医保目录限价信息下载</button>
+            <button type="button" class="btn" id="SYB1319">医保目录先自付比例信息下载</button>
+
+        </div>
+        <div class="container">
+            <p class="title">基础信息</p>
+            <button type="button" class="btn" id="SYB1101">人员信息</button>
+            <button type="button" class="btn" id="SYB1901">字典表下载</button>
+            <button type="button" class="btn" id="SYB1201">医药机构信息获取</button>
+            <p class="empty"></p>
+            <p class="empty"></p>
+            <p class="empty"></p>
+        </div>
+        <div class="container">
+            <p class="title">门急诊结算</p>
+            <button type="button" class="btn" id="SYB2201">门诊挂号</button>
+            <button type="button" class="btn" id="SYB2202">门诊挂号撤销</button>
+            <button type="button" class="btn" id="SYB2203">门诊就诊信息上传</button>
+            <button type="button" class="btn" id="SYB2204">门诊费用明细信息上传</button>
+            <button type="button" class="btn" id="SYB2205">门诊费用明细信息撤销</button>
+            <button type="button" class="btn" id="SYB2206">门诊预结算</button>
+            <button type="button" class="btn" id="SYB2207">门诊结算</button>
+            <button type="button" class="btn" id="SYB2208">门诊结算撤销</button>
+        </div>
+        <div class="container">
+            <p class="title">医保服务</p>
+            <button type="button" class="btn" id="SYB2001">人员待遇享受检查</button>
+            <button type="button" class="btn" id="SYB2601">冲正交易</button>
+            <button type="button" class="btn" id="SYB3301">目录对照上传</button>
+            <button type="button" class="btn" id="SYB3302">目录对照撤销</button>
+            <p class="empty"></p>
+            <p class="empty"></p>
+            <p class="empty"></p>
+            <p class="empty"></p>
+        </div>
+        <div class="container">
+            <p class="title">医药机构管理</p>
+            <button type="button" class="btn" id="SYB3201">医药机构费用结算对总账</button>
+            <button type="button" class="btn" id="SYB3202">医药机构费用结算对明细账</button>
+            <button type="button" class="btn" id="SYB3101">明细审核分析服务</button>
+            <button type="button" class="btn" id="SYB3102">明细审核事中分析服务</button>
+            <button type="button" class="btn" id="SYB3401">科室信息上传</button>
+            <button type="button" class="btn" id="SYB3402">科室信息变更</button>
+            <button type="button" class="btn" id="SYB3403">科室信息撤销</button>
+        </div>
+        <div class="container">
+            <p class="title">处方外购</p>
+            <button type="button" class="btn" id="SYB7101">电子处方上传</button>
+            <button type="button" class="btn" id="SYB7104">电子处方撤销</button>
+            <p class="empty"></p>
+            <p class="empty"></p>
+            <p class="empty"></p>
+            <p class="empty"></p>
+        </div>
+        <div class="container">
+            <p class="title">信息查询</p>
+            <button type="button" class="btn" id="SYB5201">就诊信息查询</button>
+            <button type="button" class="btn" id="SYB5202">诊断信息查询</button>
+            <button type="button" class="btn" id="SYB5203">结算信息查询</button>
+            <button type="button" class="btn" id="SYB5204">费用明细查询</button>
+            <button type="button" class="btn" id="SYB5205">人员慢特病用药记录查询</button>
+            <button type="button" class="btn" id="SYB5206">人员累计信息查询</button>
+            <button type="button" class="btn" id="SYB5101">科室信息查询</button>
+            <button type="button" class="btn" id="SYB5102">医执人员信息查询</button>
+        </div>
+        <div class="container">
+            <p class="title">医药机构服务查询</p>
+            <button type="button" class="btn" id="SYB5301">人员慢特病备案查询</button>
+            <button type="button" class="btn" id="SYB5302">人员定点信息查询</button>
+            <button type="button" class="btn" id="SYB5303">在院信息查询</button>
+            <button type="button" class="btn" id="SYB5304">转院信息查询</button>
+            <p class="empty"></p>
+            <p class="empty"></p>
+        </div>
+        <div class="container">
+            <p class="title">医药机构管理</p>
+            <button type="button" class="btn" id="SYB3501">商品盘存上传</button>
+            <button type="button" class="btn" id="SYB3502">商品库存变更</button>
+            <button type="button" class="btn" id="SYB3503">商品采购</button>
+            <button type="button" class="btn" id="SYB3504">商品采购退货</button>
+            <button type="button" class="btn" id="SYB3505">商品销售</button>
+            <button type="button" class="btn" id="SYB3506">商品销售退货</button>
+            <button type="button" class="btn" id="SYB3507">商品信息删除</button>
+        </div>
+        <div class="container">
+            <p class="title">人员备案</p>
+            <button type="button" class="btn" id="SYB2505">人员定点备案</button>
+            <button type="button" class="btn" id="SYB2506">人员定点备案撤销</button>
+            <button type="button" class="btn" id="SYB4201">自费病人就医信息</button>
+            <button type="button" class="btn" id="SYB4601">输血信息</button>
+            <p class="empty"></p>
+            <p class="empty"></p>
+            <p class="empty"></p>
+            <p class="empty"></p>
+        </div>
+        <div class="container">
+            <p class="title">信息采集上传</p>
+            <!--<button type="button" class="btn" id="WXToken">获取AccessToken</button>-->
+            <!--<button type="button" class="btn" id="WXScan">扫码</button>-->
+            <button type="button" class="btn" id="SYB4201">挂号下单</button>
+            <button type="button" class="btn" id="WXOrderMZ">诊间下单</button>
+            <button type="button" class="btn" id="WXQuery">查询</button>
+            <button type="button" class="btn" id="WXRefund">退款</button>
+            <button type="button" class="btn" id="WXRefundQuery">退款查询</button>
+            <button type="button" class="btn" id="WXCloseOrder">关闭订单</button>
+        </div>
+        <div class="content">
+            <p class="title">电子医保参数</p>
+            <label id="labDNH"></label>
+            <label id="labName"></label>
+            <table id="tabWxResult">
+                <tr>
+                    <th>时间</th>
+                    <th>订单号</th>
+                    <th>总金额</th>
+                    <th>自费</th>
+                    <th>医保</th>
+                    <th>订单类型</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+<script src="./js/YBSYB.js"></script>
+<script src="./js/YBSYBLink.js"></script>
+<script>
+
+    /**
+     * Create By Kevin Chow
+     * 接口说明 :调用接口的方法结尾接口名,每次写完接口在已写接口里添加
+     */
+
+
+
+
+    //ajax成功后可能需要处理一些逻辑
+    function successLogic(name, result) {
+        if (name == "YS001") {
+            $("#txtys01_xm").val(result.transBody.outputlist[0].aac003);
+            $("#txtys01_ybbm").val(result.transBody.outputlist[0].bkc320);
+        } else if (name == "WXToken") {
+            NumberData.accesstoken = result.access_token;
+            var task = TaskLink;
+            while (task != undefined && task != "") {
+                task.node.data.accesstoken = NumberData.accesstoken;
+                task = task.next;
+            }
+        } else if (name == "WXScan") {
+            NumberData.user_name = result.user_name;
+            NumberData.token = result.token;
+            NumberData.user_card_no = result.idmd5;
+            NumberData.DNH = result.mi_comp_no;
+            NumberData.YLZH = result.mi_card_id;
+            var task = TaskLink;
+            while (task != undefined && task != "") {
+                if (task.node.name == "WXOrder") {
+                    task.node.data.token = NumberData.token;
+                    task.node.data.user_name = NumberData.user_name;
+                    task.node.data.user_card_no = NumberData.user_card_no;
+                    task.node.data.DNH = NumberData.DNH;
+                    var temp = JSON.parse(task.node.data.request_content);
+                    temp.transBody.aaz500 = NumberData.YLZH;
+                    task.node.data.request_content = JSON.stringify(temp);
+                    //为了可以展示结果
+                    NumberData.total_fee = Number(temp.transBody.akc264);
+                    NumberData.order_type = task.node.data.order_type;
+                } else if (task.node.name == "MZ001") {
+                    task.node.data.transBody.aaz500 = NumberData.YLZH;
+                }
+                task = task.next;
+            }
+        } else if (name == "WXOrder") {
+            NumberData.med_trans_id = result.med_trans_id;
+            $("#labDNH").html(NumberData.DNH);
+            $("#labName").html(NumberData.user_name);
+            var newrow = "<tr><td>" + new Date().format("yyyy-MM-dd hh:mm:ss") + "</td><td>" + NumberData.med_trans_id + "</td>"
+                + "<td>" + NumberData.total_fee + "</td><td>0</td><td>" + NumberData.total_fee + "</td><td>" + NumberData.order_type + "</td></tr>";
+            $("#tabWxResult tr:last").after(newrow);
+        } else if (name == "WXRefund") {
+            NumberData.med_refund_id = result.med_refund_id;
+            var newrow = "<tr><td>" + new Date().format("yyyy-MM-dd hh:mm:ss") + "</td><td>" + NumberData.med_refund_id + "</td>"
+                + "<td>" + NumberData.total_fee + "</td><td>0</td><td>" + NumberData.total_fee + "</td><td>" + NumberData.order_type + "退款" + "</td></tr>";
+            $("#tabWxResult tr:last").after(newrow);
+        }
+    }
+
+
+    //微信电子医保url接口地址
+    function WXYBUrl() {
+        return YBEntity.API_URL.substring(0, YBEntity.API_URL.indexOf("/api"));
+    }
+
+
+
+
+
+
+    //创建一个全局的任务单链表,包括数据、方法名称、下一个元素
+    //包括node,next,node中包括name,type,data,callCount
+    var TaskLink = {};
+
+    //初始化自动化测试医保的数组
+    var YBMethodArr = [
+        SYB9001, SYB9002, SYB9101, SYB9102, SYB1101
+        , SYB1901, SYB1201, SYB2001, SYB2601, SYB3201
+        , SYB3202, SYB3101, SYB3102, SYB3401, SYB3402
+        , SYB3403, SYB7101, SYB7104, SYB5201, SYB5202
+        , SYB5203, SYB5204, SYB5205, SYB5206, SYB5101,
+        SYB5102, SYB5301, SYB5302, SYB5303, SYB5304
+        , SYB3501, SYB3502, SYB3503, SYB3504, SYB3505
+        , SYB3506, SYB3507, SYB2201, SYB2202, SYB2203
+        , SYB2204, SYB2205, SYB2206, SYB2207, SYB2208
+        , SYB2505, SYB2506, SYB4201
+    ];
+
+
+    //自动化测试医保
+    function AutoTestYB() {
+        //初始化链表:如果链表还没有元素就插入,有元素了就从现有元素执行
+        if (tasklinklength() < 1) {
+            for (var i = 0; i < YBMethodArr.length; i++) {
+                var data = YBMethodArr[i]();
+                if (data != undefined) {
+                    if (data.flag != undefined && data.flag == "wx") {
+                        tasklinkinsertWX(data);
+                    } else {
+                        tasklinkinsert(data);
+                    }
+                }
+            }
+        }
+    }
+
+    //自动化电子医保
+    function AutoTestWXYB() {
+
+    }
+
+    //清空链表
+    function clearTaskLink() {
+        tasklinkclear();
+        //删除表格行
+        $("#tabWxResult tr:gt(0):not(:eq(1))").remove();
+        swal({
+            title: "刷新",
+            text: "成功",
+            icon: "success",
+            button: "确定",
+        });
+    }
+
+
+    //===========================================================================
+
+    //调用Ajax方法,调用成功需分析业务是否成功,成功则调用链表下一个,并把自己删掉.如果失败,重复3次都不成功,就调用显示信息并返回,
+    function SZSI_Smart_post(task) {
+        var url = task.node.API_URL == undefined ? YBEntity.API_URL : task.node.API_URL;
+        var type = task.node.type;
+        $.ajax({
+            async: true,
+            type: type,
+            url: url,
+            data: type == "POST" ? (task.node.model == "yb" ? { "": JSON.stringify(task.node.data) } : task.node.data) : task.node.data,
+            error: function (msg) {
+                //if (task.node.callCount < 3) {
+                //    SZSI_Smart_post(task);
+                //    task.node.callCount++;
+                //} else {
+                //    task.node.callCount = 0;
+                //    viewWindow(task.node.name, msg, "error");
+                //}
+                viewWindow(task.node.name, msg, "error");
+            }
+        }).then(function (result) {
+            if (
+                (task.node.model == "yb" && result.transReturnCode == "00000000")
+                || (task.node.model == "wx" && result.return_code == "SUCCESS" && result.result_code == "SUCCESS")
+                || (task.node.model == "wx" && result.code == "0")
+            ) {
+                $("#" + task.node.name).css("background-color", "#868686");
+                viewWindow(task.node.name, "成功", "success");
+                //成功了执行一些业务逻辑
+                successLogic(task.node.name, result);
+                //如果还有next就继续调用next的东西
+                if (task.next != undefined && task.next != "") {
+                    SZSI_Smart_post(task.next);
+                } else {
+                    //没有下一个了就弹出执行完成
+                    viewWindow("收关", "接口全部执行完成", "success");
+                }
+                //删除该节点
+                tasklinkdelete();
+            }
+            else {
+                //if (task.node.callCount < 3) {
+                //    task.node.callCount++;
+                //    SZSI_Smart_post(task);
+                //} else {
+                //    task.node.callCou = 0;
+                //    viewWindow(task.node.name,
+                //        result.transReturnMessage == undefined ? (result.message == undefined ? (result.return_msg + result.err_code_des) : result.message) : result.transReturnMessage, "error");
+                //    //删除该节点
+                //    tasklinkdelete();
+                //}
+                viewWindow(task.node.name,
+                    result.transReturnMessage == undefined ?
+                        (result.message == undefined ? (result.return_msg + result.err_code_des) : result.message)
+                        : result.transReturnMessage, "error");
+                //清空链表
+                tasklinkclear();
+            }
+        });
+    }
+
+    //读卡验证码
+    function SZSI_Smart_ReadCard(flag, serialNumber, callback) {
+        var url = $("#txtUrl").val().replace("Down", "ReadCard") + "?method=iveryficode&flag=" + flag + "&serialNumber=" + serialNumber;
+        $.get(url, function (result) {
+            callback(result);
+        });
+
+    }
+
+    //智慧医保调用的把戏
+    function SZSI_Smart_post_zh(url, data, type, funYes, funNo) {
+        $.ajax({
+            type: type,
+            url: url,
+            data: { "": JSON.stringify(data) },
+            success: funYes,
+            error: funNo
+        });
+    }
+
+    //显示信息
+    function viewWindow(titles, texts, icons) {
+        swal({
+            title: titles,
+            text: texts,
+            icon: icons,
+            button: "确定",
+        });
+    }
+
+    /**
+     * 功能说明：通过元素id来进行接口的调用
+     * 弹框组件说明：
+     * swal({
+     *   title: "Good job!",--名称
+     *   text: "You clicked the button!",--显示信息
+     *   icon: "success",--成功
+     *   button: "Aww yiss!",--按钮文字
+     *    });
+     */
+    //自动化执行需要改造
+    //$("#main").click(function (e) {
+    //    var method = eval(e.target.id);
+    //    if (method != undefined && method.constructor.name == "Function") {
+    //        getInit();
+    //        var data = method();
+    //        if (data != undefined )
+    //        {
+    //            if (data.flag != undefined && data.flag  == "wx") {
+    //                tasklinkinsertWX(data);
+    //            } else {
+    //                tasklinkinsert(data);
+    //            }
+    //        }
+    //    }
+    //    if (TaskLink != undefined && TaskLink.node != undefined)
+    //    {
+    //        SZSI_Smart_post(TaskLink);
+    //    }
+    //})
+
+
+    $("#main").click(function (e) {
+        var method = eval(e.target.id);
+        if (method != undefined && method.constructor.name == "Function") {
+            SYbDatainit();
+            method();
+        }
+    })
+
+
+
+</script>

@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D2280C5A-AD5B-4F5E-88E6-4DF3E0D20389}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SZSI_Smart</RootNamespace>
+    <AssemblyName>SZSI_Smart</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <RegisterForComInterop>true</RegisterForComInterop>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="asm-3.3.1, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packge\监管平台\asm-3.3.1.dll</HintPath>
+    </Reference>
+    <Reference Include="asm-commons-3.3.1, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packge\监管平台\asm-commons-3.3.1.dll</HintPath>
+    </Reference>
+    <Reference Include="asm-tree-3.3.1, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packge\监管平台\asm-tree-3.3.1.dll</HintPath>
+    </Reference>
+    <Reference Include="asm-util-3.3.1, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packge\监管平台\asm-util-3.3.1.dll</HintPath>
+    </Reference>
+    <Reference Include="bcprov-jdk16-1.46, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packge\监管平台\bcprov-jdk16-1.46.dll</HintPath>
+    </Reference>
+    <Reference Include="byte-buddy-1.7.11, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packge\监管平台\byte-buddy-1.7.11.dll</HintPath>
+    </Reference>
+    <Reference Include="cglib-nodep-2.2.2, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packge\监管平台\cglib-nodep-2.2.2.dll</HintPath>
+    </Reference>
+    <Reference Include="commons-codec-1.11, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packge\监管平台\commons-codec-1.11.dll</HintPath>
+    </Reference>
+    <Reference Include="commons-crypto-1.0.0, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packge\监管平台\commons-crypto-1.0.0.dll</HintPath>
+    </Reference>
+    <Reference Include="commons-lang3-3.7, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packge\监管平台\commons-lang3-3.7.dll</HintPath>
+    </Reference>
+    <Reference Include="disruptor-3.3.6, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packge\监管平台\disruptor-3.3.6.dll</HintPath>
+    </Reference>
+    <Reference Include="fastjson-1.2.40, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packge\监管平台\fastjson-1.2.40.dll</HintPath>
+    </Reference>
+    <Reference Include="health.dc-sdk-1.0.0, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packge\监管平台\health.dc-sdk-1.0.0.dll</HintPath>
+    </Reference>
+    <Reference Include="httpclient-4.5.2, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packge\监管平台\httpclient-4.5.2.dll</HintPath>
+    </Reference>
+    <Reference Include="httpcore-4.4.10, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packge\监管平台\httpcore-4.4.10.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Core, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packge\监管平台\IKVM.OpenJDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Security, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packge\监管平台\IKVM.OpenJDK.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.Runtime, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packge\监管平台\IKVM.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.Runtime.JNI, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packge\监管平台\IKVM.Runtime.JNI.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.SSCARDDRIVEROCXLib">
+      <HintPath>packge\Interop.SSCARDDRIVEROCXLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="jackson-core-2.8.10, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packge\监管平台\jackson-core-2.8.10.dll</HintPath>
+    </Reference>
+    <Reference Include="jna-4.5.2, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packge\监管平台\jna-4.5.2.dll</HintPath>
+    </Reference>
+    <Reference Include="LitJson">
+      <HintPath>..\packages\LitJson.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web.Cors">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Http.Cors">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+    <Content Include="JGTest\SZJG.html" />
+    <Content Include="JGTest\js\jquery-1.9.1.min.js" />
+    <Content Include="JGTest\js\jquery.select.js" />
+    <Content Include="JGTest\js\SZJG.js" />
+    <Content Include="JGTest\js\sweetalert.min.js" />
+    <Content Include="JGTest\js\TouchSlide.1.1.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="YBTest\IndexSYB.html" />
+    <Content Include="YBTest\js\jquery-1.9.1.min.js" />
+    <Content Include="YBTest\js\jquery.select.js" />
+    <Content Include="YBTest\js\YBSYBLink.js" />
+    <Content Include="YBTest\js\YBSYB.js" />
+    <Content Include="YBTest\js\sweetalert.min.js" />
+    <Content Include="YBTest\js\TouchSlide.1.1.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\SYBController.cs" />
+    <Compile Include="Controllers\SZJGController.cs" />
+    <Compile Include="DataOperation.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="LogHelper.cs" />
+    <Compile Include="Model\ReturnDatal.cs" />
+    <Compile Include="Model\SYB\CFZX\CF7103.cs" />
+    <Compile Include="Model\SYB\CFZX\CF7105.cs" />
+    <Compile Include="Model\SYB\CFZX\CFHX7206.cs" />
+    <Compile Include="Model\SYB\CFZX\CFJX7201.cs" />
+    <Compile Include="Model\SYB\CFZX\CFSH7102.cs" />
+    <Compile Include="Model\SYB\CFZX\CFSH7204.cs" />
+    <Compile Include="Model\SYB\CFZX\CFXZ7203.cs" />
+    <Compile Include="Model\SYB\CFZX\DZCF7202.cs" />
+    <Compile Include="Model\SYB\CFZX\PS7205.cs" />
+    <Compile Include="Model\SYB\CFZX\YG7101.cs" />
+    <Compile Include="Model\SYB\CFZX\YG7104.cs" />
+    <Compile Include="Model\SYB\Down9102.cs" />
+    <Compile Include="Model\SYB\JBXX\Dic1901.cs" />
+    <Compile Include="Model\SYB\JBXX\JG1201.cs" />
+    <Compile Include="Model\SYB\JBXX\ML1301.cs" />
+    <Compile Include="Model\SYB\JBXX\ML1312.cs" />
+    <Compile Include="Model\SYB\JBXX\ML1316.cs" />
+    <Compile Include="Model\SYB\JBXX\ML1317.cs" />
+    <Compile Include="Model\SYB\JBXX\ML1318.cs" />
+    <Compile Include="Model\SYB\JBXX\ML1319.cs" />
+    <Compile Include="Model\SYB\JBXX\RY1101.cs" />
+    <Compile Include="Model\SYB\JBXX\YP1304.cs" />
+    <Compile Include="Model\SYB\QD9001.cs" />
+    <Compile Include="Model\SYB\QT9002.cs" />
+    <Compile Include="Model\SYB\SYBCommon.cs" />
+    <Compile Include="Model\SYB\Up9101.cs" />
+    <Compile Include="Model\SYB\XXCJ\HL4602.cs" />
+    <Compile Include="Model\SYB\XXCJ\KS5101.cs" />
+    <Compile Include="Model\SYB\XXCJ\LG4302.cs" />
+    <Compile Include="Model\SYB\XXCJ\MJZ4301.cs" />
+    <Compile Include="Model\SYB\XXCJ\SY4601.cs" />
+    <Compile Include="Model\SYB\XXCJ\YZ5102.cs" />
+    <Compile Include="Model\SYB\XXCJ\ZF4201.cs" />
+    <Compile Include="Model\SYB\XXCX\FY5204.cs" />
+    <Compile Include="Model\SYB\XXCX\JS5203.cs" />
+    <Compile Include="Model\SYB\XXCX\JZ5201.cs" />
+    <Compile Include="Model\SYB\XXCX\MB5301.cs" />
+    <Compile Include="Model\SYB\XXCX\MBYY5205.cs" />
+    <Compile Include="Model\SYB\XXCX\RY5206.cs" />
+    <Compile Include="Model\SYB\XXCX\RY5302.cs" />
+    <Compile Include="Model\SYB\XXCX\ZD5202.cs" />
+    <Compile Include="Model\SYB\XXCX\ZY5303.cs" />
+    <Compile Include="Model\SYB\XXCX\ZY5304.cs" />
+    <Compile Include="Model\SYB\YBJS\CZ2601.cs" />
+    <Compile Include="Model\SYB\YBJS\GH2201.cs" />
+    <Compile Include="Model\SYB\YBJS\GH2202.cs" />
+    <Compile Include="Model\SYB\YBJS\JS2207.cs" />
+    <Compile Include="Model\SYB\YBJS\RY2001.cs" />
+    <Compile Include="Model\SYB\YBJS\YJS2206.cs" />
+    <Compile Include="Model\SYB\YBJS\ZJ2203.cs" />
+    <Compile Include="Model\SYB\YBJS\ZJ2204.cs" />
+    <Compile Include="Model\SYB\YBJS\ZJ2205.cs" />
+    <Compile Include="Model\SYB\YBJS\ZJCX2208.cs" />
+    <Compile Include="Model\SYB\YYJGFW\BL4701.cs" />
+    <Compile Include="Model\SYB\YYJGFW\JGDZ3202.cs" />
+    <Compile Include="Model\SYB\YYJGFW\JS3201.cs" />
+    <Compile Include="Model\SYB\YYJGFW\KCBG3502.cs" />
+    <Compile Include="Model\SYB\YYJGFW\KS3401.cs" />
+    <Compile Include="Model\SYB\YYJGFW\KS3402.cs" />
+    <Compile Include="Model\SYB\YYJGFW\KS3403.cs" />
+    <Compile Include="Model\SYB\YYJGFW\SQMX3101.cs" />
+    <Compile Include="Model\SYB\YYJGFW\XSTH3506.cs" />
+    <Compile Include="Model\SYB\YYJGFW\YPCG3503.cs" />
+    <Compile Include="Model\SYB\YYJGFW\YPCGTH3504.cs" />
+    <Compile Include="Model\SYB\YYJGFW\YPPC3501.cs" />
+    <Compile Include="Model\SYB\YYJGFW\YPSC3507.cs" />
+    <Compile Include="Model\SYB\YYJGFW\YPXS3505.cs" />
+    <Compile Include="Model\SZJGModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SZJG\HttpProc.cs" />
+    <Compile Include="SZJG\SZJGInterface.cs" />
+    <Compile Include="SZJG\SZJG_Task_Model.cs" />
+    <Compile Include="SZJG\SZJG_Task_Object.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="Config\log4net.config" />
+    <Content Include="log4net.config" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\szsi_smart.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52413</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52413/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

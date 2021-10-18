@@ -1,0 +1,303 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="./js/jquery-1.9.1.min.js"></script>
+    <script src="./js/sweetalert.min.js"></script>
+    <script src="./js/SZJG.js"></script>
+    <title>监管系统接口测试</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .header {
+            height: 70px;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            line-height: 70px;
+        }
+
+        .content {
+            margin: 0 auto;
+            width: 98%;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 90%;
+            margin: 0 auto;
+            height: 60px;
+            background-color: #fff;
+            justify-content: center;
+        }
+
+        .title {
+            font-weight: bold;
+            font-size: 18px;
+            flex: 1;
+        }
+
+        p.empty {
+            margin: 5px 20px;
+            flex: 1;
+            padding: 0 5px;
+        }
+
+        .btn {
+            padding: 0px 5px;
+            cursor: pointer;
+            border-radius: 6px;
+            background-color: #31C37C;
+            color: #ffff;
+            border: 1px solid #ddd;
+            text-align: center;
+            height: 45px;
+            flex: 1;
+            outline: none;
+            margin: 5px 20px;
+            font-family: cursive;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #288E5C;
+            box-shadow: 0px 3px 15px 8px #CFE7DB;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main" id="main">
+        <header class="header">
+            <h2>监管系统接口测试</h2>
+        </header>
+        <div class="content">
+            <p class="title">机构设置</p>
+            机构代码：<input type="text" value="91440300MA5FBN" id="txtYLJGBM" />
+            机构名称:<input type="text" value="深圳郑加林诊所" id="txtYLJGMC" />
+            渠道号:<input type="text" value="10000046" id="txtChannel" />
+            accessKey:<input type="text" value="A2aYt6KOgNAiPO_-JN3alVL8JrhdFOBYcwKyYFiI48giuYlO0RRW4KpWn3jeDEl7WDSYZxEK7K6E688_aawiixdORrcFnS2kks1N62eUuYZPyXgY1uIeQWQ6MwhYPlHkZtMqO34iaBYViFkpuDu9QW1RwGbTW2fD7G2ccsT0gFg" id="txtAccessKey" />
+            secretKey:<input type="text" value="HwkkwOZq9TS_vMFPt2suN9fXnXt-kv7vTTayU8_GQdqxzg6q7to-E67QGdSXoBSAi5KKaaM6Qc2AEAQ_Mpk7ONnXnvf068rfCCVKYzcIM2mwkHm002JotBKnDxR8ldup-l3OCy7wq6CyrdwrqB1-0ONMUiAU_QcUzmCQm7jYjBQ" id="txtSecretKey" />
+            publicKey:<input type="text" value="MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDGJwrp4l63APpTUGc_4rNmJo1QN_vayOrnyfD4RjLtH2jWWtqq68QRn7XNL9eqSXt7GHle28SblP587C1EivP21ctKVoS3Axi_YkeIkn_2Wj9s1HlKiDmWSc41NjV7PLRyGtZM8_80O40OZOoAx9hzAmGAVxMbuKlpUKaOkVeNaQIDAQAB" id="txtPublicKey" />
+            接口地址:<input type="text" value="http://localhost:8001/szsi_smart/api/SZJG/send" id="txtUrl" />
+            医疗机构大类:<select id="selYLJGDL">
+                <option value="4">门诊部</option>
+                <option value="5" selected="selected">诊所</option>
+                <option value="6">医务室、村卫生室</option>
+                <option value="7">其他诊疗机构</option>
+            </select>
+            医疗机构类别:<select id="selYLJGLB">
+                <option value="10">综合门诊部</option>
+                <option value="11">中医门诊部</option>
+                <option value="12">中医(综合)门诊部</option>
+                <option value="13">中医专科门诊部</option>
+                <option value="14">中西医结合门诊部</option>
+                <option value="16">专科门诊部</option>
+                <option value="17">普通专科门诊部</option>
+                <option value="18">口腔门诊部</option>
+                <option value="19">眼科门诊部</option>
+                <option value="20">医疗美容门诊部</option>
+                <option value="21">其他专科门诊部</option>
+                <option value="22" selected="selected">普通诊所</option>
+                <option value="23">中医诊所</option>
+                <option value="26">口腔诊所</option>
+                <option value="27">医疗美容诊所</option>
+                <option value="30">医务室</option>
+                <option value="33">其他诊疗机构</option>
+            </select>
+            <p class="title">医疗机构执业证书</p>
+            <table id="tableZS">
+                <tr>
+                    <th>证书类型</th>
+                    <th>证书编号</th>
+                    <th>证书名称</th>
+                    <th>效期</th>
+                    <th>年检时间</th>
+                </tr>
+                <tr>
+                    <td><input type="text" id="txtlx01" text="医疗机构执业许可证-正本" value="1" /></td>
+                    <td><input type="text" id="txtno01" text="" value="" /></td>
+                    <td><input type="text" id="txtmc01" text="医疗机构执业许可证--正本" value="医疗机构执业许可证" /></td>
+                    <td><input type="text" id="txtxq01" text="" value="2023-12-03" /></td>
+                    <td><input type="text" id="txtnj01" text="" value="2023-12-03" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="txtlx02" text="医疗机构执业许可证-副本首页" value="2" /></td>
+                    <td><input type="text" id="txtno02" text="" value="" /></td>
+                    <td><input type="text" id="txtmc02" text="医疗机构执业许可证--副本首页" value="医疗机构执业许可证" /></td>
+                    <td><input type="text" id="txtxq02" text="" value="2023-12-03" /></td>
+                    <td><input type="text" id="txtnj02" text="" value="2023-12-03" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="txtlx03" text="医疗机构执业许可证--副本年检时间页" value="3" /></td>
+                    <td><input type="text" id="txtno03" text="" value="" /></td>
+                    <td><input type="text" id="txtmc03" text="医疗机构执业许可证--副本年检时间页" value="医疗机构执业许可证--副本年检时间页" /></td>
+                    <td><input type="text" id="txtxq03" text="" value="2023-12-03" /></td>
+                    <td><input type="text" id="txtnj03" text="" value="2023-12-03" /></td>
+                </tr>
+            </table>
+            <p class="title">职工设置</p>
+            职工证书编码:<input type="text" value="130532199606131047" id="txtYLZGBM" />
+            职工名称:<input type="text" value="骆晓娜" id="txtYLZGMC" />
+            性别:<select id="RYXB">      
+                <option value="1">男</option>
+                <option value="2">女</option>
+            </select>
+            医生证件号:<input type="text" value="130532199606131047" id="txtSFZH" />
+            <p class="title">职工执业证书</p>
+            <table id="tableYS">
+                <tr>
+                    <th>证书类型</th>
+                    <th>证书编号</th>
+                    <th>证书名称</th>
+                </tr>
+                <tr>
+                    <td><input type="text" id="txtz01" text="医师资格证书" value="1" /></td>
+                    <td><input type="text" id="txtzg01" text="" value="" /></td>
+                    <td><input type="text" id="txtzgl01" text="医师资格证书" value="" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="txtz02" text="医师执业证书（执业范围必填）" value="2" /></td>
+                    <td><input type="text" id="txtzg02" text="" value="" /></td>
+                    <td><input type="text" id="txtzgl02" text="医师执业证书（执业范围必填）" value="" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="txtg03" text="抗菌药考试合格证" value="3" /></td>
+                    <td><input type="text" id="txtzg03" text="" value="" /></td>
+                    <td><input type="text" id="txtzgl03" text="抗菌药考试合格证" value="" /></td>
+                </tr>
+            </table>
+            <p class="title">药品信息</p>
+            药品编号:<input type="text" value="20210425" id="txtYLYPBM" />
+            药品名称:<input type="text" value="阿莫西林" id="txtYLYPMC" />
+            药品规格:<input type="text" value="片" id="txtYLYPGG" />
+            单据号id:<input type="text" value="2021042500000001" id="txtCGDBH" />
+            出入库明细id:<input type="text" value="2021051700000001" id="txtDeatil" />
+            药房编码：<input type="text" value="2021051800000001" id="txtCGZBID" />
+            采购数量：<input type="text" value="10" id="txtCGSL" />
+            <p class="title">患者信息</p>
+            患者id:<input type="text" value="130532199602020303" id="txtHZID" />
+            患者姓名：<input type="text" value="张三" id="txtHZXM" />
+            性别:<select id="HZXB">
+                <option value="1">男</option>
+                <option value="2">女</option>
+            </select>
+            <p class="title">供应商信息</p>
+            供应商编号:<input type="text" value="" id="txtGYS" />
+            <p class="title">供应商营业执照</p>
+            <table id="tableGYS">
+                <tr>
+                    <th>证书类型</th>
+                    <th>证书编号</th>
+                    <th>证书名称</th>
+                </tr>
+                <tr>
+                    <td><input type="text" id="txtg01" text="营业执照" value="1" /></td>
+                    <td><input type="text" id="txtgy01" text="" value="" /></td>
+                    <td><input type="text" id="txtgys01" text="供应商营业执照" value="" /></td>
+                </tr>
+            </table>
+        </div>
+        <div class="container">
+            <p class="title">自动测试</p>
+            <button type="button" class="btn" id="LoadData">自动测试医保接口</button>
+            <button type="button" class="btn" id="ClearData">清理</button>
+            <p class="empty"></p>
+            <p class="empty"></p>
+            <p class="empty"></p>
+            <p class="empty"></p>
+        </div>
+        <div class="container">
+            <p class="title">机构信息</p>
+            <button type="button" class="btn" id="institution">医疗机构信息</button>
+            <button type="button" class="btn" id="Years">年报</button>
+            <button type="button" class="btn" id="Months">月报</button>
+            <button type="button" class="btn" id="KSXX">科室信息</button>
+            <button type="button" class="btn" id="GYSXX">供应商信息</button>
+            <p class="empty"></p>
+        </div>
+        <div class="container">
+            <p class="title">职工信息</p>
+            <button type="button" class="btn" id="employee">职工信息</button>
+            <button type="button" class="btn" id="RLbuild">人脸识别监管事件创建</button>            
+            <button type="button" class="btn" id="RL">人脸识别监管事件跳转</button>
+            <button type="button" class="btn" id="RLquery">人脸识别监管事件结果查询</button>
+            <button type="button" class="btn" id="KJquery">查询抗菌处方权审核资质</button>
+            <p class="empty"></p>
+        </div>
+        <div class="container">
+            <p class="title">药品信息</p>
+            <button type="button" class="btn" id="dictionary">药品字典</button>
+            <button type="button" class="btn" id="depot">药品出入库信息</button>
+            <button type="button" class="btn" id="detail">药品出入库明细</button>
+            <button type="button" class="btn" id="YPKC">药品库存信息</button>
+            <p class="empty"></p>
+            <p class="empty"></p>
+        </div>
+        <div class="container">
+            <p class="title">项目信息</p>
+            <button type="button" class="btn" id="project">诊疗项目目录</button>
+            <button type="button" class="btn" id="portfolio">组合项目目录</button>
+            <button type="button" class="btn" id="projectDetail">组合项目明细</button>
+            <p class="empty"></p>
+            <p class="empty"></p>
+            <p class="empty"></p>
+        </div>
+        <div class="container">
+            <p class="title">患者信息</p>
+            <button type="button" class="btn" id="HZXX">患者基本信息</button>
+            <button type="button" class="btn" id="outpatient">患者门急诊信息</button>
+            <button type="button" class="btn" id="outpatient2">患者门急诊信息正式测试使用</button>
+            <p class="empty"></p>
+            <p class="empty"></p>
+            <p class="empty"></p>
+            <p class="empty"></p>
+        </div>
+        <div class="container">
+            <p class="title">月报年报</p>
+            <button type="button" class="btn" onclick="CreatYB()">月报监管事件跳转</button>
+            <button type="button" class="btn" id="YB">月报监管事件跳转</button>
+            <button type="button" class="btn" id="NB">年报监管事件跳转</button>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+
+    //显示信息
+    function viewWindow(titles, texts, icons) {
+        swal({
+            title: titles,
+            text: texts,
+            icon: icons,
+            button: "确定",
+        });
+    }
+
+    /**
+     * 功能说明：通过元素id来进行接口的调用
+     * 弹框组件说明：
+     * swal({
+     *   title: "Good job!",--名称
+     *   text: "You clicked the button!",--显示信息
+     *   icon: "success",--成功
+     *   button: "Aww yiss!",--按钮文字
+     *    });
+     */
+    $("#main").click(function (e) {
+        var method = eval(e.target.id);
+        if (method != undefined && method.constructor.name == "Function") {
+            Datainit();
+            method();
+        }
+    })
+
+
+
+</script>
