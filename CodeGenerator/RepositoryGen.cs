@@ -36,7 +36,10 @@ namespace CodeGenerator
                 throw new Exception("有导航属性,必须也要有OnSplit");
             }
             OnSplit = param.Navikey;
-            Navigate += "Entity";
+            if(!string.IsNullOrEmpty(param.Navigate))
+            {
+                Navigate += "Entity";
+            }            
         }
 
 
@@ -100,7 +103,7 @@ using System.Threading.Tasks;
             StringBuilder txt = new StringBuilder();
             txt.Append("\r\n\t\t///<summary> ");
             txt.Append($"\r\n\t\t///获取有导航属性的单条记录");
-            txt.Append("\r\n\t\t///<summary> ");
+            txt.Append("\r\n\t\t///</summary> ");
             txt.Append("\r\n\t\t///<param name=\"id\"></param>");
             txt.Append("\r\n\t\t/// <returns></returns>");
             txt.Append($"\r\n\t\tpublic {ClassName}Entity getOne(int id)");
@@ -124,7 +127,7 @@ using System.Threading.Tasks;
             StringBuilder txt = new StringBuilder();
             txt.Append("\r\n\t\t///<summary> ");
             txt.Append($"\r\n\t\t///获取有导航属性的多条记录");
-            txt.Append("\r\n\t\t///<summary> ");
+            txt.Append("\r\n\t\t///</summary> ");
             txt.Append("\r\n\t\t///<param name=\"entity\"></param>");
             txt.Append("\r\n\t\t/// <returns></returns>");
             txt.Append($"\r\n\t\tpublic IEnumerable<{ClassName}Entity> getMany({ClassName}Entity entity)");
@@ -148,7 +151,7 @@ using System.Threading.Tasks;
             StringBuilder txt = new StringBuilder();
             txt.Append("\r\n\t\t///<summary> ");
             txt.Append($"\r\n\t\t///获取有导航属性的多条记录 - 分页");
-            txt.Append("\r\n\t\t///<summary> ");
+            txt.Append("\r\n\t\t///</summary> ");
             txt.Append("\r\n\t\t///<param name=\"entity\"></param>");
             txt.Append("\r\n\t\t///<param name=\"pageSize\"></param>");
             txt.Append("\r\n\t\t///<param name=\"pageIndex\"></param>");

@@ -11,7 +11,7 @@ namespace CodeGenerator
     {
         static void Main(string[] args)
         {
-            var tableObject = new GenParam{ TableName = "CaseBooks", TableKey = "CaseBookId", dbname = dbName.Clinic, Navigate = "Patient", Navikey = "PatientId" };
+            var tableObject = new GenParam{ TableName = "Goods", TableKey = "GoodId", dbname = dbName.Clinic, Navigate = "", Navikey = "" };
             EntityGen eg = new EntityGen(tableObject);            
             eg.GenFile();
             RepositoryGen rg = new RepositoryGen(tableObject);

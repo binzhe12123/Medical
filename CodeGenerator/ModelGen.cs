@@ -47,7 +47,10 @@ namespace CodeGenerator
             {
                 throw new Exception("导航属性必须要具备匹配的Id名称");
             }
-            NavigateEntity += "Model";
+            if (!string.IsNullOrEmpty(param.Navigate))
+            {
+                NavigateEntity += "Model";
+            }
         }
 
         public string Gen()
@@ -79,9 +82,6 @@ using System.Threading.Tasks;
         {
             TextNamespace = @"namespace SY.Com.Medical.Model
 {
-    /// <summary>
-    /// 全模型
-    /// </summary>
     #Class#
 } ";
         }
@@ -89,7 +89,10 @@ using System.Threading.Tasks;
         private void GenClass(string className)
         {
             StringBuilder txt = new StringBuilder();
-            txt.Append($"public class {ClassName}{className} : BaseModel ");
+            txt.Append("\r\n///<summary>");
+            txt.Append($"\r\n/// {ClassName}模型");
+            txt.Append("\r\n/// </summary>");
+            txt.Append($"\r\npublic class {ClassName}{className} : BaseModel ");
             txt.Append("\r\n\t{ ");
             // 数据库读出表信息
             var columns = db.getString(TableName);
@@ -100,7 +103,7 @@ using System.Threading.Tasks;
                 if (typeof(BaseModel).GetProperty(column.ColumnName) != null) continue;           
                 txt.Append("\r\n\t\t///<summary> ");
                 txt.Append($"\r\n\t\t///{column.ColName ?? ""}");
-                txt.Append("\r\n\t\t///<summary> ");
+                txt.Append("\r\n\t\t///</summary> ");
                 txt.Append($"\r\n\t\tpublic {column.ColumnType}{column.NullableSign} {column.ColumnName} {{get;set;}} ");
             }
             //导航属性
@@ -108,7 +111,7 @@ using System.Threading.Tasks;
             {
                 txt.Append("\r\n\t\t///<summary> ");
                 txt.Append($"\r\n\t\t///导航属性");
-                txt.Append("\r\n\t\t///<summary> ");
+                txt.Append("\r\n\t\t///</summary> ");
                 txt.Append($"\r\n\t\tpublic {NavigateEntity} {NavigateEntity.Replace("Model", "")} {{get;set;}} ");
             }
             txt.Append("\r\n\t}\r\n\t");

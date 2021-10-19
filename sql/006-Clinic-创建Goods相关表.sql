@@ -1,5 +1,6 @@
+select * From Goods
 
-
+--创建商品
 Create Table Goods
 (
 	GoodId int primary key,
@@ -17,16 +18,18 @@ Create Table Goods
 	SalesUnit nvarchar(100),
 	StockUnit nvarchar(100),	
 	Ratio int,
-	CreateTime datetime not null default(getdate()),
-	IsEnable int not null default(1),
-	IsDelete int not null default(1) 
+	CreateTime datetime ,
+	IsEnable int ,
+	IsDelete int  
 )
 
 
-
+--商品采购
 Create Table Purchases
 (
-
+	PurchaseId int primary key,
+	TenantId int,
+	
 )
 
 

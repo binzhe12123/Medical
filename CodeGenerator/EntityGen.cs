@@ -49,7 +49,10 @@ namespace CodeGenerator
             {
                 throw new Exception("导航属性必须要具备匹配的Id名称");
             }
-            NavigateEntity += "Entity";
+            if(!string.IsNullOrEmpty(param.Navigate))
+            {
+                NavigateEntity += "Entity";
+            }            
         }
 
         public string Gen()
@@ -104,7 +107,7 @@ using System.Threading.Tasks;
                 if (typeof(BaseEntity).GetProperty(column.ColumnName) != null) continue;                
                 txt.Append("\r\n\t\t///<summary> ");
                 txt.Append($"\r\n\t\t///{column.ColName ??  ""}");
-                txt.Append("\r\n\t\t///<summary> ");
+                txt.Append("\r\n\t\t///</summary> ");
                 if(column.ColumnName.ToLower() == TableKey.ToLower())
                 {
                     txt.Append("\r\n\t\t[DB_Key(\""+ TableKey + "\")]");
@@ -116,7 +119,7 @@ using System.Threading.Tasks;
             {
                 txt.Append("\r\n\t\t///<summary> ");
                 txt.Append($"\r\n\t\t///导航属性");
-                txt.Append("\r\n\t\t///<summary> ");
+                txt.Append("\r\n\t\t///</summary> ");
                 txt.Append("\r\n\t\t[DB_NotColum]");
                 txt.Append("\r\n\t\t[DB_Navigate(\"" + NavigateEntity.Replace("Entity","s") + "\",\"" + NavigateKey + "\")]");
                 txt.Append($"\r\n\t\tpublic {NavigateEntity} {NavigateEntity.Replace("Entity", "")} {{get;set;}} ");                

@@ -35,7 +35,10 @@ namespace CodeGenerator
                 throw new Exception("有导航属性,必须也要有OnSplit");
             }
             OnSplit = param.Navikey;
-            Navigate += "Model";
+            if(!string.IsNullOrEmpty(param.Navigate))
+            {
+                Navigate += "Model";
+            }            
         }
 
         public string Gen()
@@ -110,7 +113,7 @@ using System.Threading.Tasks;
             StringBuilder txt = new StringBuilder();
             txt.Append("\r\n\t\t///<summary> ");
             txt.Append($"\r\n\t\t///获取有导航属性的单条记录");
-            txt.Append("\r\n\t\t///<summary> ");
+            txt.Append("\r\n\t\t///</summary> ");
             txt.Append("\r\n\t\t///<param name=\"id\"></param>");
             txt.Append("\r\n\t\t/// <returns></returns>");
             txt.Append($"\r\n\t\tpublic {ClassName}Model getOne(int id)");
@@ -130,7 +133,7 @@ using System.Threading.Tasks;
             StringBuilder txt = new StringBuilder();
             txt.Append("\r\n\t\t///<summary> ");
             txt.Append($"\r\n\t\t///获取有导航属性的多条记录-分页");
-            txt.Append("\r\n\t\t///<summary> ");
+            txt.Append("\r\n\t\t///</summary> ");
             txt.Append("\r\n\t\t///<param name=\"request\"></param>");
             txt.Append("\r\n\t\t/// <returns></returns>");
             txt.Append($"\r\n\t\tpublic Tuple<IEnumerable<{ClassName}Model>,int> getMany({ClassName}Model request,int pageSize,int pageIndex)");
@@ -152,7 +155,7 @@ using System.Threading.Tasks;
             StringBuilder txt = new StringBuilder();
             txt.Append("\r\n\t\t///<summary> ");
             txt.Append($"\r\n\t\t///新增");
-            txt.Append("\r\n\t\t///<summary> ");
+            txt.Append("\r\n\t\t///</summary> ");
             txt.Append("\r\n\t\t///<param name=\"request\"></param>");
             txt.Append("\r\n\t\t/// <returns></returns>");
             txt.Append($"\r\n\t\tpublic int add({ClassName}Add request)");
@@ -172,7 +175,7 @@ using System.Threading.Tasks;
             StringBuilder txt = new StringBuilder();
             txt.Append("\r\n\t\t///<summary> ");
             txt.Append($"\r\n\t\t///新增");
-            txt.Append("\r\n\t\t///<summary> ");
+            txt.Append("\r\n\t\t///</summary> ");
             txt.Append("\r\n\t\t///<param name=\"request\"></param>");
             txt.Append("\r\n\t\t/// <returns></returns>");
             txt.Append($"\r\n\t\tpublic void update({ClassName}Update request)");
@@ -192,7 +195,7 @@ using System.Threading.Tasks;
             StringBuilder txt = new StringBuilder();
             txt.Append("\r\n\t\t///<summary> ");
             txt.Append($"\r\n\t\t///新增");
-            txt.Append("\r\n\t\t///<summary> ");
+            txt.Append("\r\n\t\t///</summary> ");
             txt.Append("\r\n\t\t///<param name=\"request\"></param>");
             txt.Append("\r\n\t\t/// <returns></returns>");
             txt.Append($"\r\n\t\tpublic void delete({ClassName}Delete request)");

@@ -27,8 +27,8 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
         /// 上传静态资源
         /// </summary>
         /// <param name="files">Form表单提交图片</param>
-        /// <param name="type">文件类型枚举</param>
-        /// <param name="bus">上传业务枚举</param>
+        /// <param name="staticFileType">文件类型枚举</param>
+        /// <param name="staticFileBusiness">上传业务枚举</param>
         /// <returns></returns>
         [HttpPost]
         public BaseResponse<List<string>> UpLoadStaticFile([FromForm]List<IFormFile> files, [FromForm] StaticFileType staticFileType, [FromForm] StaticFileBusiness staticFileBusiness)
