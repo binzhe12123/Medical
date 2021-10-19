@@ -128,12 +128,12 @@ namespace SY.Com.Medical.Model
         /// <summary>
         /// 服务开始时间    
         /// </summary>
-        public DateTime TenantServiceStart { get; set; }
+        public DateTime? TenantServiceStart { get; set; }
 
         /// <summary>
         /// 服务结束时间    
         /// </summary>
-        public DateTime TenantServiceEnd { get; set; }
+        public DateTime? TenantServiceEnd { get; set; }
 
         /// <summary>
         /// 医保编码    
@@ -144,6 +144,11 @@ namespace SY.Com.Medical.Model
         /// 医保名称    
         /// </summary>
         public string YBName { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string LogoImg { get; set; }
 
         /// <summary>
         /// 医保程序路径    
@@ -162,7 +167,7 @@ namespace SY.Com.Medical.Model
         /// <summary>
         /// 记录创建时间
         /// </summary>        
-        public DateTime CreateTime { get; set; }
+        public DateTime? CreateTime { get; set; }
         
     }
     

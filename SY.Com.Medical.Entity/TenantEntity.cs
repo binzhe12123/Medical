@@ -30,17 +30,18 @@ namespace SY.Com.Medical.Entity
         /// <summary>
         /// 租户类型,枚举    
         /// </summary>
+        [DB_Default(typeof(TenantType))]
         public TenantType TenantType { get; set; }
 
         /// <summary>
         /// 服务开始时间    
         /// </summary>
-        public DateTime TenantServiceStart { get; set; }
+        public DateTime? TenantServiceStart { get; set; }
 
         /// <summary>
         /// 服务结束时间    
         /// </summary>
-        public DateTime TenantServiceEnd { get; set; }
+        public DateTime? TenantServiceEnd { get; set; }
 
         /// <summary>
         /// 医保编码    
@@ -56,6 +57,10 @@ namespace SY.Com.Medical.Entity
         /// 医保程序路径    
         /// </summary>
         public string YBUrl { get; set; }
+        /// <summary>
+        /// logo图片路径
+        /// </summary>
+        public string LogoImg { get; set; }
 
     }
 

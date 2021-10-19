@@ -1062,6 +1062,11 @@
             医保名称    
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.TenantRequest.LogoImg">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="P:SY.Com.Medical.Model.TenantRequest.YBUrl">
             <summary>
             医保程序路径    

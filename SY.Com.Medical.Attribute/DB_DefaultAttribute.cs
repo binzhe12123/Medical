@@ -39,6 +39,9 @@ namespace SY.Com.Medical.Attribute
             }else if(t == typeof(Sex))
             {
                 value = (int)Sex.男;
+            }else if(t == typeof(TenantType))
+            {
+                value = (int)TenantType.中医诊所;
             }
         }
 

@@ -186,13 +186,32 @@ namespace SY.Com.Medical.Repository
                 {
                     entityPrimkey = prop.Name;
                     entityPrimvalue = prop.GetValue(t).ToString();
-                }else if (prop.IsDefined(typeof(DB_NotColumAttribute), false))
+                }
+                else if (prop.IsDefined(typeof(DB_NotColumAttribute), false) || prop.GetValue(t) == null)
                 {
 
-                }else if(!DefaultValue.IsDefaultValue(prop.PropertyType, prop.GetValue(t)))
-                {
-                    updateColumns.Add($"{prop.Name}=@{prop.Name}");
                 }
+                else
+                {    
+                    if (prop.IsDefined(typeof(DB_DefaultAttribute), false))
+                    {
+                        if (prop.GetValue(t) == null || (int)prop.GetValue(t) == 0)
+                        {
+                            var attr = (DB_DefaultAttribute)prop.GetCustomAttribute(typeof(DB_DefaultAttribute));
+                            var defaultvalue = attr.getDefault();
+                            prop.SetValue(t, defaultvalue);
+                        }
+                    }
+                    updateColumns.Add($"{prop.Name}=@{prop.Name}");                                        
+                }
+                //else if (prop.IsDefined(typeof(DB_NotColumAttribute), false))
+                //{
+
+                //}
+                //else if (!DefaultValue.IsDefaultValue(prop.PropertyType, prop.GetValue(t)))
+                //{
+                //    updateColumns.Add($"{prop.Name}=@{prop.Name}");
+                //}
             }
             string strcolum = string.Join(',', updateColumns);
             string sql = $" Update {tableName} Set {strcolum} Where {tablekey}=@{entityPrimkey} ";
