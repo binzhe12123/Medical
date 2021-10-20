@@ -169,6 +169,41 @@
             用户已存在
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Enum.GoodType">
+            <summary>
+            商品类型
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.GoodType.无">
+            <summary>
+            无=0
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.GoodType.西药">
+            <summary>
+            西药=1
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.GoodType.中成药">
+            <summary>
+            中成药=2
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.GoodType.中药">
+            <summary>
+            中药=3
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.GoodType.诊疗项目">
+            <summary>
+            诊疗项目=4
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.GoodType.材料">
+            <summary>
+            材料=5
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Enum.StaticFileBusiness">
             <summary>
             静态文件业务类型

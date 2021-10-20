@@ -164,6 +164,41 @@
             科室编码    
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Entity.DicEntity">
+            <summary>
+            实体
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.DicEntity.DicId">
+            <summary> 
+            主键ID
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.DicEntity.TenantId">
+            <summary> 
+            租户ID
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.DicEntity.DicKey">
+            <summary> 
+            键
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.DicEntity.DicValue">
+            <summary> 
+            值
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.DicEntity.DicType">
+            <summary> 
+            分类
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.DicEntity.dictypeid">
+            <summary> 
+            
+            </summary> 
+        </member>
         <member name="T:SY.Com.Medical.Entity.EmployeeEntity">
             <summary>
              员工实体    
@@ -212,6 +247,91 @@
         <member name="P:SY.Com.Medical.Entity.EmployeeEntity.Departments">
             <summary>
             科室
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Entity.GoodEntity">
+            <summary>
+            商品实体
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.GoodEntity.GoodId">
+            <summary> 
+            商品ID
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.GoodEntity.TenantId">
+            <summary> 
+            租户ID
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.GoodEntity.GoodName">
+            <summary> 
+            商品名称
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.GoodEntity.Norm">
+            <summary> 
+            规格
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.GoodEntity.Factory">
+            <summary> 
+            厂家
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.GoodEntity.GoodType">
+            <summary> 
+            类型（枚举1:西药,2:中成药,3:中药,4:诊疗项目,5:材料）
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.GoodEntity.GoodSort">
+            <summary> 
+            分类:自定义,和字典表进行关联
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.GoodEntity.GoodStandard">
+            <summary> 
+            国药准字
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.GoodEntity.InsuranceCode">
+            <summary> 
+            医保编码
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.GoodEntity.CustomerCode">
+            <summary> 
+            机构编码-自定义码
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.GoodEntity.BarCode">
+            <summary> 
+            条码
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.GoodEntity.SearchKey">
+            <summary> 
+            搜索词根
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.GoodEntity.SalesUnit">
+            <summary> 
+            计价单位
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.GoodEntity.StockUnit">
+            <summary> 
+            库存单位
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.GoodEntity.Ratio">
+            <summary> 
+            库存单位--》计价单位比率，正整数
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.GoodEntity.Price">
+            <summary>
+            价格(项目直接使用此价格),药品不使用此价格
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Entity.MenuEntity">

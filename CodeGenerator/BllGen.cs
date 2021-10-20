@@ -91,7 +91,8 @@ using System.Threading.Tasks;
             txt.Append($"\r\n\t\t\tdb = new {ClassName}Repository();");
             txt.Append("\r\n\t\t}");
 
-
+            txt.Append(txtGet());
+            txt.Append(txtGets());
             txt.Append(txtGetNavigate());
             txt.Append(txtGenNavigateMany());
             txt.Append(txtGenAdd());
@@ -136,9 +137,47 @@ using System.Threading.Tasks;
             txt.Append("\r\n\t\t///</summary> ");
             txt.Append("\r\n\t\t///<param name=\"request\"></param>");
             txt.Append("\r\n\t\t/// <returns></returns>");
-            txt.Append($"\r\n\t\tpublic Tuple<IEnumerable<{ClassName}Model>,int> getMany({ClassName}Model request,int pageSize,int pageIndex)");
+            txt.Append($"\r\n\t\tpublic Tuple<IEnumerable<{ClassName}Model>,int> getMany({ClassName}Request request)");
             txt.Append("\r\n\t\t{");
-            txt.Append($"\r\n\t\t\tvar datas  = db.getPages(request.DtoToEntity<{ClassName}Entity>(), pageSize, pageIndex);");            
+            txt.Append($"\r\n\t\t\tvar datas  = db.getPages(request.DtoToEntity<{ClassName}Entity>(), request.pageSize, request.pageIndex);");            
+            txt.Append($"\r\n\t\t\tTuple<IEnumerable<{ClassName}Model>, int> result = new(datas.Item1.EntityToDto<{ClassName}Model>(), datas.Item2);");
+            txt.Append($"\r\n\t\t\treturn result;");
+            txt.Append("\r\n\t\t}");
+            return txt.ToString();
+        }
+
+        /// <summary>
+        /// 非导航详情查询
+        /// </summary>
+        /// <returns></returns>
+        private string txtGet()
+        {
+            if (!string.IsNullOrEmpty(Navigate)) return "";
+            StringBuilder txt = new StringBuilder();
+            txt.Append("\r\n\t\t///<summary> ");
+            txt.Append($"\r\n\t\t///获取详情记录");
+            txt.Append("\r\n\t\t///</summary> ");
+            txt.Append("\r\n\t\t///<param name=\"id\"></param>");
+            txt.Append("\r\n\t\t/// <returns></returns>");
+            txt.Append($"\r\n\t\tpublic {ClassName}Model get(int id)");
+            txt.Append("\r\n\t\t{");
+            txt.Append($"\r\n\t\t\treturn db.Get(id).EntityToDto<{ClassName}Model>();");
+            txt.Append("\r\n\t\t}");
+            return txt.ToString();
+        }
+
+        private string txtGets()
+        {
+            if (!string.IsNullOrEmpty(Navigate)) return "";
+            StringBuilder txt = new StringBuilder();
+            txt.Append("\r\n\t\t///<summary> ");
+            txt.Append($"\r\n\t\t///获取列表-分页");
+            txt.Append("\r\n\t\t///</summary> ");
+            txt.Append("\r\n\t\t///<param name=\"request\"></param>");
+            txt.Append("\r\n\t\t/// <returns></returns>");
+            txt.Append($"\r\n\t\tpublic Tuple<IEnumerable<{ClassName}Model>,int> gets({ClassName}Request request)");
+            txt.Append("\r\n\t\t{");
+            txt.Append($"\r\n\t\t\tvar datas  = db.GetsPage(request.DtoToEntity<{ClassName}Entity>(), request.PageSize, request.PageIndex);");
             txt.Append($"\r\n\t\t\tTuple<IEnumerable<{ClassName}Model>, int> result = new(datas.Item1.EntityToDto<{ClassName}Model>(), datas.Item2);");
             txt.Append($"\r\n\t\t\treturn result;");
             txt.Append("\r\n\t\t}");
@@ -150,8 +189,7 @@ using System.Threading.Tasks;
         /// </summary>
         /// <returns></returns>
         private string txtGenAdd()
-        {
-            if (string.IsNullOrEmpty(Navigate)) return "";
+        {            
             StringBuilder txt = new StringBuilder();
             txt.Append("\r\n\t\t///<summary> ");
             txt.Append($"\r\n\t\t///新增");
@@ -171,10 +209,9 @@ using System.Threading.Tasks;
         /// <returns></returns>
         private string txtGenUpdate()
         {
-            if (string.IsNullOrEmpty(Navigate)) return "";
             StringBuilder txt = new StringBuilder();
             txt.Append("\r\n\t\t///<summary> ");
-            txt.Append($"\r\n\t\t///新增");
+            txt.Append($"\r\n\t\t///修改");
             txt.Append("\r\n\t\t///</summary> ");
             txt.Append("\r\n\t\t///<param name=\"request\"></param>");
             txt.Append("\r\n\t\t/// <returns></returns>");
@@ -190,11 +227,10 @@ using System.Threading.Tasks;
         /// </summary>
         /// <returns></returns>
         private string txtGenDelete()
-        {
-            if (string.IsNullOrEmpty(Navigate)) return "";
+        {            
             StringBuilder txt = new StringBuilder();
             txt.Append("\r\n\t\t///<summary> ");
-            txt.Append($"\r\n\t\t///新增");
+            txt.Append($"\r\n\t\t///删除");
             txt.Append("\r\n\t\t///</summary> ");
             txt.Append("\r\n\t\t///<param name=\"request\"></param>");
             txt.Append("\r\n\t\t/// <returns></returns>");

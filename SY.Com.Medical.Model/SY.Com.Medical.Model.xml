@@ -437,6 +437,231 @@
             禁用/启用
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Model.DicModel">
+            <summary>
+             Dic模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicModel.DicId">
+            <summary> 
+            主键ID
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicModel.DicKey">
+            <summary> 
+            键
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicModel.DicValue">
+            <summary> 
+            值
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicModel.DicType">
+            <summary> 
+            分类
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicModel.CreateTime">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicModel.IsEnable">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicModel.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicModel.dictypeid">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.DicRequest">
+            <summary>
+             Dic模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicRequest.DicId">
+            <summary> 
+            主键ID
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicRequest.DicKey">
+            <summary> 
+            键
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicRequest.DicValue">
+            <summary> 
+            值
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicRequest.DicType">
+            <summary> 
+            分类
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicRequest.CreateTime">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicRequest.IsEnable">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicRequest.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicRequest.dictypeid">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.DicAdd">
+            <summary>
+             Dic模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicAdd.DicId">
+            <summary> 
+            主键ID
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicAdd.DicKey">
+            <summary> 
+            键
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicAdd.DicValue">
+            <summary> 
+            值
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicAdd.DicType">
+            <summary> 
+            分类
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicAdd.CreateTime">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicAdd.IsEnable">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicAdd.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicAdd.dictypeid">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.DicUpdate">
+            <summary>
+             Dic模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicUpdate.DicId">
+            <summary> 
+            主键ID
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicUpdate.DicKey">
+            <summary> 
+            键
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicUpdate.DicValue">
+            <summary> 
+            值
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicUpdate.DicType">
+            <summary> 
+            分类
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicUpdate.CreateTime">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicUpdate.IsEnable">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicUpdate.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicUpdate.dictypeid">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.DicDelete">
+            <summary>
+             Dic模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicDelete.DicId">
+            <summary> 
+            主键ID
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicDelete.DicKey">
+            <summary> 
+            键
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicDelete.DicValue">
+            <summary> 
+            值
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicDelete.DicType">
+            <summary> 
+            分类
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicDelete.CreateTime">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicDelete.IsEnable">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicDelete.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicDelete.dictypeid">
+            <summary> 
+            
+            </summary> 
+        </member>
         <member name="T:SY.Com.Medical.Model.EmployeeModel">
             <summary>
             员工模型
@@ -682,21 +907,6 @@
             库存单位--》计价单位比率，正整数
             </summary> 
         </member>
-        <member name="P:SY.Com.Medical.Model.GoodAdd.CreateTime">
-            <summary> 
-            
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.GoodAdd.IsEnable">
-            <summary> 
-            
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.GoodAdd.IsDelete">
-            <summary> 
-            
-            </summary> 
-        </member>
         <member name="T:SY.Com.Medical.Model.GoodUpdate">
             <summary>
             修改模型
@@ -772,21 +982,6 @@
             库存单位--》计价单位比率，正整数
             </summary> 
         </member>
-        <member name="P:SY.Com.Medical.Model.GoodUpdate.CreateTime">
-            <summary> 
-            
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.GoodUpdate.IsEnable">
-            <summary> 
-            
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.GoodUpdate.IsDelete">
-            <summary> 
-            
-            </summary> 
-        </member>
         <member name="T:SY.Com.Medical.Model.GoodDelete">
             <summary>
             删除模型
@@ -797,84 +992,34 @@
             商品ID
             </summary> 
         </member>
-        <member name="P:SY.Com.Medical.Model.GoodDelete.GoodName">
+        <member name="T:SY.Com.Medical.Model.GoodRequest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodRequest.GoodName">
             <summary> 
             商品名称
             </summary> 
         </member>
-        <member name="P:SY.Com.Medical.Model.GoodDelete.Norm">
-            <summary> 
-            规格
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.GoodDelete.Factory">
-            <summary> 
-            厂家
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.GoodDelete.GoodType">
-            <summary> 
-            类型（枚举1:西药,2:中成药,3:中药,4:诊疗项目,5:材料）
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.GoodDelete.GoodSort">
-            <summary> 
-            分类:自定义,和字典表进行关联
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.GoodDelete.GoodStandard">
-            <summary> 
-            国药准字
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.GoodDelete.InsuranceCode">
+        <member name="P:SY.Com.Medical.Model.GoodRequest.InsuranceCode">
             <summary> 
             医保编码
             </summary> 
         </member>
-        <member name="P:SY.Com.Medical.Model.GoodDelete.CustomerCode">
+        <member name="P:SY.Com.Medical.Model.GoodRequest.CustomerCode">
             <summary> 
             机构编码-自定义码
             </summary> 
         </member>
-        <member name="P:SY.Com.Medical.Model.GoodDelete.BarCode">
+        <member name="P:SY.Com.Medical.Model.GoodRequest.GoodType">
             <summary> 
-            条码
+            类型（枚举1:西药,2:中成药,3:中药,4:诊疗项目,5:材料）
             </summary> 
         </member>
-        <member name="P:SY.Com.Medical.Model.GoodDelete.SearchKey">
+        <member name="P:SY.Com.Medical.Model.GoodRequest.GoodSort">
             <summary> 
-            搜索词根
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.GoodDelete.SalesUnit">
-            <summary> 
-            计价单位
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.GoodDelete.StockUnit">
-            <summary> 
-            库存单位
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.GoodDelete.Ratio">
-            <summary> 
-            库存单位--》计价单位比率，正整数
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.GoodDelete.CreateTime">
-            <summary> 
-            
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.GoodDelete.IsEnable">
-            <summary> 
-            
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.GoodDelete.IsDelete">
-            <summary> 
-            
+            分类:自定义,和字典表进行关联
             </summary> 
         </member>
         <member name="T:SY.Com.Medical.Model.KeyValueModel">

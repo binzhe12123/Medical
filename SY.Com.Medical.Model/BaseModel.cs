@@ -16,7 +16,7 @@ namespace SY.Com.Medical.Model
         /// <summary>
         /// 租户ID
         /// </summary>        
-        [JsonIgnore]        
+        [JsonIgnore]
         [Range(0,10000000)]
         public int TenantId { get; set; }
         /// <summary>

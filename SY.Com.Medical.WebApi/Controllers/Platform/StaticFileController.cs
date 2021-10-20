@@ -56,7 +56,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
                         //执行文件保存
                         string filepath = fileupload.SaveFile(ms);
                         ms.Close();
-                        result.Data.Add(Request.Host.Value + filepath);
+                        result.Data.Add("http://" +  Request.Host.Value + filepath);
                     }
                 }
                 //返回文件路径

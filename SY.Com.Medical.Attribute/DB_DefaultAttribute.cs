@@ -42,6 +42,9 @@ namespace SY.Com.Medical.Attribute
             }else if(t == typeof(TenantType))
             {
                 value = (int)TenantType.中医诊所;
+            }else if(t == typeof(GoodType))
+            {
+                value = (int)GoodType.中成药;
             }
         }
 

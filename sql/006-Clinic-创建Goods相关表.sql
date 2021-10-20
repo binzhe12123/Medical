@@ -24,6 +24,7 @@ Create Table Goods
 )
 
 
+
 --…Ã∆∑≤…π∫
 Create Table Purchases
 (

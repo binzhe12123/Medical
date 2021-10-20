@@ -26,19 +26,21 @@ namespace SY.Com.Medical.Entity
 		///<summary> 
 		///商品名称
 		///</summary> 
+		[DB_Like]
 		public string GoodName {get;set;} 
 		///<summary> 
 		///规格
 		///</summary> 
-		public string Norm {get;set;} 
+		public string Norm {get;set;}
 		///<summary> 
 		///厂家
-		///</summary> 
+		///</summary> 		
 		public string Factory {get;set;} 
 		///<summary> 
 		///类型（枚举1:西药,2:中成药,3:中药,4:诊疗项目,5:材料）
-		///</summary> 
-		public int GoodType {get;set;} 
+		///</summary> 		
+		[DB_Default(typeof(GoodType))]		
+		public GoodType GoodType {get;set;} 
 		///<summary> 
 		///分类:自定义,和字典表进行关联
 		///</summary> 
@@ -46,22 +48,27 @@ namespace SY.Com.Medical.Entity
 		///<summary> 
 		///国药准字
 		///</summary> 
-		public string GoodStandard {get;set;} 
+		[DB_Like]
+		public string GoodStandard {get;set;}
 		///<summary> 
 		///医保编码
 		///</summary> 
-		public string InsuranceCode {get;set;} 
+		[DB_Like]
+		public string InsuranceCode {get;set;}
 		///<summary> 
 		///机构编码-自定义码
 		///</summary> 
-		public string CustomerCode {get;set;} 
+		[DB_Like]
+		public string CustomerCode {get;set;}
 		///<summary> 
 		///条码
 		///</summary> 
-		public string BarCode {get;set;} 
+		[DB_Like]
+		public string BarCode {get;set;}
 		///<summary> 
 		///搜索词根
 		///</summary> 
+		[DB_Like]
 		public string SearchKey {get;set;} 
 		///<summary> 
 		///计价单位
@@ -74,6 +81,10 @@ namespace SY.Com.Medical.Entity
 		///<summary> 
 		///库存单位--》计价单位比率，正整数
 		///</summary> 
-		public int Ratio {get;set;} 
+		public int Ratio {get;set;}
+		/// <summary>
+		/// 价格(项目直接使用此价格),药品不使用此价格
+		/// </summary>
+		public long Price { get; set; }
 	}
 } 

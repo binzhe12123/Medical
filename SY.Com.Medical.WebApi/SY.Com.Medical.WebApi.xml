@@ -4,6 +4,85 @@
         <name>SY.Com.Medical.WebApi</name>
     </assembly>
     <members>
+        <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.DicController">
+            <summary>
+            字典控制器
+            </summary>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.DicController.get(System.Int32)">
+            <summary> 
+            获取字典详情记录
+            </summary> 
+            <param name="id"></param>
+             <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.DicController.gets(SY.Com.Medical.Model.DicRequest)">
+            <summary> 
+            获取字典列表-分页
+            </summary> 
+            <param name="request"></param>
+             <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.DicController.add(SY.Com.Medical.Model.DicAdd)">
+            <summary> 
+            新增字典条目
+            </summary> 
+            <param name="request"></param>
+             <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.DicController.update(SY.Com.Medical.Model.DicUpdate)">
+            <summary> 
+            修改字典条目
+            </summary> 
+            <param name="request"></param>
+             <returns></returns>
+        </member>
+        <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.GoodController">
+            <summary>
+            物料控制器(药品、项目、材料)
+            </summary>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.GoodController.gets(SY.Com.Medical.Model.GoodRequest)">
+            <summary>
+            获取药品分页
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.GoodController.get(System.Int32)">
+            <summary>
+            获取商品详情
+            </summary>
+            <param name="goodid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.GoodController.add(SY.Com.Medical.Model.GoodAdd)">
+            <summary>
+            添加商品
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.GoodController.update(SY.Com.Medical.Model.GoodUpdate)">
+            <summary>
+            修改商品
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.GoodController.delete(SY.Com.Medical.Model.GoodDelete)">
+            <summary>
+            删除商品
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.GoodController.getGoodSort">
+            <summary>
+            获取租户的药品分类
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.PatientController">
             <summary>
             患者信息
