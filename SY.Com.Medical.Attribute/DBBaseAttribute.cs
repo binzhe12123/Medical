@@ -25,12 +25,24 @@ namespace SY.Com.Medical.Attribute
 
     public class SqlWhereMod
     {
+        private string sql { get; set; }
         public string Column { get; set; }
         public string Param { get; set; }
         public string Operator { get; set; }
         public string Tostring()
         {
-            return Column + Operator + Param;
+            if (string.IsNullOrEmpty(sql))
+            {
+                return Column + Operator + Param;
+            }
+            else {
+                return sql;
+            }
+        }
+
+        public void SetSql(string sqlwhere)
+        {
+            this.sql = sqlwhere;
         }
     }
     

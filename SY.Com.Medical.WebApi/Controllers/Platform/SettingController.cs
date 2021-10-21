@@ -39,7 +39,10 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
                     case "sex": Name = "Sex"; break;
                     case "tenanttype": Name = "TenantType";break;
                     case "errorcode":Name = "ErrorCode"; break;
-                    default:break;
+                    case "staticfilebusiness":Name = "StaticFileBusiness";break;
+                    case "staticfiletype": Name = "StaticFileType"; break;
+                    case "goodtype":Name = "GoodType";break;
+                    default:break ;
                 }
                 result.Data = bll.getEnum(Name);
                 return result;

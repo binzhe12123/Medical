@@ -39,6 +39,7 @@ namespace SY.Com.Medical.Entity
 		///<summary> 
 		///类型（枚举1:西药,2:中成药,3:中药,4:诊疗项目,5:材料）
 		///</summary> 		
+		[DB_Check("6","1,2,3")]
 		[DB_Default(typeof(GoodType))]		
 		public GoodType GoodType {get;set;} 
 		///<summary> 

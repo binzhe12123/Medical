@@ -273,6 +273,10 @@ namespace SY.Com.Medical.Repository
                             {
                                 var temp = ReadAttribute<DB_LikeAttribute>.getWhere(prop,t, (DB_LikeAttribute)attr);
                                 whereColumns.Append(" And " + temp.Tostring());
+                            }else if(attr is DB_CheckAttribute)
+                            {
+                                var temp = ReadAttribute<DB_CheckAttribute>.getWhere(prop, t, (DB_CheckAttribute)attr);
+                                whereColumns.Append(" And " + temp.Tostring());
                             }
                         }
                     }
@@ -333,6 +337,11 @@ namespace SY.Com.Medical.Repository
                                 var temp = ReadAttribute<DB_LikeAttribute>.getWhere(prop, t, (DB_LikeAttribute)attr);
                                 whereColumns.Append($" And {tableName}." + temp.Tostring());
                             }
+                            else if (attr is DB_CheckAttribute)
+                            {
+                                var temp = ReadAttribute<DB_CheckAttribute>.getWhere(prop, t, (DB_CheckAttribute)attr);
+                                whereColumns.Append(" And " + temp.Tostring());
+                            }
                         }
                     }
                     else
@@ -391,6 +400,11 @@ namespace SY.Com.Medical.Repository
                             {
                                 var temp = ReadAttribute<DB_LikeAttribute>.getWhere(prop,t, (DB_LikeAttribute)attr);
                                 whereColumns.Append($" And {tableName}." + temp.Tostring());
+                            }
+                            else if (attr is DB_CheckAttribute)
+                            {
+                                var temp = ReadAttribute<DB_CheckAttribute>.getWhere(prop, t, (DB_CheckAttribute)attr);
+                                whereColumns.Append(" And " + temp.Tostring());
                             }
                         }
                     }
@@ -466,6 +480,11 @@ namespace SY.Com.Medical.Repository
                             {
                                 var temp = ReadAttribute<DB_LikeAttribute>.getWhere(prop, t, (DB_LikeAttribute)attr);
                                 whereColumns.Append($" And {tableName}." + temp.Tostring());
+                            }
+                            else if (attr is DB_CheckAttribute)
+                            {
+                                var temp = ReadAttribute<DB_CheckAttribute>.getWhere(prop, t, (DB_CheckAttribute)attr);
+                                whereColumns.Append(" And " + temp.Tostring());
                             }
                         }
                     }

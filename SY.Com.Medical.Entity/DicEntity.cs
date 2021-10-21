@@ -39,5 +39,9 @@ namespace SY.Com.Medical.Entity
 		///
 		///</summary> 
 		public int dictypeid {get;set;} 
+		/// <summary>
+		/// 
+		/// </summary>
+		public string SearchKey { get; set; }
 	}
 } 

@@ -88,9 +88,9 @@ namespace SY.Com.Medical.BLL.Clinic
         /// 获取药品分类字典信息
         /// </summary>
         /// <returns></returns>
-        public List<Dictionary<string, string>> getGoodSort()
+        public List<Dictionary<int, string>> getGoodSort(GoodSortReuqest request)
         {
-            return db.getGoodSort().ToList();
+            return db.getGoodSort(request.DicType).ToList();
         }
 
     }

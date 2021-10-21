@@ -24,5 +24,6 @@ namespace SY.Com.Medical.Model
         /// </summary>
         [JsonIgnore]
         public int UserId { get; set; }
+        
     }
 }

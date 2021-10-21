@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace SY.Com.Medical.BLL.Platform
@@ -26,7 +27,10 @@ namespace SY.Com.Medical.BLL.Platform
             foreach (var prop in obj.GetType().GetEnumValues())
             {                
                 KeyValueModel mod = new KeyValueModel() { key = prop.ToString(), value = ((int)prop).ToString() };
-                result.Add(mod);
+                if(!prop.GetType().IsDefined(typeof(JsonIgnoreAttribute),false))
+                {
+                    result.Add(mod);
+                }                
             }
             return result;
         }

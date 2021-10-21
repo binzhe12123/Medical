@@ -51,28 +51,28 @@
         </member>
         <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.GoodController.get(System.Int32)">
             <summary>
-            获取商品详情
+            获取药品详情
             </summary>
             <param name="goodid"></param>
             <returns></returns>
         </member>
         <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.GoodController.add(SY.Com.Medical.Model.GoodAdd)">
             <summary>
-            添加商品
+            添加药品
             </summary>
             <param name="request"></param>
             <returns></returns>
         </member>
         <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.GoodController.update(SY.Com.Medical.Model.GoodUpdate)">
             <summary>
-            修改商品
+            修改药品
             </summary>
             <param name="request"></param>
             <returns></returns>
         </member>
         <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.GoodController.delete(SY.Com.Medical.Model.GoodDelete)">
             <summary>
-            删除商品
+            删除药品
             </summary>
             <param name="request"></param>
             <returns></returns>
@@ -81,6 +81,41 @@
             <summary>
             获取租户的药品分类
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.GoodController.getItems(SY.Com.Medical.Model.GoodItemsRequest)">
+            <summary>
+            获取项目列表分页
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.GoodController.getItem(System.Int32)">
+            <summary>
+            获取项目详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.GoodController.addItem(SY.Com.Medical.Model.GoodItemAdd)">
+            <summary>
+            添加项目
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.GoodController.updateItem(SY.Com.Medical.Model.GoodItemUpdate)">
+            <summary>
+            修改项目
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.GoodController.deleteItem(SY.Com.Medical.Model.GoodDelete)">
+            <summary>
+            删除项目
+            </summary>
+            <param name="request"></param>
             <returns></returns>
         </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.PatientController">

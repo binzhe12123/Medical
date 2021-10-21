@@ -17,10 +17,10 @@ namespace SY.Com.Medical.Repository.Clinic
         /// 获取药品分类
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<Dictionary<string, string>> getGoodSort()
+        public IEnumerable<Dictionary<int, string>> getGoodSort(string dictype)
         {
-            string sql = " Select DicKey,DicValue From Dics Where DicType='GoodSort' And IsDelete=1 ";
-            return _db.Query<Dictionary<string, string>>(sql);
+            string sql = " Select DicId,DicValue From Dics Where DicType=@Dictype And IsDelete=1 ";
+            return _db.Query<Dictionary<int, string>>(sql,new { Dictype = dictype });
         }
 	}
 } 

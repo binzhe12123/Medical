@@ -160,5 +160,49 @@ namespace SY.Com.Medical.Extension
             return result;
         }
 
+        /// <summary>
+        /// BaseModel映射到BaseModel
+        /// </summary>
+        /// <typeparam name="D"></typeparam>
+        /// <param name="mod"></param>
+        /// <returns></returns>
+        public static D Mapping<D>(this BaseModel mod) where D : BaseModel
+        {
+            D dto = (D)Activator.CreateInstance(typeof(D));
+            return (D)DeepCopyByReflection(mod, dto);
+        }
+
+        /// <summary>
+        /// BaseModel对另外的BaseModel进行List映射
+        /// </summary>
+        /// <typeparam name="D"></typeparam>
+        /// <param name="mod"></param>
+        /// <returns></returns>
+        public static List<D> Mapping<D>(this List<BaseModel> mod) where D : BaseModel
+        {
+            List<D> result = new List<D>();
+            foreach (var item in mod)
+            {
+                result.Add(item.Mapping<D>());
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// BaseModel对另外的BaseModel进行IEnumerable映射
+        /// </summary>
+        /// <typeparam name="D"></typeparam>
+        /// <param name="mod"></param>
+        /// <returns></returns>
+        public static List<D> Mapping<D>(this IEnumerable<BaseModel> mod) where D : BaseModel
+        {
+            List<D> result = new List<D>();
+            foreach (var item in mod)
+            {
+                result.Add(item.Mapping<D>());
+            }
+            return result;
+        }
+
     }
 }

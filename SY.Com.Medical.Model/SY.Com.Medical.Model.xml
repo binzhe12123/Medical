@@ -822,15 +822,10 @@
             
             </summary> 
         </member>
-        <member name="P:SY.Com.Medical.Model.GoodModel.IsEnable">
-            <summary> 
-            
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.GoodModel.IsDelete">
-            <summary> 
-            
-            </summary> 
+        <member name="P:SY.Com.Medical.Model.GoodModel.Price">
+            <summary>
+            价格
+            </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.GoodAdd">
             <summary>
@@ -907,6 +902,11 @@
             库存单位--》计价单位比率，正整数
             </summary> 
         </member>
+        <member name="P:SY.Com.Medical.Model.GoodAdd.Price">
+            <summary>
+            价格
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.GoodUpdate">
             <summary>
             修改模型
@@ -982,6 +982,11 @@
             库存单位--》计价单位比率，正整数
             </summary> 
         </member>
+        <member name="P:SY.Com.Medical.Model.GoodUpdate.Price">
+            <summary>
+            价格
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.GoodDelete">
             <summary>
             删除模型
@@ -1021,6 +1026,181 @@
             <summary> 
             分类:自定义,和字典表进行关联
             </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.GoodItemsRequest">
+            <summary>
+            项目模型
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodItemsRequest.GoodName">
+            <summary> 
+            商品名称
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodItemsRequest.InsuranceCode">
+            <summary> 
+            医保编码
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodItemsRequest.CustomerCode">
+            <summary> 
+            机构编码-自定义码
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodItemsRequest.GoodType">
+            <summary> 
+            类型（枚举1:西药,2:中成药,3:中药,4:诊疗项目,5:材料）
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodItemsRequest.GoodSort">
+            <summary> 
+            分类:自定义,和字典表进行关联
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.GoodItemModel">
+            <summary>
+            项目信息
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodItemModel.GoodId">
+            <summary> 
+            商品ID
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodItemModel.GoodName">
+            <summary> 
+            商品名称
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodItemModel.Price">
+            <summary>
+            价格
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodItemModel.GoodSort">
+            <summary> 
+            分类:自定义,和字典表进行关联
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodItemModel.InsuranceCode">
+            <summary> 
+            医保编码
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodItemModel.CustomerCode">
+            <summary> 
+            机构编码-自定义码
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodItemModel.SalesUnit">
+            <summary> 
+            计价单位
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodItemModel.CreateTime">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.GoodItemAdd">
+            <summary>
+            项目添加模型
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodItemAdd.GoodId">
+            <summary> 
+            商品ID
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodItemAdd.GoodName">
+            <summary> 
+            商品名称
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodItemAdd.GoodType">
+            <summary> 
+            类型（枚举1:西药,2:中成药,3:中药,4:诊疗项目,5:材料）
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodItemAdd.GoodSort">
+            <summary> 
+            分类:自定义,和字典表进行关联
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodItemAdd.InsuranceCode">
+            <summary> 
+            医保编码
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodItemAdd.CustomerCode">
+            <summary> 
+            机构编码-自定义码
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodItemAdd.SearchKey">
+            <summary> 
+            搜索词根
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodItemAdd.SalesUnit">
+            <summary> 
+            计价单位
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodItemAdd.Price">
+            <summary>
+            价格
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.GoodItemUpdate">
+            <summary>
+            修改模型
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodItemUpdate.GoodId">
+            <summary> 
+            商品ID
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodItemUpdate.GoodName">
+            <summary> 
+            商品名称
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodItemUpdate.GoodType">
+            <summary> 
+            类型（枚举1:西药,2:中成药,3:中药,4:诊疗项目,5:材料）
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodItemUpdate.GoodSort">
+            <summary> 
+            分类:自定义,和字典表进行关联
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodItemUpdate.InsuranceCode">
+            <summary> 
+            医保编码
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodItemUpdate.CustomerCode">
+            <summary> 
+            机构编码-自定义码
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodItemUpdate.SearchKey">
+            <summary> 
+            搜索词根
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodItemUpdate.SalesUnit">
+            <summary> 
+            计价单位
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodItemUpdate.Price">
+            <summary>
+            价格
+            </summary>		
         </member>
         <member name="T:SY.Com.Medical.Model.KeyValueModel">
             <summary>

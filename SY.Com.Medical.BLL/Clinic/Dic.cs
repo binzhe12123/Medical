@@ -47,6 +47,7 @@ namespace SY.Com.Medical.BLL.Clinic
 		/// <returns></returns>
 		public int add(DicAdd request)
 		{
+			request.SearchKey = request.DicKey.GetPinYinHead() + request.DicValue.GetPinYinHead();
 			return db.Create(request.DtoToEntity<DicEntity>());
 		}
 		///<summary> 
@@ -56,6 +57,7 @@ namespace SY.Com.Medical.BLL.Clinic
 		/// <returns></returns>
 		public void update(DicUpdate request)
 		{
+			request.SearchKey = request.DicKey.GetPinYinHead() + request.DicValue.GetPinYinHead();
 			db.Update(request.DtoToEntity<DicEntity>());
 		}
 		///<summary> 

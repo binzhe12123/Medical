@@ -1,4 +1,5 @@
 select * From Goods
+where TenantId in('1','2','3')
 
 --创建商品
 Create Table Goods

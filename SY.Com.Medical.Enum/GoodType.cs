@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace SY.Com.Medical.Enum
@@ -30,10 +31,12 @@ namespace SY.Com.Medical.Enum
         /// <summary>
         /// 诊疗项目=4
         /// </summary>
+        [JsonIgnore]
         诊疗项目=4,
         /// <summary>
         /// 材料=5
         /// </summary>
-        材料=5        
+        [JsonIgnore]
+        材料 =5        
     }
 }
