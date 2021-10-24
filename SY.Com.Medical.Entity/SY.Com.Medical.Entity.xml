@@ -199,6 +199,11 @@
             
             </summary> 
         </member>
+        <member name="P:SY.Com.Medical.Entity.DicEntity.SearchKey">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Entity.EmployeeEntity">
             <summary>
              员工实体    
@@ -277,12 +282,12 @@
         <member name="P:SY.Com.Medical.Entity.GoodEntity.Factory">
             <summary> 
             厂家
-            </summary> 
+            </summary> 		
         </member>
         <member name="P:SY.Com.Medical.Entity.GoodEntity.GoodType">
             <summary> 
             类型（枚举1:西药,2:中成药,3:中药,4:诊疗项目,5:材料）
-            </summary> 
+            </summary> 		
         </member>
         <member name="P:SY.Com.Medical.Entity.GoodEntity.GoodSort">
             <summary> 

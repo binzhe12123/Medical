@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using SY.Com.Medical.Attribute;
 using SY.Com.Medical.BLL;
 using SY.Com.Medical.BLL.Clinic;
+using SY.Com.Medical.Extension;
 using SY.Com.Medical.Model;
 using System;
 using System.Collections.Generic;
@@ -28,11 +29,11 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
 		///<param name="id"></param>
 		/// <returns></returns>
 		[HttpGet]
-		public BaseResponse<DicModel> get(int id)
+		public BaseResponse<DicResponse> get(int id)
 		{
-			BaseResponse<DicModel> result = new BaseResponse<DicModel>();
+			BaseResponse<DicResponse> result = new BaseResponse<DicResponse>();
 				try{
-					result.Data = bll.get(id);
+					result.Data = bll.get(id).Mapping<DicResponse>();
 					return result;
 				}catch(Exception ex)
 				{
@@ -52,12 +53,12 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
 		///<param name="request"></param>
 		/// <returns></returns>
 		[HttpPost]
-		public BaseResponse<List<DicModel>> gets(DicRequest request)
+		public BaseResponse<List<DicResponse>> gets(DicRequest request)
 		{
-				BaseResponse<List<DicModel>> result = new BaseResponse<List<DicModel>>();
+				BaseResponse<List<DicResponse>> result = new BaseResponse<List<DicResponse>>();
 				try{
 					var tuple = bll.gets(request);
-					result.Data = tuple.Item1.ToList();
+					result.Data = tuple.Item1.Mapping<DicResponse>().ToList();
 					result.CalcPage(tuple.Item2, request.PageIndex, request.PageSize);
 					return result;
 				}catch(Exception ex)
@@ -103,12 +104,11 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
 		///<param name="request"></param>
 		/// <returns></returns>
 		[HttpPost]
-		public BaseResponse<bool> update(DicUpdate request)
+		public BaseResponse<int> update(DicUpdate request)
 		{
-			BaseResponse<bool> result = new BaseResponse<bool>();
+			BaseResponse<int> result = new BaseResponse<int>();
 				try{
-					bll.update(request);
-					result.Data = true;
+					result.Data = bll.update(request);
 					return result;
 				}catch(Exception ex)
 				{

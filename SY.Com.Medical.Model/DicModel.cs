@@ -25,11 +25,11 @@ namespace SY.Com.Medical.Model
 			///<summary> 
 			///值
 			///</summary> 
-			public string DicValue {get;set;} 
-			///<summary> 
-			///分类
-			///</summary> 
-			public string DicType {get;set;} 
+			public string DicValue {get;set;}
+		///<summary> 
+		///分类-枚举-Setting.getKeyValue接口查看
+		///</summary> 
+		public int DicType {get;set;} 
 			///<summary> 
 			///
 			///</summary> 
@@ -42,50 +42,46 @@ namespace SY.Com.Medical.Model
 			///
 			///</summary> 
 			public int IsDelete {get;set;} 
-			///<summary> 
-			///
-			///</summary> 
-			public int dictypeid {get;set;} 
+		
 		}
 	
+	/// <summary>
+	/// 返回模型
+	/// </summary>
+	public class DicResponse : BaseModel
+    {
+		///<summary> 
+		///主键ID
+		///</summary> 
+		public int DicId { get; set; }
+		///<summary> 
+		///值
+		///</summary> 
+		public string DicValue { get; set; }
+		///<summary> 
+		///分类-枚举-Setting.getKeyValue接口查看
+		///</summary> 
+		public int DicType { get; set; }
+	}
+
 	///<summary>
 	/// Dic模型
 	/// </summary>
 	public class DicRequest : PageModel 
-		{ 
-			///<summary> 
-			///主键ID
-			///</summary> 
-			public int DicId {get;set;} 
-			///<summary> 
-			///键
-			///</summary> 
-			public string DicKey {get;set;} 
+		{
 			///<summary> 
 			///值
 			///</summary> 
-			public string DicValue {get;set;} 
+			public string DicValue {get;set;}
 			///<summary> 
-			///分类
+			///分类-枚举-Setting.getKeyValue接口查看
 			///</summary> 
-			public string DicType {get;set;} 
-			///<summary> 
-			///
-			///</summary> 
-			public DateTime? CreateTime {get;set;} 
-			///<summary> 
-			///
-			///</summary> 
-			public int IsEnable {get;set;} 
-			///<summary> 
-			///
-			///</summary> 
-			public int IsDelete {get;set;} 
-			///<summary> 
-			///
-			///</summary> 
-			public int dictypeid {get;set;} 
-		}
+			public int DicType {get;set;}
+			/// <summary>
+			/// 搜索关键字
+			/// </summary>
+			public string SearchKey { get; set; }
+	}
 	
 	///<summary>
 	/// Dic模型
@@ -93,38 +89,14 @@ namespace SY.Com.Medical.Model
 	public class DicAdd : BaseModel 
 	{ 
 		///<summary> 
-		///主键ID
-		///</summary> 
-		public int DicId {get;set;} 
-		///<summary> 
-		///键
-		///</summary> 
-		public string DicKey {get;set;} 
-		///<summary> 
 		///值
 		///</summary> 
-		public string DicValue {get;set;} 
+		public string DicValue {get;set;}
 		///<summary> 
-		///分类
+		///分类-枚举-Setting.getKeyValue接口查看
 		///</summary> 
 		[Required]
-		public string DicType {get;set;} 
-		///<summary> 
-		///
-		///</summary> 
-		public DateTime? CreateTime {get;set;} 
-		///<summary> 
-		///
-		///</summary> 
-		public int IsEnable {get;set;} 
-		///<summary> 
-		///
-		///</summary> 
-		public int IsDelete {get;set;} 
-		///<summary> 
-		///
-		///</summary> 
-		public int dictypeid {get;set;} 
+		public int DicType {get;set;} 		
 		/// <summary>
 		/// 搜索关键字
 		/// </summary>
@@ -142,33 +114,9 @@ namespace SY.Com.Medical.Model
 		///</summary> 
 		public int DicId {get;set;} 
 		///<summary> 
-		///键
-		///</summary> 
-		public string DicKey {get;set;} 
-		///<summary> 
 		///值
 		///</summary> 
-		public string DicValue {get;set;} 
-		///<summary> 
-		///分类
-		///</summary> 
-		public string DicType {get;set;} 
-		///<summary> 
-		///
-		///</summary> 
-		public DateTime? CreateTime {get;set;} 
-		///<summary> 
-		///
-		///</summary> 
-		public int IsEnable {get;set;} 
-		///<summary> 
-		///
-		///</summary> 
-		public int IsDelete {get;set;} 
-		///<summary> 
-		///
-		///</summary> 
-		public int dictypeid {get;set;} 
+		public string DicValue {get;set;}
 		/// <summary>
 		/// 
 		/// </summary>
@@ -192,11 +140,11 @@ namespace SY.Com.Medical.Model
 			///<summary> 
 			///值
 			///</summary> 
-			public string DicValue {get;set;} 
-			///<summary> 
-			///分类
-			///</summary> 
-			public string DicType {get;set;} 
+			public string DicValue {get;set;}
+		///<summary> 
+		///分类-枚举-Setting.getKeyValue接口查看
+		///</summary> 
+		public int DicType {get;set;} 
 			///<summary> 
 			///
 			///</summary> 
@@ -208,11 +156,7 @@ namespace SY.Com.Medical.Model
 			///<summary> 
 			///
 			///</summary> 
-			public int IsDelete {get;set;} 
-			///<summary> 
-			///
-			///</summary> 
-			public int dictypeid {get;set;} 
+			public int IsDelete {get;set;} 			
 		}
 	
 } 

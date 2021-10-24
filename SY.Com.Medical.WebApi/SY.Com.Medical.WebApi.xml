@@ -77,9 +77,10 @@
             <param name="request"></param>
             <returns></returns>
         </member>
-        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.GoodController.getGoodSort">
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.GoodController.getGoodSort(SY.Com.Medical.Model.GoodSortReuqest)">
             <summary>
-            获取租户的药品分类
+            获取租户的药品/项目/材料分类
+            其中DicType值为枚举,需要通过getKeyValue接口查询        
             </summary>
             <returns></returns>
         </member>
@@ -114,6 +115,41 @@
         <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.GoodController.deleteItem(SY.Com.Medical.Model.GoodDelete)">
             <summary>
             删除项目
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.GoodController.getsMaterial(SY.Com.Medical.Model.GoodRequest)">
+            <summary>
+            获取材料分页
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.GoodController.getMaterial(System.Int32)">
+            <summary>
+            获取材料详情
+            </summary>
+            <param name="goodid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.GoodController.addMaterial(SY.Com.Medical.Model.GoodAdd)">
+            <summary>
+            添加材料
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.GoodController.updateMaterial(SY.Com.Medical.Model.GoodUpdate)">
+            <summary>
+            修改材料
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.GoodController.deleteMaterial(SY.Com.Medical.Model.GoodDelete)">
+            <summary>
+            删除材料
             </summary>
             <param name="request"></param>
             <returns></returns>

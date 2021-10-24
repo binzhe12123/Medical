@@ -459,7 +459,7 @@
         </member>
         <member name="P:SY.Com.Medical.Model.DicModel.DicType">
             <summary> 
-            分类
+            分类-枚举-Setting.getKeyValue接口查看
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Model.DicModel.CreateTime">
@@ -477,25 +477,30 @@
             
             </summary> 
         </member>
-        <member name="P:SY.Com.Medical.Model.DicModel.dictypeid">
+        <member name="T:SY.Com.Medical.Model.DicResponse">
+            <summary>
+            返回模型
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicResponse.DicId">
             <summary> 
-            
+            主键ID
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicResponse.DicValue">
+            <summary> 
+            值
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DicResponse.DicType">
+            <summary> 
+            分类-枚举-Setting.getKeyValue接口查看
             </summary> 
         </member>
         <member name="T:SY.Com.Medical.Model.DicRequest">
             <summary>
              Dic模型
              </summary>
-        </member>
-        <member name="P:SY.Com.Medical.Model.DicRequest.DicId">
-            <summary> 
-            主键ID
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.DicRequest.DicKey">
-            <summary> 
-            键
-            </summary> 
         </member>
         <member name="P:SY.Com.Medical.Model.DicRequest.DicValue">
             <summary> 
@@ -504,43 +509,18 @@
         </member>
         <member name="P:SY.Com.Medical.Model.DicRequest.DicType">
             <summary> 
-            分类
+            分类-枚举-Setting.getKeyValue接口查看
             </summary> 
         </member>
-        <member name="P:SY.Com.Medical.Model.DicRequest.CreateTime">
-            <summary> 
-            
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.DicRequest.IsEnable">
-            <summary> 
-            
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.DicRequest.IsDelete">
-            <summary> 
-            
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.DicRequest.dictypeid">
-            <summary> 
-            
-            </summary> 
+        <member name="P:SY.Com.Medical.Model.DicRequest.SearchKey">
+            <summary>
+            搜索关键字
+            </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.DicAdd">
             <summary>
              Dic模型
              </summary>
-        </member>
-        <member name="P:SY.Com.Medical.Model.DicAdd.DicId">
-            <summary> 
-            主键ID
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.DicAdd.DicKey">
-            <summary> 
-            键
-            </summary> 
         </member>
         <member name="P:SY.Com.Medical.Model.DicAdd.DicValue">
             <summary> 
@@ -549,28 +529,13 @@
         </member>
         <member name="P:SY.Com.Medical.Model.DicAdd.DicType">
             <summary> 
-            分类
+            分类-枚举-Setting.getKeyValue接口查看
             </summary> 
         </member>
-        <member name="P:SY.Com.Medical.Model.DicAdd.CreateTime">
-            <summary> 
-            
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.DicAdd.IsEnable">
-            <summary> 
-            
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.DicAdd.IsDelete">
-            <summary> 
-            
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.DicAdd.dictypeid">
-            <summary> 
-            
-            </summary> 
+        <member name="P:SY.Com.Medical.Model.DicAdd.SearchKey">
+            <summary>
+            搜索关键字
+            </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.DicUpdate">
             <summary>
@@ -582,40 +547,15 @@
             主键ID
             </summary> 
         </member>
-        <member name="P:SY.Com.Medical.Model.DicUpdate.DicKey">
-            <summary> 
-            键
-            </summary> 
-        </member>
         <member name="P:SY.Com.Medical.Model.DicUpdate.DicValue">
             <summary> 
             值
             </summary> 
         </member>
-        <member name="P:SY.Com.Medical.Model.DicUpdate.DicType">
-            <summary> 
-            分类
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.DicUpdate.CreateTime">
-            <summary> 
+        <member name="P:SY.Com.Medical.Model.DicUpdate.SearchKey">
+            <summary>
             
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.DicUpdate.IsEnable">
-            <summary> 
-            
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.DicUpdate.IsDelete">
-            <summary> 
-            
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.DicUpdate.dictypeid">
-            <summary> 
-            
-            </summary> 
+            </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.DicDelete">
             <summary>
@@ -639,7 +579,7 @@
         </member>
         <member name="P:SY.Com.Medical.Model.DicDelete.DicType">
             <summary> 
-            分类
+            分类-枚举-Setting.getKeyValue接口查看
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Model.DicDelete.CreateTime">
@@ -653,11 +593,6 @@
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Model.DicDelete.IsDelete">
-            <summary> 
-            
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.DicDelete.dictypeid">
             <summary> 
             
             </summary> 
@@ -824,7 +759,7 @@
         </member>
         <member name="P:SY.Com.Medical.Model.GoodModel.Price">
             <summary>
-            价格
+            价格-整数,厘为单位
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.GoodAdd">
@@ -904,7 +839,7 @@
         </member>
         <member name="P:SY.Com.Medical.Model.GoodAdd.Price">
             <summary>
-            价格
+            价格-整数,厘为单位
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.GoodUpdate">
@@ -984,7 +919,7 @@
         </member>
         <member name="P:SY.Com.Medical.Model.GoodUpdate.Price">
             <summary>
-            价格
+            价格-整数,厘为单位
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.GoodDelete">
@@ -1074,7 +1009,7 @@
         </member>
         <member name="P:SY.Com.Medical.Model.GoodItemModel.Price">
             <summary>
-            价格
+            价格-整数,厘为单位
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.GoodItemModel.GoodSort">
@@ -1149,7 +1084,7 @@
         </member>
         <member name="P:SY.Com.Medical.Model.GoodItemAdd.Price">
             <summary>
-            价格
+            价格-整数,厘为单位
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.GoodItemUpdate">
@@ -1199,8 +1134,18 @@
         </member>
         <member name="P:SY.Com.Medical.Model.GoodItemUpdate.Price">
             <summary>
-            价格
+            价格-整数,厘为单位
             </summary>		
+        </member>
+        <member name="T:SY.Com.Medical.Model.GoodSortReuqest">
+            <summary>
+            获取药品分类相关字典
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodSortReuqest.DicType">
+            <summary>
+            字典类型
+            </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.KeyValueModel">
             <summary>

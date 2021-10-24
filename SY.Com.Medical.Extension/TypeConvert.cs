@@ -77,6 +77,10 @@ namespace SY.Com.Medical.Extension
         /// <returns></returns>
         public static D EntityToDto<D>(this BaseEntity entity) where D : BaseModel
         {
+            if(entity == null)
+            {
+                throw new Exception("未找到数据");
+            }
             Type modtype = typeof(D);
             Type entitytype = entity.GetType();
             D dto = (D)Activator.CreateInstance(typeof(D));
@@ -135,6 +139,10 @@ namespace SY.Com.Medical.Extension
         /// <returns></returns>
         public static List<D> EntityToDto<D>(this List<BaseEntity> entity) where D : BaseModel
         {
+            if (entity == null)
+            {
+                throw new Exception("未找到数据");
+            }
             List<D> result = new List<D>();
             foreach(var item in entity)
             {
@@ -152,6 +160,10 @@ namespace SY.Com.Medical.Extension
         /// <returns></returns>
         public static List<D> EntityToDto<D>(this IEnumerable<BaseEntity> entity) where D : BaseModel
         {
+            if (entity == null)
+            {
+                throw new Exception("未找到数据");
+            }
             List<D> result = new List<D>();
             foreach (var item in entity)
             {

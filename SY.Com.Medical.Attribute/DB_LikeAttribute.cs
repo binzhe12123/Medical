@@ -16,7 +16,7 @@ namespace SY.Com.Medical.Attribute
         public override SqlWhereMod GetWhere(object t,object v)
         {
             PropertyInfo prop = (PropertyInfo)t;
-            return new SqlWhereMod { Column = prop.Name, Param = $"'%{ prop.GetValue(v) }%'", Operator = "Like" };            
+            return new SqlWhereMod { Column = prop.Name, Param = $" '%{ prop.GetValue(v) }%' ", Operator = " Like " };            
         }
     }
 }

@@ -62,7 +62,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         /// <returns></returns>
         [HttpGet]
         public BaseResponse<GoodModel> get(int goodid)
-        {
+        {            
             BaseResponse<GoodModel> result = new BaseResponse<GoodModel>();
             try
             {
@@ -167,8 +167,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
 
         /// <summary>
         /// 获取租户的药品/项目/材料分类
-        /// 其中DicType值为Drug.West表示西药,Drug.East表示中药,Drug.Middle表示中成药
-        /// DicType为Drug.Item表示项目,Drug.Material表示材料
+        /// 其中DicType值为枚举,需要通过getKeyValue接口查询        
         /// </summary>
         /// <returns></returns>
         [HttpPost]
@@ -250,6 +249,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             BaseResponse<int> result = new BaseResponse<int>();
             try
             {
+                request.GoodType = 4;
                 result.Data = bll.add(request.Mapping<GoodAdd>());
                 return result;
             }
@@ -381,7 +381,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         }
 
         /// <summary>
-        /// 添加药品
+        /// 添加材料
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
@@ -391,6 +391,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             BaseResponse<int> result = new BaseResponse<int>();
             try
             {
+                request.GoodType = 5;
                 result.Data = bll.add(request);
                 return result;
             }

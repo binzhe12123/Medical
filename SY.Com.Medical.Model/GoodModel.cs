@@ -72,12 +72,12 @@ namespace SY.Com.Medical.Model
 		///<summary> 
 		///
 		///</summary> 
-		public DateTime? CreateTime {get;set;} 
+		public DateTime? CreateTime {get;set;}
 		/// <summary>
-		/// 价格
+		/// 价格-整数,厘为单位
 		/// </summary>
 		[JsonIgnore]
-		public decimal Price { get; set; }
+		public long Price { get; set; }
 	}
 	/// <summary>
 	/// 添加模型
@@ -149,10 +149,10 @@ namespace SY.Com.Medical.Model
 		///</summary> 
 		public int Ratio {get;set;}
 		/// <summary>
-		/// 价格
+		/// 价格-整数,厘为单位
 		/// </summary>
 		[JsonIgnore]
-		public decimal? Price { get; set; }
+		public long? Price { get; set; }
 	}
 
 	/// <summary>
@@ -225,10 +225,10 @@ namespace SY.Com.Medical.Model
 		///</summary> 
 		public int Ratio {get;set;}
 		/// <summary>
-		/// 价格
+		/// 价格-整数,厘为单位
 		/// </summary>
 		[JsonIgnore]
-		public decimal? Price { get; set; }
+		public long? Price { get; set; }
 	}
 
 	/// <summary>
@@ -315,9 +315,9 @@ namespace SY.Com.Medical.Model
 		///</summary> 
 		public string GoodName { get; set; }
 		/// <summary>
-		/// 价格
+		/// 价格-整数,厘为单位
 		/// </summary>
-		public decimal Price { get; set; }
+		public long Price { get; set; }
 		///<summary> 
 		///分类:自定义,和字典表进行关联
 		///</summary> 
@@ -384,9 +384,9 @@ namespace SY.Com.Medical.Model
 		[Required]
 		public string SalesUnit { get; set; }
 		/// <summary>
-		/// 价格
+		/// 价格-整数,厘为单位
 		/// </summary>
-		public decimal? Price { get; set; }
+		public long? Price { get; set; }
 	}
 
 	/// <summary>
@@ -433,9 +433,9 @@ namespace SY.Com.Medical.Model
 		[Required]
 		public string SalesUnit { get; set; }
 		/// <summary>
-		/// 价格
+		/// 价格-整数,厘为单位
 		/// </summary>		
-		public decimal? Price { get; set; }
+		public long? Price { get; set; }
 	}
 
 	/// <summary>

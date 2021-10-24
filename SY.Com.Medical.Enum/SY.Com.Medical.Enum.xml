@@ -64,6 +64,36 @@
             已删除
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Enum.DicType">
+            <summary>
+            字典类型
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.DicType.无">
+            <summary>
+            无
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.DicType.物品_药品_西药中成药">
+            <summary>
+            物品.药品.西药中成药
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.DicType.物品_药品_中药">
+            <summary>
+            物品.药品.中药
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.DicType.物品_项目">
+            <summary>
+            物品.项目
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.DicType.物品_材料">
+            <summary>
+            材料
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Enum.Enable">
             <summary>
             是否启用

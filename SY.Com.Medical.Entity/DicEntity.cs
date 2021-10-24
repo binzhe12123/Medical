@@ -34,11 +34,8 @@ namespace SY.Com.Medical.Entity
 		///<summary> 
 		///分类
 		///</summary> 
-		public string DicType {get;set;} 
-		///<summary> 
-		///
-		///</summary> 
-		public int dictypeid {get;set;} 
+		[DB_Default(typeof(DicType))]
+		public DicType DicType {get;set;} 
 		/// <summary>
 		/// 
 		/// </summary>

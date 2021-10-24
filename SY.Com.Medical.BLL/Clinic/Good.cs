@@ -59,9 +59,9 @@ namespace SY.Com.Medical.BLL.Clinic
             var olddata = db.Gets(ge);
             if(olddata != null && olddata.Any())
             {
-                throw new MyException("该药品已经存在");
+                throw new MyException("该物品已经存在");
             }
-            request.SearchKey = request.GoodName.GetPinYinHead() + request.InsuranceCode + request.GoodStandard;
+            request.SearchKey = request.GoodName.GetPinYinHead() + request.InsuranceCode + request.GoodStandard;            
             return db.Create(request.DtoToEntity<GoodEntity>());
         }
 
@@ -90,7 +90,21 @@ namespace SY.Com.Medical.BLL.Clinic
         /// <returns></returns>
         public List<Dictionary<int, string>> getGoodSort(GoodSortReuqest request)
         {
-            return db.getGoodSort(request.DicType).ToList();
+            List<Dictionary<int, string>> result = new List<Dictionary<int, string>>();
+            var gooddata = db.getGoodSort(request.DicType).ToList();
+            if (gooddata != null && gooddata.Any())
+            {
+                foreach(var item in gooddata)
+                {
+                    Dictionary<int, string> temp = new Dictionary<int, string>();
+                    temp.Add(item.DicId, item.DicValue);
+                    result.Add(temp);
+                }
+            }
+            else {
+                throw new MyException("无数据");
+            }
+            return result;
         }
 
     }

@@ -25,16 +25,19 @@ namespace SY.Com.Medical.Attribute
         {
             PropertyInfo prop = (PropertyInfo)t;
             var result = new SqlWhereMod();
-            if((string)prop.GetValue(v) == realValue)
+            if (prop.GetValue(v).ToString() == realValue)
             {
                 var temp = dbValue.Split(',');
                 var value = "";
-                for(int i = 0; i < temp.Length; i++)
+                for (int i = 0; i < temp.Length; i++)
                 {
                     value += "'" + temp[i] + "'" + ",";
                 }
                 value = value.Substring(0, value.Length - 1);
                 result.SetSql($"{ prop.Name } in ({value})");
+            }
+            else {
+                result = new SqlWhereMod { Column = prop.Name, Param = $" @{prop.Name} ", Operator = " = " };
             }
             
             return result;

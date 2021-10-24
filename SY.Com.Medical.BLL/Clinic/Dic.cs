@@ -47,18 +47,39 @@ namespace SY.Com.Medical.BLL.Clinic
 		/// <returns></returns>
 		public int add(DicAdd request)
 		{
-			request.SearchKey = request.DicKey.GetPinYinHead() + request.DicValue.GetPinYinHead();
-			return db.Create(request.DtoToEntity<DicEntity>());
+			int result;
+			var exsists = gets(new DicRequest() { DicValue = request.DicValue, DicType = request.DicType });
+			if (!exsists.Item1.Any())
+			{
+				request.SearchKey = request.DicValue.GetPinYinHead();
+				result = db.Create(request.DtoToEntity<DicEntity>());
+			}
+			else {
+				result = exsists.Item1.FirstOrDefault().DicId;
+			}
+			return result;
 		}
 		///<summary> 
 		///修改
+		///如果修改的新值系统有则返回存在的id否则插入并返回存在的id
 		///</summary> 
 		///<param name="request"></param>
 		/// <returns></returns>
-		public void update(DicUpdate request)
+		public int update(DicUpdate request)
 		{
-			request.SearchKey = request.DicKey.GetPinYinHead() + request.DicValue.GetPinYinHead();
-			db.Update(request.DtoToEntity<DicEntity>());
+			int result;
+			var oldmod = get(request.DicId);
+			var exsists = gets(new DicRequest() { DicValue = request.DicValue, DicType = oldmod.DicType });
+			if (!exsists.Item1.Any())
+			{
+				var addmod = request.Mapping<DicAdd>();
+				addmod.DicType = oldmod.DicType;
+				result = add(addmod);
+			}
+			else {
+				result = exsists.Item1.FirstOrDefault().DicId;
+			}
+			return result;
 		}
 		///<summary> 
 		///删除

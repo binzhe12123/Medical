@@ -42,6 +42,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
                     case "staticfilebusiness":Name = "StaticFileBusiness";break;
                     case "staticfiletype": Name = "StaticFileType"; break;
                     case "goodtype":Name = "GoodType";break;
+                    case "dictype":Name = "DicType";break;
                     default:break ;
                 }
                 result.Data = bll.getEnum(Name);

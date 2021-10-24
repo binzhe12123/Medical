@@ -45,6 +45,9 @@ namespace SY.Com.Medical.Attribute
             }else if(t == typeof(GoodType))
             {
                 value = (int)GoodType.中成药;
+            }else  if(t == typeof(DicType))
+            {
+                value = (int)DicType.物品_材料;
             }
         }
 
