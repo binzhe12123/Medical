@@ -397,6 +397,11 @@
             科室编码
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.DepartmentResponse.IsEnable">
+            <summary>
+            禁用/启用
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.DepartmentCreateRequest">
             <summary>
             
@@ -432,7 +437,7 @@
             科室id 
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.DepartmentDisalbe.enalbe">
+        <member name="P:SY.Com.Medical.Model.DepartmentDisalbe.IsEnable">
             <summary>
             禁用/启用
             </summary>
@@ -1312,6 +1317,15 @@
             搜索
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.PatientModel.Age">
+            <summary>
+            年龄
+            使用出生日期计算
+            大于等于24个月，只显示岁，岁用总月数整除12向下取整
+            小于24个月,显示岁和月，岁依然是月数整除12向下取整，月为月数对12求余        
+            小于6月的显示天
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.PatientPage">
             <summary>
             患者分页查询模型
@@ -1365,12 +1379,12 @@
         <member name="P:SY.Com.Medical.Model.PatientAdddto.YBDNH">
             <summary>
             医保电脑号    
-            </summary>  
+            </summary>          
         </member>
         <member name="P:SY.Com.Medical.Model.PatientAdddto.YBKH">
             <summary>
             医保卡号    
-            </summary>      
+            </summary>              
         </member>
         <member name="P:SY.Com.Medical.Model.PatientAdddto.Addr">
             <summary>
@@ -1425,12 +1439,12 @@
         <member name="P:SY.Com.Medical.Model.PatientUpdatedto.YBDNH">
             <summary>
             医保电脑号    
-            </summary>  
+            </summary>          
         </member>
         <member name="P:SY.Com.Medical.Model.PatientUpdatedto.YBKH">
             <summary>
             医保卡号    
-            </summary>      
+            </summary>              
         </member>
         <member name="P:SY.Com.Medical.Model.PatientUpdatedto.Addr">
             <summary>

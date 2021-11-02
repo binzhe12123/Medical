@@ -60,6 +60,11 @@ namespace SY.Com.Medical.Entity
         /// </summary>
         public string Departments { get; set; }
 
+        /// <summary>
+        /// 头像
+        /// </summary>
+        public string LogoImg { get; set; }
+
 
     }
 }

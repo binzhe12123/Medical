@@ -194,11 +194,6 @@
             分类
             </summary> 
         </member>
-        <member name="P:SY.Com.Medical.Entity.DicEntity.dictypeid">
-            <summary> 
-            
-            </summary> 
-        </member>
         <member name="P:SY.Com.Medical.Entity.DicEntity.SearchKey">
             <summary>
             
@@ -252,6 +247,11 @@
         <member name="P:SY.Com.Medical.Entity.EmployeeEntity.Departments">
             <summary>
             科室
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.EmployeeEntity.LogoImg">
+            <summary>
+            头像
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Entity.GoodEntity">

@@ -24,7 +24,7 @@ namespace SY.Com.Medical.Repository.Platform
         {
             string sql = @" 
                             select * From Departments                            
-                            Where TenantId = @TenantId And IsEnable = @IsEnable And IsDelete = @IsDelete ";
+                            Where TenantId = @TenantId  And IsDelete = @IsDelete ";
             var result = _db.Query<DepartmentEntity>(sql, new { TenantId = TenantId, IsEnable=Enable.启用,IsDelete=Enum.Delete.正常 });
             return result;
         }

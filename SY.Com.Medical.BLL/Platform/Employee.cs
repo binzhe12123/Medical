@@ -55,7 +55,10 @@ namespace SY.Com.Medical.BLL.Platform
         {
             EmployeeModel result = new EmployeeModel();
             var entity = db.Get(employeeid, "Employees", "EmployeeId");
-            CloneClass.Clone<EmployeeEntity, EmployeeModel>(entity, result) ;
+            if(entity != null && entity.EmployeeId > 0)
+            {
+                CloneClass.Clone<EmployeeEntity, EmployeeModel>(entity, result);
+            }            
             return result;
         }
 

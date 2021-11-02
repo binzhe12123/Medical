@@ -31,6 +31,10 @@ namespace SY.Com.Medical.Model
         /// 科室编码
         /// </summary>
         public string DepartmentCode { get; set; }
+        /// <summary>
+        /// 禁用/启用
+        /// </summary>
+        public int IsEnable { get; set; }
 
     }
 
@@ -73,7 +77,7 @@ namespace SY.Com.Medical.Model
         /// <summary>
         /// 禁用/启用
         /// </summary>
-        public Enable enalbe { get; set; }
+        public int IsEnable { get; set; }
     }
 
 }

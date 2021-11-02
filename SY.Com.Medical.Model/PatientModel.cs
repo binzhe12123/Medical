@@ -66,6 +66,35 @@ namespace SY.Com.Medical.Model
         /// 搜索
         /// </summary>
         public string SearchKey { get; set; }
+        /// <summary>
+        /// 年龄
+        /// 使用出生日期计算
+        /// 大于等于24个月，只显示岁，岁用总月数整除12向下取整
+        /// 小于24个月,显示岁和月，岁依然是月数整除12向下取整，月为月数对12求余        
+        /// 小于6月的显示天
+        /// </summary>
+        public string Age
+        {
+            get {
+                var totalMonth = (DateTime.Now.Year - CSRQ.Year) * 12 - CSRQ.Month + DateTime.Now.Month;
+                if (totalMonth < 2)
+                {
+                    return $"{(DateTime.Now - CSRQ).TotalDays}天";
+                }else if(totalMonth >= 24)
+                {
+                    return $"{totalMonth / 12}岁";
+                }
+                else {
+                    if (totalMonth >= 12)
+                    {
+                        return $"{totalMonth / 12}岁{totalMonth % 12}月";
+                    }
+                    else {
+                        return $"{totalMonth}月";
+                    }                    
+                }
+            }
+        }
     }
 
     /// <summary>
@@ -122,14 +151,12 @@ namespace SY.Com.Medical.Model
 
         /// <summary>
         /// 医保电脑号    
-        /// </summary>  
-        [JsonIgnore]
+        /// </summary>          
         public string YBDNH { get; set; }
 
         /// <summary>
         /// 医保卡号    
-        /// </summary>      
-        [JsonIgnore]
+        /// </summary>              
         public string YBKH { get; set; }
 
         /// <summary>
@@ -187,14 +214,12 @@ namespace SY.Com.Medical.Model
 
         /// <summary>
         /// 医保电脑号    
-        /// </summary>  
-        [JsonIgnore]
+        /// </summary>          
         public string YBDNH { get; set; }
 
         /// <summary>
         /// 医保卡号    
-        /// </summary>      
-        [JsonIgnore]
+        /// </summary>              
         public string YBKH { get; set; }
 
         /// <summary>

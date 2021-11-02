@@ -117,6 +117,8 @@ namespace SY.Com.Medical.Model
         /// 患者导航属性
         /// </summary>
         public PatientModel PatientInfo { get; set; }
+
+        
     }
     
     /// <summary>
