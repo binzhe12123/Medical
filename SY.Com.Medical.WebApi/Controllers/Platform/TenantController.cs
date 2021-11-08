@@ -16,7 +16,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
     /// 租户控制器
     /// </summary>
     [Route("api/[controller]/[Action]")]
-    [Authorize]
+    [Authorize]    
     [ApiController]    
     public class TenantController : ControllerBase
     {
@@ -171,9 +171,9 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
         /// <returns></returns>
         [HttpPost]
         [Api_Tenant]
-        public BaseResponse<List<MenuResponse>> getMenu(EmployeeGetModel request)
+        public BaseResponse<List<MenuTreeResponse>> getMenu(EmployeeGetModel request)
         {
-            BaseResponse<List<MenuResponse>> response = new BaseResponse<List<MenuResponse>>();
+            BaseResponse<List<MenuTreeResponse>> response = new BaseResponse<List<MenuTreeResponse>>();
             try
             {                
                 response.Data = tenantbll.GetMenu(request);

@@ -20,9 +20,10 @@ namespace SY.Com.Medical.Repository.Platform
         /// <returns></returns>
         public IEnumerable<RoleEntity> getRoles(int TenantId)
         {
-            string sql = @" Select * From Roles Where TenantId = @TenantId And IsDelete = 0  ";
+            string sql = @" Select * From Roles Where TenantId = @TenantId And IsDelete = 1  ";
             return _db.Query<RoleEntity>(sql, new { TenantId = TenantId });
         }
+
 
         /// <summary>
         /// 获取系统角色
@@ -34,9 +35,39 @@ namespace SY.Com.Medical.Repository.Platform
             return _db.Query<RoleEntity>(sql);
         }
 
+        public int insertRoles(RoleEntity entity)
+        {
+            string sql = @" Insert Into Roles(RoleId,TenantId,RoleName,CreateTime,IsEnable,IsDelete)
+                                       Values(@RoleId,@TenantId,@RoleName,getdate(),1,1)";
+            return _db.Execute(sql, new { RoleId = (entity.RoleId == 0 ? getID("Roles") : entity.RoleId), TenantId=entity.TenantId, RoleName=entity.RoleName });
+        }
+
+        /// <summary>
+        /// 修改角色信息
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        public int updateRole(RoleEntity entity)
+        {
+            string sql = " Update Roles Set RoleName = @rolename Where RoleId = @roleid ";
+            return _db.Execute(sql, new { RoleName = entity.RoleName, RoleId = entity.RoleId });
+        }
+
+        /// <summary>
+        /// 删除角色
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        public int deleteRole(RoleEntity entity)
+        {
+            string sql = " Update Roles Set IsDelete = 2 Where RoleId = @roleid ";
+            return _db.Execute(sql, new {  RoleId = entity.RoleId });
+        }
+
         /// <summary>
         /// 复制系统数据进入租户数据
         /// 如果租户中存在角色,就不进行复制,否则进行复制
+        /// 不进需要复制角色信息还需要复制菜单信息
         /// </summary>
         /// <param name="role"></param>
         /// <returns></returns>
@@ -48,12 +79,31 @@ namespace SY.Com.Medical.Repository.Platform
             }
             var sysroles = getRoles();
             int maxId = getID("Roles", sysroles.Count() + 1);
+            var currentid = maxId - sysroles.Count() + 1;
             sysroles.ToList().ForEach(x => {
-                x.RoleId = maxId--;
+                copyRoleMenuToOther(0, x.RoleId, currentid);
+                x.RoleId = currentid++;
                 x.TenantId = TenantId;
+                insertRoles(x);
             });
-            Insert(sysroles);
             return true;
+        }
+
+        /// <summary>
+        /// 从一个角色复制他的权限到另外一个角色
+        /// </summary>
+        /// <param name="TenantId"></param>
+        /// <param name="sourceRoleId"></param>
+        /// <param name="targetRoleId"></param>
+        /// <returns></returns>
+        public int copyRoleMenuToOther(int TenantId,int sourceRoleId,int targetRoleId)
+        {
+            string sql = @" Insert Into RoleMenus(MenuId,RoleId,CreateTime,IsEnable,IsDelete)
+                            Select rm.MenuId,@target,GETDATE(),1,1
+                            From Roles  as r
+                            Inner Join RoleMenus as rm on r.roleid = rm.roleid
+                            Where r.TenantId = @tenantid And r.RoleId = @source ";
+            return _db.Execute(sql, new { tenantid = TenantId, source = sourceRoleId, target = targetRoleId });
         }
 
         /// <summary>
@@ -80,8 +130,8 @@ namespace SY.Com.Medical.Repository.Platform
         public bool UpdateMenus(RoleEntity role,List<int> menuids)
         {
             string sql = @" Delete From RoleMenus Where RoleId = @RoleId ";
-            _db.Query(sql, role.RoleId);            
-            string sql1 = @" Insert Into RoleMenus(MenuId,RoleId) Values(@MenuId,RoleId) ";
+            _db.Query(sql, new { RoleId = role.RoleId });            
+            string sql1 = @" Insert Into RoleMenus(MenuId,RoleId,CreateTime,IsEnable,IsDelete) Values(@MenuId,@RoleId,getdate(),1,1) ";
             List<RoleMenuEntity> rms = new List<RoleMenuEntity>();
             foreach(var item in menuids)
             {

@@ -347,6 +347,48 @@
             菜单控制器
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.WebApi.Controllers.Platform.RoleController">
+            <summary>
+            角色控制器
+            </summary>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.RoleController.gets(SY.Com.Medical.Model.BaseModel)">
+            <summary>
+            获取租户的所有角色-不分页
+            一般机构角色在10个以内
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.RoleController.insert(SY.Com.Medical.Model.RoleInsertModel)">
+            <summary>
+            租户新增角色
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.RoleController.delete(SY.Com.Medical.Model.RoleOnlyIdModel)">
+            <summary>
+            租户删除角色信息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.RoleController.getMenus(SY.Com.Medical.Model.RoleOnlyIdModel)">
+            <summary>
+            获取租户角色的菜单
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.RoleController.update(SY.Com.Medical.Model.RoleUpdateMenuModel)">
+            <summary>
+            租户修改角色的信息
+            包括基本信息:角色名称
+            包括菜单信息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Platform.SettingController">
             <summary>
             配置控制器

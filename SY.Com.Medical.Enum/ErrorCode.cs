@@ -43,6 +43,10 @@ namespace SY.Com.Medical.Enum
         /// 用户已存在
         /// </summary>
         用户已存在,
+        /// <summary>
+        /// 数据为空
+        /// </summary>
+        数据为空,
 
     }
 }

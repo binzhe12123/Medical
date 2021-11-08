@@ -22,7 +22,7 @@ namespace SY.Com.Medical.Entity
         public int MenuId { get; set; }
 
         /// <summary>
-        /// 菜单名称    
+        /// 菜单名称/中文
         /// </summary>
         public string MenuName { get; set; }
 
@@ -35,6 +35,15 @@ namespace SY.Com.Medical.Entity
         /// 父路由,一级菜单为0    
         /// </summary>
         public int MenuParent { get; set; }
+
+        /// <summary>
+        /// 名称/系统
+        /// </summary>
+        public string MenuSysName { get; set; }
+        /// <summary>
+        /// 图标名称
+        /// </summary>
+        public string Icon { get; set; }
 
     }
 }

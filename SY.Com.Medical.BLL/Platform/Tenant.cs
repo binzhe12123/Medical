@@ -121,7 +121,7 @@ namespace SY.Com.Medical.BLL.Platform
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public List<MenuResponse> GetMenu(EmployeeGetModel request)
+        public List<MenuTreeResponse> GetMenu(EmployeeGetModel request)
         {
             Employee em = new Employee();
             var emmodel = em.getEmployee(request);            
@@ -130,8 +130,12 @@ namespace SY.Com.Medical.BLL.Platform
             {
                 listrole.Add(new RoleEntity() { RoleId = int.Parse(item) });
             }
+            Role rolebll = new Role();            
             RoleRepository dbrole = new RoleRepository();
-            return dbrole.getMenus(listrole).EntityToDto<MenuResponse>();
+            var menus = dbrole.getMenus(listrole);
+            Menu menubll = new Menu();
+            return menubll.GetSystemTree(menus);
+            //return dbrole.getMenus(listrole).EntityToDto<MenuResponse>();
         }
 
 

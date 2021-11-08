@@ -9,11 +9,16 @@ namespace Play
     {
         static void Main(string[] args)
         {
-            var obj = Assembly.Load("SY.Com.Medical.Enum").CreateInstance("SY.Com.Medical.Enum.TenantType", false);                        
-            foreach(var prop in obj.GetType().GetEnumNames())
+            #region 枚举测试
             {
-                Console.WriteLine(prop);
-            }                        
+                var obj = Assembly.Load("SY.Com.Medical.Enum").CreateInstance("SY.Com.Medical.Enum.TenantType", false);
+                foreach (var prop in obj.GetType().GetEnumNames())
+                {
+                    Console.WriteLine(prop);
+                }
+            }
+            #endregion
+
             Console.WriteLine("Hello World!");
         }
 

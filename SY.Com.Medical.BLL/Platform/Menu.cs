@@ -25,26 +25,43 @@ namespace SY.Com.Medical.BLL.Platform
         /// 获取系统菜单一维
         /// </summary>
         /// <returns></returns>
-        public List<MenuResponse> GetSystem()
+        public List<MenuEntity> GetSystem()
         {
             List<MenuResponse> responses = new List<MenuResponse>();
-            var entitys = db.getSystem();
-            entitys.ToList().ForEach(entity => responses.Add(entity.EntityToDto<MenuResponse>()));
-            return responses;
+            var entitys = db.getSystem();            
+            return entitys.ToList();
         }
 
         /// <summary>
-        /// 获取系统菜单树
+        /// 获取菜单树
         /// </summary>
         /// <returns></returns>
-        public List<MenuTreeResponse> GetSystemTree()
+        public List<MenuTreeResponse> GetSystemTree(IEnumerable<MenuEntity> entitys)
         {
+            if (entitys == null || !entitys.Any())
+            {
+                entitys = new List<MenuEntity>();
+            }
+            
             List<MenuResponse> responses = new List<MenuResponse>();
             List<MenuTreeResponse> responses2 = new List<MenuTreeResponse>();
-            var entitys = db.getSystem();
-            entitys.ToList().ForEach(entity => responses.Add(entity.EntityToDto<MenuResponse>()));
+            var sysentitys = db.getSystem();
+            if(sysentitys ==null || !sysentitys.Any())
+            {
+                throw new MyException("系统菜单为空");
+            }
+
+
+            sysentitys.ToList().ForEach(entity => responses.Add(entity.EntityToDto<MenuResponse>()));
             responses.ForEach(x =>
             {
+                if (entitys.Any(m => m.MenuId == x.MenuId))
+                {
+                    x.Have = true;
+                }
+                else {
+                    x.Have = false;
+                }                
                 if (x.MenuParent != 0)
                 {
                     responses2.Find(y => y.MenuId == x.MenuParent).SubMenu.Add(x);
@@ -53,12 +70,15 @@ namespace SY.Com.Medical.BLL.Platform
                 {
                     responses2.Add(new MenuTreeResponse
                     {
+                        Have = x.Have,
                         MenuId = x.MenuId,
                         MenuName = x.MenuName,
                         MenuRoute = x.MenuRoute,
                         MenuParent = x.MenuParent,
+                        MenuSysName = x.MenuSysName,
+                        Icon = x.Icon,
                         SubMenu = new List<MenuResponse>()
-                    });
+                    }); ;
                 }
             });
             return responses2;

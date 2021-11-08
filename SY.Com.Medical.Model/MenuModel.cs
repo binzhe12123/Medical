@@ -39,6 +39,20 @@ namespace SY.Com.Medical.Model
         /// 父路由,一级菜单为0    
         /// </summary>
         public int MenuParent { get; set; }
+        /// <summary>
+        /// 菜单名称/系统
+        /// </summary>
+        public string MenuSysName { get; set; }
+        /// <summary>
+        /// 图标
+        /// </summary>
+        public string Icon { get; set; }
+        /// <summary>
+        /// 拥有与否
+        /// true:拥有
+        /// false:不拥有
+        /// </summary>
+        public bool Have { get; set; }
     }
 
     /// <summary>
@@ -65,6 +79,20 @@ namespace SY.Com.Medical.Model
         /// 父路由,一级菜单为0    
         /// </summary>
         public int MenuParent { get; set; }
+        /// <summary>
+        /// 系统名称
+        /// </summary>
+        public string MenuSysName { get; set; }
+        /// <summary>
+        /// 图标
+        /// </summary>
+        public string Icon { get; set; }
+        /// <summary>
+        /// 是否拥有
+        /// true:拥有
+        /// false:不拥有
+        /// </summary>
+        public bool Have { get; set; }
         /// <summary>
         /// 子菜单
         /// </summary>

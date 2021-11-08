@@ -79,7 +79,7 @@ namespace SY.Com.Medical.Model
                 var totalMonth = (DateTime.Now.Year - CSRQ.Year) * 12 - CSRQ.Month + DateTime.Now.Month;
                 if (totalMonth < 2)
                 {
-                    return $"{(DateTime.Now - CSRQ).TotalDays}天";
+                    return $"{(DateTime.Now - CSRQ).Days}天";
                 }else if(totalMonth >= 24)
                 {
                     return $"{totalMonth / 12}岁";

@@ -10,7 +10,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
     /// <summary>
     /// 用户控制器
     /// </summary>
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[Action]")]
     [ApiController]
     public class UserController : ControllerBase
     {

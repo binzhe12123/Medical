@@ -29,9 +29,6 @@ namespace SY.Com.Medical.Entity
         /// </summary>
         public string RoleName { get; set; }
 
-
-
-
     }
 
 }

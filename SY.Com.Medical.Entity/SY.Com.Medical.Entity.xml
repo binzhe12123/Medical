@@ -351,7 +351,7 @@
         </member>
         <member name="P:SY.Com.Medical.Entity.MenuEntity.MenuName">
             <summary>
-            菜单名称    
+            菜单名称/中文
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Entity.MenuEntity.MenuRoute">
@@ -362,6 +362,16 @@
         <member name="P:SY.Com.Medical.Entity.MenuEntity.MenuParent">
             <summary>
             父路由,一级菜单为0    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.MenuEntity.MenuSysName">
+            <summary>
+            名称/系统
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.MenuEntity.Icon">
+            <summary>
+            图标名称
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Entity.PatientEntity">

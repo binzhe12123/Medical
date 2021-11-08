@@ -199,6 +199,11 @@
             用户已存在
             </summary>
         </member>
+        <member name="F:SY.Com.Medical.Enum.ErrorCode.数据为空">
+            <summary>
+            数据为空
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Enum.GoodType">
             <summary>
             商品类型
