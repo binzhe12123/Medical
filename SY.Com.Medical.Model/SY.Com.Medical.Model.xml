@@ -652,6 +652,11 @@
             获取员工信息
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.EmployeeGetModel.UserId">
+            <summary>
+            用户Id
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.EmployeeInvity">
             <summary>
             邀请员工dto

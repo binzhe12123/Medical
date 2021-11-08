@@ -57,7 +57,10 @@ namespace SY.Com.Medical.Model
     /// </summary>
     public class EmployeeGetModel : BaseModel
     {
-
+        /// <summary>
+        /// 用户Id
+        /// </summary>
+        public new int UserId { get; set; }
     }
 
     /// <summary>
