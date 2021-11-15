@@ -53,7 +53,7 @@ namespace SY.Com.Medical.Repository.Clinic
             return result;
         }
 
-                
+
 
 	}
 } 

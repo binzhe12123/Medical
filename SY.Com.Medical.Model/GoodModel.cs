@@ -138,6 +138,18 @@ namespace SY.Com.Medical.Model
 		/// 库存量,以计价单位显示,整数
 		/// </summary>
 		public int Stock { get; set; }
+		/// <summary>
+		/// 用法
+		/// </summary>
+		public string Usage { get; set; }
+		/// <summary>
+		/// 单次用量
+		/// </summary>
+		public string Single { get; set; }
+		/// <summary>
+		/// 一天用量
+		/// </summary>
+		public string EveryDay { get; set; }
 	}
 
 

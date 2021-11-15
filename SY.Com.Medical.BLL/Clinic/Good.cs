@@ -45,9 +45,7 @@ namespace SY.Com.Medical.BLL.Clinic
                 mod.GoodStandard = x.GoodStandard;
                 mod.InsuranceCode = x.InsuranceCode;
                 mod.CustomerCode = x.CustomerCode;
-                mod.BarCode = x.BarCode;
                 mod.SalesUnit = x.SalesUnit;
-                mod.StockUnit = x.StockUnit;
                 mod.CreateTime = x.CreateTime;
                 mod.Price = Math.Round(x.Price / 1000.00, 3);
                 mod.Stock = x.Stock;
@@ -62,7 +60,7 @@ namespace SY.Com.Medical.BLL.Clinic
 		/// </summary>
 		/// <param name="GoodId"></param>
 		/// <returns></returns>
-		public string get(int tenantId,int GoodId)
+		public GoodModels get(int tenantId,int GoodId)
         {
             return "";
         }
