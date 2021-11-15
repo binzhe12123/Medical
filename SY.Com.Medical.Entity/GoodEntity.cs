@@ -87,5 +87,22 @@ namespace SY.Com.Medical.Entity
 		/// 价格(项目直接使用此价格),药品不使用此价格
 		/// </summary>
 		public long Price { get; set; }
+		/// <summary>
+		/// 库存量
+		/// </summary>
+		public int Stock { get; set; }
+		/// <summary>
+		/// 用法
+		/// </summary>
+		public string Usage { get; set; }
+		/// <summary>
+		/// 每次用量
+		/// </summary>
+		public string Single { get; set; }
+		/// <summary>
+		/// 每日用量
+		/// </summary>
+		public string EveryDay { get; set; }
+
 	}
 } 

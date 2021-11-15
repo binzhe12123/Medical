@@ -16,6 +16,7 @@ namespace SY.Com.Medical.BLL.Clinic
     public class Good 
 	{
 		private GoodRepository db;
+        private Dic dicbll = new Dic();
 		public Good()
 		{
 			db = new GoodRepository();
@@ -23,15 +24,37 @@ namespace SY.Com.Medical.BLL.Clinic
 
 
 		/// <summary>
-		/// 分页查询
+		/// 物品列表-分页查询
 		/// </summary>
 		/// <param name="request"></param>
 		/// <returns></returns>
-		public Tuple<IEnumerable<GoodModel>, int> gets(GoodRequest request)
-        {			
-			var data = db.GetsPage(request.DtoToEntity<GoodEntity>(), request.PageSize, request.PageIndex);
-			Tuple<IEnumerable<GoodModel>, int> result = new Tuple<IEnumerable<GoodModel>, int>(data.Item1.EntityToDto<GoodModel>(),data.Item2);
-			return result;			
+		public Tuple<List<GoodModels>, int> getGoods(int tenantId, int pageSize, int pageIndex, int goodType = 0, int goodSort = 0, string searchKey = "")
+        {
+            List<GoodModels> mods = new List<GoodModels>();
+            var tuple = db.getPagesByWhere(tenantId, pageSize, pageIndex, goodType, goodSort, searchKey);
+            int total = tuple.Item1;
+            tuple.Item2.ForEach(x =>
+            {
+                GoodModels mod = new GoodModels();
+                mod.GoodId = x.GoodId;
+                mod.GoodName = x.GoodName;
+                mod.Norm = x.Norm;
+                mod.Factory = x.Factory;
+                mod.GoodType = x.GoodType.ToString();
+                mod.GoodSort = dicbll.getValueByKey(x.TenantId,"Drug",x.GoodType.ToString(),x.GoodSort);
+                mod.GoodStandard = x.GoodStandard;
+                mod.InsuranceCode = x.InsuranceCode;
+                mod.CustomerCode = x.CustomerCode;
+                mod.BarCode = x.BarCode;
+                mod.SalesUnit = x.SalesUnit;
+                mod.StockUnit = x.StockUnit;
+                mod.CreateTime = x.CreateTime;
+                mod.Price = Math.Round(x.Price / 1000.00, 3);
+                mod.Stock = x.Stock;
+                mods.Add(mod);
+            });
+            Tuple<List<GoodModels>, int> result = new Tuple<List<GoodModels>, int>(mods, total);
+            return result;
         }
 
 		/// <summary>
@@ -39,9 +62,9 @@ namespace SY.Com.Medical.BLL.Clinic
 		/// </summary>
 		/// <param name="GoodId"></param>
 		/// <returns></returns>
-		public GoodModel get(int GoodId)
+		public string get(int tenantId,int GoodId)
         {
-			return db.Get(GoodId).EntityToDto<GoodModel>();
+            return "";
         }
 
 
@@ -84,28 +107,6 @@ namespace SY.Com.Medical.BLL.Clinic
             db.Delete(request.DtoToEntity<GoodEntity>());
         }
 
-        /// <summary>
-        /// 获取药品分类字典信息
-        /// </summary>
-        /// <returns></returns>
-        public List<Dictionary<int, string>> getGoodSort(GoodSortReuqest request)
-        {
-            List<Dictionary<int, string>> result = new List<Dictionary<int, string>>();
-            var gooddata = db.getGoodSort(request.DicType).ToList();
-            if (gooddata != null && gooddata.Any())
-            {
-                foreach(var item in gooddata)
-                {
-                    Dictionary<int, string> temp = new Dictionary<int, string>();
-                    temp.Add(item.DicId, item.DicValue);
-                    result.Add(temp);
-                }
-            }
-            else {
-                throw new MyException("无数据");
-            }
-            return result;
-        }
 
     }
 } 

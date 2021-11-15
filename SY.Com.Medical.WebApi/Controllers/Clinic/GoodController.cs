@@ -30,9 +30,9 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<List<GoodModel>> gets(GoodRequest request )
+        public BaseResponse<List<GoodModels>> gets(GoodRequest request )
         {
-            BaseResponse<List<GoodModel>> result = new BaseResponse<List<GoodModel>>();
+            BaseResponse<List<GoodModels>> result = new BaseResponse<List<GoodModels>>();
             try {
                 if(request.GoodType == 0)
                 {

@@ -15,6 +15,7 @@
   <ItemGroup>
     <ProjectReference Include="..\SY.Com.Medical.Attribute\SY.Com.Medical.Attribute.csproj" />
     <ProjectReference Include="..\SY.Com.Medical.Entity\SY.Com.Medical.Entity.csproj" />
+    <ProjectReference Include="..\SY.Com.Medical.Extension\SY.Com.Medical.Extension.csproj" />
     <ProjectReference Include="..\SY.Com.Medical.Infrastructure\SY.Com.Medical.Infrastructure.csproj" />
     <ProjectReference Include="..\SY.Com.Medical.Model\SY.Com.Medical.Model.csproj" />
   </ItemGroup>

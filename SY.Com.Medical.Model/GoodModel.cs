@@ -8,10 +8,67 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 namespace SY.Com.Medical.Model
 {
+
+	/// <summary>
+	/// 药品列表信息
+	/// </summary>
+	public class GoodListModel : BaseModel
+    {
+		///<summary> 
+		///药品ID
+		///</summary> 
+		public int GoodId { get; set; }
+		///<summary> 
+		///商品名称
+		///</summary> 
+		public string GoodName { get; set; }
+		///<summary> 
+		///规格
+		///</summary> 
+		public string Norm { get; set; }
+		///<summary> 
+		///厂家
+		///</summary> 
+		public string Factory { get; set; }
+		///<summary> 
+		///类型（枚举1:西药,2:中成药,3:中药,4:诊疗项目,5:材料）
+		///</summary> 
+		public string GoodType { get; set; }
+		///<summary> 
+		///分类:自定义,和字典表进行关联
+		///</summary> 
+		public string GoodSort { get; set; }
+		///<summary> 
+		///国药准字
+		///</summary> 
+		public string GoodStandard { get; set; }
+		///<summary> 
+		///医保编码
+		///</summary> 
+		public string InsuranceCode { get; set; }
+		///<summary> 
+		///机构编码-自定义码
+		///</summary> 
+		public string CustomerCode { get; set; }
+		///<summary> 
+		///计价单位
+		///</summary> 
+		public string SalesUnit { get; set; }
+		/// <summary>
+		/// 库存量
+		/// </summary>
+		public int Stock { get; set; }
+		/// <summary>
+		/// 售价
+		/// </summary>
+		public decimal Price { get; set; }
+
+	}
+
     /// <summary>
     /// 全模型
     /// </summary>
-    public class GoodModel : BaseModel 
+    public class GoodModels : BaseModel 
 	{ 
 		///<summary> 
 		///商品ID
@@ -32,11 +89,11 @@ namespace SY.Com.Medical.Model
 		///<summary> 
 		///类型（枚举1:西药,2:中成药,3:中药,4:诊疗项目,5:材料）
 		///</summary> 
-		public int GoodType {get;set;} 
+		public string GoodType {get;set;} 
 		///<summary> 
 		///分类:自定义,和字典表进行关联
 		///</summary> 
-		public int GoodSort {get;set;} 
+		public string GoodSort {get;set;} 
 		///<summary> 
 		///国药准字
 		///</summary> 
@@ -74,11 +131,17 @@ namespace SY.Com.Medical.Model
 		///</summary> 
 		public DateTime? CreateTime {get;set;}
 		/// <summary>
-		/// 价格-整数,厘为单位
+		/// 价格,保留3位小数
+		/// </summary>		
+		public double Price { get; set; }
+		/// <summary>
+		/// 库存量,以计价单位显示,整数
 		/// </summary>
-		[JsonIgnore]
-		public long Price { get; set; }
+		public int Stock { get; set; }
 	}
+
+
+
 	/// <summary>
 	/// 添加模型
 	/// </summary>

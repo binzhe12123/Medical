@@ -24,21 +24,31 @@ namespace SY.Com.Medical.Entity
 		///</summary> 
 		public int TenantId {get;set;} 
 		///<summary> 
-		///键
+		///一级键
 		///</summary> 
-		public string DicKey {get;set;} 
+		public string KeyFirst { get;set;} 
+		/// <summary>
+		/// 二级键
+		/// </summary>
+		public string KeySecond { get; set; }
 		///<summary> 
 		///值
 		///</summary> 
 		public string DicValue {get;set;} 
-		///<summary> 
-		///分类
-		///</summary> 
-		[DB_Default(typeof(DicType))]
-		public DicType DicType {get;set;} 
 		/// <summary>
-		/// 
+		/// 搜索值
 		/// </summary>
 		public string SearchKey { get; set; }
 	}
+
+
+	public class DicModelEntity
+    {
+		public int DicId { get; set; }
+
+		public string DicValue { get; set; }
+	}
+
+
+
 } 
