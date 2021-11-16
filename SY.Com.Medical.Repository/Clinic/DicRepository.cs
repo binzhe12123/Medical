@@ -4,6 +4,7 @@ using SY.Com.Medical.Entity;
 using SY.Com.Medical.Extension;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -106,6 +107,12 @@ namespace SY.Com.Medical.Repository.Clinic
 
         public int Add(int tenantId, string dicValue,string keyFirst,string keySecond)
         {
+            //判断是否存在
+            var exists = getIdByValue(tenantId, dicValue, keyFirst, keySecond);
+            if(exists != 0)
+            {
+                return 0;
+            }
             DicEntity mod = new DicEntity();
             mod.TenantId = tenantId;
             mod.KeyFirst = keyFirst;

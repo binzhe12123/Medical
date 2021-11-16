@@ -165,10 +165,103 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             }
         }
 
+        /// <summary>
+        /// 获取药品及项目材料分类字典
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [HttpPost]
-        public BaseResponse<List<DicKeyValueModel>> getDrugSortDic()
+        public BaseResponse<List<DicKeyValueModel>> getDrugSortDic(GoodSortModelRequest request)
         {
+            BaseResponse<List<DicKeyValueModel>> result = new BaseResponse<List<DicKeyValueModel>>();
+            result.Data = bll.getDrugSort(request);
+            return result;
+        }
 
+        /// <summary>
+        /// 获取厂家字典
+        /// </summary>
+        /// <param name="mod"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<List<DicKeyValueModel>> getFactory(BaseModel mod)
+        {
+            BaseResponse<List<DicKeyValueModel>> result = new BaseResponse<List<DicKeyValueModel>>();
+            result.Data = bll.getFactory(mod);
+            return result;
+        }
+
+        /// <summary>
+        /// 获取用法字典
+        /// </summary>
+        /// <param name="mod"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<List<DicKeyValueModel>> getUsage(BaseModel mod)
+        {
+            BaseResponse<List<DicKeyValueModel>> result = new BaseResponse<List<DicKeyValueModel>>();
+            result.Data = bll.getUsage(mod);
+            return result;
+        }
+
+        /// <summary>
+        /// 获取一天的用量字典
+        /// </summary>
+        /// <param name="mod"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<List<DicKeyValueModel>> getEveryDay(BaseModel mod)
+        {
+            BaseResponse<List<DicKeyValueModel>> result = new BaseResponse<List<DicKeyValueModel>>();
+            result.Data = bll.getEveryDay(mod);
+            return result;
+        }
+
+        /// <summary>
+        /// 获取单位字典
+        /// </summary>
+        /// <param name="mod"></param>
+        /// <returns></returns>
+        public BaseResponse<List<DicKeyValueModel>> getUnit(BaseModel mod)
+        {
+            BaseResponse<List<DicKeyValueModel>> result = new BaseResponse<List<DicKeyValueModel>>();
+            result.Data = bll.getUsage(mod);
+            return result;
+        }
+
+        /// <summary>
+        /// 新增字典
+        /// ex:{ "DicType":1,DicSubType:1,"消炎类"  },表示添加一个西药的药品分类“消炎类”
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public BaseResponse<int> addDic(GoodDicAddRequest request)
+        {
+            BaseResponse<int> result = new BaseResponse<int>();
+            string keyFirst = "";
+            string keySecond = "";
+            switch (request.DicType)
+            {
+                case 1:
+                    keyFirst = "GoodSort";
+                    switch(request.DicSubType)
+                    {
+                        case 1: keySecond = "西药";break;
+                        case 2: keySecond = "中成药";break;
+                        case 3: keySecond = "中药";break;
+                        default: throw new MyException("输入有误请查看文档");
+                    }
+                    break;
+                case 2: keyFirst = "Factory"; break;
+                case 3: keyFirst = "Usage"; break;
+                case 4: keyFirst = "EveryDay"; break;
+                case 5: keyFirst = "Unit"; break;
+                case 6: keyFirst = "GoodSort";keySecond = "项目"; break;
+                case 7: keyFirst = "GoodSort";keySecond = "材料"; break;
+                default:throw new MyException("输入有误请查看文档"); 
+            }
+            result.Data = bll.addDic(request.TenantId, request.Value, keyFirst, keySecond);
+            return result;
         }
 
         /// <summary>
@@ -182,12 +275,9 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             BaseResponse<List<GoodItemModel>> result = new BaseResponse<List<GoodItemModel>>();
             try
             {                
-                var mod = request.Mapping<GoodRequest>();
-                mod.GoodType = 4;
-                request.GoodType = 4;
-                var tuple = bll.gets(mod);
+                var tuple = bll.getGoods(request.TenantId,request.PageSize,request.PageIndex,4,request.GoodSort,request.SearchKey);
                 result.Data = tuple.Item1.ToList().Mapping<GoodItemModel>();
-                result.CalcPage(tuple.Item2, mod.PageIndex, mod.PageSize);
+                result.CalcPage(tuple.Item2, request.PageIndex, request.PageSize);
                 return result;
             }
             catch (Exception ex)
@@ -206,15 +296,15 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         /// <summary>
         /// 获取项目详情
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="request"></param>
         /// <returns></returns>
-        [HttpGet]
-        public BaseResponse<GoodItemModel> getItem(int id)
+        [HttpPost]
+        public BaseResponse<GoodItemOneModel> getItem(GoodOneRequest request)
         {
-            BaseResponse<GoodItemModel> result = new BaseResponse<GoodItemModel>();
+            BaseResponse<GoodItemOneModel> result = new BaseResponse<GoodItemOneModel>();
             try
             {
-                result.Data = bll.get(id).Mapping<GoodItemModel>();
+                result.Data = bll.getGood(request.TenantId,request.GoodId).Mapping<GoodItemOneModel>();
                 return result;
             }
             catch (Exception ex)
@@ -321,14 +411,14 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<List<GoodModel>> getsMaterial(GoodRequest request)
+        public BaseResponse<List<GoodMaterialModels>> getsMaterial(GoodMaterialRequest request)
         {
-            BaseResponse<List<GoodModel>> result = new BaseResponse<List<GoodModel>>();
+            BaseResponse<List<GoodMaterialModels>> result = new BaseResponse<List<GoodMaterialModels>>();
             try
             {
                 request.GoodType = 5;
-                var tuple = bll.gets(request);
-                result.Data = tuple.Item1.ToList();
+                var tuple = bll.getGoods(request.TenantId,request.PageSize,request.PageIndex,request.GoodType,request.GoodSort,request.SearchKey);
+                result.Data = tuple.Item1.ToList().Mapping<GoodMaterialModels>();
                 result.CalcPage(tuple.Item2, request.PageIndex, request.PageSize);
                 return result;
             }
@@ -348,15 +438,15 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         /// <summary>
         /// 获取材料详情
         /// </summary>
-        /// <param name="goodid"></param>
+        /// <param name="request"></param>
         /// <returns></returns>
         [HttpGet]
-        public BaseResponse<GoodModel> getMaterial(int goodid)
+        public BaseResponse<GoodMaterialModel> getMaterial(GoodOneRequest request)
         {
-            BaseResponse<GoodModel> result = new BaseResponse<GoodModel>();
+            BaseResponse<GoodMaterialModel> result = new BaseResponse<GoodMaterialModel>();
             try
             {
-                result.Data = bll.get(goodid);
+                result.Data = bll.getGood(request.TenantId,request.GoodId).Mapping<GoodMaterialModel>();
                 return result;
             }
             catch (Exception ex)
@@ -378,13 +468,14 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<int> addMaterial(GoodAdd request)
+        public BaseResponse<int> addMaterial(GoodMaterialModel request)
         {
             BaseResponse<int> result = new BaseResponse<int>();
             try
             {
-                request.GoodType = 5;
-                result.Data = bll.add(request);
+                var goodadd = request.Mapping<GoodAdd>();
+                goodadd.GoodType = 5;
+                result.Data = bll.add(goodadd);
                 return result;
             }
             catch (Exception ex)
@@ -406,12 +497,14 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<bool> updateMaterial(GoodUpdate request)
+        public BaseResponse<bool> updateMaterial(GoodMaterialModel request)
         {
             BaseResponse<bool> result = new BaseResponse<bool>();
             try
             {
-                bll.update(request);
+                var goodupdate = request.Mapping<GoodUpdate>();
+                goodupdate.GoodType = 5;
+                bll.update(goodupdate);
                 result.Data = true;
                 return result;
             }

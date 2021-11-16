@@ -41,7 +41,7 @@ namespace SY.Com.Medical.BLL.Clinic
                 mod.Norm = x.Norm;
                 mod.Factory = x.Factory;
                 mod.GoodType = x.GoodType.ToString();
-                mod.GoodSort = dicbll.getValueById(x.TenantId, x.GoodSort, "DrugSort",x.GoodType.ToString());
+                mod.GoodSort = dicbll.getValueById(x.TenantId, x.GoodSort, "GoodSort", x.GoodType.ToString());
                 mod.GoodStandard = x.GoodStandard;
                 mod.InsuranceCode = x.InsuranceCode;
                 mod.CustomerCode = x.CustomerCode;
@@ -77,7 +77,9 @@ namespace SY.Com.Medical.BLL.Clinic
             mod.GoodStandard = entity.GoodStandard;
             mod.InsuranceCode = entity.InsuranceCode;
             mod.CustomerCode = entity.CustomerCode;
-            mod.SalesUnit = entity.SalesUnit;
+            mod.SalesUnit = dicbll.getIdByValue(tenantId, entity.SalesUnit,"Unit","") ;
+            mod.StockUnit = dicbll.getIdByValue(tenantId, entity.StockUnit, "Unit", "");
+            mod.Ratio = entity.Ratio;
             mod.CreateTime = entity.CreateTime;
             mod.Price = Math.Round(entity.Price / 1000.00, 3);
             mod.Stock = entity.Stock;
@@ -117,9 +119,10 @@ namespace SY.Com.Medical.BLL.Clinic
             entity.GoodStandard = request.GoodStandard;
             entity.InsuranceCode = request.InsuranceCode;
             entity.CustomerCode = request.CustomerCode;
-            entity.SalesUnit = request.SalesUnit;
+            entity.SalesUnit = dicbll.getValueById(request.TenantId, request.SalesUnit, "Unit", "");
+            entity.StockUnit = dicbll.getValueById(request.TenantId, request.StockUnit, "Unit", "");
             entity.CreateTime = DateTime.Now;
-            entity.Price = 0;
+            entity.Price = request.Price == null ? 0 : Convert.ToInt64(request.Price * 1000);
             entity.Stock = 0;
             entity.BarCode = request.BarCode;
             entity.SearchKey = request.GoodName.GetPinYinHead() + request.InsuranceCode + request.GoodStandard;
@@ -146,9 +149,10 @@ namespace SY.Com.Medical.BLL.Clinic
             entity.GoodStandard = request.GoodStandard;
             entity.InsuranceCode = request.InsuranceCode;
             entity.CustomerCode = request.CustomerCode;
-            entity.SalesUnit = request.SalesUnit;
+            entity.SalesUnit = dicbll.getValueById(request.TenantId, request.SalesUnit, "Unit", "");
+            entity.StockUnit = dicbll.getValueById(request.TenantId, request.StockUnit, "Unit", "");
             entity.CreateTime = DateTime.Now;
-            entity.Price = 0;
+            entity.Price = request.Price == null ? 0 : Convert.ToInt64(request.Price * 1000);
             entity.Stock = 0;
             entity.BarCode = request.BarCode;
             entity.SearchKey = request.GoodName.GetPinYinHead() + request.InsuranceCode + request.GoodStandard;
@@ -168,13 +172,63 @@ namespace SY.Com.Medical.BLL.Clinic
         }
 
         /// <summary>
-        /// 获取药品类型
+        /// 获取药品类型字典
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        public List<DicKeyValueModel> getDrugSort(GoodSortModel mod)
+        public List<DicKeyValueModel> getDrugSort(GoodSortModelRequest mod)
         {
-            return dicbll.getValueByKey(mod.TenantId,"DrugSort", ((Enum.GoodType)mod.Flag).ToString(),"");
+            return dicbll.getValueByKey(mod.TenantId,"GoodSort", ((Enum.GoodType)mod.Flag).ToString(),"");
+        }
+
+        /// <summary>
+        /// 获取厂家字典
+        /// </summary>
+        /// <param name="mod"></param>
+        /// <returns></returns>
+        public List<DicKeyValueModel> getFactory(BaseModel mod)
+        {
+            return dicbll.getValueByKey(mod.TenantId, "Factory", "", "");
+        }
+
+        /// <summary>
+        /// 获取用法字典
+        /// </summary>
+        /// <param name="mod"></param>
+        /// <returns></returns>
+        public List<DicKeyValueModel> getUsage(BaseModel mod)
+        {
+            return dicbll.getValueByKey(mod.TenantId, "Usage", "", "");
+        }
+
+        /// <summary>
+        /// 获取一天用量字典
+        /// </summary>
+        /// <param name="mod"></param>
+        /// <returns></returns>
+        public List<DicKeyValueModel> getEveryDay(BaseModel mod)
+        {
+            return dicbll.getValueByKey(mod.TenantId, "EveryDay", "", "");
+        }
+
+        /// <summary>
+        /// 获取单位字典
+        /// </summary>
+        /// <param name="mod"></param>
+        /// <returns></returns>
+        public List<DicKeyValueModel> getUnit(BaseModel mod)
+        {
+            return dicbll.getValueByKey(mod.TenantId, "Unit", "", "");
+        }
+
+        public int addDic(int tenantId,string value,string keyFirst,string keySecond)
+        {
+            var result = dicbll.Insert(tenantId, value, keyFirst, keySecond);
+            if(result == 0)
+            {
+                throw new MyException("该数据已存在");
+            }
+            return result;
         }
 
     }
