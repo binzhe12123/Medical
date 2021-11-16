@@ -65,10 +65,157 @@ namespace SY.Com.Medical.Model
 
 	}
 
-    /// <summary>
-    /// 全模型
-    /// </summary>
-    public class GoodModels : BaseModel 
+	/// <summary>
+	/// 药品列表出参
+	/// </summary>
+	public class GoodModels : BaseModel
+    {
+		///<summary> 
+		///商品ID
+		///</summary> 
+		public int GoodId { get; set; }
+		///<summary> 
+		///商品名称
+		///</summary> 
+		public string GoodName { get; set; }
+		///<summary> 
+		///规格
+		///</summary> 
+		public string Norm { get; set; }
+		///<summary> 
+		///厂家
+		///</summary> 
+		public string Factory { get; set; }
+		///<summary> 
+		///类型（枚举1:西药,2:中成药,3:中药,4:诊疗项目,5:材料）
+		///</summary> 
+		public string GoodType { get; set; }
+		///<summary> 
+		///分类:自定义,和字典表进行关联
+		///</summary> 
+		public string GoodSort { get; set; }
+		///<summary> 
+		///国药准字
+		///</summary> 
+		public string GoodStandard { get; set; }
+		///<summary> 
+		///医保编码
+		///</summary> 
+		public string InsuranceCode { get; set; }
+		///<summary> 
+		///机构编码-自定义码
+		///</summary> 
+		public string CustomerCode { get; set; }
+		///<summary> 
+		///计价单位
+		///</summary> 
+		public string SalesUnit { get; set; }
+		///<summary> 
+		///创建时间
+		///</summary> 
+		public DateTime? CreateTime { get; set; }
+		/// <summary>
+		/// 库存量,以计价单位显示,整数
+		/// </summary>
+		public int Stock { get; set; }
+		/// <summary>
+		/// 价格,保留3位小数
+		/// </summary>		
+		public double Price { get; set; }
+	}
+
+	/// <summary>
+	/// 药品单个出参
+	/// </summary>
+	public class GoodModel : BaseModel
+	{
+		///<summary> 
+		///商品ID
+		///</summary> 
+		public int GoodId { get; set; }
+		///<summary> 
+		///商品名称
+		///</summary> 
+		public string GoodName { get; set; }
+		///<summary> 
+		///规格
+		///</summary> 
+		public string Norm { get; set; }
+		///<summary> 
+		///厂家
+		///</summary> 
+		public int Factory { get; set; }
+		///<summary> 
+		///类型（枚举1:西药,2:中成药,3:中药,4:诊疗项目,5:材料）
+		///</summary> 
+		public int GoodType { get; set; }
+		///<summary> 
+		///分类:自定义,和字典表进行关联
+		///</summary> 
+		public int GoodSort { get; set; }
+		///<summary> 
+		///国药准字
+		///</summary> 
+		public string GoodStandard { get; set; }
+		///<summary> 
+		///医保编码
+		///</summary> 
+		public string InsuranceCode { get; set; }
+		///<summary> 
+		///机构编码-自定义码
+		///</summary> 
+		public string CustomerCode { get; set; }
+		///<summary> 
+		///条码
+		///</summary> 
+		public string BarCode { get; set; }
+		///<summary> 
+		///搜索词根
+		///</summary> 
+		public string SearchKey { get; set; }
+		///<summary> 
+		///计价单位
+		///</summary> 
+		public string SalesUnit { get; set; }
+		///<summary> 
+		///库存单位
+		///</summary> 
+		public string StockUnit { get; set; }
+		///<summary> 
+		///库存单位--》计价单位比率，正整数
+		///</summary> 
+		public int Ratio { get; set; }
+		///<summary> 
+		///
+		///</summary> 
+		public DateTime? CreateTime { get; set; }
+		/// <summary>
+		/// 价格,保留3位小数
+		/// </summary>		
+		public double Price { get; set; }
+		/// <summary>
+		/// 库存量,以计价单位显示,整数
+		/// </summary>
+		public int Stock { get; set; }
+		/// <summary>
+		/// 用法
+		/// </summary>
+		public int Usage { get; set; }
+		/// <summary>
+		/// 单次用量
+		/// </summary>
+		public int Single { get; set; }
+		/// <summary>
+		/// 一天用量
+		/// </summary>
+		public int EveryDay { get; set; }
+	}
+
+
+	/// <summary>
+	/// Goods全模型-列表
+	/// </summary>
+	public class GoodBllModels : BaseModel 
 	{ 
 		///<summary> 
 		///商品ID
@@ -145,14 +292,99 @@ namespace SY.Com.Medical.Model
 		/// <summary>
 		/// 单次用量
 		/// </summary>
-		public string Single { get; set; }
+		public int Single { get; set; }
 		/// <summary>
 		/// 一天用量
 		/// </summary>
 		public string EveryDay { get; set; }
 	}
 
-
+	/// <summary>
+	/// Goods全模型-单个
+	/// </summary>
+	public class GoodBllModel :BaseModel
+    {
+		///<summary> 
+		///商品ID
+		///</summary> 
+		public int GoodId { get; set; }
+		///<summary> 
+		///商品名称
+		///</summary> 
+		public string GoodName { get; set; }
+		///<summary> 
+		///规格
+		///</summary> 
+		public string Norm { get; set; }
+		///<summary> 
+		///厂家
+		///</summary> 
+		public int Factory { get; set; }
+		///<summary> 
+		///类型（枚举1:西药,2:中成药,3:中药,4:诊疗项目,5:材料）
+		///</summary> 
+		public int GoodType { get; set; }
+		///<summary> 
+		///分类:自定义,和字典表进行关联
+		///</summary> 
+		public int GoodSort { get; set; }
+		///<summary> 
+		///国药准字
+		///</summary> 
+		public string GoodStandard { get; set; }
+		///<summary> 
+		///医保编码
+		///</summary> 
+		public string InsuranceCode { get; set; }
+		///<summary> 
+		///机构编码-自定义码
+		///</summary> 
+		public string CustomerCode { get; set; }
+		///<summary> 
+		///条码
+		///</summary> 
+		public string BarCode { get; set; }
+		///<summary> 
+		///搜索词根
+		///</summary> 
+		public string SearchKey { get; set; }
+		///<summary> 
+		///计价单位
+		///</summary> 
+		public string SalesUnit { get; set; }
+		///<summary> 
+		///库存单位
+		///</summary> 
+		public string StockUnit { get; set; }
+		///<summary> 
+		///库存单位--》计价单位比率，正整数
+		///</summary> 
+		public int Ratio { get; set; }
+		///<summary> 
+		///
+		///</summary> 
+		public DateTime? CreateTime { get; set; }
+		/// <summary>
+		/// 价格,保留3位小数
+		/// </summary>		
+		public double Price { get; set; }
+		/// <summary>
+		/// 库存量,以计价单位显示,整数
+		/// </summary>
+		public int Stock { get; set; }
+		/// <summary>
+		/// 用法
+		/// </summary>
+		public int Usage { get; set; }
+		/// <summary>
+		/// 单次用量
+		/// </summary>
+		public int Single { get; set; }
+		/// <summary>
+		/// 一天用量
+		/// </summary>
+		public int EveryDay { get; set; }
+	}
 
 	/// <summary>
 	/// 添加模型
@@ -178,7 +410,7 @@ namespace SY.Com.Medical.Model
 		///厂家
 		///</summary> 
 		[Required]
-		public string Factory {get;set;}
+		public int Factory {get;set;}
 		///<summary> 
 		///类型（枚举1:西药,2:中成药,3:中药,4:诊疗项目,5:材料）
 		///</summary> 
@@ -228,6 +460,18 @@ namespace SY.Com.Medical.Model
 		/// </summary>
 		[JsonIgnore]
 		public long? Price { get; set; }
+		/// <summary>
+		/// 单次用量
+		/// </summary>
+		public int Single { get; set; }
+		/// <summary>
+		/// 一天用量
+		/// </summary>
+		public int EveryDay { get; set; }
+		/// <summary>
+		/// 用法
+		/// </summary>
+		public int Usage { get; set; }
 	}
 
 	/// <summary>
@@ -238,72 +482,83 @@ namespace SY.Com.Medical.Model
 		///<summary> 
 		///商品ID
 		///</summary> 
-		[Required]
-		public int GoodId {get;set;}
+		public int GoodId { get; set; }
 		///<summary> 
 		///商品名称
 		///</summary> 
 		[Required]
-		public string GoodName {get;set;}
+		public string GoodName { get; set; }
 		///<summary> 
 		///规格
 		///</summary> 
 		[Required]
-		public string Norm {get;set;}
+		public string Norm { get; set; }
 		///<summary> 
 		///厂家
 		///</summary> 
 		[Required]
-		public string Factory {get;set;}
+		public int Factory { get; set; }
 		///<summary> 
 		///类型（枚举1:西药,2:中成药,3:中药,4:诊疗项目,5:材料）
 		///</summary> 
 		[Required]
-		public int GoodType {get;set;}
+		public int GoodType { get; set; }
 		///<summary> 
 		///分类:自定义,和字典表进行关联
 		///</summary> 
 		[Required]
-		public int GoodSort {get;set;} 
+		public int GoodSort { get; set; }
 		///<summary> 
 		///国药准字
 		///</summary> 
-		public string GoodStandard {get;set;} 
+		public string GoodStandard { get; set; }
 		///<summary> 
 		///医保编码
 		///</summary> 
-		public string InsuranceCode {get;set;} 
+		public string InsuranceCode { get; set; }
 		///<summary> 
 		///机构编码-自定义码
 		///</summary> 
-		public string CustomerCode {get;set;} 
+		public string CustomerCode { get; set; }
 		///<summary> 
 		///条码
 		///</summary> 
-		public string BarCode {get;set;}
+		public string BarCode { get; set; }
 		///<summary> 
 		///搜索词根
 		///</summary> 
 		[JsonIgnore]
-		public string SearchKey {get;set;}
+		public string SearchKey { get; set; }
 		///<summary> 
 		///计价单位
 		///</summary> 
 		[Required]
-		public string SalesUnit {get;set;} 
+		public string SalesUnit { get; set; }
 		///<summary> 
 		///库存单位
 		///</summary> 
-		public string StockUnit {get;set;} 
+		public string StockUnit { get; set; }
 		///<summary> 
 		///库存单位--》计价单位比率，正整数
 		///</summary> 
-		public int Ratio {get;set;}
+		public int Ratio { get; set; }
 		/// <summary>
 		/// 价格-整数,厘为单位
 		/// </summary>
 		[JsonIgnore]
 		public long? Price { get; set; }
+		/// <summary>
+		/// 单次用量
+		/// </summary>
+		public int Single { get; set; }
+		/// <summary>
+		/// 一天用量
+		/// </summary>
+		public int EveryDay { get; set; }
+		/// <summary>
+		/// 用法
+		/// </summary>
+		public int Usage { get; set; }
 	}
 
 	/// <summary>
@@ -319,22 +574,25 @@ namespace SY.Com.Medical.Model
 	}
 
 	/// <summary>
-	/// 
+	/// 获取药品类型
+	/// </summary>
+	public class GoodSortModel : BaseModel
+    {
+		/// <summary>
+		/// 获取某种类型的药品,Flag:1:西药,2:中成药,3:中药
+		/// </summary>
+		public int Flag { get; set; }
+    }
+
+	/// <summary>
+	/// 药品列表入参
 	/// </summary>
 	public class GoodRequest : PageModel
     {
 		///<summary> 
-		///商品名称
+		///搜索字段
 		///</summary> 
-		public string GoodName { get; set; }
-		///<summary> 
-		///医保编码
-		///</summary> 
-		public string InsuranceCode { get; set; }
-		///<summary> 
-		///机构编码-自定义码
-		///</summary> 
-		public string CustomerCode { get; set; }
+		public string SearchKey { get; set; }
 
 		///<summary> 
 		///类型（枚举1:西药,2:中成药,3:中药,4:诊疗项目,5:材料）
@@ -345,6 +603,16 @@ namespace SY.Com.Medical.Model
 		///</summary> 
 		public int GoodSort { get; set; }				
 	}
+	/// <summary>
+	/// 单个药品信息入参
+	/// </summary>
+	public class GoodOneRequest : BaseModel
+    {
+		/// <summary>
+		/// id
+		/// </summary>
+		public int GoodId { get; set; }
+    }
 
 	/// <summary>
 	/// 项目模型

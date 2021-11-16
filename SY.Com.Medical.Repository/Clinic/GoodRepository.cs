@@ -14,7 +14,7 @@ namespace SY.Com.Medical.Repository.Clinic
     public class GoodRepository : BaseRepository<GoodEntity> 
 	{ 
         /// <summary>
-        /// 获取药品或者项目源数据,分页
+        /// 获取药品或者项目列表源数据,分页
         /// </summary>
         /// <param name="tenantId"></param>
         /// <param name="pageSize"></param>
@@ -28,9 +28,12 @@ namespace SY.Com.Medical.Repository.Clinic
             Tuple<int, List<GoodEntity>> result;
             string sql = " Select ROW_NUMBER() over(order by goodid desc) row_id,* From Goods Where tenantId = @TenantId ";
             string sqlwhere = "";
-            if(goodType > 0)
+            if(goodType > 0 && goodType < 6)
             {
                 sqlwhere += " And GoodType = "+ goodType +" ";
+            }else if(goodType == 6)
+            {
+                sqlwhere += " And GoodType in(1,2,3)";
             }
             if(goodSort > 0)
             {
@@ -53,7 +56,15 @@ namespace SY.Com.Medical.Repository.Clinic
             return result;
         }
 
-
+        /// <summary>
+        /// 获取药品或者项目单个源数据
+        /// </summary>
+        /// <returns></returns>
+        public GoodEntity getOneById(int tenantId,int goodId)
+        {
+            string sql = " Select * From Goods Where tenantId = @TenantId And GoodId = @GoodId And IsEnable = 1 And IsDelete = 1  ";
+            return _db.Query<GoodEntity>(sql, new { TenantId = tenantId, GoodId = goodId }).FirstOrDefault();
+        }
 
 	}
 } 

@@ -21,10 +21,10 @@ namespace SY.Com.Medical.BLL.Clinic
 			db = new DicRepository();
 		}
 
-		public List<DicKeyValueModel> getValueByKey(DicSearchModel mod)
+		public List<DicKeyValueModel> getValueByKey(int tenantid,string keyFirst,string keySecond,string searchKey)
         {			
 			List<DicKeyValueModel> result = new List<DicKeyValueModel>();
-			var entitys = db.getDic(mod.tenantid, mod.keyFirst, mod.keySecond, mod.searchKey);
+			var entitys = db.getDic(tenantid, keyFirst, keySecond, searchKey);
 			if(entitys == null || entitys.Any())
             {
 				return null;
@@ -38,9 +38,14 @@ namespace SY.Com.Medical.BLL.Clinic
 			return result;
 		}
 
-		public string getValueByKey(int tenantId, string keyFirst, string keySecond, int id)
+		public string getValueById(int tenantId, int id, string keyFirst, string keySecond)
         {
-			return db.getIdByValue(tenantId, keyFirst, keySecond, id);
+			return db.getValueById(tenantId, id, keyFirst, keySecond);
+        }
+
+		public int getIdByValue(int tenantId, string value, string keyFirst, string keySecond)
+        {
+			return db.getIdByValue(tenantId, value, keyFirst, keySecond);
         }
 
 		public int Insert(int tenantId,string value,string keyFirst,string keySecond)

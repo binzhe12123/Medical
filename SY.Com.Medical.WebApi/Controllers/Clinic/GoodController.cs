@@ -25,7 +25,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         Good bll = new Good();
 
         /// <summary>
-        /// 获取药品分页
+        /// 获取药品列表-分页
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
@@ -38,8 +38,8 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 {
                     request.GoodType = 6;
                 }
-                var tuple = bll.gets(request);
-                result.Data = tuple.Item1.ToList();
+                var tuple = bll.getGoods(request.TenantId,request.PageSize,request.PageIndex,request.GoodType,request.GoodSort,request.SearchKey);
+                result.Data = tuple.Item1.ToList().Mapping<GoodModels>();
                 result.CalcPage(tuple.Item2, request.PageIndex, request.PageSize);
                 return result;
             }catch(Exception ex)
@@ -58,15 +58,15 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         /// <summary>
         /// 获取药品详情
         /// </summary>
-        /// <param name="goodid"></param>
+        /// <param name="request">包含tenantid和goodid</param>
         /// <returns></returns>
-        [HttpGet]
-        public BaseResponse<GoodModel> get(int goodid)
+        [HttpPost]
+        public BaseResponse<GoodModel> get(GoodOneRequest request)
         {            
             BaseResponse<GoodModel> result = new BaseResponse<GoodModel>();
             try
             {
-                result.Data = bll.get(goodid);
+                result.Data = bll.getGood(request.TenantId, request.GoodId).Mapping<GoodModel>();
                 return result;
             }
             catch (Exception ex)
@@ -165,19 +165,11 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             }
         }
 
-        /// <summary>
-        /// 获取租户的药品/项目/材料分类
-        /// 其中DicType值为枚举,需要通过getKeyValue接口查询        
-        /// </summary>
-        /// <returns></returns>
         [HttpPost]
-        public BaseResponse<List<Dictionary<int,string>>> getGoodSort(GoodSortReuqest request)
+        public BaseResponse<List<DicKeyValueModel>> getDrugSortDic()
         {
-            BaseResponse<List<Dictionary<int, string>>> result = new BaseResponse<List<Dictionary<int, string>>>();
-            result.Data = bll.getGoodSort(request);
-            return result;
-        }
 
+        }
 
         /// <summary>
         /// 获取项目列表分页

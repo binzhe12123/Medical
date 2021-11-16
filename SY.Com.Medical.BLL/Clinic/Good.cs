@@ -28,20 +28,20 @@ namespace SY.Com.Medical.BLL.Clinic
 		/// </summary>
 		/// <param name="request"></param>
 		/// <returns></returns>
-		public Tuple<List<GoodModels>, int> getGoods(int tenantId, int pageSize, int pageIndex, int goodType = 0, int goodSort = 0, string searchKey = "")
+		public Tuple<List<GoodBllModels>, int> getGoods(int tenantId, int pageSize, int pageIndex, int goodType = 0, int goodSort = 0, string searchKey = "")
         {
-            List<GoodModels> mods = new List<GoodModels>();
+            List<GoodBllModels> mods = new List<GoodBllModels>();
             var tuple = db.getPagesByWhere(tenantId, pageSize, pageIndex, goodType, goodSort, searchKey);
             int total = tuple.Item1;
             tuple.Item2.ForEach(x =>
             {
-                GoodModels mod = new GoodModels();
+                GoodBllModels mod = new GoodBllModels();
                 mod.GoodId = x.GoodId;
                 mod.GoodName = x.GoodName;
                 mod.Norm = x.Norm;
                 mod.Factory = x.Factory;
                 mod.GoodType = x.GoodType.ToString();
-                mod.GoodSort = dicbll.getValueByKey(x.TenantId,"Drug",x.GoodType.ToString(),x.GoodSort);
+                mod.GoodSort = dicbll.getValueById(x.TenantId, x.GoodSort, "DrugSort",x.GoodType.ToString());
                 mod.GoodStandard = x.GoodStandard;
                 mod.InsuranceCode = x.InsuranceCode;
                 mod.CustomerCode = x.CustomerCode;
@@ -49,9 +49,13 @@ namespace SY.Com.Medical.BLL.Clinic
                 mod.CreateTime = x.CreateTime;
                 mod.Price = Math.Round(x.Price / 1000.00, 3);
                 mod.Stock = x.Stock;
+                mod.BarCode = x.BarCode;
+                mod.Usage = x.Usage;
+                mod.Single = x.Single;
+                mod.EveryDay = x.EveryDay;
                 mods.Add(mod);
             });
-            Tuple<List<GoodModels>, int> result = new Tuple<List<GoodModels>, int>(mods, total);
+            Tuple<List<GoodBllModels>, int> result = new Tuple<List<GoodBllModels>, int>(mods, total);
             return result;
         }
 
@@ -60,9 +64,28 @@ namespace SY.Com.Medical.BLL.Clinic
 		/// </summary>
 		/// <param name="GoodId"></param>
 		/// <returns></returns>
-		public GoodModels get(int tenantId,int GoodId)
+		public GoodBllModel getGood(int tenantId,int GoodId)
         {
-            return "";
+            var entity = db.getOneById(tenantId, GoodId);
+            GoodBllModel mod = new GoodBllModel();
+            mod.GoodId = entity.GoodId;
+            mod.GoodName = entity.GoodName;
+            mod.Norm = entity.Norm;
+            mod.Factory = dicbll.getIdByValue(tenantId, entity.Factory,"Factory","") ;
+            mod.GoodType = (int)entity.GoodType;
+            mod.GoodSort = entity.GoodSort;
+            mod.GoodStandard = entity.GoodStandard;
+            mod.InsuranceCode = entity.InsuranceCode;
+            mod.CustomerCode = entity.CustomerCode;
+            mod.SalesUnit = entity.SalesUnit;
+            mod.CreateTime = entity.CreateTime;
+            mod.Price = Math.Round(entity.Price / 1000.00, 3);
+            mod.Stock = entity.Stock;
+            mod.BarCode = entity.BarCode;
+            mod.Usage = dicbll.getIdByValue(tenantId,entity.Usage,"Usage", entity.GoodType.ToString());
+            mod.Single = entity.Single;
+            mod.EveryDay = dicbll.getIdByValue(tenantId,entity.EveryDay, "EveryDay","");
+            return mod;
         }
 
 
@@ -74,16 +97,36 @@ namespace SY.Com.Medical.BLL.Clinic
         public int add(GoodAdd request)
         {
             GoodEntity ge = new GoodEntity();
+            ge.TenantId = request.TenantId;
             ge.GoodName = request.GoodName;
             ge.Norm = request.Norm;
-            ge.Factory = request.Factory;
+            ge.Factory = dicbll.getValueById(request.TenantId, request.Factory, "Factory","")  ;
             var olddata = db.Gets(ge);
             if(olddata != null && olddata.Any())
             {
                 throw new MyException("该物品已经存在");
             }
-            request.SearchKey = request.GoodName.GetPinYinHead() + request.InsuranceCode + request.GoodStandard;            
-            return db.Create(request.DtoToEntity<GoodEntity>());
+            request.SearchKey = request.GoodName.GetPinYinHead() + request.InsuranceCode + request.GoodStandard;
+            GoodEntity entity = new GoodEntity();
+            entity.TenantId = request.TenantId;
+            entity.GoodName = request.GoodName;
+            entity.Norm = request.Norm;
+            entity.Factory = dicbll.getValueById(request.TenantId, request.Factory, "Factory", "");
+            entity.GoodType = (Enum.GoodType)request.GoodType;
+            entity.GoodSort = request.GoodSort;
+            entity.GoodStandard = request.GoodStandard;
+            entity.InsuranceCode = request.InsuranceCode;
+            entity.CustomerCode = request.CustomerCode;
+            entity.SalesUnit = request.SalesUnit;
+            entity.CreateTime = DateTime.Now;
+            entity.Price = 0;
+            entity.Stock = 0;
+            entity.BarCode = request.BarCode;
+            entity.SearchKey = request.GoodName.GetPinYinHead() + request.InsuranceCode + request.GoodStandard;
+            entity.Usage = dicbll.getValueById(request.TenantId, request.Usage, "Usage", entity.GoodType.ToString());
+            entity.Single = request.Single;                       
+            entity.EveryDay = dicbll.getValueById(request.TenantId, request.EveryDay, "EveryDay", "");
+            return db.Create(entity);
         }
 
         /// <summary>
@@ -91,9 +134,28 @@ namespace SY.Com.Medical.BLL.Clinic
         /// </summary>
         /// <param name="request"></param>
         public void update(GoodUpdate request)
-        {
-            request.SearchKey = request.GoodName.GetPinYinHead() + request.InsuranceCode + request.GoodStandard;
-            db.Update(request.DtoToEntity<GoodEntity>());
+        {            
+            GoodEntity entity = new GoodEntity();
+            entity.GoodId = request.GoodId;
+            entity.TenantId = request.TenantId;
+            entity.GoodName = request.GoodName;
+            entity.Norm = request.Norm;
+            entity.Factory = dicbll.getValueById(request.TenantId, request.Factory, "Factory", "");
+            entity.GoodType = (Enum.GoodType)request.GoodType;
+            entity.GoodSort = request.GoodSort;
+            entity.GoodStandard = request.GoodStandard;
+            entity.InsuranceCode = request.InsuranceCode;
+            entity.CustomerCode = request.CustomerCode;
+            entity.SalesUnit = request.SalesUnit;
+            entity.CreateTime = DateTime.Now;
+            entity.Price = 0;
+            entity.Stock = 0;
+            entity.BarCode = request.BarCode;
+            entity.SearchKey = request.GoodName.GetPinYinHead() + request.InsuranceCode + request.GoodStandard;
+            entity.Usage = dicbll.getValueById(request.TenantId, request.Usage, "Usage", entity.GoodType.ToString());
+            entity.Single = request.Single;
+            entity.EveryDay = dicbll.getValueById(request.TenantId, request.EveryDay, "EveryDay", "");
+            db.Update(entity);
         }
 
         /// <summary>
@@ -101,10 +163,19 @@ namespace SY.Com.Medical.BLL.Clinic
         /// </summary>
         /// <param name="request"></param>
         public void delete(GoodDelete request)
-        {            
+        {                        
             db.Delete(request.DtoToEntity<GoodEntity>());
         }
 
+        /// <summary>
+        /// 获取药品类型
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public List<DicKeyValueModel> getDrugSort(GoodSortModel mod)
+        {
+            return dicbll.getValueByKey(mod.TenantId,"DrugSort", ((Enum.GoodType)mod.Flag).ToString(),"");
+        }
 
     }
 } 

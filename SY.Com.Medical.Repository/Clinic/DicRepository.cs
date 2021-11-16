@@ -49,7 +49,7 @@ namespace SY.Com.Medical.Repository.Clinic
             return null;
         }
 
-        public string getIdByValue(int tenantId,string keyFirst,string keySecond,int id)
+        public string getValueById(int tenantId, int id, string keyFirst,string keySecond)
         {
             string sql = " Select DicValue From Dics Where IsEnable=1 And IsDelete = 1 And (TenantId = 0 Or TenantId = @TenantId ) ";
             string sqlwhere = "";
@@ -72,6 +72,31 @@ namespace SY.Com.Medical.Repository.Clinic
                 return result.FirstOrDefault();
             }
             return "";
+        }
+
+        public int getIdByValue(int tenantId, string value, string keyFirst,string keySecond)
+        {
+            string sql = " Select DicId From Dics Where IsEnable=1 And IsDelete = 1 And (TenantId = 0 Or TenantId = @TenantId ) ";
+            string sqlwhere = "";
+            if (!string.IsNullOrEmpty(keyFirst))
+            {
+                sqlwhere += " And KeyFirst= '" + keyFirst + "' ";
+            }
+            if (!string.IsNullOrEmpty(keySecond))
+            {
+                sqlwhere += " And KeySecond= '" + keySecond + "' ";
+            }
+            if (string.IsNullOrEmpty(value))
+            {
+                sqlwhere += " And DicValue = '" + value + "' ";
+            }
+            sql = sql + sqlwhere;
+            var result = _db.Query<int>(sql, new { TenantId = tenantId });
+            if (result != null && result.Any())
+            {
+                return result.FirstOrDefault();
+            }
+            return 0;
         }
 
         public int Add(int tenantId, string dicValue, string keyFirst)

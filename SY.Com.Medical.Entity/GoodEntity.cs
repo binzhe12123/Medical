@@ -98,7 +98,7 @@ namespace SY.Com.Medical.Entity
 		/// <summary>
 		/// 每次用量
 		/// </summary>
-		public string Single { get; set; }
+		public int Single { get; set; }
 		/// <summary>
 		/// 每日用量
 		/// </summary>
