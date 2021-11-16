@@ -2012,6 +2012,231 @@
             版本id    
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Model.PurchaseModel">
+            <summary>
+             Purchase模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseModel.PurchaseId">
+            <summary> 
+            采购id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseModel.GoodsCount">
+            <summary> 
+            药品种类
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseModel.GoodsMoney">
+            <summary> 
+            采购金额
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseModel.Supplier">
+            <summary> 
+            供应商
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseModel.CreateTime">
+            <summary> 
+            采购时间
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseModel.Createtor">
+            <summary> 
+            创建者
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseModel.IsEnalbe">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseModel.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.PurchaseRequest">
+            <summary>
+             Purchase模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseRequest.PurchaseId">
+            <summary> 
+            采购id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseRequest.GoodsCount">
+            <summary> 
+            药品种类
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseRequest.GoodsMoney">
+            <summary> 
+            采购金额
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseRequest.Supplier">
+            <summary> 
+            供应商
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseRequest.CreateTime">
+            <summary> 
+            采购时间
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseRequest.Createtor">
+            <summary> 
+            创建者
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseRequest.IsEnalbe">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseRequest.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.PurchaseAdd">
+            <summary>
+             Purchase模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseAdd.PurchaseId">
+            <summary> 
+            采购id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseAdd.GoodsCount">
+            <summary> 
+            药品种类
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseAdd.GoodsMoney">
+            <summary> 
+            采购金额
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseAdd.Supplier">
+            <summary> 
+            供应商
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseAdd.CreateTime">
+            <summary> 
+            采购时间
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseAdd.Createtor">
+            <summary> 
+            创建者
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseAdd.IsEnalbe">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseAdd.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.PurchaseUpdate">
+            <summary>
+             Purchase模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseUpdate.PurchaseId">
+            <summary> 
+            采购id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseUpdate.GoodsCount">
+            <summary> 
+            药品种类
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseUpdate.GoodsMoney">
+            <summary> 
+            采购金额
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseUpdate.Supplier">
+            <summary> 
+            供应商
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseUpdate.CreateTime">
+            <summary> 
+            采购时间
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseUpdate.Createtor">
+            <summary> 
+            创建者
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseUpdate.IsEnalbe">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseUpdate.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.PurchaseDelete">
+            <summary>
+             Purchase模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseDelete.PurchaseId">
+            <summary> 
+            采购id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseDelete.GoodsCount">
+            <summary> 
+            药品种类
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseDelete.GoodsMoney">
+            <summary> 
+            采购金额
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseDelete.Supplier">
+            <summary> 
+            供应商
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseDelete.CreateTime">
+            <summary> 
+            采购时间
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseDelete.Createtor">
+            <summary> 
+            创建者
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseDelete.IsEnalbe">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchaseDelete.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
         <member name="T:SY.Com.Medical.Model.RoleModel">
             <summary>
             角色信息
