@@ -88,8 +88,8 @@ namespace SY.Com.Medical.BLL.Clinic
 			purchaseEntity.Supplier = "";
 			purchaseEntity.CreateTime = DateTime.Now;
 			purchaseEntity.Createtor = mod.First().UserId;
-			purchaseEntity.IsEnalbe = 1;
-			purchaseEntity.IsDelete = 1;
+			purchaseEntity.IsEnable = Enum.Enable.启用 ;
+			purchaseEntity.IsDelete = Enum.Delete.正常;
 			var id = purchaseDb.Create(purchaseEntity);
 			targetEntity.ForEach(x => x.PurchaseId = id);
 			db.Inserts(targetEntity);

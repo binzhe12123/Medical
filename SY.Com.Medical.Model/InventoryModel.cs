@@ -46,36 +46,6 @@ public class InventoryModel : BaseModel
 		public string GoodName { get; set; }
 	}
 
-	///<summary>
-	/// Inventory模型
-	/// </summary>
-	public class InventoryRequest : PageModel 
-	{ 
-		///<summary> 
-		///盘点单ID
-		///</summary> 
-		public long InventoryId {get;set;} 
-		///<summary> 
-		///药品种类
-		///</summary> 
-		public int GoodsCount {get;set;} 
-		///<summary> 
-		///创建时间
-		///</summary> 
-		public DateTime CreateTime {get;set;} 
-		///<summary> 
-		///创建人员
-		///</summary> 
-		public int Createtor {get;set;} 
-		///<summary> 
-		///
-		///</summary> 
-		public int IsEnalbe {get;set;} 
-		///<summary> 
-		///
-		///</summary> 
-		public int IsDelete {get;set;} 
-	}
 	
 ///<summary>
 /// Inventory模型

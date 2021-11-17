@@ -136,14 +136,14 @@
             <param name="request"></param>
             <returns></returns>
         </member>
-        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.GoodController.addMaterial(SY.Com.Medical.Model.GoodMaterialModel)">
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.GoodController.addMaterial(SY.Com.Medical.Model.GoodMaterialEditModel)">
             <summary>
             添加材料
             </summary>
             <param name="request"></param>
             <returns></returns>
         </member>
-        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.GoodController.updateMaterial(SY.Com.Medical.Model.GoodMaterialModel)">
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.GoodController.updateMaterial(SY.Com.Medical.Model.GoodMaterialEditModel)">
             <summary>
             修改材料
             </summary>
@@ -153,6 +153,51 @@
         <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.GoodController.deleteMaterial(SY.Com.Medical.Model.GoodDelete)">
             <summary>
             删除材料
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.InventoryController">
+            <summary>
+            控制器
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.InventoryGoodController">
+            <summary>
+            控制器
+            </summary>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.InventoryGoodController.searchGoods(SY.Com.Medical.Model.InventoryGoodSearchRequest)">
+            <summary>
+            盘点页面搜索药品/材料
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.InventoryGoodController.Inventory(System.Collections.Generic.List{SY.Com.Medical.Model.InventoryGoodRequest})">
+            <summary>
+            盘点
+            </summary>
+            <param name="requst"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.InventoryGoodController.getAfterPrice(SY.Com.Medical.Model.InventoryPriceRequest)">
+            <summary>
+            计算物品的盘点售后价
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.InventoryGoodController.gets(SY.Com.Medical.Model.InventoryRequest)">
+            <summary> 
+            获取列表-分页
+            </summary> 
+            <param name="request"></param>
+             <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.InventoryGoodController.getInventory(SY.Com.Medical.Model.InventoryListRequest)">
+            <summary>
+            获取某盘点单明细
             </summary>
             <param name="request"></param>
             <returns></returns>
@@ -232,26 +277,14 @@
             <param name="request"></param>
             <returns></returns>
         </member>
-        <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.PurchaseController">
-            <summary>
-            采购控制器
-            </summary>
-        </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.PurchasesGoodController">
             <summary>
             控制器
             </summary>
         </member>
-        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PurchasesGoodController.searchDrugs(SY.Com.Medical.Model.PurchasesGoodSearchRequest)">
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PurchasesGoodController.searchGoods(SY.Com.Medical.Model.PurchasesGoodSearchRequest)">
             <summary>
-            采购页面搜索药品
-            </summary>
-            <param name="request"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PurchasesGoodController.searchMaterials(SY.Com.Medical.Model.PurchasesGoodSearchRequest)">
-            <summary>
-            采购页面搜索材料
+            采购页面搜索药品/材料
             </summary>
             <param name="request"></param>
             <returns></returns>

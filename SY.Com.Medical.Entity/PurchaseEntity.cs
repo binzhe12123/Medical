@@ -39,13 +39,5 @@ namespace SY.Com.Medical.Entity
 		///创建者
 		///</summary> 
 		public int Createtor {get;set;}
-		/// <summary>
-		/// 
-		/// </summary>
-		public int IsEnalbe { get; set; }
-		/// <summary>
-		/// 
-		/// </summary>
-		public int IsDelete { get; set; }
 	}
 } 
