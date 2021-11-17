@@ -13,25 +13,24 @@ namespace SY.Com.Medical.BLL.Clinic
     /// <summary>
     /// 业务逻辑层
     /// </summary>
-    public class Purchase 
+    public class Inventory 
 	{
-		private PurchaseRepository db;
-		public Purchase()
+		private InventoryRepository db;
+		public Inventory()
 		{
-			db = new PurchaseRepository();
+			db = new InventoryRepository();
 		}
 		///<summary> 
 		///获取详情记录
 		///</summary> 
 		///<param name="id"></param>
 		/// <returns></returns>
-		public PurchaseModel get(int id)
+		public InventoryModel get(int id)
 		{
 			var x = db.Get(id);
-			PurchaseModel model = new PurchaseModel();
-			model.PurchaseId = x.PurchaseId;
-			model.GoodsCount = x.GoodsCount;
-			model.GoodsMoney = x.GoodsMoney;
+			InventoryModel model = new InventoryModel();
+			model.InventoryId = x.InventoryId;
+			model.GoodsCount = x.GoodsCount;			
 			model.CreateTime = x.CreateTime.Value;
 			return model;
 		}
@@ -40,22 +39,20 @@ namespace SY.Com.Medical.BLL.Clinic
 		///</summary> 
 		///<param name="request"></param>
 		/// <returns></returns>
-		public Tuple<IEnumerable<PurchaseModel>,int> gets(PurchaseRequest request)
+		public Tuple<IEnumerable<InventoryModel>, int> gets(InventoryRequest request)
 		{
-			var datas  = db.page(request.TenantId, request.PageSize, request.PageIndex,request.start,request.end,request.GoodName);
-			List<PurchaseModel> list = new List<PurchaseModel>();
+			var datas = db.page(request.TenantId, request.PageSize, request.PageIndex, request.start, request.end, request.GoodName);
+			List<InventoryModel> list = new List<InventoryModel>();
 			datas.Item1.ToList().ForEach(x =>
 			{
-				PurchaseModel model = new PurchaseModel();
-				model.PurchaseId = x.PurchaseId;
+				InventoryModel model = new InventoryModel();
+				model.InventoryId = x.InventoryId;
 				model.GoodsCount = x.GoodsCount;
-				model.GoodsMoney = x.GoodsMoney;
 				model.CreateTime = x.CreateTime.Value;
 				list.Add(model);
 			});
-			Tuple<IEnumerable<PurchaseModel>, int> result = new(list, datas.Item2);
+			Tuple<IEnumerable<InventoryModel>, int> result = new(list, datas.Item2);
 			return result;
 		}
-	
 	}
 } 

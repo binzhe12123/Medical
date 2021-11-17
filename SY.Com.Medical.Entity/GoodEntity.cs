@@ -76,11 +76,11 @@ namespace SY.Com.Medical.Entity
 		///</summary> 
 		public string SalesUnit {get;set;} 
 		///<summary> 
-		///库存单位
+		///采购单位
 		///</summary> 
 		public string StockUnit {get;set;} 
 		///<summary> 
-		///库存单位--》计价单位比率，正整数
+		///采购单位--》计价单位比率，正整数
 		///</summary> 
 		public int Ratio {get;set;}
 		/// <summary>

@@ -442,7 +442,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpPost]
         public BaseResponse<GoodMaterialModel> getMaterial(GoodOneRequest request)
         {
             BaseResponse<GoodMaterialModel> result = new BaseResponse<GoodMaterialModel>();
@@ -470,7 +470,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<int> addMaterial(GoodMaterialModel request)
+        public BaseResponse<int> addMaterial(GoodMaterialEditModel request)
         {
             BaseResponse<int> result = new BaseResponse<int>();
             try
@@ -499,7 +499,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<bool> updateMaterial(GoodMaterialModel request)
+        public BaseResponse<bool> updateMaterial(GoodMaterialEditModel request)
         {
             BaseResponse<bool> result = new BaseResponse<bool>();
             try

@@ -77,7 +77,7 @@ namespace YB.FrameWork
         public string drugSubtype { get; set; }// String 是 药品分类
         public string dosageCode { get; set; }// String 是 剂型
         public string specifications { get; set; }// String 是 规格
-        public string drugStoreUnit { get; set; }// String 是 药品库存单位
+        public string drugStoreUnit { get; set; }// String 是 药品采购单位
         public string drugDosageUnit { get; set; }// String 是 药品剂量单位
         public int isMaterial { get; set; }// Boolean 是 是否是材料（0 否，1 是）
         public string antibacterialsFlag { get; set; }// String 是 抗菌药物标志
@@ -114,8 +114,8 @@ namespace YB.FrameWork
         public string drugName { get; set; }// String 是 药品名称
         public string variableQuantity { get; set; }// String 是 变动数量
         public string specifications { get; set; }// String 是 规格
-        public string storeUnitCode { get; set; }// String 是 库存单位编码
-        public string storeUnitName { get; set; }// String 是 库存单位名称
+        public string storeUnitCode { get; set; }// String 是 采购单位编码
+        public string storeUnitName { get; set; }// String 是 采购单位名称
         public string isDeleted { get; set; }// String 是 记录是否已逻辑删除，0 未删除 1 已删除
         public long createTime { get; set; }// Long 是 数据创建时间
         public long updateTime { get; set; }// Long 是 数据变更时间
@@ -134,8 +134,8 @@ namespace YB.FrameWork
         public string pharmacyName { get; set; }// String 是 药房名称
         public string drugType { get; set; }// String 是 药品类别
         public string drugSubtype { get; set; }// String 是 药品分类
-        public string storeUnitCode { get; set; }// String 是 库存单位编码
-        public string storeUnitName { get; set; }// String 是 库存单位名称
+        public string storeUnitCode { get; set; }// String 是 采购单位编码
+        public string storeUnitName { get; set; }// String 是 采购单位名称
         public string stockQuantity { get; set; }// String 是 药品库存数量
         public string totalOutQuantity { get; set; }// String 是 药品出库数量合计
         public string totalInQuantity { get; set; }// String 是 药品入库数量合计

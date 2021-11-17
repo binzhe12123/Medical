@@ -23,7 +23,7 @@ namespace SY.Com.Medical.Repository.Clinic
         /// <param name="goodSort"></param>
         /// <param name="searchKey"></param>
         /// <returns></returns>
-        public Tuple<int,List<GoodEntity>> getPagesByWhere(int tenantId,int pageSize,int pageIndex,int goodType = 0,int goodSort = 0 ,string searchKey = "")
+        public Tuple<int,List<GoodEntity>> getPagesByWhere(int tenantId,int pageSize,int pageIndex,int goodType = 0,int goodSort = 0 ,string searchKey = "",bool stockBigzero = false)
         {
             Tuple<int, List<GoodEntity>> result;
             string sql = " Select ROW_NUMBER() over(order by goodid desc) row_id,* From Goods Where tenantId = @TenantId ";
@@ -42,6 +42,10 @@ namespace SY.Com.Medical.Repository.Clinic
             if(!string.IsNullOrEmpty(searchKey) && searchKey.Trim() != "")
             {
                 sqlwhere += " And SearchKey like '%"+ searchKey + "%' ";
+            }
+            if(stockBigzero)
+            {
+                sqlwhere += " And Stock > 0 ";
             }
             sql = sql + sqlwhere;
             sql = " Select Count(*) as total From ( " + sql + " )as t ;Select * From ( " + sql + " )as t where row_id between @start and @end ";

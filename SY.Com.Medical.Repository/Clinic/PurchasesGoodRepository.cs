@@ -37,7 +37,7 @@ namespace SY.Com.Medical.Repository.Clinic
         public int UpdateStockAndPrice(List<PurchasesGoodEntity> entitys)
         {
             var strGooids = string.Join(',', entitys.Select(x => x.GoodId).ToList());
-            string sqlprice = @" Select GoodId,SellPrice PurchasesGoods Where TenantId=@TenantId And Consume > 0 And IsDelete = 1 And GoodId in@GoodId Order By PurchaseId Asc  ";
+            string sqlprice = @" Select GoodId,SellPrice From PurchasesGoods Where TenantId=@TenantId And Consume > 0 And IsDelete = 1 And GoodId in@GoodId Order By PurchaseId Asc  ";
             var purchaseprice = _db.Query<PurchasesGoodEntity>(sqlprice, new { TenantId = entitys.First().TenantId, GoodId = strGooids });
             string sql = "";
             if (purchaseprice == null || !purchaseprice.Any())

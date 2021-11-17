@@ -326,12 +326,12 @@
         </member>
         <member name="P:SY.Com.Medical.Entity.GoodEntity.StockUnit">
             <summary> 
-            库存单位
+            采购单位
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Entity.GoodEntity.Ratio">
             <summary> 
-            库存单位--》计价单位比率，正整数
+            采购单位--》计价单位比率，正整数
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Entity.GoodEntity.Price">
@@ -591,7 +591,7 @@
         </member>
         <member name="P:SY.Com.Medical.Entity.PurchasesGoodEntity.StockUnit">
             <summary> 
-            库存单位
+            采购单位
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Entity.PurchasesGoodEntity.Stock">

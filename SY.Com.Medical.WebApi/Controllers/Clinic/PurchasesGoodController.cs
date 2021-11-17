@@ -23,36 +23,30 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
 		 PurchasesGood bll = new PurchasesGood();
 
 		/// <summary>
-		/// 采购页面搜索药品
+		/// 采购页面搜索药品/材料
 		/// </summary>
 		/// <param name="request"></param>
 		/// <returns></returns>
 		[HttpPost]
-		public BaseResponse<List<PurchasesGoodSearchResponse>> searchDrugs(PurchasesGoodSearchRequest request)
+		public BaseResponse<List<PurchasesGoodSearchResponse>> searchGoods(PurchasesGoodSearchRequest request)
         {
 			BaseResponse<List<PurchasesGoodSearchResponse>> result = new BaseResponse<List<PurchasesGoodSearchResponse>>();
-			request.GoodType = 6;
+			if(request.Type == 0)
+            {
+				request.GoodType = 0;
+			}else if(request.Type == 1)
+            {
+				request.GoodType = 6;
+			}else
+            {
+				request.GoodType = 5;
+			}
 			var tuple = bll.searchGoods(request);
 			result.Data = tuple.Item1.ToList();
 			result.CalcPage(tuple.Item2, request.PageIndex, request.PageSize);
 			return result;
 		}
 
-		/// <summary>
-		/// 采购页面搜索材料
-		/// </summary>
-		/// <param name="request"></param>
-		/// <returns></returns>
-		[HttpPost]
-		public BaseResponse<List<PurchasesGoodSearchResponse>> searchMaterials(PurchasesGoodSearchRequest request)
-		{
-			BaseResponse<List<PurchasesGoodSearchResponse>> result = new BaseResponse<List<PurchasesGoodSearchResponse>>();
-			request.GoodType = 5;
-			var tuple = bll.searchGoods(request);
-			result.Data = tuple.Item1.ToList();
-			result.CalcPage(tuple.Item2, request.PageIndex, request.PageSize);
-			return result;
-		}
 
 		/// <summary>
 		/// 采购药品/材料

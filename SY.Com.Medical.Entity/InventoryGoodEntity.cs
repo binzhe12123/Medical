@@ -10,9 +10,9 @@ namespace SY.Com.Medical.Entity
     /// <summary>
     /// 实体
     /// </summary>
-    [DB_Table("PurchasesGoods")]
+    [DB_Table("InventoryGoods")]
     [DB_Key("id")]
-    public class PurchasesGoodEntity : BaseEntity 
+    public class InventoryGoodEntity : BaseEntity 
 	{ 
 		///<summary> 
 		///自增主键
@@ -24,15 +24,15 @@ namespace SY.Com.Medical.Entity
 		///</summary> 
 		public long TenantId {get;set;} 
 		///<summary> 
-		///采购id
+		///盘点单id
 		///</summary> 
-		public long PurchaseId {get;set;}
-		/// <summary>
-		/// 物品id 
-		/// </summary>
-		public long GoodId { get; set; }
+		public long InventoryId {get;set;} 
 		///<summary> 
-		///药品名称
+		///商品id
+		///</summary> 
+		public long GoodId {get;set;} 
+		///<summary> 
+		///商品名称
 		///</summary> 
 		public string GoodName {get;set;} 
 		///<summary> 
@@ -48,40 +48,24 @@ namespace SY.Com.Medical.Entity
 		///</summary> 
 		public string SalesUnit {get;set;} 
 		///<summary> 
-		///采购单位
-		///</summary> 
-		public string StockUnit {get;set;} 
-		///<summary> 
-		///库存量
+		///盘点前库存
 		///</summary> 
 		public int Stock {get;set;} 
 		///<summary> 
-		///剩余库存量
+		///盘点后库存
 		///</summary> 
-		public int Consume {get;set;} 
+		public int StockAfter {get;set;} 
 		///<summary> 
-		///生产日期
+		///盘点前售价
 		///</summary> 
-		public DateTime? ProductTime {get;set;} 
+		public long Price {get;set;} 
 		///<summary> 
-		///有效期
+		///盘点后售价
 		///</summary> 
-		public DateTime? ValidTime {get;set;} 
+		public long PriceAfter {get;set;} 
 		///<summary> 
-		///批号
+		///
 		///</summary> 
-		public string BatchNum {get;set;} 
-		///<summary> 
-		///采购价
-		///</summary> 
-		public long PurchasePrice {get;set;} 
-		///<summary> 
-		///销售价
-		///</summary> 
-		public long SellPrice {get;set;} 
-		/// <summary>
-		/// 比率
-		/// </summary>
-		public int Ratio { get; set; }
+		public int IsEnalbe {get;set;} 
 	}
 } 

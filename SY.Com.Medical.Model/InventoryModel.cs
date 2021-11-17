@@ -9,33 +9,29 @@ namespace SY.Com.Medical.Model
 {
     
 ///<summary>
-/// Purchase模型
+/// Inventory模型
 /// </summary>
-public class PurchaseModel : BaseModel 
+public class InventoryModel : BaseModel 
 	{ 
 		///<summary> 
-		///采购id
+		///盘点单ID
 		///</summary> 
-		public long PurchaseId {get;set;} 
+		public long InventoryId {get;set;} 
 		///<summary> 
 		///药品种类
 		///</summary> 
 		public int GoodsCount {get;set;} 
 		///<summary> 
-		///采购金额
+		///创建时间
 		///</summary> 
-		public double GoodsMoney {get;set;} 
-		///<summary> 
-		///采购时间
-		///</summary> 
-		public DateTime CreateTime {get;set;}  
+		public DateTime CreateTime {get;set;} 
 	}
-	
-///<summary>
-/// Purchase模型
-/// </summary>
-	public class PurchaseRequest : PageModel 
-	{ 
+
+	///<summary>
+	/// Inventory模型
+	/// </summary>
+	public class InventoryRequest : PageModel
+	{
 		/// <summary>
 		/// 开始时间
 		/// </summary>
@@ -49,34 +45,26 @@ public class PurchaseModel : BaseModel
 		/// </summary>
 		public string GoodName { get; set; }
 	}
-	
-///<summary>
-/// Purchase模型
-/// </summary>
-public class PurchaseAdd : BaseModel 
+
+	///<summary>
+	/// Inventory模型
+	/// </summary>
+	public class InventoryRequest : PageModel 
 	{ 
 		///<summary> 
-		///采购id
+		///盘点单ID
 		///</summary> 
-		public long PurchaseId {get;set;} 
+		public long InventoryId {get;set;} 
 		///<summary> 
 		///药品种类
 		///</summary> 
 		public int GoodsCount {get;set;} 
 		///<summary> 
-		///采购金额
-		///</summary> 
-		public long GoodsMoney {get;set;} 
-		///<summary> 
-		///供应商
-		///</summary> 
-		public string Supplier {get;set;} 
-		///<summary> 
-		///采购时间
+		///创建时间
 		///</summary> 
 		public DateTime CreateTime {get;set;} 
 		///<summary> 
-		///创建者
+		///创建人员
 		///</summary> 
 		public int Createtor {get;set;} 
 		///<summary> 
@@ -90,32 +78,24 @@ public class PurchaseAdd : BaseModel
 	}
 	
 ///<summary>
-/// Purchase模型
+/// Inventory模型
 /// </summary>
-public class PurchaseUpdate : BaseModel 
+public class InventoryAdd : BaseModel 
 	{ 
 		///<summary> 
-		///采购id
+		///盘点单ID
 		///</summary> 
-		public long PurchaseId {get;set;} 
+		public long InventoryId {get;set;} 
 		///<summary> 
 		///药品种类
 		///</summary> 
 		public int GoodsCount {get;set;} 
 		///<summary> 
-		///采购金额
-		///</summary> 
-		public long GoodsMoney {get;set;} 
-		///<summary> 
-		///供应商
-		///</summary> 
-		public string Supplier {get;set;} 
-		///<summary> 
-		///采购时间
+		///创建时间
 		///</summary> 
 		public DateTime CreateTime {get;set;} 
 		///<summary> 
-		///创建者
+		///创建人员
 		///</summary> 
 		public int Createtor {get;set;} 
 		///<summary> 
@@ -129,32 +109,55 @@ public class PurchaseUpdate : BaseModel
 	}
 	
 ///<summary>
-/// Purchase模型
+/// Inventory模型
 /// </summary>
-public class PurchaseDelete : BaseModel 
+public class InventoryUpdate : BaseModel 
 	{ 
 		///<summary> 
-		///采购id
+		///盘点单ID
 		///</summary> 
-		public long PurchaseId {get;set;} 
+		public long InventoryId {get;set;} 
 		///<summary> 
 		///药品种类
 		///</summary> 
 		public int GoodsCount {get;set;} 
 		///<summary> 
-		///采购金额
-		///</summary> 
-		public long GoodsMoney {get;set;} 
-		///<summary> 
-		///供应商
-		///</summary> 
-		public string Supplier {get;set;} 
-		///<summary> 
-		///采购时间
+		///创建时间
 		///</summary> 
 		public DateTime CreateTime {get;set;} 
 		///<summary> 
-		///创建者
+		///创建人员
+		///</summary> 
+		public int Createtor {get;set;} 
+		///<summary> 
+		///
+		///</summary> 
+		public int IsEnalbe {get;set;} 
+		///<summary> 
+		///
+		///</summary> 
+		public int IsDelete {get;set;} 
+	}
+	
+///<summary>
+/// Inventory模型
+/// </summary>
+public class InventoryDelete : BaseModel 
+	{ 
+		///<summary> 
+		///盘点单ID
+		///</summary> 
+		public long InventoryId {get;set;} 
+		///<summary> 
+		///药品种类
+		///</summary> 
+		public int GoodsCount {get;set;} 
+		///<summary> 
+		///创建时间
+		///</summary> 
+		public DateTime CreateTime {get;set;} 
+		///<summary> 
+		///创建人员
 		///</summary> 
 		public int Createtor {get;set;} 
 		///<summary> 

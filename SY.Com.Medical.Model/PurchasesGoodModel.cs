@@ -35,7 +35,7 @@ namespace SY.Com.Medical.Model
 		///</summary> 
 		public string SalesUnit {get;set;} 
 		/// <summary>
-		/// 库存单位
+		/// 采购单位
 		/// </summary>
 		public string StockUnit { get; set; }
 		/// <summary>
@@ -104,7 +104,7 @@ namespace SY.Com.Medical.Model
 		///</summary> 
 		public string SalesUnit { get; set; }
 		/// <summary>
-		/// 库存单位
+		/// 采购单位
 		/// </summary>
 		public string StockUnit { get; set; }
 		///<summary> 
@@ -186,7 +186,7 @@ namespace SY.Com.Medical.Model
 		/// </summary>
 		public string SalesUnit { get; set; }
 		/// <summary>
-		/// 库存单位
+		/// 采购单位
 		/// </summary>
 		public string StockUnit { get; set; }
 
@@ -206,6 +206,10 @@ namespace SY.Com.Medical.Model
 		/// 搜索关键词
 		/// </summary>
 		public string SearchKey { get; set; }
+		/// <summary>
+		/// 类型0:全部,1:药品,2:材料
+		/// </summary>
+		public int Type { get; set; }
     }
 
 
@@ -239,7 +243,7 @@ namespace SY.Com.Medical.Model
 			///</summary> 
 			public string SalesUnit {get;set;} 
 			///<summary> 
-			///库存单位
+			///采购单位
 			///</summary> 
 			public string StockUnit {get;set;} 
 			///<summary> 
@@ -314,7 +318,7 @@ namespace SY.Com.Medical.Model
 			///</summary> 
 			public string SalesUnit {get;set;} 
 			///<summary> 
-			///库存单位
+			///采购单位
 			///</summary> 
 			public string StockUnit {get;set;} 
 			///<summary> 
@@ -389,7 +393,7 @@ namespace SY.Com.Medical.Model
 			///</summary> 
 			public string SalesUnit {get;set;} 
 			///<summary> 
-			///库存单位
+			///采购单位
 			///</summary> 
 			public string StockUnit {get;set;} 
 			///<summary> 

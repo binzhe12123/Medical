@@ -123,11 +123,11 @@ namespace SY.Com.Medical.Model
 		///</summary> 
 		public string SalesUnit { get; set; }
 		///<summary> 
-		///库存单位
+		///采购单位
 		///</summary> 
 		public string StockUnit { get; set; }
 		///<summary> 
-		///库存单位--》计价单位比率，正整数
+		///采购单位--》计价单位比率，正整数
 		///</summary> 
 		public int Ratio { get; set; }
 		///<summary> 
@@ -211,11 +211,11 @@ namespace SY.Com.Medical.Model
 		///</summary> 
 		public string SalesUnit {get;set;} 
 		///<summary> 
-		///库存单位
+		///采购单位
 		///</summary> 
 		public string StockUnit {get;set;} 
 		///<summary> 
-		///库存单位--》计价单位比率，正整数
+		///采购单位--》计价单位比率，正整数
 		///</summary> 
 		public int Ratio {get;set;} 
 		///<summary> 
@@ -298,11 +298,11 @@ namespace SY.Com.Medical.Model
 		///</summary> 
 		public int SalesUnit { get; set; }
 		///<summary> 
-		///库存单位
+		///采购单位
 		///</summary> 
 		public int StockUnit { get; set; }
 		///<summary> 
-		///库存单位--》计价单位比率，正整数
+		///采购单位--》计价单位比率，正整数
 		///</summary> 
 		public int Ratio { get; set; }
 		///<summary> 
@@ -393,11 +393,11 @@ namespace SY.Com.Medical.Model
 		[Required]
 		public int SalesUnit {get;set;} 
 		///<summary> 
-		///库存单位
+		///采购单位
 		///</summary> 
 		public int StockUnit {get;set;} 
 		///<summary> 
-		///库存单位--》计价单位比率，正整数
+		///采购单位--》计价单位比率，正整数
 		///</summary> 
 		public int Ratio {get;set;}
 		/// <summary>
@@ -480,11 +480,11 @@ namespace SY.Com.Medical.Model
 		[Required]
 		public int SalesUnit { get; set; }
 		///<summary> 
-		///库存单位
+		///采购单位
 		///</summary> 
 		public int StockUnit { get; set; }
 		///<summary> 
-		///库存单位--》计价单位比率，正整数
+		///采购单位--》计价单位比率，正整数
 		///</summary> 
 		public int Ratio { get; set; }
 		/// <summary>
@@ -907,6 +907,49 @@ namespace SY.Com.Medical.Model
 		/// 价格,保留3位小数
 		/// </summary>		
 		public double Price { get; set; }
+	}
+
+	/// <summary>
+	/// 编辑材料
+	/// </summary>
+	public class GoodMaterialEditModel : BaseModel
+	{
+		///<summary> 
+		///商品ID
+		///</summary> 
+		public int GoodId { get; set; }
+		///<summary> 
+		///商品名称
+		///</summary> 
+		public string GoodName { get; set; }
+		///<summary> 
+		///规格
+		///</summary> 
+		public string Norm { get; set; }
+		///<summary> 
+		///厂家
+		///</summary> 
+		public int Factory { get; set; }
+		///<summary> 
+		///分类:自定义,和字典表进行关联
+		///</summary> 
+		public int GoodSort { get; set; }
+		///<summary> 
+		///国药准字
+		///</summary> 
+		public string GoodStandard { get; set; }
+		///<summary> 
+		///医保编码
+		///</summary> 
+		public string InsuranceCode { get; set; }
+		///<summary> 
+		///机构编码-自定义码
+		///</summary> 
+		public string CustomerCode { get; set; }
+		///<summary> 
+		///计价单位
+		///</summary> 
+		public int SalesUnit { get; set; }		
 	}
 
 	/// <summary>

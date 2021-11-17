@@ -12,14 +12,15 @@ using System.Threading.Tasks;
 namespace SY.Com.Medical.WebApi.Controllers.Clinic
 {
     /// <summary>
-    /// 采购控制器
+    /// 控制器
     /// </summary>
     [Route("api /[controller] /[action]")]
     [ApiController]
     [Authorize]
     [Api_Tenant]
-    public class PurchaseController : ControllerBase 
+    public class InventoryController : ControllerBase 
 	{
 
+		
 	}
 } 

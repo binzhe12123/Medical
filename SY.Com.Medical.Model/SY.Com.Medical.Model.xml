@@ -704,12 +704,12 @@
         </member>
         <member name="P:SY.Com.Medical.Model.GoodModel.StockUnit">
             <summary> 
-            库存单位
+            采购单位
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Model.GoodModel.Ratio">
             <summary> 
-            库存单位--》计价单位比率，正整数
+            采购单位--》计价单位比率，正整数
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Model.GoodModel.CreateTime">
@@ -809,12 +809,12 @@
         </member>
         <member name="P:SY.Com.Medical.Model.GoodBllModels.StockUnit">
             <summary> 
-            库存单位
+            采购单位
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Model.GoodBllModels.Ratio">
             <summary> 
-            库存单位--》计价单位比率，正整数
+            采购单位--》计价单位比率，正整数
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Model.GoodBllModels.CreateTime">
@@ -914,12 +914,12 @@
         </member>
         <member name="P:SY.Com.Medical.Model.GoodBllModel.StockUnit">
             <summary> 
-            库存单位
+            采购单位
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Model.GoodBllModel.Ratio">
             <summary> 
-            库存单位--》计价单位比率，正整数
+            采购单位--》计价单位比率，正整数
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Model.GoodBllModel.CreateTime">
@@ -1019,12 +1019,12 @@
         </member>
         <member name="P:SY.Com.Medical.Model.GoodAdd.StockUnit">
             <summary> 
-            库存单位
+            采购单位
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Model.GoodAdd.Ratio">
             <summary> 
-            库存单位--》计价单位比率，正整数
+            采购单位--》计价单位比率，正整数
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Model.GoodAdd.Price">
@@ -1114,12 +1114,12 @@
         </member>
         <member name="P:SY.Com.Medical.Model.GoodUpdate.StockUnit">
             <summary> 
-            库存单位
+            采购单位
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Model.GoodUpdate.Ratio">
             <summary> 
-            库存单位--》计价单位比率，正整数
+            采购单位--》计价单位比率，正整数
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Model.GoodUpdate.Price">
@@ -1574,6 +1574,56 @@
             价格,保留3位小数
             </summary>		
         </member>
+        <member name="T:SY.Com.Medical.Model.GoodMaterialEditModel">
+            <summary>
+            编辑材料
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodMaterialEditModel.GoodId">
+            <summary> 
+            商品ID
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodMaterialEditModel.GoodName">
+            <summary> 
+            商品名称
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodMaterialEditModel.Norm">
+            <summary> 
+            规格
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodMaterialEditModel.Factory">
+            <summary> 
+            厂家
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodMaterialEditModel.GoodSort">
+            <summary> 
+            分类:自定义,和字典表进行关联
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodMaterialEditModel.GoodStandard">
+            <summary> 
+            国药准字
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodMaterialEditModel.InsuranceCode">
+            <summary> 
+            医保编码
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodMaterialEditModel.CustomerCode">
+            <summary> 
+            机构编码-自定义码
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodMaterialEditModel.SalesUnit">
+            <summary> 
+            计价单位
+            </summary> 
+        </member>
         <member name="T:SY.Com.Medical.Model.GoodSortReuqest">
             <summary>
             获取药品分类相关字典
@@ -1583,6 +1633,181 @@
             <summary>
             字典类型
             </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.InventoryModel">
+            <summary>
+             Inventory模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.InventoryModel.InventoryId">
+            <summary> 
+            盘点单ID
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.InventoryModel.GoodsCount">
+            <summary> 
+            药品种类
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.InventoryModel.CreateTime">
+            <summary> 
+            创建时间
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.InventoryModel.Createtor">
+            <summary> 
+            创建人员
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.InventoryModel.IsEnalbe">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.InventoryModel.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.InventoryRequest">
+            <summary>
+             Inventory模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.InventoryRequest.InventoryId">
+            <summary> 
+            盘点单ID
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.InventoryRequest.GoodsCount">
+            <summary> 
+            药品种类
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.InventoryRequest.CreateTime">
+            <summary> 
+            创建时间
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.InventoryRequest.Createtor">
+            <summary> 
+            创建人员
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.InventoryRequest.IsEnalbe">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.InventoryRequest.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.InventoryAdd">
+            <summary>
+             Inventory模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.InventoryAdd.InventoryId">
+            <summary> 
+            盘点单ID
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.InventoryAdd.GoodsCount">
+            <summary> 
+            药品种类
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.InventoryAdd.CreateTime">
+            <summary> 
+            创建时间
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.InventoryAdd.Createtor">
+            <summary> 
+            创建人员
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.InventoryAdd.IsEnalbe">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.InventoryAdd.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.InventoryUpdate">
+            <summary>
+             Inventory模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.InventoryUpdate.InventoryId">
+            <summary> 
+            盘点单ID
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.InventoryUpdate.GoodsCount">
+            <summary> 
+            药品种类
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.InventoryUpdate.CreateTime">
+            <summary> 
+            创建时间
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.InventoryUpdate.Createtor">
+            <summary> 
+            创建人员
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.InventoryUpdate.IsEnalbe">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.InventoryUpdate.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.InventoryDelete">
+            <summary>
+             Inventory模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.InventoryDelete.InventoryId">
+            <summary> 
+            盘点单ID
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.InventoryDelete.GoodsCount">
+            <summary> 
+            药品种类
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.InventoryDelete.CreateTime">
+            <summary> 
+            创建时间
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.InventoryDelete.Createtor">
+            <summary> 
+            创建人员
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.InventoryDelete.IsEnalbe">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.InventoryDelete.IsDelete">
+            <summary> 
+            
+            </summary> 
         </member>
         <member name="T:SY.Com.Medical.Model.KeyValueModel">
             <summary>
@@ -2042,45 +2267,20 @@
              Purchase模型
              </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.PurchaseRequest.PurchaseId">
-            <summary> 
-            采购id
-            </summary> 
+        <member name="P:SY.Com.Medical.Model.PurchaseRequest.start">
+            <summary>
+            开始时间
+            </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.PurchaseRequest.GoodsCount">
-            <summary> 
-            药品种类
-            </summary> 
+        <member name="P:SY.Com.Medical.Model.PurchaseRequest.end">
+            <summary>
+            结算时间
+            </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.PurchaseRequest.GoodsMoney">
-            <summary> 
-            采购金额
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.PurchaseRequest.Supplier">
-            <summary> 
-            供应商
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.PurchaseRequest.CreateTime">
-            <summary> 
-            采购时间
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.PurchaseRequest.Createtor">
-            <summary> 
-            创建者
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.PurchaseRequest.IsEnalbe">
-            <summary> 
-            
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.PurchaseRequest.IsDelete">
-            <summary> 
-            
-            </summary> 
+        <member name="P:SY.Com.Medical.Model.PurchaseRequest.GoodName">
+            <summary>
+            药品名称
+            </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.PurchaseAdd">
             <summary>
@@ -2249,7 +2449,7 @@
         </member>
         <member name="P:SY.Com.Medical.Model.PurchasesGoodModel.StockUnit">
             <summary>
-            库存单位
+            采购单位
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.PurchasesGoodModel.Ratio">
@@ -2329,7 +2529,7 @@
         </member>
         <member name="P:SY.Com.Medical.Model.PurchasesGoodResponse.StockUnit">
             <summary>
-            库存单位
+            采购单位
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.PurchasesGoodResponse.Stock">
@@ -2424,7 +2624,7 @@
         </member>
         <member name="P:SY.Com.Medical.Model.UnitModel.StockUnit">
             <summary>
-            库存单位
+            采购单位
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.PurchasesGoodSearchRequest">
@@ -2440,6 +2640,11 @@
         <member name="P:SY.Com.Medical.Model.PurchasesGoodSearchRequest.SearchKey">
             <summary>
             搜索关键词
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodSearchRequest.Type">
+            <summary>
+            类型0:全部,1:药品,2:材料
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.PurchasesGoodAdd">
@@ -2479,7 +2684,7 @@
         </member>
         <member name="P:SY.Com.Medical.Model.PurchasesGoodAdd.StockUnit">
             <summary> 
-            库存单位
+            采购单位
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Model.PurchasesGoodAdd.Stock">
@@ -2569,7 +2774,7 @@
         </member>
         <member name="P:SY.Com.Medical.Model.PurchasesGoodUpdate.StockUnit">
             <summary> 
-            库存单位
+            采购单位
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Model.PurchasesGoodUpdate.Stock">
@@ -2659,7 +2864,7 @@
         </member>
         <member name="P:SY.Com.Medical.Model.PurchasesGoodDelete.StockUnit">
             <summary> 
-            库存单位
+            采购单位
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Model.PurchasesGoodDelete.Stock">
