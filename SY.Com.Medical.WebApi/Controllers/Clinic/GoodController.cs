@@ -222,6 +222,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         /// </summary>
         /// <param name="mod"></param>
         /// <returns></returns>
+        [HttpPost]
         public BaseResponse<List<DicKeyValueModel>> getUnit(BaseModel mod)
         {
             BaseResponse<List<DicKeyValueModel>> result = new BaseResponse<List<DicKeyValueModel>>();
@@ -235,6 +236,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
+        [HttpPost]
         public BaseResponse<int> addDic(GoodDicAddRequest request)
         {
             BaseResponse<int> result = new BaseResponse<int>();

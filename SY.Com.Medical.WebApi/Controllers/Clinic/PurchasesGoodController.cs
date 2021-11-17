@@ -54,132 +54,87 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
 			return result;
 		}
 
+		/// <summary>
+		/// 采购药品/材料
+		/// </summary>
+		/// <param name="request"></param>
+		/// <returns></returns>
+		[HttpPost]
+		public BaseResponse<bool> Purchase(List<PurchasesGoodModel> request)
+        {
+			BaseResponse<bool> result = new BaseResponse<bool>();
+			result.Data =bll.Purchases(request);
+			return result;
+        }
 
+		/// <summary>
+		/// 获取某采购单明细
+		/// </summary>
+		/// <param name="request"></param>
+		/// <returns></returns>
+		[HttpPost]
+		public BaseResponse<List<PurchasesGoodResponse>> getPurchase(PurchasesGoodRequest request)
+        {
+			BaseResponse<List<PurchasesGoodResponse>> result = new BaseResponse<List<PurchasesGoodResponse>>();
+			result.Data = bll.getPurchases(request.TenantId, request.PurchaseId);
+			return result;
+        }
 
-
+		Purchase purchaseBll = new Purchase();
 		///<summary> 
-		///获取详情记录
+		///获取单一采购单主信息
 		///</summary> 
 		///<param name="id"></param>
 		/// <returns></returns>
 		[HttpGet]
-		public BaseResponse<PurchasesGoodModel> get(int id)
+		public BaseResponse<PurchaseModel> get(int id)
 		{
-			BaseResponse<PurchasesGoodModel> result = new BaseResponse<PurchasesGoodModel>();
-				try{
-					result.Data = bll.get(id);
-					return result;
-				}catch(Exception ex)
+			BaseResponse<PurchaseModel> result = new BaseResponse<PurchaseModel>();
+			try
+			{
+				result.Data = purchaseBll.get(id);
+				return result;
+			}
+			catch (Exception ex)
+			{
+				if (ex is MyException)
 				{
-					if (ex is MyException)
-					{
-						return result.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
-					}
-					else
-					{
-						return result.sysException(ex.Message);
-					}
+					return result.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
 				}
+				else
+				{
+					return result.sysException(ex.Message);
+				}
+			}
 		}
 		///<summary> 
-		///获取列表-分页
+		///获取采购单主信息列表-分页
 		///</summary> 
 		///<param name="request"></param>
 		/// <returns></returns>
 		[HttpPost]
-		public BaseResponse<List<PurchasesGoodModel>> gets(PurchasesGoodRequest request)
+		public BaseResponse<List<PurchaseModel>> gets(PurchaseRequest request)
 		{
-				BaseResponse<List<PurchasesGoodModel>> result = new BaseResponse<List<PurchasesGoodModel>>();
-				try{
-					var tuple = bll.gets(request);
-					result.Data = tuple.Item1.ToList();
-					result.CalcPage(tuple.Item2, request.PageIndex, request.PageSize);
-					return result;
-				}catch(Exception ex)
+			BaseResponse<List<PurchaseModel>> result = new BaseResponse<List<PurchaseModel>>();
+			try
+			{
+				var tuple = purchaseBll.gets(request);
+				result.Data = tuple.Item1.ToList();
+				result.CalcPage(tuple.Item2, request.PageIndex, request.PageSize);
+				return result;
+			}
+			catch (Exception ex)
+			{
+				if (ex is MyException)
 				{
-					if (ex is MyException)
-					{
-						return result.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
-					}
-					else
-					{
-						return result.sysException(ex.Message);
-					}
+					return result.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
 				}
-		}
-		///<summary> 
-		///新增
-		///</summary> 
-		///<param name="request"></param>
-		/// <returns></returns>
-		[HttpPost]
-		public BaseResponse<int> add(PurchasesGoodAdd request)
-		{
-				BaseResponse<int> result = new BaseResponse<int>();
-				try{
-					result.Data = bll.add(request);
-					return result;
-				}catch(Exception ex)
+				else
 				{
-					if (ex is MyException)
-					{
-						return result.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
-					}
-					else
-					{
-						return result.sysException(ex.Message);
-					}
+					return result.sysException(ex.Message);
 				}
+			}
 		}
-		///<summary> 
-		///修改
-		///</summary> 
-		///<param name="request"></param>
-		/// <returns></returns>
-		[HttpPost]
-		public BaseResponse<bool> update(PurchasesGoodUpdate request)
-		{
-			BaseResponse<bool> result = new BaseResponse<bool>();
-				try{
-					bll.update(request);
-					result.Data = true;
-					return result;
-				}catch(Exception ex)
-				{
-					if (ex is MyException)
-					{
-						return result.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
-					}
-					else
-					{
-						return result.sysException(ex.Message);
-					}
-				}
-		}
-		///<summary> 
-		///删除
-		///</summary> 
-		///<param name="request"></param>
-		/// <returns></returns>
-		[HttpPost]
-		public BaseResponse<bool> delete(PurchasesGoodDelete request)
-		{
-			BaseResponse<bool> result = new BaseResponse<bool>();
-				try{
-					bll.delete(request);
-					result.Data = true;
-					return result;
-				}catch(Exception ex)
-				{
-					if (ex is MyException)
-					{
-						return result.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
-					}
-					else
-					{
-						return result.sysException(ex.Message);
-					}
-				}
-		}
+
 	}
 } 

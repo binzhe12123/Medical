@@ -69,6 +69,75 @@ namespace SY.Com.Medical.Model
 	}
 
 	/// <summary>
+	/// 查询入参
+	/// </summary>
+	public class PurchasesGoodRequest : BaseModel
+    {
+		/// <summary>
+		/// 采购单id 
+		/// </summary>
+		public long PurchaseId { get; set; }
+    }
+	/// <summary>
+	/// 查询返回
+	/// </summary>
+	public class PurchasesGoodResponse : BaseModel
+	{
+		/// <summary>
+		/// 药品/材料ID
+		/// </summary>
+		public long GoodId { get; set; }
+		///<summary> 
+		///药品名称
+		///</summary> 
+		public string GoodName { get; set; }
+		///<summary> 
+		///规格
+		///</summary> 
+		public string Norm { get; set; }
+		///<summary> 
+		///厂家
+		///</summary> 
+		public string Factory { get; set; }
+		///<summary> 
+		///计价单位
+		///</summary> 
+		public string SalesUnit { get; set; }
+		/// <summary>
+		/// 库存单位
+		/// </summary>
+		public string StockUnit { get; set; }
+		///<summary> 
+		///采购量
+		///</summary> 
+		public int Stock { get; set; }
+		/// <summary>
+		/// 剩余量
+		/// </summary>
+		public int Consume { get; set; }
+		///<summary> 
+		///生产日期
+		///</summary> 
+		public DateTime? ProductTime { get; set; }
+		///<summary> 
+		///有效期
+		///</summary> 
+		public DateTime? ValidTime { get; set; }
+		///<summary> 
+		///批号
+		///</summary> 
+		public string BatchNum { get; set; }
+		///<summary> 
+		///采购价
+		///</summary> 
+		public double PurchasePrice { get; set; }
+		///<summary> 
+		///销售价
+		///</summary> 
+		public double SellPrice { get; set; }
+	}
+
+	/// <summary>
 	/// 采购搜索药品/材料列表
 	/// </summary>
 	public class PurchasesGoodSearchResponse : BaseModel
@@ -139,81 +208,7 @@ namespace SY.Com.Medical.Model
 		public string SearchKey { get; set; }
     }
 
-	///<summary>
-	/// PurchasesGood模型
-	/// </summary>
-	public class PurchasesGoodRequest : PageModel 
-		{ 
-			///<summary> 
-			///自增主键
-			///</summary> 
-			public int id {get;set;} 
-			///<summary> 
-			///采购id
-			///</summary> 
-			public long PurchaseId {get;set;} 
-			///<summary> 
-			///药品名称
-			///</summary> 
-			public string GoodName {get;set;} 
-			///<summary> 
-			///规格
-			///</summary> 
-			public string Norm {get;set;} 
-			///<summary> 
-			///厂家
-			///</summary> 
-			public string Factory {get;set;} 
-			///<summary> 
-			///计价单位
-			///</summary> 
-			public string SalesUnit {get;set;} 
-			///<summary> 
-			///库存单位
-			///</summary> 
-			public string StockUnit {get;set;} 
-			///<summary> 
-			///库存量
-			///</summary> 
-			public int Stock {get;set;} 
-			///<summary> 
-			///剩余库存量
-			///</summary> 
-			public int Consume {get;set;} 
-			///<summary> 
-			///生产日期
-			///</summary> 
-			public DateTime? ProductTime {get;set;} 
-			///<summary> 
-			///有效期
-			///</summary> 
-			public DateTime? ValidTime {get;set;} 
-			///<summary> 
-			///批号
-			///</summary> 
-			public string BatchNum {get;set;} 
-			///<summary> 
-			///采购价
-			///</summary> 
-			public long PurchasePrice {get;set;} 
-			///<summary> 
-			///销售价
-			///</summary> 
-			public long SellPrice {get;set;} 
-			///<summary> 
-			///
-			///</summary> 
-			public DateTime CreateTime {get;set;} 
-			///<summary> 
-			///
-			///</summary> 
-			public int IsEnalbe {get;set;} 
-			///<summary> 
-			///
-			///</summary> 
-			public int IsDelete {get;set;} 
-		}
-	
+
 	///<summary>
 	/// PurchasesGood模型
 	/// </summary>

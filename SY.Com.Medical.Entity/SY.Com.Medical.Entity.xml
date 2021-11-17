@@ -179,24 +179,24 @@
             租户ID
             </summary> 
         </member>
-        <member name="P:SY.Com.Medical.Entity.DicEntity.DicKey">
+        <member name="P:SY.Com.Medical.Entity.DicEntity.KeyFirst">
             <summary> 
-            键
+            一级键
             </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.DicEntity.KeySecond">
+            <summary>
+            二级键
+            </summary>
         </member>
         <member name="P:SY.Com.Medical.Entity.DicEntity.DicValue">
             <summary> 
             值
             </summary> 
         </member>
-        <member name="P:SY.Com.Medical.Entity.DicEntity.DicType">
-            <summary> 
-            分类
-            </summary> 
-        </member>
         <member name="P:SY.Com.Medical.Entity.DicEntity.SearchKey">
             <summary>
-            
+            搜索值
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Entity.EmployeeEntity">
@@ -337,6 +337,26 @@
         <member name="P:SY.Com.Medical.Entity.GoodEntity.Price">
             <summary>
             价格(项目直接使用此价格),药品不使用此价格
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.GoodEntity.Stock">
+            <summary>
+            库存量
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.GoodEntity.Usage">
+            <summary>
+            用法
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.GoodEntity.Single">
+            <summary>
+            每次用量
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.GoodEntity.EveryDay">
+            <summary>
+            每日用量
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Entity.MenuEntity">
@@ -482,6 +502,136 @@
         <member name="P:SY.Com.Medical.Entity.PlatformsEntity.VersionId">
             <summary>
             版本id    
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Entity.PurchaseEntity">
+            <summary>
+            实体
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PurchaseEntity.PurchaseId">
+            <summary> 
+            采购id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PurchaseEntity.TenantId">
+            <summary> 
+            租户id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PurchaseEntity.GoodsCount">
+            <summary> 
+            药品种类
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PurchaseEntity.GoodsMoney">
+            <summary> 
+            采购金额
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PurchaseEntity.Supplier">
+            <summary> 
+            供应商
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PurchaseEntity.Createtor">
+            <summary> 
+            创建者
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PurchaseEntity.IsEnalbe">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Entity.PurchasesGoodEntity">
+            <summary>
+            实体
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PurchasesGoodEntity.id">
+            <summary> 
+            自增主键
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PurchasesGoodEntity.TenantId">
+            <summary> 
+            租户id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PurchasesGoodEntity.PurchaseId">
+            <summary> 
+            采购id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PurchasesGoodEntity.GoodId">
+            <summary>
+            物品id 
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PurchasesGoodEntity.GoodName">
+            <summary> 
+            药品名称
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PurchasesGoodEntity.Norm">
+            <summary> 
+            规格
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PurchasesGoodEntity.Factory">
+            <summary> 
+            厂家
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PurchasesGoodEntity.SalesUnit">
+            <summary> 
+            计价单位
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PurchasesGoodEntity.StockUnit">
+            <summary> 
+            库存单位
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PurchasesGoodEntity.Stock">
+            <summary> 
+            库存量
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PurchasesGoodEntity.Consume">
+            <summary> 
+            剩余库存量
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PurchasesGoodEntity.ProductTime">
+            <summary> 
+            生产日期
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PurchasesGoodEntity.ValidTime">
+            <summary> 
+            有效期
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PurchasesGoodEntity.BatchNum">
+            <summary> 
+            批号
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PurchasesGoodEntity.PurchasePrice">
+            <summary> 
+            采购价
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PurchasesGoodEntity.SellPrice">
+            <summary> 
+            销售价
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PurchasesGoodEntity.Ratio">
+            <summary>
+            比率
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Entity.RoleEntity">

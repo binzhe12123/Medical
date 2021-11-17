@@ -24,27 +24,11 @@ public class PurchaseModel : BaseModel
 		///<summary> 
 		///采购金额
 		///</summary> 
-		public long GoodsMoney {get;set;} 
-		///<summary> 
-		///供应商
-		///</summary> 
-		public string Supplier {get;set;} 
+		public double GoodsMoney {get;set;} 
 		///<summary> 
 		///采购时间
 		///</summary> 
-		public DateTime CreateTime {get;set;} 
-		///<summary> 
-		///创建者
-		///</summary> 
-		public int Createtor {get;set;} 
-		///<summary> 
-		///
-		///</summary> 
-		public int IsEnalbe {get;set;} 
-		///<summary> 
-		///
-		///</summary> 
-		public int IsDelete {get;set;} 
+		public DateTime CreateTime {get;set;}  
 	}
 	
 ///<summary>

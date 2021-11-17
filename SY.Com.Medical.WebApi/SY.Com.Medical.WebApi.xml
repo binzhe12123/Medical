@@ -232,6 +232,58 @@
             <param name="request"></param>
             <returns></returns>
         </member>
+        <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.PurchaseController">
+            <summary>
+            采购控制器
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.PurchasesGoodController">
+            <summary>
+            控制器
+            </summary>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PurchasesGoodController.searchDrugs(SY.Com.Medical.Model.PurchasesGoodSearchRequest)">
+            <summary>
+            采购页面搜索药品
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PurchasesGoodController.searchMaterials(SY.Com.Medical.Model.PurchasesGoodSearchRequest)">
+            <summary>
+            采购页面搜索材料
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PurchasesGoodController.Purchase(System.Collections.Generic.List{SY.Com.Medical.Model.PurchasesGoodModel})">
+            <summary>
+            采购药品/材料
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PurchasesGoodController.getPurchase(SY.Com.Medical.Model.PurchasesGoodRequest)">
+            <summary>
+            获取某采购单明细
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PurchasesGoodController.get(System.Int32)">
+            <summary> 
+            获取单一采购单主信息
+            </summary> 
+            <param name="id"></param>
+             <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PurchasesGoodController.gets(SY.Com.Medical.Model.PurchaseRequest)">
+            <summary> 
+            获取采购单主信息列表-分页
+            </summary> 
+            <param name="request"></param>
+             <returns></returns>
+        </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Platform.DepartmentController">
             <summary>
             科室控制器abc

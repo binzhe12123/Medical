@@ -27,7 +27,13 @@ namespace SY.Com.Medical.BLL.Clinic
 		/// <returns></returns>
 		public PurchaseModel get(int id)
 		{
-			return db.Get(id).EntityToDto<PurchaseModel>();
+			var x = db.Get(id);
+			PurchaseModel model = new PurchaseModel();
+			model.PurchaseId = x.PurchaseId;
+			model.GoodsCount = x.GoodsCount;
+			model.GoodsMoney = x.GoodsMoney;
+			model.CreateTime = x.CreateTime.Value;
+			return model;
 		}
 		///<summary> 
 		///获取列表-分页
@@ -37,35 +43,19 @@ namespace SY.Com.Medical.BLL.Clinic
 		public Tuple<IEnumerable<PurchaseModel>,int> gets(PurchaseRequest request)
 		{
 			var datas  = db.GetsPage(request.DtoToEntity<PurchaseEntity>(), request.PageSize, request.PageIndex);
-			Tuple<IEnumerable<PurchaseModel>, int> result = new(datas.Item1.EntityToDto<PurchaseModel>(), datas.Item2);
+			List<PurchaseModel> list = new List<PurchaseModel>();
+			datas.Item1.ToList().ForEach(x =>
+			{
+				PurchaseModel model = new PurchaseModel();
+				model.PurchaseId = x.PurchaseId;
+				model.GoodsCount = x.GoodsCount;
+				model.GoodsMoney = x.GoodsMoney;
+				model.CreateTime = x.CreateTime.Value;
+				list.Add(model);
+			});
+			Tuple<IEnumerable<PurchaseModel>, int> result = new(list, datas.Item2);
 			return result;
 		}
-		///<summary> 
-		///新增
-		///</summary> 
-		///<param name="request"></param>
-		/// <returns></returns>
-		public int add(PurchaseAdd request)
-		{
-			return db.Create(request.DtoToEntity<PurchaseEntity>());
-		}
-		///<summary> 
-		///修改
-		///</summary> 
-		///<param name="request"></param>
-		/// <returns></returns>
-		public void update(PurchaseUpdate request)
-		{
-			db.Update(request.DtoToEntity<PurchaseEntity>());
-		}
-		///<summary> 
-		///删除
-		///</summary> 
-		///<param name="request"></param>
-		/// <returns></returns>
-		public void delete(PurchaseDelete request)
-		{
-			db.Delete(request.DtoToEntity<PurchaseEntity>());
-		}
+	
 	}
 } 

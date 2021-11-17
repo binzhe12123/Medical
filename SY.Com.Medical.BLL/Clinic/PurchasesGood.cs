@@ -17,6 +17,7 @@ namespace SY.Com.Medical.BLL.Clinic
 	{
 		private PurchasesGoodRepository db;
 		private GoodRepository goodrepository = new GoodRepository();
+		private PurchaseRepository purchaseDb = new PurchaseRepository();
 		public PurchasesGood()
 		{
 			db = new PurchasesGoodRepository();
@@ -59,58 +60,70 @@ namespace SY.Com.Medical.BLL.Clinic
 		/// <returns></returns>
 		public bool Purchases(List<PurchasesGoodModel> mod)
         {
-			bool result = false;
-			//
-			return result;
+			long totalmoney = 0;
+			List<PurchasesGoodEntity> targetEntity = new List<PurchasesGoodEntity>();
+			mod.ForEach(x =>
+			{
+				PurchasesGoodEntity entity = new PurchasesGoodEntity();
+				entity.GoodId = x.GoodId;
+				entity.GoodName = x.GoodName;
+				entity.Norm = x.Norm;
+				entity.Factory = x.Factory;
+				entity.SalesUnit = x.SalesUnit;
+				entity.StockUnit = x.StockUnit;
+				entity.Ratio = x.Ratio;
+				entity.Stock = x.Stock;
+				entity.ProductTime = x.ProductTime;
+				entity.ValidTime = x.ValidTime;
+				entity.BatchNum = x.BatchNum;
+				entity.PurchasePrice = Convert.ToInt64(x.PurchasePrice * 1000);
+				entity.SellPrice = Convert.ToInt64(x.SellPrice * 1000);
+				totalmoney += x.SalesUnit == x.StockUnit ? (Convert.ToInt64(x.PurchasePrice * 1000) * x.Stock) : (x.Ratio * Convert.ToInt64(x.PurchasePrice * 1000) * x.Stock);
+				targetEntity.Add(entity);
+			});
+			PurchaseEntity purchaseEntity = new PurchaseEntity();
+			purchaseEntity.TenantId = mod.First().TenantId;
+			purchaseEntity.GoodsCount = mod.Count;
+			purchaseEntity.GoodsMoney = totalmoney;
+			purchaseEntity.Supplier = "";
+			purchaseEntity.CreateTime = DateTime.Now;
+			purchaseEntity.Createtor = mod.First().UserId;
+			purchaseEntity.IsEnalbe = 1;
+			purchaseEntity.IsDelete = 1;
+			var id = purchaseDb.Create(purchaseEntity);
+			targetEntity.ForEach(x => x.PurchaseId = id);
+			db.Inserts(targetEntity);
+			db.UpdateStockAndPrice(targetEntity);						
+			return true;
         }
 
-
-		///<summary> 
-		///获取详情记录
-		///</summary> 
-		///<param name="id"></param>
-		/// <returns></returns>
-		public PurchasesGoodModel get(int id)
-		{
-			return db.Get(id).EntityToDto<PurchasesGoodModel>();
-		}
-		///<summary> 
-		///获取列表-分页
-		///</summary> 
-		///<param name="request"></param>
-		/// <returns></returns>
-		public Tuple<IEnumerable<PurchasesGoodModel>,int> gets(PurchasesGoodRequest request)
-		{
-			var datas  = db.GetsPage(request.DtoToEntity<PurchasesGoodEntity>(), request.PageSize, request.PageIndex);
-			Tuple<IEnumerable<PurchasesGoodModel>, int> result = new(datas.Item1.EntityToDto<PurchasesGoodModel>(), datas.Item2);
+		public List<PurchasesGoodResponse> getPurchases(long tenantId,long purchaseId)
+        {
+			List<PurchasesGoodResponse> result = new List<PurchasesGoodResponse>();
+			var entity = db.getPurchasesById(tenantId, purchaseId);
+			if(entity == null || entity.Any())
+            {
+				throw new MyException("无数据");
+            }
+			entity.ForEach(x =>
+			{
+				PurchasesGoodResponse mod = new PurchasesGoodResponse();
+				mod.GoodId = x.GoodId;
+				mod.GoodName = x.GoodName;
+				mod.Norm = x.Norm;
+				mod.Factory = x.Factory;
+				mod.SalesUnit = x.SalesUnit;
+				mod.StockUnit = x.StockUnit;
+				mod.Stock = x.Stock;
+				mod.ProductTime = x.ProductTime;
+				mod.ValidTime = x.ValidTime;
+				mod.BatchNum = x.BatchNum;
+				mod.PurchasePrice = Math.Round(x.PurchasePrice / 1000.00,3);
+				mod.SellPrice = Math.Round(x.SellPrice / 1000.00, 3);
+				result.Add(mod);
+			});
 			return result;
 		}
-		///<summary> 
-		///新增
-		///</summary> 
-		///<param name="request"></param>
-		/// <returns></returns>
-		public int add(PurchasesGoodAdd request)
-		{
-			return db.Create(request.DtoToEntity<PurchasesGoodEntity>());
-		}
-		///<summary> 
-		///修改
-		///</summary> 
-		///<param name="request"></param>
-		/// <returns></returns>
-		public void update(PurchasesGoodUpdate request)
-		{
-			db.Update(request.DtoToEntity<PurchasesGoodEntity>());
-		}
-		///<summary> 
-		///删除
-		///</summary> 
-		///<param name="request"></param>
-		/// <returns></returns>
-		public void delete(PurchasesGoodDelete request)
-		{
-			db.Delete(request.DtoToEntity<PurchasesGoodEntity>());
-		}
+
 	}
 } 

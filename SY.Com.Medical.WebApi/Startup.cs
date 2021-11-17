@@ -63,12 +63,12 @@ namespace SY.Com.Medical.WebApi
             //配置跨域处理
             services.AddCors(options =>
             {
-                options.AddPolicy("any", builder =>
+                //any
+                options.AddPolicy("abcany", builder =>
                 {
                     builder.AllowAnyOrigin() //允许任何来源的主机访问
                     .AllowAnyMethod()
-                    .AllowAnyHeader()
-                    .AllowCredentials();//指定处理cookie
+                    .AllowAnyHeader();      //.AllowCredentials();//指定处理cookie              
                 });
             });
             
@@ -135,7 +135,7 @@ namespace SY.Com.Medical.WebApi
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseStaticFiles(); //静态文件服务
+            app.UseStaticFiles(); //静态文件服务            
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
@@ -145,6 +145,7 @@ namespace SY.Com.Medical.WebApi
             app.UseRouting();
             app.UseAuthentication();//JWT验证  
             app.UseAuthorization();
+            app.UseCors("abcany");
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

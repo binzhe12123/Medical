@@ -2032,29 +2032,9 @@
             采购金额
             </summary> 
         </member>
-        <member name="P:SY.Com.Medical.Model.PurchaseModel.Supplier">
-            <summary> 
-            供应商
-            </summary> 
-        </member>
         <member name="P:SY.Com.Medical.Model.PurchaseModel.CreateTime">
             <summary> 
             采购时间
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.PurchaseModel.Createtor">
-            <summary> 
-            创建者
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.PurchaseModel.IsEnalbe">
-            <summary> 
-            
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.PurchaseModel.IsDelete">
-            <summary> 
-            
             </summary> 
         </member>
         <member name="T:SY.Com.Medical.Model.PurchaseRequest">
@@ -2233,6 +2213,501 @@
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Model.PurchaseDelete.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.PurchasesGoodModel">
+            <summary>
+             PurchasesGood模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodModel.GoodId">
+            <summary>
+            药品/材料ID
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodModel.GoodName">
+            <summary> 
+            药品名称
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodModel.Norm">
+            <summary> 
+            规格
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodModel.Factory">
+            <summary> 
+            厂家
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodModel.SalesUnit">
+            <summary> 
+            计价单位
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodModel.StockUnit">
+            <summary>
+            库存单位
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodModel.Ratio">
+            <summary>
+            bilv
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodModel.Stock">
+            <summary> 
+            采购量
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodModel.ProductTime">
+            <summary> 
+            生产日期
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodModel.ValidTime">
+            <summary> 
+            有效期
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodModel.BatchNum">
+            <summary> 
+            批号
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodModel.PurchasePrice">
+            <summary> 
+            采购价
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodModel.SellPrice">
+            <summary> 
+            销售价
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.PurchasesGoodRequest">
+            <summary>
+            查询入参
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodRequest.PurchaseId">
+            <summary>
+            采购单id 
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.PurchasesGoodResponse">
+            <summary>
+            查询返回
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodResponse.GoodId">
+            <summary>
+            药品/材料ID
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodResponse.GoodName">
+            <summary> 
+            药品名称
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodResponse.Norm">
+            <summary> 
+            规格
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodResponse.Factory">
+            <summary> 
+            厂家
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodResponse.SalesUnit">
+            <summary> 
+            计价单位
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodResponse.StockUnit">
+            <summary>
+            库存单位
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodResponse.Stock">
+            <summary> 
+            采购量
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodResponse.Consume">
+            <summary>
+            剩余量
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodResponse.ProductTime">
+            <summary> 
+            生产日期
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodResponse.ValidTime">
+            <summary> 
+            有效期
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodResponse.BatchNum">
+            <summary> 
+            批号
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodResponse.PurchasePrice">
+            <summary> 
+            采购价
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodResponse.SellPrice">
+            <summary> 
+            销售价
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.PurchasesGoodSearchResponse">
+            <summary>
+            采购搜索药品/材料列表
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodSearchResponse.GoodId">
+            <summary>
+            药品/材料id
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodSearchResponse.GoodName">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodSearchResponse.Norm">
+            <summary>
+            规格
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodSearchResponse.Factory">
+            <summary>
+            厂家
+            </summary>		
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodSearchResponse.SalesUnit">
+            <summary>
+            计价单位
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodSearchResponse.Units">
+            <summary>
+            两个单位模型
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodSearchResponse.Ratio">
+            <summary>
+            比率
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodSearchResponse.Stock">
+            <summary>
+            库存剩余
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.UnitModel">
+            <summary>
+            单位模型
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.UnitModel.SalesUnit">
+            <summary>
+            计价单位
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.UnitModel.StockUnit">
+            <summary>
+            库存单位
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.PurchasesGoodSearchRequest">
+            <summary>
+            采购搜索药品/材料输入
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodSearchRequest.GoodType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodSearchRequest.SearchKey">
+            <summary>
+            搜索关键词
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.PurchasesGoodAdd">
+            <summary>
+             PurchasesGood模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodAdd.id">
+            <summary> 
+            自增主键
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodAdd.PurchaseId">
+            <summary> 
+            采购id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodAdd.GoodName">
+            <summary> 
+            药品名称
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodAdd.Norm">
+            <summary> 
+            规格
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodAdd.Factory">
+            <summary> 
+            厂家
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodAdd.SalesUnit">
+            <summary> 
+            计价单位
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodAdd.StockUnit">
+            <summary> 
+            库存单位
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodAdd.Stock">
+            <summary> 
+            库存量
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodAdd.Consume">
+            <summary> 
+            剩余库存量
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodAdd.ProductTime">
+            <summary> 
+            生产日期
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodAdd.ValidTime">
+            <summary> 
+            有效期
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodAdd.BatchNum">
+            <summary> 
+            批号
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodAdd.PurchasePrice">
+            <summary> 
+            采购价
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodAdd.SellPrice">
+            <summary> 
+            销售价
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodAdd.CreateTime">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodAdd.IsEnalbe">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodAdd.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.PurchasesGoodUpdate">
+            <summary>
+             PurchasesGood模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodUpdate.id">
+            <summary> 
+            自增主键
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodUpdate.PurchaseId">
+            <summary> 
+            采购id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodUpdate.GoodName">
+            <summary> 
+            药品名称
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodUpdate.Norm">
+            <summary> 
+            规格
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodUpdate.Factory">
+            <summary> 
+            厂家
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodUpdate.SalesUnit">
+            <summary> 
+            计价单位
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodUpdate.StockUnit">
+            <summary> 
+            库存单位
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodUpdate.Stock">
+            <summary> 
+            库存量
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodUpdate.Consume">
+            <summary> 
+            剩余库存量
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodUpdate.ProductTime">
+            <summary> 
+            生产日期
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodUpdate.ValidTime">
+            <summary> 
+            有效期
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodUpdate.BatchNum">
+            <summary> 
+            批号
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodUpdate.PurchasePrice">
+            <summary> 
+            采购价
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodUpdate.SellPrice">
+            <summary> 
+            销售价
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodUpdate.CreateTime">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodUpdate.IsEnalbe">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodUpdate.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.PurchasesGoodDelete">
+            <summary>
+             PurchasesGood模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodDelete.id">
+            <summary> 
+            自增主键
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodDelete.PurchaseId">
+            <summary> 
+            采购id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodDelete.GoodName">
+            <summary> 
+            药品名称
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodDelete.Norm">
+            <summary> 
+            规格
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodDelete.Factory">
+            <summary> 
+            厂家
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodDelete.SalesUnit">
+            <summary> 
+            计价单位
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodDelete.StockUnit">
+            <summary> 
+            库存单位
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodDelete.Stock">
+            <summary> 
+            库存量
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodDelete.Consume">
+            <summary> 
+            剩余库存量
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodDelete.ProductTime">
+            <summary> 
+            生产日期
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodDelete.ValidTime">
+            <summary> 
+            有效期
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodDelete.BatchNum">
+            <summary> 
+            批号
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodDelete.PurchasePrice">
+            <summary> 
+            采购价
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodDelete.SellPrice">
+            <summary> 
+            销售价
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodDelete.CreateTime">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodDelete.IsEnalbe">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PurchasesGoodDelete.IsDelete">
             <summary> 
             
             </summary> 
