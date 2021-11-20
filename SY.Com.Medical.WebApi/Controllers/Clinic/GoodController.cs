@@ -39,6 +39,10 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                     request.GoodType = 6;
                 }
                 var tuple = bll.getGoods(request.TenantId,request.PageSize,request.PageIndex,request.GoodType,request.GoodSort,request.SearchKey);
+                if(tuple.Item2 == 0)
+                {
+                    return result.busExceptino(Enum.ErrorCode.数据为空, "无数据");
+                }
                 result.Data = tuple.Item1.ToList().Mapping<GoodModels>();
                 result.CalcPage(tuple.Item2, request.PageIndex, request.PageSize);
                 return result;
@@ -278,6 +282,10 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             try
             {                
                 var tuple = bll.getGoods(request.TenantId,request.PageSize,request.PageIndex,4,request.GoodSort,request.SearchKey);
+                if(tuple.Item2 == 0 || tuple.Item1 == null)
+                {
+                    return result.busExceptino(Enum.ErrorCode.数据为空, "");
+                }
                 result.Data = tuple.Item1.ToList().Mapping<GoodItemModel>();
                 result.CalcPage(tuple.Item2, request.PageIndex, request.PageSize);
                 return result;
@@ -420,6 +428,10 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             {
                 request.GoodType = 5;
                 var tuple = bll.getGoods(request.TenantId,request.PageSize,request.PageIndex,request.GoodType,request.GoodSort,request.SearchKey);
+                if(tuple.Item2 == 0 || tuple.Item1 == null)
+                {
+                    return result.busExceptino(Enum.ErrorCode.数据为空, "");
+                }
                 result.Data = tuple.Item1.ToList().Mapping<GoodMaterialModels>();
                 result.CalcPage(tuple.Item2, request.PageIndex, request.PageSize);
                 return result;

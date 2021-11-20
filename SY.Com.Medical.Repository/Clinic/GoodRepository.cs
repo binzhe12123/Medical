@@ -54,7 +54,7 @@ namespace SY.Com.Medical.Repository.Clinic
             IEnumerable<GoodEntity> collection = grid.Read<GoodEntity>();
             if (collection == null || !collection.Any())
             {
-                return null;
+                return new Tuple<int, List<GoodEntity>>(0, null);                
             }
             result = new Tuple<int, List<GoodEntity>>(total, collection.ToList());
             return result;

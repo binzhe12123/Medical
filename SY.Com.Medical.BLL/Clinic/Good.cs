@@ -33,6 +33,8 @@ namespace SY.Com.Medical.BLL.Clinic
             List<GoodBllModels> mods = new List<GoodBllModels>();
             var tuple = db.getPagesByWhere(tenantId, pageSize, pageIndex, goodType, goodSort, searchKey);
             int total = tuple.Item1;
+            if (tuple.Item2 == null || !tuple.Item2.Any())
+                return new Tuple<List<GoodBllModels>, int>(null, 0);
             tuple.Item2.ForEach(x =>
             {
                 GoodBllModels mod = new GoodBllModels();
