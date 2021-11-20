@@ -527,6 +527,11 @@
             头像
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.EmployeeModel.IsEnable">
+            <summary>
+            启用禁用:1:启用,2:禁用
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.EmployeeGetModel">
             <summary>
             获取员工信息

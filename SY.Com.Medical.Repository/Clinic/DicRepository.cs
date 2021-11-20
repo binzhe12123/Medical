@@ -87,7 +87,7 @@ namespace SY.Com.Medical.Repository.Clinic
             {
                 sqlwhere += " And KeySecond= '" + keySecond + "' ";
             }
-            if (string.IsNullOrEmpty(value))
+            if (!string.IsNullOrEmpty(value))
             {
                 sqlwhere += " And DicValue = '" + value + "' ";
             }

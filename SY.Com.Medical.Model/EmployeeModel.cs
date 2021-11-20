@@ -50,6 +50,10 @@ namespace SY.Com.Medical.Model
         /// 头像
         /// </summary>
         public string LogoImg { get; set; }
+        /// <summary>
+        /// 启用禁用:1:启用,2:禁用
+        /// </summary>
+        public int IsEnable { get; set; }
     }
 
     /// <summary>
