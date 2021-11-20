@@ -108,7 +108,7 @@ namespace SY.Com.Medical.BLL.Clinic
             {
                 throw new MyException("该物品已经存在");
             }
-            request.SearchKey = request.GoodName.GetPinYinHead() + request.InsuranceCode + request.GoodStandard;
+            request.SearchKey = request.GoodName + request.GoodName.GetPinYinHead() + request.InsuranceCode + request.GoodStandard;
             GoodEntity entity = new GoodEntity();
             entity.TenantId = request.TenantId;
             entity.GoodName = request.GoodName;
@@ -125,7 +125,7 @@ namespace SY.Com.Medical.BLL.Clinic
             entity.Price = request.Price == null ? 0 : Convert.ToInt64(request.Price * 1000);
             entity.Stock = 0;
             entity.BarCode = request.BarCode;
-            entity.SearchKey = request.GoodName.GetPinYinHead() + request.InsuranceCode + request.GoodStandard;
+            entity.SearchKey = request.GoodName + request.GoodName.GetPinYinHead() + request.InsuranceCode + request.GoodStandard;
             entity.Usage = dicbll.getValueById(request.TenantId, request.Usage, "Usage", entity.GoodType.ToString());
             entity.Single = request.Single;                       
             entity.EveryDay = dicbll.getValueById(request.TenantId, request.EveryDay, "EveryDay", "");
@@ -155,7 +155,7 @@ namespace SY.Com.Medical.BLL.Clinic
             entity.Price = request.Price == null ? 0 : Convert.ToInt64(request.Price * 1000);
             entity.Stock = 0;
             entity.BarCode = request.BarCode;
-            entity.SearchKey = request.GoodName.GetPinYinHead() + request.InsuranceCode + request.GoodStandard;
+            entity.SearchKey = request.GoodName + request.GoodName.GetPinYinHead() + request.InsuranceCode + request.GoodStandard;
             entity.Usage = dicbll.getValueById(request.TenantId, request.Usage, "Usage", entity.GoodType.ToString());
             entity.Single = request.Single;
             entity.EveryDay = dicbll.getValueById(request.TenantId, request.EveryDay, "EveryDay", "");

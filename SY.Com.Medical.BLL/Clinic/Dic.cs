@@ -25,7 +25,7 @@ namespace SY.Com.Medical.BLL.Clinic
         {			
 			List<DicKeyValueModel> result = new List<DicKeyValueModel>();
 			var entitys = db.getDic(tenantid, keyFirst, keySecond, searchKey);
-			if(entitys == null || entitys.Any())
+			if(entitys == null || !entitys.Any())
             {
 				return null;
             }
@@ -34,6 +34,7 @@ namespace SY.Com.Medical.BLL.Clinic
 				DicKeyValueModel mod = new DicKeyValueModel();
 				mod.Id = x.DicId;
 				mod.Value = x.DicValue;
+				result.Add(mod);
 			});
 			return result;
 		}

@@ -359,6 +359,101 @@
             每日用量
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Entity.InventoryEntity">
+            <summary>
+            实体
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.InventoryEntity.InventoryId">
+            <summary> 
+            盘点单ID
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.InventoryEntity.TenantId">
+            <summary> 
+            租户ID
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.InventoryEntity.GoodsCount">
+            <summary> 
+            药品种类
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.InventoryEntity.Createtor">
+            <summary> 
+            创建人员
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Entity.InventoryGoodEntity">
+            <summary>
+            实体
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.InventoryGoodEntity.id">
+            <summary> 
+            自增主键
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.InventoryGoodEntity.TenantId">
+            <summary> 
+            租户id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.InventoryGoodEntity.InventoryId">
+            <summary> 
+            盘点单id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.InventoryGoodEntity.GoodId">
+            <summary> 
+            商品id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.InventoryGoodEntity.GoodName">
+            <summary> 
+            商品名称
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.InventoryGoodEntity.Norm">
+            <summary> 
+            规格
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.InventoryGoodEntity.Factory">
+            <summary> 
+            厂家
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.InventoryGoodEntity.SalesUnit">
+            <summary> 
+            计价单位
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.InventoryGoodEntity.Stock">
+            <summary> 
+            盘点前库存
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.InventoryGoodEntity.StockAfter">
+            <summary> 
+            盘点后库存
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.InventoryGoodEntity.Price">
+            <summary> 
+            盘点前售价
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.InventoryGoodEntity.PriceAfter">
+            <summary> 
+            盘点后售价
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.InventoryGoodEntity.IsEnalbe">
+            <summary> 
+            
+            </summary> 
+        </member>
         <member name="T:SY.Com.Medical.Entity.MenuEntity">
             <summary>
              菜单    
@@ -537,11 +632,6 @@
         <member name="P:SY.Com.Medical.Entity.PurchaseEntity.Createtor">
             <summary> 
             创建者
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Entity.PurchaseEntity.IsEnalbe">
-            <summary> 
-            
             </summary> 
         </member>
         <member name="T:SY.Com.Medical.Entity.PurchasesGoodEntity">

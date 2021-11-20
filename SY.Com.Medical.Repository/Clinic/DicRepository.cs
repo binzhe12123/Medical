@@ -118,7 +118,7 @@ namespace SY.Com.Medical.Repository.Clinic
             mod.KeyFirst = keyFirst;
             mod.KeySecond = keySecond;
             mod.DicValue = dicValue;
-            mod.SearchKey = dicValue.GetPinYinHead();
+            mod.SearchKey = dicValue + dicValue.GetPinYinHead();
             mod.IsEnable = Enum.Enable.启用;
             mod.IsDelete = Enum.Delete.正常;
             mod.CreateTime = DateTime.Now;
