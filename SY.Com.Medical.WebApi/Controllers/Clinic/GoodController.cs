@@ -65,12 +65,16 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         /// <param name="request">包含tenantid和goodid</param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<GoodModel> get(GoodOneRequest request)
+        public BaseResponse<GoodBllModel> get(GoodOneRequest request)
         {            
-            BaseResponse<GoodModel> result = new BaseResponse<GoodModel>();
+            BaseResponse<GoodBllModel> result = new BaseResponse<GoodBllModel>();
             try
             {
-                result.Data = bll.getGood(request.TenantId, request.GoodId).Mapping<GoodModel>();
+                result.Data = bll.getGood(request.TenantId, request.GoodId);
+                if(result.Data == null)
+                {
+                    return new BaseResponse<GoodBllModel>();
+                }
                 return result;
             }
             catch (Exception ex)
@@ -230,7 +234,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         public BaseResponse<List<DicKeyValueModel>> getUnit(BaseModel mod)
         {
             BaseResponse<List<DicKeyValueModel>> result = new BaseResponse<List<DicKeyValueModel>>();
-            result.Data = bll.getUsage(mod);
+            result.Data = bll.getUnit(mod);
             return result;
         }
 
@@ -315,6 +319,10 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             try
             {
                 result.Data = bll.getGood(request.TenantId,request.GoodId).Mapping<GoodItemOneModel>();
+                if(result.Data == null)
+                {
+                    return new BaseResponse<GoodItemOneModel>();
+                }
                 return result;
             }
             catch (Exception ex)
@@ -461,6 +469,10 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             try
             {
                 result.Data = bll.getGood(request.TenantId,request.GoodId).Mapping<GoodMaterialModel>();
+                if(result.Data == null)
+                {
+                    return new BaseResponse<GoodMaterialModel>();
+                }
                 return result;
             }
             catch (Exception ex)

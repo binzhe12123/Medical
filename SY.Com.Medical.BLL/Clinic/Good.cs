@@ -69,6 +69,10 @@ namespace SY.Com.Medical.BLL.Clinic
 		public GoodBllModel getGood(int tenantId,int GoodId)
         {
             var entity = db.getOneById(tenantId, GoodId);
+            if(entity == null || entity.GoodId == 0)
+            {
+                return null;
+            }
             GoodBllModel mod = new GoodBllModel();
             mod.GoodId = entity.GoodId;
             mod.GoodName = entity.GoodName;
@@ -202,6 +206,7 @@ namespace SY.Com.Medical.BLL.Clinic
         {
             return dicbll.getValueByKey(mod.TenantId, "Usage", "", "");
         }
+
 
         /// <summary>
         /// 获取一天用量字典
