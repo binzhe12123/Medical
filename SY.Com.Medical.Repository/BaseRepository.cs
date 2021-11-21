@@ -196,7 +196,8 @@ namespace SY.Com.Medical.Repository
                 {    
                     if (prop.IsDefined(typeof(DB_DefaultAttribute), false))
                     {
-                        if (prop.GetValue(t) == null || (int)prop.GetValue(t) == 0)
+                        int outint;
+                        if (prop.GetValue(t) == null || (int.TryParse(prop.GetValue(t).ToString(), out outint) && (int)prop.GetValue(t) == 0))
                         {
                             var attr = (DB_DefaultAttribute)prop.GetCustomAttribute(typeof(DB_DefaultAttribute));
                             var defaultvalue = attr.getDefault();
