@@ -3317,6 +3317,3891 @@
             文件后缀名
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Model.Down9102">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.Down9102.In9102">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.Down9102.In9102.fsDownloadIn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.Down9102.FsDownloadIn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.Down9102.FsDownloadIn.file_qury_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.Down9102.FsDownloadIn.filename">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.Down9102.FsDownloadIn.fixmedins_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYB.KSYSmodel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.KSYSmodel.ZHID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.KSYSmodel.doctorBH">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.KSYSmodel.KSBH">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYB.OutYsks">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.OutYsks.doctorNo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.OutYsks.doctorName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.OutYsks.doctorSFZ">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.OutYsks.KSNo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.OutYsks.KSName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.OutYsks.KScaty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYB.MkGH">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MkGH.ZHID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MkGH.GHBH">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MkGH.mdtrt_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MkGH.psn_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MkGH.ipt_otp_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYB.MKIn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYB.MKIn.MKIn1101">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MKIn.MKIn1101.ZHID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MKIn.MKIn1101.YHBH">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MKIn.MKIn1101.mdtrt_cert_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MKIn.MKIn1101.mdtrt_cert_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MKIn.MKIn1101.card_sn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYB.MKIn.UserBd">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MKIn.UserBd.zhid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MKIn.UserBd.YHBH">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MKIn.UserBd.psn_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MKIn.UserBd.psn_cert_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MKIn.UserBd.certno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MKIn.UserBd.psn_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MKIn.UserBd.gend">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MKIn.UserBd.age">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MKIn.UserBd.insuinfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYB.MKIn.insuinfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MKIn.insuinfo.insutype">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MKIn.insuinfo.insuplc_admdvs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MKIn.insuinfo.psn_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYB.MKIn.OutRY">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MKIn.OutRY.ZHID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MKIn.OutRY.HZBH">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MKIn.OutRY.HZID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYB.RYBA2505">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYB.RYBA2505.In2505data">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.RYBA2505.In2505data.data">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYB.RYBA2505.In2505">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.RYBA2505.In2505.psn_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.RYBA2505.In2505.tel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.RYBA2505.In2505.addr">
+            <summary>
+            
+            </summary>　	　
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.RYBA2505.In2505.biz_appy_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.RYBA2505.In2505.begndate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.RYBA2505.In2505.enddate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.RYBA2505.In2505.agnter_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.RYBA2505.In2505.agnter_cert_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.RYBA2505.In2505.agnter_certno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.RYBA2505.In2505.agnter_tel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.RYBA2505.In2505.agnter_addr">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.RYBA2505.In2505.agnter_rlts">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.RYBA2505.In2505.fix_srt_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.RYBA2505.In2505.fixmedins_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.RYBA2505.In2505.fixmedins_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.RYBA2505.In2505.memo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYB.RYBA2505.Out2505">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.RYBA2505.Out2505.trt_dcla_detl_sn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYB.RYBA.In2506data">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.RYBA.In2506data.data">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYB.RYBA.In2506">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.RYBA.In2506.trt_dcla_detl_sn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.RYBA.In2506.psn_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.RYBA.In2506.memo">
+            <summary>
+            
+            </summary>        
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYB.SaveLog">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.SaveLog.zhid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.SaveLog.infno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.SaveLog.msgid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.SaveLog.infcode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.SaveLog.inf_refmsgid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.SaveLog.refmsg_time">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.SaveLog.respond_time">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.SaveLog.err_msg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.SaveLog.MessgeIn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.SaveLog.MessageOut">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYB.SaveLogModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.SaveLogModel.zhid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.SaveLogModel.MessgeIn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.SaveLogModel.MessageOut">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYB.outlog">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.outlog.SYBLogID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.In9001">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.In9001.signIn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.In9001model">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.In9001model.opter_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.In9001model.mac">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.In9001model.ip">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.Out9001">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.Out9001.sign_time">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.Out9001.sign_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.CheckIn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CheckIn.sign_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CheckIn.sign_time">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.QT9002">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.QT9002.In9002">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.QT9002.In9002.signOut">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.QT9002.In9002model">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.QT9002.In9002model.sign_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.QT9002.In9002model.opter_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.QT9002.Out9002">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.QT9002.Out9002.sign_time">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYBCommon">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYBCommon.InCommon">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommon.InCommon.infno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommon.InCommon.msgid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommon.InCommon.mdtrtarea_admvs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommon.InCommon.insuplc_admdvs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommon.InCommon.recer_sys_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommon.InCommon.dev_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommon.InCommon.dev_safe_info">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommon.InCommon.cainfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommon.InCommon.signtype">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommon.InCommon.infver">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommon.InCommon.opter_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommon.InCommon.opter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommon.InCommon.opter_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommon.InCommon.inf_time">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommon.InCommon.fixmedins_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommon.InCommon.fixmedins_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommon.InCommon.sign_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommon.InCommon.input">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYBCommon.OutCommon">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommon.OutCommon.infcode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommon.OutCommon.inf_refmsgid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommon.OutCommon.refmsg_time">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommon.OutCommon.respond_time">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommon.OutCommon.err_msg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommon.OutCommon.output">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYBEasyCommon`1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBEasyCommon`1.zhid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBEasyCommon`1.opter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBEasyCommon`1.opter_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBEasyCommon`1.fixmedins_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBEasyCommon`1.fixmedins_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBEasyCommon`1.sign_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBEasyCommon`1.input">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.Up9101">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.Up9101.In9101">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.Up9101.In9101.filename">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.Up9101.In9101.fixmedins_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.Up9101.Out9101">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.Up9101.Out9101.file_qury_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.Up9101.Out9101.filename">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.Up9101.Out9101.fixmedins_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.Up9101.Out9101.dld_endtime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.BL4701">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.BL4701.In4701">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.In4701.adminfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.In4701.diseinfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.In4701.coursrinfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.In4701.oprninfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.In4701.rescinfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.In4701.dieinfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.In4701.dscginfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.BL4701.Adminfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.mdtrt_sn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.mdtrt_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.psn_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.mdtrtsn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.gend">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.age">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.adm_rec_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.wardarea_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.dept_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.dept_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.bedno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.adm_time">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.illhis_stte_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.illhis_stte_rltl">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.stte_rele">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.chfcomp">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.dise_now">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.hlcon">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.dise_his">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.ifet">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.ifet_his">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.prev_vcnt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.oprn_his">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.bld_his">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.algs_his">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.psn_his">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.mrg_his">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.mena_his">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.fmhis">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.physexm_tprt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.physexm_pule">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.physexm_vent_frqu">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.physexm_systolic_pre">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.physexm_dstl_pre">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.physexm_height">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.physexm_wt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.physexm_ordn_stas">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.physexm_skin_musl">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.physexm_spef_lymph">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.physexm_head">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.physexm_neck">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.physexm_chst">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.physexm_abd">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.physexm_finger_exam">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.physexm_genital_area">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.physexm_spin">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.physexm_all_fors">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.nersys">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.spcy_info">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.asst_exam_rslt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.tcm4d_rslt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.syddclft">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.syddclft_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.prnp_trt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.rec_doc_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.rec_doc_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.ipdr_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.ipdr_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.chfdr_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.chfdr_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.chfpdr_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.chfpdr_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.main_symp">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.adm_rea">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.adm_way">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.apgr">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.diet_info">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.growth_deg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.mtl_stas_norm">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.slep_info">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.sp_info">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.mind_info">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.nurt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.self_ablt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.nurscare_obsv_item_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.nurscare_obsv_rslt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.smoke">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.stop_smok_days">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.smok_info">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.smok_day">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.drnk">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.drnk_frqu">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.drnk_day">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.eval_time">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.resp_nurs_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Adminfo.vali_flag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.BL4701.Diseinfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Diseinfo.inout_diag_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Diseinfo.maindiag_flag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Diseinfo.diag_seq">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Diseinfo.diag_time">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Diseinfo.wm_diag_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Diseinfo.wm_diag_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Diseinfo.tcm_dise_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Diseinfo.tcm_dise_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Diseinfo.tcmsymp_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Diseinfo.tcmsymp">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Diseinfo.vali_flag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.BL4701.Coursrinfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Coursrinfo.dept_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Coursrinfo.dept_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Coursrinfo.wardarea_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Coursrinfo.bedno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Coursrinfo.rcd_time">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Coursrinfo.chfcomp">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Coursrinfo.cas_ftur">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Coursrinfo.tcm4d_rslt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Coursrinfo.dise_evid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Coursrinfo.prel_wm_diag_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Coursrinfo.prel_tcm_dise_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Coursrinfo.prel_tcm_diag_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Coursrinfo.prel_tcmsymp_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Coursrinfo.prel_tcmsymp">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Coursrinfo.finl_wm_diag_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Coursrinfo.finl_wm_diag_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Coursrinfo.finl_tcm_dise_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Coursrinfo.finl_tcm_dise_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Coursrinfo.finl_tcmsymp_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Coursrinfo.finl_tcmsymp">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Coursrinfo.dise_plan">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Coursrinfo.prnp_trt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Coursrinfo.ipdr_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Coursrinfo.ipdr_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Coursrinfo.prnt_doc_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Coursrinfo.vali_flag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.BL4701.Oprninfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.oprn_appy_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.oprn_seq">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.blotype_abo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.oprn_time">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.oprn_type_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.oprn_type_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.bfpn_diag_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.bfpn_oprn_diag_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.bfpn_inhosp_ifet">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.afpn_diag_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.afpn_diag_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.sinc_heal_lv">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.sinc_heal_lv_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.back_oprn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.selv">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.prev_abtl_medn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.abtl_medn_days">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.oprn_oprt_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.oprn_oprt_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.oprn_lv_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.oprn_lv_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.anst_mtd_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.anst_mtd_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.anst_lv_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.anst_lv_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.exe_anst_dept_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.exe_anst_dept_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.anst_efft">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.oprn_begntime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.oprn_endtime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.oprn_asps">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.oprn_asps_ifet">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.afpn_info">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.oprn_merg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.oprn_conc">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.oprn_anst_dept_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.oprn_anst_dept_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.palg_dise">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.oth_med_dspo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.out_std_oprn_time">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.oprn_oper_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.oprn_asit_name1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.oprn_asit_name2">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.anst_dr_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.anst_asa_lv_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.anst_asa_lv_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.anst_medn_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.anst_medn_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.anst_medn_dos">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.anst_dosunt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.anst_begntime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.anst_endtime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.anst_merg_symp_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.anst_merg_symp">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.anst_merg_symp_dscr">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.pacu_begntime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.pacu_endtime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.oprn_selv">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.canc_oprn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Oprninfo.vali_flag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.BL4701.Rescinfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Rescinfo.dept">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Rescinfo.dept_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Rescinfo.wardarea_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Rescinfo.bedno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Rescinfo.diag_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Rescinfo.diag_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Rescinfo.cond_chg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Rescinfo.resc_mes">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Rescinfo.oprn_oprt_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Rescinfo.oprn_oprt_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Rescinfo.oprn_oper_part">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Rescinfo.itvt_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Rescinfo.oprt_mtd">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Rescinfo.oprt_cnt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Rescinfo.resc_begntime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Rescinfo.resc_endtime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Rescinfo.dise_item_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Rescinfo.dise_ccls">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Rescinfo.dise_ccls_qunt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Rescinfo.dise_ccls_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Rescinfo.mnan">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Rescinfo.resc_psn_list">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Rescinfo.proftechttl_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Rescinfo.doc_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Rescinfo.dr_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Rescinfo.vali_flag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.BL4701.Dieinfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Dieinfo.dept">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Dieinfo.dept_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Dieinfo.wardarea_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Dieinfo.bedno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Dieinfo.adm_time">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Dieinfo.adm_dise">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Dieinfo.adm_info">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Dieinfo.trt_proc_dscr">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Dieinfo.die_time">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Dieinfo.die_drt_rea">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Dieinfo.die_drt_rea_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Dieinfo.die_dise_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Dieinfo.die_diag_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Dieinfo.agre_corp_dset">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Dieinfo.ipdr_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Dieinfo.chfpdr_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Dieinfo.chfpdr_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Dieinfo.chfdr_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Dieinfo.sign_time">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Dieinfo.vali_flag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.BL4701.Dscginfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Dscginfo.dscg_date">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Dscginfo.adm_diag_dscr">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Dscginfo.dscg_dise_dscr">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Dscginfo.adm_info">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Dscginfo.trt_proc_rslt_dscr">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Dscginfo.dscg_info">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Dscginfo.dscg_drord">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Dscginfo.caty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Dscginfo.rec_doc">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Dscginfo.main_drug_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Dscginfo.oth_imp_info">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.BL4701.Dscginfo.vali_flag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.JS3201">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.JS3201.In3201">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.JS3201.In3201.insutype">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.JS3201.In3201.clr_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.JS3201.In3201.setl_optins">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.JS3201.In3201.stmt_begndate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.JS3201.In3201.stmt_enddate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.JS3201.In3201.medfee_sumamt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.JS3201.In3201.fund_pay_sumamt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.JS3201.In3201.acct_pay">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.JS3201.In3201.fixmedins_setl_cnt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.JS3201.Out3201">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.JS3201.Out3201.setl_optins">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.JS3201.Out3201.stmt_rslt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.JS3201.Out3201.stmt_rslt_dscr">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.KCBG3502">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.KCBG3502.In3502">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KCBG3502.In3502.med_list_codg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KCBG3502.In3502.inv_chg_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KCBG3502.In3502.fixmedins_hilist_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KCBG3502.In3502.fixmedins_hilist_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KCBG3502.In3502.fixmedins_bchno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KCBG3502.In3502.pric">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KCBG3502.In3502.cnt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KCBG3502.In3502.rx_flag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KCBG3502.In3502.inv_chg_time">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KCBG3502.In3502.inv_chg_opter_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KCBG3502.In3502.memo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KCBG3502.In3502.trdn_flag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.KS3401">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.KS3401.Deptinfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3401.Deptinfo.hosp_dept_codg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3401.Deptinfo.caty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3401.Deptinfo.hosp_dept_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3401.Deptinfo.begntime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3401.Deptinfo.endtime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3401.Deptinfo.itro">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3401.Deptinfo.dept_resper_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3401.Deptinfo.dept_resper_tel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3401.Deptinfo.dept_med_serv_scp">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3401.Deptinfo.dept_estbdat">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3401.Deptinfo.aprv_bed_cnt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3401.Deptinfo.hi_crtf_bed_cnt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3401.Deptinfo.poolarea_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3401.Deptinfo.dr_psncnt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3401.Deptinfo.phar_psncnt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3401.Deptinfo.nurs_psncnt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3401.Deptinfo.tecn_psncnt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3401.Deptinfo.memo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.KS3401.In3401">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3401.In3401.deptinfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.KS3402">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.KS3402.Deptinfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo.hosp_dept_codg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo.hosp_dept_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo.begntime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo.endtime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo.itro">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo.dept_resper_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo.dept_resper_tel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo.dept_med_serv_scp">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo.caty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo.dept_estbdat">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo.aprv_bed_cnt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo.hi_crtf_bed_cnt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo.poolarea_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo.dr_psncnt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo.phar_psncnt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo.nurs_psncnt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo.tecn_psncnt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo.memo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.KS3402.In3402">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3402.In3402.deptinfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.KS3403">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.KS3403.In3403">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3403.In3403.hosp_dept_codg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3403.In3403.hosp_dept_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3403.In3403.begntime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.KS3403.In3403data">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.KS3403.In3403data.data">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SQMX3101">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SQMX3101.In3101">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.In3101.data">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.In3101.patient_dtos">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.In3101.fsi_encounter_dtos">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.In3101.fsi_diagnose_dtos">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.In3101.fsi_order_dtos">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.In3101.fsi_operation_dtos">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SQMX3101.In3101data">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.In3101data.syscode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.In3101data.patient_dtos">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.In3101data.rule_ids">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.In3101data.task_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.In3101data.trig_scen">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SQMX3101.Patient_Dtos">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Patient_Dtos.patn_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Patient_Dtos.patn_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Patient_Dtos.gend">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Patient_Dtos.brdy">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Patient_Dtos.poolarea">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Patient_Dtos.curr_mdtrt_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Patient_Dtos.fsi_encounter_dtos">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Patient_Dtos.fsi_his_data_dto">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SQMX3101.Fsi_Encounter_Dtos">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Encounter_Dtos.mdtrt_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Encounter_Dtos.medins_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Encounter_Dtos.medins_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Encounter_Dtos.medins_admdvs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Encounter_Dtos.medins_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Encounter_Dtos.medins_lv">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Encounter_Dtos.wardarea_codg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Encounter_Dtos.wardno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Encounter_Dtos.bedno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Encounter_Dtos.adm_date">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Encounter_Dtos.dscg_date">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Encounter_Dtos.dscg_main_dise_codg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Encounter_Dtos.dscg_main_dise_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Encounter_Dtos.fsi_diagnose_dtos">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Encounter_Dtos.dr_codg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Encounter_Dtos.adm_dept_codg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Encounter_Dtos.adm_dept_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Encounter_Dtos.dscg_dept_codg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Encounter_Dtos.dscg_dept_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Encounter_Dtos.med_mdtrt_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Encounter_Dtos.med_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Encounter_Dtos.fsi_order_dtos">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Encounter_Dtos.matn_stas">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Encounter_Dtos.medfee_sumamt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Encounter_Dtos.ownpay_amt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Encounter_Dtos.selfpay_amt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Encounter_Dtos.acct_payamt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Encounter_Dtos.ma_amt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Encounter_Dtos.hifp_payamt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Encounter_Dtos.setl_totlnum">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Encounter_Dtos.insutype">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Encounter_Dtos.reim_flag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Encounter_Dtos.out_setl_flag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Encounter_Dtos.fsi_operation_dtos">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SQMX3101.Fsi_Diagnose_Dtos">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Diagnose_Dtos.mdtrt_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Diagnose_Dtos.medins_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Diagnose_Dtos.medins_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Diagnose_Dtos.medins_admdvs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Diagnose_Dtos.medins_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Diagnose_Dtos.medins_lv">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Diagnose_Dtos.wardarea_codg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Diagnose_Dtos.wardno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Diagnose_Dtos.bedno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Diagnose_Dtos.adm_date">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Diagnose_Dtos.dscg_date">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Diagnose_Dtos.dscg_main_dise_codg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Diagnose_Dtos.dscg_main_dise_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Diagnose_Dtos.fsi_diagnose_dtos">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Diagnose_Dtos.dr_codg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Diagnose_Dtos.adm_dept_codg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Diagnose_Dtos.adm_dept_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Diagnose_Dtos.dscg_dept_codg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Diagnose_Dtos.dscg_dept_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Diagnose_Dtos.med_mdtrt_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Diagnose_Dtos.med_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Diagnose_Dtos.fsi_order_dtos">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Diagnose_Dtos.matn_stas">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Diagnose_Dtos.medfee_sumamt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Diagnose_Dtos.ownpay_amt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Diagnose_Dtos.selfpay_amt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Diagnose_Dtos.acct_payamt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Diagnose_Dtos.ma_amt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Diagnose_Dtos.hifp_payamt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Diagnose_Dtos.setl_totlnum">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Diagnose_Dtos.insutype">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Diagnose_Dtos.reim_flag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Diagnose_Dtos.out_setl_flag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Diagnose_Dtos.fsi_operation_dtos">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SQMX3101.Fsi_Order_Dtos">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Order_Dtos.rx_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Order_Dtos.rxno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Order_Dtos.grpno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Order_Dtos.long_drord_flag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Order_Dtos.hilist_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Order_Dtos.chrg_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Order_Dtos.drord_bhvr">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Order_Dtos.hilist_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Order_Dtos.hilist_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Order_Dtos.hilist_dosform">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Order_Dtos.hilist_lv">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Order_Dtos.hilist_pric">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Order_Dtos.lv1_hosp_item_pric">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Order_Dtos.lv2_hosp_item_pric">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Order_Dtos.lv3_hosp_item_pric">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Order_Dtos.hilist_memo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Order_Dtos.hosplist_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Order_Dtos.hosplist_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Order_Dtos.hosplist_dosform">
+            <summary>
+            
+            </summary>            
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Order_Dtos.cnt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Order_Dtos.pric">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Order_Dtos.sumamt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Order_Dtos.ownpay_amt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Order_Dtos.selfpay_amt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Order_Dtos.spec">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Order_Dtos.spec_unt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Order_Dtos.drord_begn_date">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Order_Dtos.drord_stop_date">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Order_Dtos.drord_dept_codg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Order_Dtos.drord_dept_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Order_Dtos.drord_dr_codg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Order_Dtos.drord_dr_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Order_Dtos.drord_dr_profttl">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Order_Dtos.curr_drord_flag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SQMX3101.Fsi_Operation_Dtos">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Operation_Dtos.setl_list_oprn_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Operation_Dtos.oprn_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Operation_Dtos.oprn_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Operation_Dtos.main_oprn_flag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Operation_Dtos.oprn_date">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Operation_Dtos.anst_way">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Operation_Dtos.oper_dr_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Operation_Dtos.oper_dr_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Operation_Dtos.anst_dr_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Fsi_Operation_Dtos.anst_dr_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SQMX3101.Out3101">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Out3101.result">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SQMX3101.Result">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Result.jr_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Result.rule_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Result.rule_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Result.vola_cont">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Result.patn_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Result.mdtrt_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Result.judge_result_detail_dtos">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Result.vola_amt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Result.vola_amt_stas">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Result.sev_deg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Result.vola_evid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Result.vola_bhvr_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Result.task_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SQMX3101.Judge_Result_Detail_Dtos">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Judge_Result_Detail_Dtos.jrd_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Judge_Result_Detail_Dtos.patn_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Judge_Result_Detail_Dtos.mdtrt_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Judge_Result_Detail_Dtos.rx_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Judge_Result_Detail_Dtos.vola_item_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SQMX3101.Judge_Result_Detail_Dtos.vola_amt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.XSTH3506">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.XSTH3506.In3506">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.XSTH3506.In3506.med_list_codg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.XSTH3506.In3506.fixmedins_hilist_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.XSTH3506.In3506.fixmedins_hilist_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.XSTH3506.In3506.fixmedins_bchno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.XSTH3506.In3506.setl_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.XSTH3506.In3506.psn_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.XSTH3506.In3506.psn_cert_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.XSTH3506.In3506.certno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.XSTH3506.In3506.psn_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.XSTH3506.In3506.manu_lotnum">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.XSTH3506.In3506.manu_date">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.XSTH3506.In3506.expy_end">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.XSTH3506.In3506.rx_flag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.XSTH3506.In3506.trdn_flag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.XSTH3506.In3506.finl_trns_pric">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.XSTH3506.In3506.sel_retn_cnt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.XSTH3506.In3506.sel_retn_time">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.XSTH3506.In3506.sel_retn_opter_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.XSTH3506.In3506.memo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.XSTH3506.In3506.medins_prod_sel_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.YPCG3503">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.YPCG3503.In3503">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCG3503.In3503.med_list_codg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCG3503.In3503.fixmedins_hilist_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCG3503.In3503.fixmedins_hilist_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCG3503.In3503.dynt_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCG3503.In3503.fixmedins_bchno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCG3503.In3503.spler_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCG3503.In3503.spler_pmtno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCG3503.In3503.manu_lotnum">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCG3503.In3503.prdr_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCG3503.In3503.aprvno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCG3503.In3503.manu_date">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCG3503.In3503.expy_end">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCG3503.In3503.finl_trns_pric">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCG3503.In3503.purc_retn_cnt">
+            <summary>
+            
+            </summary>            
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCG3503.In3503.purc_invo_codg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCG3503.In3503.purc_invo_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCG3503.In3503.rx_flag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCG3503.In3503.purc_retn_stoin_time">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCG3503.In3503.purc_retn_opter_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCG3503.In3503.prod_geay_flag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCG3503.In3503.memo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.YPCGTH3504">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.YPCGTH3504.In3504">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCGTH3504.In3504.med_list_codg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCGTH3504.In3504.fixmedins_hilist_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCGTH3504.In3504.fixmedins_hilist_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCGTH3504.In3504.fixmedins_bchno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCGTH3504.In3504.spler_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCGTH3504.In3504.spler_pmtno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCGTH3504.In3504.manu_date">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCGTH3504.In3504.expy_end">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCGTH3504.In3504.finl_trns_pric">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCGTH3504.In3504.purc_retn_cnt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCGTH3504.In3504.purc_invo_codg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCGTH3504.In3504.purc_invo_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCGTH3504.In3504.rx_flag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCGTH3504.In3504.purc_retn_stoin_time">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCGTH3504.In3504.purc_retn_opter_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCGTH3504.In3504.memo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPCGTH3504.In3504.medins_prod_purc_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.YPPC3501">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.YPPC3501.In3501">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPPC3501.In3501.med_list_codg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPPC3501.In3501.fixmedins_hilist_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPPC3501.In3501.fixmedins_hilist_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPPC3501.In3501.rx_flag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPPC3501.In3501.invdate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPPC3501.In3501.inv_cnt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPPC3501.In3501.manu_lotnum">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPPC3501.In3501.fixmedins_bchno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPPC3501.In3501.manu_date">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPPC3501.In3501.expy_end">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPPC3501.In3501.memo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.YPSC3507">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.YPSC3507.In3507">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPSC3507.In3507.fixmedins_bchno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPSC3507.In3507.inv_data_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.YPXS3505">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.YPXS3505.In3505">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPXS3505.In3505.med_list_codg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPXS3505.In3505.fixmedins_hilist_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPXS3505.In3505.fixmedins_hilist_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPXS3505.In3505.fixmedins_bchno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPXS3505.In3505.prsc_dr_cert_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPXS3505.In3505.prsc_dr_certno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPXS3505.In3505.prsc_dr_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPXS3505.In3505.phar_cert_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPXS3505.In3505.phar_certno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPXS3505.In3505.phar_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPXS3505.In3505.phar_prac_cert_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPXS3505.In3505.hi_feesetl_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPXS3505.In3505.setl_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPXS3505.In3505.mdtrt_sn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPXS3505.In3505.psn_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPXS3505.In3505.psn_cert_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPXS3505.In3505.certno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPXS3505.In3505.psn_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPXS3505.In3505.manu_lotnum">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPXS3505.In3505.manu_date">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPXS3505.In3505.expy_end">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPXS3505.In3505.rx_flag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPXS3505.In3505.trdn_flag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPXS3505.In3505.finl_trns_pric">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPXS3505.In3505.rxno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPXS3505.In3505.rx_circ_flag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPXS3505.In3505.rtal_docno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPXS3505.In3505.stoout_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPXS3505.In3505.bchno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPXS3505.In3505.drug_trac_codg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPXS3505.In3505.drug_prod_barc">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPXS3505.In3505.shelf_posi">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPXS3505.In3505.sel_retn_cnt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPXS3505.In3505.sel_retn_time">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPXS3505.In3505.sel_retn_opter_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YPXS3505.In3505.memo">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.TenantModel">
             <summary>
             租户
@@ -3615,6 +7500,206 @@
         <member name="P:SY.Com.Medical.Model.ResetResponse.UserId">
             <summary>
             用户ID
+            </summary>
+        </member>
+        <member name="T:SZSI_Smart.Model.SYB.CFZX.CF7103">
+            <summary>
+            处方购药结果反馈
+            </summary>
+        </member>
+        <member name="T:SZSI_Smart.Model.SYB.CFSH7102">
+            <summary>
+             处方审核结果反馈
+            </summary>
+        </member>
+        <member name="T:SZSI_Smart.Model.SYB.YG7101">
+            <summary>
+            1.1.1.1 电子处方上传
+            </summary>
+        </member>
+        <member name="T:SZSI_Smart.Model.SYB.YG7104">
+             <summary>
+            电子处方撤销
+             </summary>
+        </member>
+        <member name="T:SZSI_Smart.Model.SYB.JBXX.Dic1901">
+            <summary>
+            字典表查询
+            </summary>
+        </member>
+        <member name="T:SZSI_Smart.Model.SYB.JBXX.In1201data">
+            <summary>
+            1.1.1.1 医药机构信息获取
+            </summary>
+        </member>
+        <member name="T:SZSI_Smart.Model.SYB.JBXX.ML1301">
+            <summary>
+            目录下载
+            </summary>
+        </member>
+        <member name="T:SZSI_Smart.Model.SYB.In1101">
+            <summary>
+            人员信息获取
+            </summary>
+        </member>
+        <member name="T:SZSI_Smart.Model.SYB.In2201">
+            <summary>
+            门诊挂号
+            </summary>
+        </member>
+        <member name="P:SZSI_Smart.Model.SYB.In2201.data">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SZSI_Smart.Model.SYB.In2201data">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SZSI_Smart.Model.SYB.In2201data.psn_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SZSI_Smart.Model.SYB.In2201data.insutype">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SZSI_Smart.Model.SYB.In2201data.begntime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SZSI_Smart.Model.SYB.In2201data.mdtrt_cert_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SZSI_Smart.Model.SYB.In2201data.mdtrt_cert_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SZSI_Smart.Model.SYB.In2201data.ipt_otp_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SZSI_Smart.Model.SYB.In2201data.atddr_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SZSI_Smart.Model.SYB.In2201data.dr_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SZSI_Smart.Model.SYB.In2201data.dept_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SZSI_Smart.Model.SYB.In2201data.dept_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SZSI_Smart.Model.SYB.In2201data.caty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SZSI_Smart.Model.SYB.Out2201">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SZSI_Smart.Model.SYB.Out2201.data">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SZSI_Smart.Model.SYB.Out2201data">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SZSI_Smart.Model.SYB.Out2201data.mdtrt_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SZSI_Smart.Model.SYB.Out2201data.psn_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SZSI_Smart.Model.SYB.Out2201data.ipt_otp_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SZSI_Smart.Model.SYB.MKIn2201">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SZSI_Smart.Model.SYB.MKIn2201.zhid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SZSI_Smart.Model.SYB.MKIn2201.YHBH">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SZSI_Smart.Model.SYB.MKIn2201.psn_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SZSI_Smart.Model.SYB.MKIn2201.YSBH">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SZSI_Smart.Model.SYB.MKIn2201.KSBH">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SZSI_Smart.Model.SYB.MKIn2201.mdtrt_cert_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SZSI_Smart.Model.SYB.MKIn2201.mdtrt_cert_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SZSI_Smart.Model.SYB.MKIn2201.card_sn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SZSI_Smart.Model.SYB.GH2202">
+            <summary>
+            挂号撤销
+            </summary>
+        </member>
+        <member name="T:SZSI_Smart.Model.SYB.ZJ2203">
+            <summary>
+            诊间结算
+            </summary>
+        </member>
+        <member name="T:SZSI_Smart.Model.SYB.ZJ2205.In2205">
+            <summary>
+            诊间撤销
             </summary>
         </member>
     </members>

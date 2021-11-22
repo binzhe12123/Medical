@@ -317,6 +317,270 @@
             <param name="request"></param>
              <returns></returns>
         </member>
+        <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController">
+            <summary>
+            省医保接口-此分部写获取省医保接口报文的接口
+            </summary>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.Message9001(SY.Com.Medical.Model.SYBEasyCommon{SY.Com.Medical.Model.In9001model})">
+            <summary>
+            YB获取签到入参报文
+            </summary>
+            <param name="mod">复合结构</param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.Messge9002(SY.Com.Medical.Model.SYBEasyCommon{SY.Com.Medical.Model.QT9002.In9002model})">
+            <summary>
+            签退
+            </summary>
+            <param name="mod">复合结构</param>                
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.Messge1101(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.In1101data})">
+            <summary>
+            获取人员信息
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>        
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.GH2201(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.In2201data})">
+            <summary>
+            YB门诊挂号
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.GH2202(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.GH2202.In2202data})">
+            <summary>
+            挂号撤销
+            </summary>
+            <param name="mod">复合结构</param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.MZ2203(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.ZJ2203.In2203})">
+            <summary>
+            门诊就诊信息上传
+            </summary>
+            <param name="mod">复合结构</param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.MZ2204(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.ZJ2204.In2204})">
+            <summary>
+            门诊费用上传
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.MZ2205(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.ZJ2205.In2205})">
+            <summary>
+            门诊费用撤销
+            </summary>
+            <param name="mod">复合结构</param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.JS2206(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.YJS2206.In2206})">
+            <summary>
+            门诊预结算
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.JS2207(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.JS2207.In2207})">
+            <summary>
+            门诊结算
+            </summary>
+            <param name="mod">复合结构</param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.JS2208(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.ZJCX2208.In2208})">
+            <summary>
+            门诊结算撤销
+            </summary>
+            <param name="mod">复合结构</param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.JY2601(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.YBJS.CZ2601.In2601})">
+            <summary>
+            交易冲正
+            </summary>
+            <param name="mod">复合结构</param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.RYBA2505(SY.Com.Medical.Model.SYBEasyCommon{SY.Com.Medical.Model.SYB.RYBA2505.In2505})">
+            <summary>
+            人员定点备案
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.RYBA2506(SY.Com.Medical.Model.SYBEasyCommon{SY.Com.Medical.Model.SYB.RYBA.In2506})">
+            <summary>
+            人员定点备案撤销
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.RYDY2001(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.YBJS.RY2001.In2001})">
+            <summary>
+            待遇检查2001
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.KSSC3401(SY.Com.Medical.Model.SYBEasyCommon{SY.Com.Medical.Model.KS3401.Deptinfo})">
+            <summary>
+            科室上传3401
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.KSBG3402(SY.Com.Medical.Model.SYBEasyCommon{SY.Com.Medical.Model.KS3402.Deptinfo})">
+            <summary>
+            科室信息变更
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.KSCX3403(SY.Com.Medical.Model.SYBEasyCommon{SY.Com.Medical.Model.KS3403.In3403})">
+            <summary>
+            科室撤销
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.Down9102(SY.Com.Medical.Model.SYBEasyCommon{SY.Com.Medical.Model.Down9102.FsDownloadIn})">
+            <summary>
+            文件下载9102
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.JG1201(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.JBXX.In1201})">
+            <summary>
+            医药机构信息获取
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.RY5206(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.XXCX.RY5206.In5206})">
+            <summary>
+            人员累计信息查询
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.RY5302(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.XXCX.RY5302.In5302})">
+            <summary>
+            人员定点信息查询
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.Down1301(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.JBXX.ML1301.In1301})">
+            <summary>
+            1301西药下载
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.Down1302(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.JBXX.ML1301.In1301})">
+            <summary>
+            中药饮片目录下载
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.Down1303(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.JBXX.ML1301.In1301})">
+            <summary>
+            医疗机构制剂目录下载
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.Down1305(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.JBXX.ML1301.In1301})">
+            <summary>
+            医疗服务项目目录下载
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.Down1306(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.JBXX.ML1301.In1301})">
+            <summary>
+            医用耗材目录下载
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.Down1307(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.JBXX.ML1301.In1301})">
+            <summary>
+            疾病与诊断目录下载
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.Down1314(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.JBXX.ML1301.In1301})">
+            <summary>
+            中医疾病目录下载
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.Down1315(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.JBXX.ML1301.In1301})">
+            <summary>
+            中医证候目录下载
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.Down1304(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.JBXX.YP1304.In1304})">
+            <summary>
+            民族药品目录下载
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.Down1312(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.JBXX.ML1312.In1312})">
+            <summary>
+            医保目录信息下载
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.Down1318(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.JBXX.In1318})">
+            <summary>
+            医保目录限价信息下载
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.Down1319(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.JBXX.In1319})">
+            <summary>
+            医保目录先自付比例信息下载
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.CFSC7101(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.YG7101.In7101})">
+            <summary>
+            电子处方上传
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.CFCX7104(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.YG7104.In7104})">
+            <summary>
+            电子处方撤销
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.CFCX7105(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.YG7104.In7105})">
+            <summary>
+            处方支付状态同步
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Platform.DepartmentController">
             <summary>
             科室控制器abc
