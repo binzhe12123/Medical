@@ -2633,6 +2633,456 @@
             菜单名称
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Model.OutpatientModel">
+            <summary>
+             Outpatient模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientModel.OutpatientId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientModel.PatientId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientModel.RegisterId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientModel.CaseBookId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientModel.DoctorId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientModel.mdtrt_id">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientModel.chrg_bchno">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientModel.PrescriptionCount">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientModel.IsPay">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientModel.IsBack">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientModel.PayYB">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientModel.PayCash">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientModel.PayYBBefor">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientModel.PayYBAfter">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientModel.CreateTime">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientModel.IsEnable">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientModel.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.OutpatientRequest">
+            <summary>
+             Outpatient模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientRequest.OutpatientId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientRequest.PatientId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientRequest.RegisterId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientRequest.CaseBookId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientRequest.DoctorId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientRequest.mdtrt_id">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientRequest.chrg_bchno">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientRequest.PrescriptionCount">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientRequest.IsPay">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientRequest.IsBack">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientRequest.PayYB">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientRequest.PayCash">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientRequest.PayYBBefor">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientRequest.PayYBAfter">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientRequest.CreateTime">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientRequest.IsEnable">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientRequest.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.OutpatientAdd">
+            <summary>
+             Outpatient模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientAdd.OutpatientId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientAdd.PatientId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientAdd.RegisterId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientAdd.CaseBookId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientAdd.DoctorId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientAdd.mdtrt_id">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientAdd.chrg_bchno">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientAdd.PrescriptionCount">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientAdd.IsPay">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientAdd.IsBack">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientAdd.PayYB">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientAdd.PayCash">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientAdd.PayYBBefor">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientAdd.PayYBAfter">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientAdd.CreateTime">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientAdd.IsEnable">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientAdd.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.OutpatientUpdate">
+            <summary>
+             Outpatient模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientUpdate.OutpatientId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientUpdate.PatientId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientUpdate.RegisterId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientUpdate.CaseBookId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientUpdate.DoctorId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientUpdate.mdtrt_id">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientUpdate.chrg_bchno">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientUpdate.PrescriptionCount">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientUpdate.IsPay">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientUpdate.IsBack">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientUpdate.PayYB">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientUpdate.PayCash">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientUpdate.PayYBBefor">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientUpdate.PayYBAfter">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientUpdate.CreateTime">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientUpdate.IsEnable">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientUpdate.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.OutpatientDelete">
+            <summary>
+             Outpatient模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientDelete.OutpatientId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientDelete.PatientId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientDelete.RegisterId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientDelete.CaseBookId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientDelete.DoctorId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientDelete.mdtrt_id">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientDelete.chrg_bchno">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientDelete.PrescriptionCount">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientDelete.IsPay">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientDelete.IsBack">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientDelete.PayYB">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientDelete.PayCash">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientDelete.PayYBBefor">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientDelete.PayYBAfter">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientDelete.CreateTime">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientDelete.IsEnable">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientDelete.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
         <member name="T:SY.Com.Medical.Model.PageModel">
             <summary>
             分页模型
@@ -5138,6 +5588,31 @@
         <member name="P:SY.Com.Medical.Model.SYBCommonParseModel.Message">
             <summary>
             
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYBMZUploadModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBMZUploadModel.EmployeeId">
+            <summary>
+            操作者Id
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBMZUploadModel.DoctorId">
+            <summary>
+            医生ID
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBMZUploadModel.RegisterId">
+            <summary>
+            挂号ID
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBMZUploadModel.Diagnosis">
+            <summary>
+            诊断信息
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.Up9101">

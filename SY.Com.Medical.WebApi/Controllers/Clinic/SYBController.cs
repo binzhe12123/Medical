@@ -360,18 +360,36 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         /// <param name="mod">复合结构</param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<InCommon> MZ2203(SYBEasyCommon<In2203> mod) {
+        public BaseResponse<InCommon> MZ2203(SYBMZUploadModel mod) {
             BaseResponse<InCommon> rd = new BaseResponse<InCommon>();
+            
             try {
-                InCommon rd1 = bll.getComm(mod.fixmedins_code, mod.fixmedins_name, mod.opter, mod.opter_name, mod.sign_no);
+                //11
+                //InCommon rd1 = bll.getComm(mod.fixmedins_code, mod.fixmedins_name, mod.opter, mod.opter_name, mod.sign_no);
+                InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId);
+                var rentity = bll.getRegisterById(mod.RegisterId);
+                var doctor = bll.getEmployeeById( mod.DoctorId);
+
                 In2203 model = new In2203();
-                model.diseinfo = mod.input.diseinfo;
-                foreach(var item in model.diseinfo)
-                {
-                    item.diag_time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                }
-                model.mdtrtinfo = mod.input.mdtrtinfo;
-                model.mdtrtinfo.begntime= DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                MdtrtInfo mmod = new MdtrtInfo();
+                mmod.mdtrt_id = rentity.mdtrt_id;
+                mmod.psn_no = rentity.psn_no;
+                mmod.med_type = "11";
+                mmod.begntime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                List<ZJ2203.Diseinfo> dmods = new List<ZJ2203.Diseinfo>();
+                ZJ2203.Diseinfo dmod = new ZJ2203.Diseinfo();
+                dmod.diag_type = rentity.DepartmentName.IndexOf("中医") > 0 ?  "3" : "1";
+                dmod.diag_srt_no = "1";
+                dmod.diag_code = bll.getDiagnosisCode(mod.Diagnosis);
+                dmod.diag_name = mod.Diagnosis;
+                dmod.diag_dept = bll.getYBDepartment(rentity.DepartmentName).code;
+                dmod.dise_dor_no = doctor.YBCode;
+                dmod.dise_dor_name = doctor.EmployeeName;
+                dmod.diag_time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                dmod.vali_flag = "1";
+                dmods.Add(dmod);
+                model.diseinfo = dmods;
+                model.mdtrtinfo = mmod;
                 //model.mdtrtInfo.birctrl_matn_date = DateTime.Now.ToString("yyyy-MM-dd");
                 rd1.infno = "2203";
                 rd1.input = model;
@@ -382,6 +400,24 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 return rd.sysException(ex.Message);
             }
         }
+
+        /// <summary>
+        /// 门诊就诊信息解析
+        /// </summary>
+        /// <param name="mod"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<bool> MZ2203Parse(SYBCommonParseModel mod)
+        {
+            BaseResponse<bool> result = new BaseResponse<bool>();
+            if (mod.Message.infcode == -1)
+            {
+                throw new MyException(mod.Message.err_msg);
+            }
+            return result;
+        }
+
+
 
         /// <summary>
         /// 门诊费用上传

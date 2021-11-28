@@ -71,7 +71,7 @@ namespace SY.Com.Medical.Model
         /// <summary>
         /// 
         /// </summary>
-        public int EmployeeId { get; set; }
+        public int EmployeeId { get; set; }        
         /// <summary>
         /// 
         /// </summary>
@@ -108,6 +108,31 @@ namespace SY.Com.Medical.Model
         /// 
         /// </summary>
         public OutCommon Message { get; set; }
+    }
+
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public class SYBMZUploadModel : BaseModel
+    {
+        /// <summary>
+        /// 操作者Id
+        /// </summary>
+        public int EmployeeId { get; set; }
+        /// <summary>
+        /// 医生ID
+        /// </summary>
+        public int DoctorId { get; set; }
+        /// <summary>
+        /// 挂号ID
+        /// </summary>
+        public int RegisterId { get; set; }
+        /// <summary>
+        /// 诊断信息
+        /// </summary>
+        public string Diagnosis { get; set; }
+
     }
 
 }

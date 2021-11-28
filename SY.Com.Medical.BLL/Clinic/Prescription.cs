@@ -13,31 +13,31 @@ namespace SY.Com.Medical.BLL.Clinic
     /// <summary>
     /// 业务逻辑层
     /// </summary>
-    public class Outpatient 
+    public class Prescription 
 	{
-		private OutpatientRepository db;
-		public Outpatient()
+		private PrescriptionRepository db;
+		public Prescription()
 		{
-			db = new OutpatientRepository();
+			db = new PrescriptionRepository();
 		}
 		///<summary> 
 		///获取详情记录
 		///</summary> 
 		///<param name="id"></param>
 		/// <returns></returns>
-		public OutpatientModel get(int id)
+		public PrescriptionModel get(int id)
 		{
-			return db.Get(id).EntityToDto<OutpatientModel>();
+			return db.Get(id).EntityToDto<PrescriptionModel>();
 		}
 		///<summary> 
 		///获取列表-分页
 		///</summary> 
 		///<param name="request"></param>
 		/// <returns></returns>
-		public Tuple<IEnumerable<OutpatientModel>,int> gets(OutpatientRequest request)
+		public Tuple<IEnumerable<PrescriptionModel>,int> gets(PrescriptionRequest request)
 		{
-			var datas  = db.GetsPage(request.DtoToEntity<OutpatientEntity>(), request.PageSize, request.PageIndex);
-			Tuple<IEnumerable<OutpatientModel>, int> result = new(datas.Item1.EntityToDto<OutpatientModel>(), datas.Item2);
+			var datas  = db.GetsPage(request.DtoToEntity<PrescriptionEntity>(), request.PageSize, request.PageIndex);
+			Tuple<IEnumerable<PrescriptionModel>, int> result = new(datas.Item1.EntityToDto<PrescriptionModel>(), datas.Item2);
 			return result;
 		}
 		///<summary> 
@@ -45,27 +45,27 @@ namespace SY.Com.Medical.BLL.Clinic
 		///</summary> 
 		///<param name="request"></param>
 		/// <returns></returns>
-		public int add(OutpatientAdd request)
+		public int add(PrescriptionAdd request)
 		{
-			return db.Create(request.DtoToEntity<OutpatientEntity>());
+			return db.Create(request.DtoToEntity<PrescriptionEntity>());
 		}
 		///<summary> 
 		///修改
 		///</summary> 
 		///<param name="request"></param>
 		/// <returns></returns>
-		public void update(OutpatientUpdate request)
+		public void update(PrescriptionUpdate request)
 		{
-			db.Update(request.DtoToEntity<OutpatientEntity>());
+			db.Update(request.DtoToEntity<PrescriptionEntity>());
 		}
 		///<summary> 
 		///删除
 		///</summary> 
 		///<param name="request"></param>
 		/// <returns></returns>
-		public void delete(OutpatientDelete request)
+		public void delete(PrescriptionDelete request)
 		{
-			db.Delete(request.DtoToEntity<OutpatientEntity>());
+			db.Delete(request.DtoToEntity<PrescriptionEntity>());
 		}
 	}
 } 

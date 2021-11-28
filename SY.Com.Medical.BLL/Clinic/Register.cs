@@ -165,9 +165,9 @@ namespace SY.Com.Medical.BLL.Clinic
 		///</summary> 
 		///<param name="id"></param>
 		/// <returns></returns>
-		public RegisterModel get(int id)
+		public RegisterEntity get(int id)
 		{
-			return db.Get(id).EntityToDto<RegisterModel>();
+			return db.Get(id);
 		}
 		///<summary> 
 		///获取列表-分页

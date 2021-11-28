@@ -141,6 +141,7 @@ namespace SY.Com.Medical.Model
 			///
 			///</summary> 
 			public long GoodsPrice {get;set;} 
+			
 			///<summary> 
 			///
 			///</summary> 

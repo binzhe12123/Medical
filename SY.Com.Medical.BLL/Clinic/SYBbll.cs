@@ -1,4 +1,5 @@
 ﻿using SY.Com.Medical.BLL.Platform;
+using SY.Com.Medical.Entity;
 using SY.Com.Medical.Model;
 using SY.Com.Medical.Repository.Clinic;
 using System;
@@ -70,6 +71,18 @@ namespace SY.Com.Medical.BLL.Clinic
         }
 
         /// <summary>
+        /// 获取挂号信息通过id
+        /// </summary>
+        /// <param name="registerId"></param>
+        /// <returns></returns>
+        public RegisterEntity getRegisterById(int registerId)
+        {
+            Register registerbll = new Register();
+            var entity = registerbll.get(registerId);
+            return entity;
+        }
+
+        /// <summary>
         /// 获取信息
         /// </summary>
         /// <param name="tenantId"></param>
@@ -127,6 +140,17 @@ namespace SY.Com.Medical.BLL.Clinic
         public int SignOut(int tenantId, int employeeId)
         {
             return _repository.SignOut(tenantId, employeeId);
+        }
+
+        /// <summary>
+        /// 获取代码
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public string getDiagnosisCode(string name)
+        {
+            string code = "";
+            return code;
         }
 
 
