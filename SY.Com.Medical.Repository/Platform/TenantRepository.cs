@@ -63,5 +63,11 @@ namespace SY.Com.Medical.Repository.Platform
             _db.Execute(sql, new { UserId = UserId, TenantId = TenantId, IsDelete = (int)Enum.Delete.删除 });
         }
 
+        public TenantEntity getById(int tenantId)
+        {
+            string sql = " Select * From Tenants where TenantId = @TenantId ";
+            return _db.Query<TenantEntity>(sql, new { TenantId = tenantId })?.FirstOrDefault();
+        }
+
     }
 }

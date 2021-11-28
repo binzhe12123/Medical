@@ -10,12 +10,27 @@ namespace SZSI_Smart.Model.SYB
     /// </summary>
         public class In1101 
         {
+            /// <summary>
+            /// 
+            /// </summary>
             public In1101data data { get; set; }         
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public class In1101data
         {
+            /// <summary>
+            /// 
+            /// </summary>
             public string mdtrt_cert_type { get; set; }// 就诊凭证类型	字符型	“01”时填写电子凭证令牌，为“02”时填写身份证号，为“03”时填写社会保障卡卡号
+        /// <summary>
+        /// 
+        /// </summary>
             public string mdtrt_cert_no { get; set; }// 就诊凭证编号  字符型	Y 
+        /// <summary>
+        /// 
+        /// </summary>
             public string card_sn { get; set; }// 卡识别码 字符型	32			就诊凭证类型为“03”时必填
             public DateTime begntime { get; set; } //   开始时间 日期时间型               获取历史参保信息时传入
             public string psn_cert_type { get; set; } //  人员证件类型 字符型	6	Y
@@ -26,8 +41,8 @@ namespace SZSI_Smart.Model.SYB
         {
            
             public BaseInfo baseinfo { get; set; }
-            public InsuInfo insuinfo { get; set; }
-            public IdetInfo idetinfo { get; set; }
+            public List<InsuInfo> insuinfo { get; set; }
+            public List<IdetInfo> idetinfo { get; set; }
 
         }
         public class BaseInfo

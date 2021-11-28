@@ -82,5 +82,16 @@ namespace SY.Com.Medical.BLL.Clinic
             db.Delete(entity);
         }
 
+
+        /// <summary>
+        /// 通过医保编号查询患者信息
+        /// </summary>
+        /// <param name="tenantId"></param>
+        /// <param name="psn_no"></param>
+        /// <returns></returns>
+        public PatientEntity getBypsnNo(int tenantId, string psn_no)
+        {
+            return db.getBypsnNo(tenantId, psn_no);
+        }
     }
 }

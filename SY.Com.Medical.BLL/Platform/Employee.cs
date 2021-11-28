@@ -157,7 +157,7 @@ namespace SY.Com.Medical.BLL.Platform
             return db.getByUser(new UserEntity { UserId = request.UserId },request.TenantId).EntityToDto<EmployeeModel>();
         }
 
-
+        
 
     }
 }

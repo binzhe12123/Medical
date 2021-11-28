@@ -372,6 +372,381 @@
             患者ID    
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Model.ChargeRecordModel">
+            <summary>
+             ChargeRecord模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordModel.ChargeRecordId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordModel.PatientId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordModel.RegisterId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordModel.SeeDoctorId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordModel.Price">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordModel.ChargeType">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordModel.PayYB">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordModel.PayCash">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordModel.PayWx">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordModel.PayBank">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordModel.PayAli">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordModel.CreateTime">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordModel.IsEnable">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordModel.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.ChargeRecordRequest">
+            <summary>
+             ChargeRecord模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordRequest.ChargeRecordId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordRequest.PatientId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordRequest.RegisterId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordRequest.SeeDoctorId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordRequest.Price">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordRequest.ChargeType">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordRequest.PayYB">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordRequest.PayCash">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordRequest.PayWx">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordRequest.PayBank">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordRequest.PayAli">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordRequest.CreateTime">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordRequest.IsEnable">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordRequest.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.ChargeRecordAdd">
+            <summary>
+             ChargeRecord模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordAdd.ChargeRecordId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordAdd.PatientId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordAdd.RegisterId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordAdd.SeeDoctorId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordAdd.Price">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordAdd.ChargeType">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordAdd.PayYB">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordAdd.PayCash">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordAdd.PayWx">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordAdd.PayBank">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordAdd.PayAli">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordAdd.CreateTime">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordAdd.IsEnable">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordAdd.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.ChargeRecordUpdate">
+            <summary>
+             ChargeRecord模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordUpdate.ChargeRecordId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordUpdate.PatientId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordUpdate.RegisterId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordUpdate.SeeDoctorId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordUpdate.Price">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordUpdate.ChargeType">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordUpdate.PayYB">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordUpdate.PayCash">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordUpdate.PayWx">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordUpdate.PayBank">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordUpdate.PayAli">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordUpdate.CreateTime">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordUpdate.IsEnable">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordUpdate.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.ChargeRecordDelete">
+            <summary>
+             ChargeRecord模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordDelete.ChargeRecordId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordDelete.PatientId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordDelete.RegisterId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordDelete.SeeDoctorId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordDelete.Price">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordDelete.ChargeType">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordDelete.PayYB">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordDelete.PayCash">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordDelete.PayWx">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordDelete.PayBank">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordDelete.PayAli">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordDelete.CreateTime">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordDelete.IsEnable">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordDelete.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
         <member name="T:SY.Com.Medical.Model.DepartmentModel">
             <summary>
             
@@ -2407,6 +2782,11 @@
             地址    
             </summary>              
         </member>
+        <member name="P:SY.Com.Medical.Model.PatientAdddto.psn_no">
+            <summary>
+            人员医保编号
+            </summary>
+        </member>
         <member name="P:SY.Com.Medical.Model.PatientAdddto.SearchKey">
             <summary>
             搜索
@@ -2462,6 +2842,11 @@
             医保卡号    
             </summary>              
         </member>
+        <member name="P:SY.Com.Medical.Model.PatientUpdatedto.psn_no">
+            <summary>
+            人员医保编号
+            </summary>
+        </member>
         <member name="P:SY.Com.Medical.Model.PatientUpdatedto.Addr">
             <summary>
             地址    
@@ -2480,6 +2865,95 @@
         <member name="P:SY.Com.Medical.Model.PatientDel.PatientId">
             <summary>
             患者ID
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.PatientYBModel">
+            <summary>
+            患者dto模型
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientYBModel.PatientId">
+            <summary>
+            患者ID
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientYBModel.PatientName">
+            <summary>
+            患者姓名    
+            </summary>    
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientYBModel.PatientPinYin">
+            <summary>
+            姓名拼音    
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientYBModel.Phone">
+            <summary>
+            电话（手机号）    
+            </summary>       
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientYBModel.Sex">
+            <summary>
+            性别    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientYBModel.CSRQ">
+            <summary>
+            出生日期    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientYBModel.SFZ">
+            <summary>
+            身份证号    
+            </summary>     
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientYBModel.YBDNH">
+            <summary>
+            医保电脑号    
+            </summary>  
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientYBModel.YBKH">
+            <summary>
+            医保卡号    
+            </summary>      
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientYBModel.Addr">
+            <summary>
+            地址    
+            </summary>      
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientYBModel.SearchKey">
+            <summary>
+            搜索
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientYBModel.Age">
+            <summary>
+            年龄
+            使用出生日期计算
+            大于等于24个月，只显示岁，岁用总月数整除12向下取整
+            小于24个月,显示岁和月，岁依然是月数整除12向下取整，月为月数对12求余        
+            小于6月的显示天
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientYBModel.ybinfo">
+            <summary>
+            医保信息
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.YBinsuinfo">
+            <summary>
+            医保人员的部分信息
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YBinsuinfo.balc">
+            <summary>
+            余额
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.YBinsuinfo.insutype">
+            <summary>
+            险种类型
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.PlatformCReq">
@@ -3242,6 +3716,506 @@
             
             </summary> 
         </member>
+        <member name="T:SY.Com.Medical.Model.RegisterSaveModel">
+            <summary>
+            挂号
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterSaveModel.PatientId">
+            <summary>
+            患者ID,新患者此值为0
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterSaveModel.psn_no">
+            <summary>
+            人员医保编号,医保必传
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterSaveModel.EmployeeId">
+            <summary>
+            医生ID
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterSaveModel.Name">
+            <summary>
+            患者姓名
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterSaveModel.Sex">
+            <summary>
+            性别,1:男,2:女
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterSaveModel.CSRQ">
+            <summary>
+            出生日期
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterSaveModel.SFZH">
+            <summary>
+            身份证号
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterSaveModel.Phone">
+            <summary>
+            手机号
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterSaveModel.Addr">
+            <summary>
+            住址
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterSaveModel.GoodsName">
+            <summary>
+            项目名称
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterSaveModel.GoodsPrice">
+            <summary>
+            价格
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterSaveModel.ipt_otp_no">
+            <summary>
+            医保时需要-医保解析接口会返回此值
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterSaveModel.mdtrt_id">
+            <summary>
+            医保时需要-医保解析接口会返回此值
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.RegisterDoctor">
+            <summary>
+            挂号时选择的医生列表
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterDoctor.DoctorId">
+            <summary>
+            医生ID
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterDoctor.DoctorName">
+            <summary>
+            医生姓名
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.RegisterModel">
+            <summary>
+             Register模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterModel.RegisterId">
+            <summary> 
+            挂号id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterModel.PatientId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterModel.psn_no">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterModel.Name">
+            <summary> 
+            患者姓名
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterModel.Sex">
+            <summary> 
+            患者性别
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterModel.CSRQ">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterModel.SFZH">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterModel.Phone">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterModel.Addr">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterModel.DoctorName">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterModel.DepartmentName">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterModel.GoodsName">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterModel.GoodsPrice">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterModel.CreateTime">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterModel.IsEnable">
+            <summary> 
+            是否退号,1未退号,2已退号
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterModel.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.Register1Request">
+            <summary>
+             Register模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.Register1Request.SearchKey">
+            <summary>
+            搜索关键字
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.Register1Request.DoctorId">
+            <summary>
+            医生id
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.Register1Request.start">
+            <summary>
+            挂号时间-开始
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.Register1Request.end">
+            <summary>
+            挂号时间结束
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.RegisterAdd">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterAdd.PatientId">
+            <summary>
+            患者ID,新患者此值为0
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterAdd.psn_no">
+            <summary>
+            人员医保编号,医保必传
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterAdd.Name">
+            <summary>
+            患者姓名
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterAdd.Sex">
+            <summary>
+            性别,1:男,2:女
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterAdd.CSRQ">
+            <summary>
+            出生日期
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterAdd.SFZH">
+            <summary>
+            身份证号
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterAdd.Phone">
+            <summary>
+            手机号
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterAdd.Addr">
+            <summary>
+            住址
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterAdd.DoctorName">
+            <summary>
+            医生
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterAdd.DepartmentName">
+            <summary>
+            科室
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterAdd.GoodsName">
+            <summary>
+            项目名称
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterAdd.GoodsPrice">
+            <summary>
+            价格
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterAdd.ipt_otp_no">
+            <summary>
+            医保时需要-医保解析接口会返回此值
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterAdd.mdtrt_id">
+            <summary>
+            医保时需要-医保解析接口会返回此值
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterAdd.SearchKey">
+            <summary>
+            搜索
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.RegisterYBReturn">
+            <summary>
+            医保挂号解析返回
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterYBReturn.mdtrt_id">
+            <summary>
+            就诊ID:医保返回唯一流水
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterYBReturn.psn_no">
+            <summary>
+            人员编号
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterYBReturn.ipt_otp_no">
+            <summary>
+            住院/门诊号-院内唯一流水
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.RegisterProjectModel">
+            <summary>
+             RegisterProject模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectModel.ProjectId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectModel.ProjectName">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectModel.ProjectAgencyCode">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectModel.ProjectPrice">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.RegisterProjectRequest">
+            <summary>
+             RegisterProject模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectRequest.ProjectId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectRequest.ProjectName">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectRequest.ProjectAgencyCode">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectRequest.ProjectSelfCode">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectRequest.ProjectPrice">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectRequest.CreateTime">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectRequest.IsEnable">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectRequest.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.RegisterProjectAdd">
+            <summary>
+             RegisterProject模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectAdd.ProjectId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectAdd.ProjectName">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectAdd.ProjectAgencyCode">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectAdd.ProjectSelfCode">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectAdd.ProjectPrice">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectAdd.CreateTime">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectAdd.IsEnable">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectAdd.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.RegisterProjectUpdate">
+            <summary>
+             RegisterProject模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectUpdate.ProjectId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectUpdate.ProjectName">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectUpdate.ProjectAgencyCode">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectUpdate.ProjectSelfCode">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectUpdate.ProjectPrice">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectUpdate.CreateTime">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectUpdate.IsEnable">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectUpdate.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.RegisterProjectDelete">
+            <summary>
+             RegisterProject模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectDelete.ProjectId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectDelete.ProjectName">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectDelete.ProjectAgencyCode">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectDelete.ProjectSelfCode">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectDelete.ProjectPrice">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectDelete.CreateTime">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectDelete.IsEnable">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectDelete.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
         <member name="T:SY.Com.Medical.Model.RoleModel">
             <summary>
             角色信息
@@ -3987,6 +4961,46 @@
             
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommon.InCommon.departname">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYBCommon.OutCommon`1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommon.OutCommon`1.infcode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommon.OutCommon`1.inf_refmsgid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommon.OutCommon`1.refmsg_time">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommon.OutCommon`1.respond_time">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommon.OutCommon`1.err_msg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommon.OutCommon`1.output">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.SYBCommon.OutCommon">
             <summary>
             
@@ -4032,6 +5046,11 @@
             
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.SYBEasyCommon`1.EmployeeId">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="P:SY.Com.Medical.Model.SYBEasyCommon`1.opter">
             <summary>
             
@@ -4058,6 +5077,65 @@
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.SYBEasyCommon`1.input">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYBCommonModel">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommonModel.EmployeeId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYBCommonModel`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommonModel`1.EmployeeId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommonModel`1.input">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYBCommonParseModel`1">
+            <summary>
+            解析报文-医保返回报文
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommonParseModel`1.EmployeeId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommonParseModel`1.Message">
+            <summary>
+            具体报文
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYBCommonParseModel">
+            <summary>
+            解析报文-医保返回报文-无报文体的时候使用
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommonParseModel.EmployeeId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCommonParseModel.Message">
             <summary>
             
             </summary>
@@ -7542,6 +8620,31 @@
             人员信息获取
             </summary>
         </member>
+        <member name="P:SZSI_Smart.Model.SYB.In1101.data">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SZSI_Smart.Model.SYB.In1101data">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SZSI_Smart.Model.SYB.In1101data.mdtrt_cert_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SZSI_Smart.Model.SYB.In1101data.mdtrt_cert_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SZSI_Smart.Model.SYB.In1101data.card_sn">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:SZSI_Smart.Model.SYB.In2201">
             <summary>
             门诊挂号
@@ -7555,6 +8658,11 @@
         <member name="T:SZSI_Smart.Model.SYB.In2201data">
             <summary>
             
+            </summary>
+        </member>
+        <member name="P:SZSI_Smart.Model.SYB.In2201data.DoctorId">
+            <summary>
+            医生Id
             </summary>
         </member>
         <member name="P:SZSI_Smart.Model.SYB.In2201data.psn_no">

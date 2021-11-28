@@ -79,6 +79,9 @@ namespace SY.Com.Medical.Entity
         [DB_Like]
         public string SearchKey { get; set; }
 
-
+        /// <summary>
+        /// 医保编号
+        /// </summary>
+        public string psn_no { get; set; }
     }
 }

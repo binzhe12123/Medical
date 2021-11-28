@@ -317,44 +317,151 @@
             <param name="request"></param>
              <returns></returns>
         </member>
+        <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.RegisterController">
+            <summary>
+            控制器
+            </summary>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.RegisterController.Save(SY.Com.Medical.Model.RegisterSaveModel)">
+            <summary>
+            挂号
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.RegisterController.getDoctors(SY.Com.Medical.Model.BaseModel)">
+            <summary>
+            挂号时获取医生下拉框
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.RegisterController.getProjects(SY.Com.Medical.Model.BaseModel)">
+            <summary> 
+            获取挂号项目下拉框
+            </summary> 
+            <param name="request"></param>
+             <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.RegisterController.gets(SY.Com.Medical.Model.Register1Request)">
+            <summary> 
+            获取列表-分页
+            </summary> 
+            <param name="request"></param>
+             <returns></returns>
+        </member>
+        <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.RegisterProjectController">
+            <summary>
+            控制器
+            </summary>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.RegisterProjectController.get(System.Int32)">
+            <summary> 
+            获取详情记录
+            </summary> 
+            <param name="id"></param>
+             <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.RegisterProjectController.gets(SY.Com.Medical.Model.RegisterProjectRequest)">
+            <summary> 
+            获取列表-分页
+            </summary> 
+            <param name="request"></param>
+             <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.RegisterProjectController.add(SY.Com.Medical.Model.RegisterProjectAdd)">
+            <summary> 
+            新增
+            </summary> 
+            <param name="request"></param>
+             <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.RegisterProjectController.update(SY.Com.Medical.Model.RegisterProjectUpdate)">
+            <summary> 
+            修改
+            </summary> 
+            <param name="request"></param>
+             <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.RegisterProjectController.delete(SY.Com.Medical.Model.RegisterProjectDelete)">
+            <summary> 
+            删除
+            </summary> 
+            <param name="request"></param>
+             <returns></returns>
+        </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController">
             <summary>
             省医保接口-此分部写获取省医保接口报文的接口
             </summary>
         </member>
-        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.Message9001(SY.Com.Medical.Model.SYBEasyCommon{SY.Com.Medical.Model.In9001model})">
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.Message9001(SY.Com.Medical.Model.SYBCommonModel{SY.Com.Medical.Model.In9001model})">
             <summary>
             YB获取签到入参报文
             </summary>
             <param name="mod">复合结构</param>
             <returns></returns>
         </member>
-        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.Messge9002(SY.Com.Medical.Model.SYBEasyCommon{SY.Com.Medical.Model.QT9002.In9002model})">
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.Message9001Parse(SY.Com.Medical.Model.SYBCommonParseModel{SY.Com.Medical.Model.Out9001})">
             <summary>
-            签退
+            签到解析报文
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.Messge9002(SY.Com.Medical.Model.SYBCommonModel)">
+            <summary>
+            签退-获取报文
             </summary>
             <param name="mod">复合结构</param>                
             <returns></returns>
         </member>
-        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.Messge1101(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.In1101data})">
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.Messge9002Parse(SY.Com.Medical.Model.SYBCommonParseModel{SY.Com.Medical.Model.QT9002.Out9002})">
             <summary>
-            获取人员信息
-            </summary>
-            <param name="mod"></param>
-            <returns></returns>        
-        </member>
-        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.GH2201(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.In2201data})">
-            <summary>
-            YB门诊挂号
+            签退-解析报文
             </summary>
             <param name="mod"></param>
             <returns></returns>
         </member>
-        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.GH2202(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.GH2202.In2202data})">
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.Messge1101(SY.Com.Medical.Model.SYBCommonModel{SZSI_Smart.Model.SYB.In1101data})">
             <summary>
-            挂号撤销
+            获取人员信息-获取报文
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>        
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.Messge1101Parse(SY.Com.Medical.Model.SYBCommonParseModel{SZSI_Smart.Model.SYB.Out1101})">
+            <summary>
+            获取人员信息-解析报文
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.GH2201(SY.Com.Medical.Model.SYBCommonModel{SZSI_Smart.Model.SYB.In2201data})">
+            <summary>
+            YB门诊挂号-获取报文
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.GH2201Parse(SY.Com.Medical.Model.SYBCommonParseModel{SZSI_Smart.Model.SYB.Out2201data})">
+            <summary>
+            YB门诊挂号-解析报文
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.GH2202(SY.Com.Medical.Model.SYBCommonModel{SZSI_Smart.Model.SYB.GH2202.In2202data})">
+            <summary>
+            挂号撤销-获取报文
             </summary>
             <param name="mod">复合结构</param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.GH2202Parse(SY.Com.Medical.Model.SYBCommonParseModel)">
+            <summary>
+            挂号撤销-报文解析
+            </summary>
+            <param name="mod"></param>
             <returns></returns>
         </member>
         <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.MZ2203(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.ZJ2203.In2203})">

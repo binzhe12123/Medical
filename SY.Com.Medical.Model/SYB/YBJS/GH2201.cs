@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.Json.Serialization;
 
 namespace SZSI_Smart.Model.SYB
 {
@@ -19,6 +20,10 @@ namespace SZSI_Smart.Model.SYB
     /// </summary>
     public class In2201data
         {
+        /// <summary>
+        /// 医生Id
+        /// </summary>
+        public int DoctorId { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -42,26 +47,32 @@ namespace SZSI_Smart.Model.SYB
         /// <summary>
         /// 
         /// </summary>
+        [JsonIgnore]
         public string ipt_otp_no { get; set; }//  住院/门诊号 字符型	30	　	Y 院内唯一流水
         /// <summary>
         /// 
         /// </summary>
+        [JsonIgnore]
         public string atddr_no { get; set; } //医师编码    字符型	30	　	Y
         /// <summary>
         /// 
         /// </summary>
+        [JsonIgnore]
         public string dr_name { get; set; }//医师姓名 字符型	50	　	Y
         /// <summary>
         /// 
         /// </summary>
+        [JsonIgnore]
         public string dept_code { get; set; } // 科室编码 字符型	30	　	Y
         /// <summary>
         /// 
         /// </summary>
+        [JsonIgnore]
         public string dept_name { get; set; } //  科室名称 字符型	100	　	Y
         /// <summary>
         /// 
         /// </summary>
+        [JsonIgnore]
         public string caty { get; set; }//    科别 字符型	6	Y Y
         }
     /// <summary>

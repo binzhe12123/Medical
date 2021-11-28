@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Web;
 
 namespace SY.Com.Medical.Model
@@ -87,8 +88,45 @@ namespace SY.Com.Medical.Model
             /// 
             /// </summary>
             public object input { get; set; } //  交易输入 字符型	40000		
+            /// <summary>
+            /// 
+            /// </summary>
+            [JsonIgnore]
+            public string departname { get; set; }
 
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        public class OutCommon<T>
+        {
+            /// <summary>
+            /// 
+            /// </summary>
+            public int infcode { get; set; }// 交易状态码   数值型	4		Y 详见下节
+            /// <summary>
+            /// 
+            /// </summary>
+            public string inf_refmsgid { get; set; }// 接收方报文ID Y 接收方返回，接收方医保区划代码(6)+时间(14)+流水号(10) 时间格式：yyyyMMddHHmmss
+            /// <summary>
+            /// 
+            /// </summary>
+            public DateTime refmsg_time { get; set; }// 接收报文时间 字符型	17			格式：yyyyMMddHHmmssSSS
+            /// <summary>
+            /// 
+            /// </summary>
+            public DateTime respond_time { get; set; }//   响应报文时间 字符型	17			格式：yyyyMMddHHmmssSSS
+            /// <summary>
+            /// 
+            /// </summary>
+            public string err_msg { get; set; }//错误信息 字符型	200			交易失败状态下，业务返回的错误信息
+            /// <summary>
+            /// 
+            /// </summary>
+            public T output { get; set; }//  交易输出 字符型	40000			
+
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -119,7 +157,7 @@ namespace SY.Com.Medical.Model
             /// </summary>
             public object output { get; set; }//  交易输出 字符型	40000			
 
-        }        
-        
+        }
+
     }
 }

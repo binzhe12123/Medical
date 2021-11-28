@@ -138,7 +138,17 @@ namespace SY.Com.Medical.BLL.Platform
             //return dbrole.getMenus(listrole).EntityToDto<MenuResponse>();
         }
 
-
+        public UserTenantResponse getById(int tenantId)
+        {
+            var entity = db.getById(tenantId);
+            if (entity == null)
+            {
+                return null;
+            }
+            else {
+                return entity.EntityToDto<UserTenantResponse>();
+            }
+        }
 
     }
 }

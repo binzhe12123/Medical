@@ -31,6 +31,8 @@ using static SZSI_Smart.Model.SYB.ZJ2203;
 using static SZSI_Smart.Model.SYB.ZJ2204;
 using static SZSI_Smart.Model.SYB.ZJ2205;
 using static SZSI_Smart.Model.SYB.ZJCX2208;
+using SY.Com.Medical.BLL;
+using SY.Com.Medical.Extension;
 
 namespace SY.Com.Medical.WebApi.Controllers.Clinic
 {
@@ -44,6 +46,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
     public partial class SYBController : ControllerBase
     {
         SYBbll bll = new SYBbll();
+        Patient patientbll = new Patient();
 
         /// <summary>
         /// YB获取签到入参报文
@@ -51,11 +54,11 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         /// <param name="mod">复合结构</param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<InCommon> Message9001(SYBEasyCommon<In9001model> mod)
+        public BaseResponse<InCommon> Message9001(SYBCommonModel<In9001model> mod)
         {
             BaseResponse<InCommon> rd = new BaseResponse<InCommon>();
-            InCommon rd1 = new InCommon();            
-            rd1 = bll.getComm(mod.fixmedins_code,mod.fixmedins_name,mod.opter,mod.opter_name,mod.sign_no);            
+            InCommon rd1 = new InCommon();
+            rd1 = bll.getComm(mod.TenantId, mod.EmployeeId);
             try
             {             
                 rd1.infno = "9001";                             
@@ -63,7 +66,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 qd.signIn = new In9001model();
                 qd.signIn.mac = mod.input.mac;
                 qd.signIn.ip = HttpContext.Connection.RemoteIpAddress.ToString();
-                qd.signIn.opter_no = mod.opter;
+                qd.signIn.opter_no = rd1.opter;
                 //rd1.input = Newtonsoft.Json.JsonConvert.SerializeObject(qd);
                 rd1.input = qd;
                 //rd.Data = Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
@@ -73,28 +76,46 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             catch (Exception ex)
             {
                 return rd.sysException(ex.Message);
-            }
-            
+            }            
         }
 
         /// <summary>
-        /// 签退
+        /// 签到解析报文
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<bool> Message9001Parse(SYBCommonParseModel<Out9001> mod)
+        {
+            BaseResponse<bool> result = new BaseResponse<bool>();
+            if (mod.Message.infcode == -1)
+            {
+                throw new MyException(mod.Message.err_msg);
+            }
+            //更新签到信息
+            bll.SignIn(mod.TenantId, mod.EmployeeId, mod.Message.output.sign_no);
+            result.Data = true;
+            return result;
+        }
+
+        /// <summary>
+        /// 签退-获取报文
         /// </summary>
         /// <param name="mod">复合结构</param>                
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<InCommon> Messge9002(SYBEasyCommon<In9002model> mod)
+        public BaseResponse<InCommon> Messge9002(SYBCommonModel mod)
         {
             BaseResponse<InCommon> rd = new BaseResponse<InCommon>();
-            InCommon rd1 = bll.getComm(mod.fixmedins_code,mod.fixmedins_name,mod.opter,mod.opter_name,mod.sign_no);
+            InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId);
+            //InCommon rd1 = bll.getComm(mod.fixmedins_code,mod.fixmedins_name,mod.opter,mod.opter_name,mod.sign_no);
             rd1.infno = "9002";            
             try
             {
                 
                 In9002 QT = new In9002();
-                QT.signOut = new In9002model();                
-                QT.signOut.sign_no = mod.input.sign_no;
-                QT.signOut.opter_no = mod.input.opter_no; ;
+                QT.signOut = new In9002model();
+                QT.signOut.sign_no = rd1.sign_no;// mod.input.sign_no;
+                QT.signOut.opter_no = rd1.opter;//  mod.input.opter_no; ;
                 rd1.input = QT;// Newtonsoft.Json.JsonConvert.SerializeObject(QT);
                 rd.Data = rd1;// Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
                 return rd;
@@ -105,18 +126,41 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             }
 
         }
+
         /// <summary>
-        /// 获取人员信息
+        /// 签退-解析报文
+        /// </summary>
+        /// <param name="mod"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<bool> Messge9002Parse(SYBCommonParseModel<Out9002> mod)
+        {
+            BaseResponse<bool> result = new BaseResponse<bool>();
+            if (mod.Message.infcode == -1)
+            {
+                throw new MyException(mod.Message.err_msg);
+            }
+            //更新签退
+            bll.SignOut(mod.TenantId, mod.EmployeeId);
+            result.Data = true;
+            return result;
+        }
+
+
+
+        /// <summary>
+        /// 获取人员信息-获取报文
         /// </summary>
         /// <param name="mod"></param>
         /// <returns></returns>        
         [HttpPost]
-        public BaseResponse<InCommon> Messge1101(SYBEasyCommon<In1101data> mod)
+        public BaseResponse<InCommon> Messge1101(SYBCommonModel<In1101data> mod)
         {
             BaseResponse<InCommon> rd = new BaseResponse<InCommon>();
-            InCommon rd1 = new InCommon();            
-            rd1 = bll.getComm(mod.fixmedins_code,mod.fixmedins_name,mod.opter,mod.opter_name,mod.sign_no) ;            
-            
+            InCommon rd1 = new InCommon();
+            //rd1 = bll.getComm(mod.fixmedins_code,mod.fixmedins_name,mod.opter,mod.opter_name,mod.sign_no) ;            
+            rd1 = bll.getComm(mod.TenantId, mod.EmployeeId);
+
             try
             {
                 if (mod.input.mdtrt_cert_no == null)
@@ -146,25 +190,72 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             }
             return rd;
         }
-        
+
         /// <summary>
-        /// YB门诊挂号
+        /// 获取人员信息-解析报文
         /// </summary>
         /// <param name="mod"></param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<InCommon> GH2201(SYBEasyCommon<In2201data> mod)
+        public BaseResponse<PatientYBModel> Messge1101Parse(SYBCommonParseModel<Out1101> mod)
+        {
+            BaseResponse<PatientYBModel> result = new BaseResponse<PatientYBModel>();
+            if (mod.Message.infcode == -1)
+            {
+                throw new MyException(mod.Message.err_msg);
+            }
+            //查询患者是否存在,存在着返回
+            var entity = patientbll.getBypsnNo(mod.TenantId, mod.Message.output.baseinfo.psn_no);
+            if(entity == null)
+            {
+                //如果不不存在就需要插入
+                var addresult = patientbll.add(new PatientAdddto
+                {
+                    TenantId = mod.TenantId,
+                    PatientName = mod.Message.output.baseinfo.psn_name,
+                    Phone = "",
+                    Sex = int.Parse(mod.Message.output.baseinfo.gend),
+                    CSRQ = mod.Message.output.baseinfo.brdy,
+                    SFZ = mod.Message.output.baseinfo.certno,
+                    psn_no = mod.Message.output.baseinfo.psn_no
+                }) ;
+                if(addresult > 0)
+                {
+                    entity = patientbll.getBypsnNo(mod.TenantId, mod.Message.output.baseinfo.psn_no);
+                }
+                else
+                {
+                    throw new MyException("解析失败,无法创建信息");
+                }
+            }
+            result.Data = entity.EntityToDto<PatientYBModel>();
+            result.Data.ybinfo = new List<YBinsuinfo>();
+            foreach(var item in mod.Message.output.insuinfo)
+            {
+                YBinsuinfo node = new YBinsuinfo();
+                node.balc = item.balc;
+                node.insutype = item.insutype;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// YB门诊挂号-获取报文
+        /// </summary>
+        /// <param name="mod"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<InCommon> GH2201(SYBCommonModel<In2201data> mod)
         {
             BaseResponse<InCommon> rd= new BaseResponse<InCommon>();
-            InCommon rd1 = bll.getComm(mod.fixmedins_code,mod.fixmedins_name,mod.opter,mod.opter_name,mod.sign_no);
+            //InCommon rd1 = bll.getComm(mod.fixmedins_code,mod.fixmedins_name,mod.opter,mod.opter_name,mod.sign_no);
+            InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId);
+            InCommon rd2 = bll.getComm(mod.TenantId, mod.input.DoctorId);
+            YBDepartment department = bll.getYBDepartment(rd2.departname);
             In2201 model = new In2201();
             model.data = new In2201data();
             try
             {
-                if (mod.zhid == null)
-                {
-                    return rd.busExceptino( Enum.ErrorCode.业务逻辑错误,"租户ID不能为空");
-                }
                 if (mod.input.mdtrt_cert_no == null)
                 {
                     return rd.busExceptino(Enum.ErrorCode.业务逻辑错误,"就诊凭证编号不能为空");
@@ -176,14 +267,14 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 model.data.psn_no = mod.input.psn_no;
                 model.data.insutype = mod.input.insutype;
                 model.data.begntime = Convert.ToDateTime(DateTime.Now.ToString ("yyyy-MM-dd HH:mm:ss"));
-                model.data.ipt_otp_no =mod.fixmedins_code + DateTime.Now.ToString("yyyyMMddHHmmss"); //ipt_otp_no  住院 / 门诊号  字符型 30      Y 院内唯一流水
-                model.data.atddr_no =mod.input.atddr_no;//atddr_no 医师编码    字符型 30      Y
-                model.data.dr_name =mod.input.dr_name;//由医生编号，查询姓名
+                model.data.ipt_otp_no = rd1.fixmedins_code + DateTime.Now.ToString("yyyyMMddHHmmss"); //ipt_otp_no  住院 / 门诊号  字符型 30      Y 院内唯一流水
+                model.data.atddr_no = rd2.opter; //mod.input.atddr_no;//atddr_no 医师编码    字符型 30      Y
+                model.data.dr_name = rd2.opter_name;//mod.input.dr_name;//由医生编号，查询姓名
                 model.data.mdtrt_cert_type = mod.input.mdtrt_cert_type;// 就诊凭证类型  字符型 3   Y Y
                 model.data.mdtrt_cert_no = mod.input.mdtrt_cert_no;// 就诊凭证编号  字符型 50 Y 就诊凭证类型为“01”时填写电子凭证令牌，为“02”时填写身份证号，为“03”时填写社会保障卡卡号                
-                model.data.dept_code = mod.input.dept_code;
-                model.data.dept_name = mod.input.dept_name;
-                model.data.caty = mod.input.caty;
+                model.data.dept_code = department.code;// mod.input.dept_code;
+                model.data.dept_name = department.name;//mod.input.dept_name;
+                model.data.caty = department.name;//mod.input.caty;
                 rd1.infno = "2201";
                 rd1.input = model;// Newtonsoft.Json.JsonConvert.SerializeObject(model);
                 rd.Data = rd1;//Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
@@ -198,15 +289,37 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         }
 
         /// <summary>
-        /// 挂号撤销
+        /// YB门诊挂号-解析报文
+        /// </summary>
+        /// <param name="mod"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<RegisterYBReturn> GH2201Parse(SYBCommonParseModel<Out2201data> mod)
+        {
+            BaseResponse<RegisterYBReturn> result = new BaseResponse<RegisterYBReturn>();
+            if (mod.Message.infcode == -1)
+            {
+                throw new MyException(mod.Message.err_msg);
+            }
+            RegisterYBReturn model = new RegisterYBReturn();
+            model.ipt_otp_no = mod.Message.output.ipt_otp_no;
+            model.mdtrt_id = mod.Message.output.mdtrt_id;
+            model.psn_no = mod.Message.output.psn_no;
+            result.Data = model;
+            return result;
+        }
+
+        /// <summary>
+        /// 挂号撤销-获取报文
         /// </summary>
         /// <param name="mod">复合结构</param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<InCommon> GH2202(SYBEasyCommon<In2202data> mod) {
+        public BaseResponse<InCommon> GH2202(SYBCommonModel<In2202data> mod) {
             BaseResponse<InCommon> rd = new BaseResponse<InCommon>();
             try {
-                InCommon rd1 = bll.getComm(mod.fixmedins_code, mod.fixmedins_name, mod.opter, mod.opter_name, mod.sign_no);
+                //InCommon rd1 = bll.getComm(mod.fixmedins_code, mod.fixmedins_name, mod.opter, mod.opter_name, mod.sign_no);
+                InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId);
                 In2202 model = new In2202();
                 model.data = new In2202data();
                 model.data = new SZSI_Smart.Model.SYB.GH2202.In2202data();
@@ -223,6 +336,23 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 return rd.sysException(e.Message);
             }
         }
+
+        /// <summary>
+        /// 挂号撤销-报文解析
+        /// </summary>
+        /// <param name="mod"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<bool> GH2202Parse(SYBCommonParseModel mod)
+        {
+            BaseResponse<bool> result = new BaseResponse<bool>();
+            if (mod.Message.infcode == -1)
+            {
+                throw new MyException(mod.Message.err_msg);
+            }
+            return result;
+        }
+
 
         /// <summary>
         /// 门诊就诊信息上传

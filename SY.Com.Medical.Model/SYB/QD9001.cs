@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Web;
 
 namespace SY.Com.Medical.Model
@@ -27,6 +28,7 @@ namespace SY.Com.Medical.Model
         /// <summary>
         /// 
         /// </summary>
+        [JsonIgnore]
         public string opter_no { get; set; }// 操作员编号   字符型	20		Y
         /// <summary>
         /// 

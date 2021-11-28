@@ -202,6 +202,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\SYBController.cs" />
     <Compile Include="Controllers\SZJGController.cs" />
+    <Compile Include="Controllers\YBController.cs" />
     <Compile Include="DataOperation.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
