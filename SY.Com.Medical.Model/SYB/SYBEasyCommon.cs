@@ -163,4 +163,152 @@ namespace SY.Com.Medical.Model
         /// </summary>
         public OutCommon Message { get; set; }
     }
+
+    /// <summary>
+    /// 预结算获取报文入参
+    /// </summary>
+    public class SYJS2206Model:BaseModel
+    {
+        /// <summary>
+        /// 操作员工Id
+        /// </summary>
+        public int EmployeeId { get; set; }
+        /// <summary>
+        /// 门诊id
+        /// </summary>
+        public int OutpatientId { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Mdtrt_cert_type { get; set; }// 就诊凭证类型 字符型	3	Y Y
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Mdtrt_cert_no { get; set; }// 就诊凭证编号  字符型	50			就诊凭证类型为“01”时填写电子凭证令牌，为“02”时填写身份证号，为“03”时填写社会保障卡卡号
+    }
+
+    /// <summary>
+    /// 预结算出参
+    /// </summary>
+    public class SYJS2206OutModel
+    {
+        /// <summary>
+        /// 实收
+        /// </summary>
+        public decimal Cost { get; set; }
+        /// <summary>
+        /// 余额
+        /// </summary>
+        public decimal Balc { get; set; }
+        /// <summary>
+        /// 医保实收
+        /// </summary>
+        public decimal YBCost { get; set; }
+        /// <summary>
+        /// 自费实收
+        /// </summary>
+        public decimal CashCost { get; set; }
+        /// <summary>
+        /// 全自费金额
+        /// </summary>
+        public decimal fulamt_ownpay_amt { get; set; }
+        /// <summary>
+        /// 超限价自费费用
+        /// </summary>
+        public decimal overlmt_selfpay { get; set; }
+        /// <summary>
+        /// 先行自付金额
+        /// </summary>
+        public decimal preselfpay_amt { get; set; }
+        /// <summary>
+        /// 符合政策范围金额
+        /// </summary>
+        public decimal inscp_scp_amt { get; set; }
+
+    }
+
+    /// <summary>
+    /// 结算获取报文入参
+    /// </summary>
+    public class SYJS2207Model : BaseModel
+    {
+        /// <summary>
+        /// 操作员工Id
+        /// </summary>
+        public int EmployeeId { get; set; }
+        /// <summary>
+        /// 门诊id
+        /// </summary>
+        public int OutpatientId { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Mdtrt_cert_type { get; set; }// 就诊凭证类型 字符型	3	Y Y
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Mdtrt_cert_no { get; set; }// 就诊凭证编号  字符型	50			就诊凭证类型为“01”时填写电子凭证令牌，为“02”时填写身份证号，为“03”时填写社会保障卡卡号
+        /// <summary>
+        /// 全自费金额
+        /// </summary>
+        public decimal fulamt_ownpay_amt { get; set; }
+        /// <summary>
+        /// 超限价金额
+        /// </summary>
+        public decimal overlmt_selfpay { get; set; }
+        /// <summary>
+        /// 先行自付金额
+        /// </summary>
+        public decimal preselfpay_amt { get; set; }
+        /// <summary>
+        /// 符合政策范围金额
+        /// </summary>
+        public decimal inscp_scp_amt { get; set; }
+
+    }
+
+    /// <summary>
+    /// 预结算出参
+    /// </summary>
+    public class SYJS2207OutModel
+    {
+        /// <summary>
+        /// 结算ID
+        /// </summary>
+        public string setl_id { get; set; }
+        /// <summary>
+        /// 实收
+        /// </summary>
+        public decimal Cost { get; set; }
+        /// <summary>
+        /// 余额
+        /// </summary>
+        public decimal Balc { get; set; }
+        /// <summary>
+        /// 医保实收
+        /// </summary>
+        public decimal YBCost { get; set; }
+        /// <summary>
+        /// 自费实收
+        /// </summary>
+        public decimal CashCost { get; set; }
+      
+
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public class SYB2208Model : BaseModel
+    {
+        /// <summary>
+        /// 操作人员Id
+        /// </summary>
+        public int EmployeeId { get; set; }
+        /// <summary>
+        /// 门诊ID
+        /// </summary>
+        public int OutpatientId { get; set; }
+    }
+
 }

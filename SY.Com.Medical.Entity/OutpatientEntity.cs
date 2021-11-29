@@ -84,9 +84,13 @@ namespace SY.Com.Medical.Entity
 		/// </summary>
 		public string SearchKey { get; set; }
 		/// <summary>
-		/// 
+		/// 费用
 		/// </summary>
 		public long Cost { get; set; }
+		/// <summary>
+		/// 医保结算ID
+		/// </summary>
+		public string setl_id { get; set; }
 	}
 
 

@@ -394,10 +394,10 @@ namespace SY.Com.Medical.Repository.Clinic
         /// </summary>
         /// <param name="tenantId"></param>
         /// <param name="outpatientId"></param>
-        public void UpdateIsPay(int tenantId,int outpatientId)
+        public void UpdateIsPay(int tenantId,int outpatientId,string setl_id,long balance)
         {
-            string sql = @" Update Outpatients Set IsPay = 1 Where TenantId = @TenantId And OutpatientId = @OutpatientId ";
-            _db.Execute(sql, new { TenantId = tenantId, OutpatientId = outpatientId });
+            string sql = @" Update Outpatients Set IsPay = 1,setl_id=@Setl_id,PayYBAfter=@PayYBAfter Where TenantId = @TenantId And OutpatientId = @OutpatientId ";
+            _db.Execute(sql, new { TenantId = tenantId, OutpatientId = outpatientId, Setl_id= setl_id, PayYBAfter=balance });
         }
 
         /// <summary>

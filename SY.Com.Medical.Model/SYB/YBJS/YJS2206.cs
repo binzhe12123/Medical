@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Web;
 
 namespace SZSI_Smart.Model.SYB
@@ -27,8 +28,13 @@ namespace SZSI_Smart.Model.SYB
         public class In2206
         {
             /// <summary>
+            /// 门诊ID
+            /// </summary>
+            public int OutPatientId { get; set; }
+            /// <summary>
             /// 
             /// </summary>
+            [JsonIgnore]
             public string psn_no { get; set; }// 人员编号    字符型	30		Y
             /// <summary>
             /// 
@@ -41,30 +47,37 @@ namespace SZSI_Smart.Model.SYB
             /// <summary>
             /// 
             /// </summary>
+            [JsonIgnore]
             public string med_type { get; set; }   // 医疗类别 字符型	6	Y Y
             /// <summary>
             /// 
             /// </summary>
+            [JsonIgnore]
             public decimal medfee_sumamt { get; set; }// 医疗费总额   数值型	16,2		Y
             /// <summary>
             /// 
             /// </summary>
+            [JsonIgnore]
             public string psn_setlway { get; set; }// 个人结算方式 字符型	6	Y Y
             /// <summary>
             /// 
             /// </summary>
+            [JsonIgnore]
             public string mdtrt_id { get; set; }// 就诊ID    字符型	30		Y
             /// <summary>
             /// 
             /// </summary>
+            [JsonIgnore]
             public string chrg_bchno { get; set; }//  收费批次号 字符型	30		Y
             /// <summary>
             /// 
             /// </summary>
+            [JsonIgnore]
             public string acct_used_flag { get; set; }//  个人账户使用标志 字符型	1	Y Y
             /// <summary>
             /// 
             /// </summary>
+            [JsonIgnore]
             public string insutype { get; set; }// 险种类型    字符型	6	Y Y
 
         }

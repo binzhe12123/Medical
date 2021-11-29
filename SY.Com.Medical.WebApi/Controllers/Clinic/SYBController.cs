@@ -195,7 +195,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         /// 获取人员信息-解析报文
         /// </summary>
         /// <param name="mod"></param>
-        /// <returns></returns>
+        /// <returns></returns>        
         [HttpPost]
         public BaseResponse<PatientYBModel> Messge1101Parse(SYBCommonParseModel<Out1101> mod)
         {
@@ -540,28 +540,31 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
 
 
         /// <summary>
-        /// 门诊预结算
+        /// 门诊预结算-获取报文
         /// </summary>
         /// <param name="mod"></param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<InCommon> JS2206(SYBEasyCommon<In2206> mod){
+        public BaseResponse<InCommon> JS2206(SYJS2206Model mod){
             BaseResponse<InCommon> rd = new BaseResponse<InCommon>();
             try
             {
-                InCommon rd1 = bll.getComm(mod.fixmedins_code, mod.fixmedins_name, mod.opter, mod.opter_name, mod.sign_no);
+                //InCommon rd1 = bll.getComm(mod.fixmedins_code, mod.fixmedins_name, mod.opter, mod.opter_name, mod.sign_no);
+                InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId);
+                Outpatient opbll = new Outpatient();
+                var opstructure = opbll.getStructure(mod.TenantId, mod.OutpatientId);                
                 In2206Data model = new In2206Data();
                 model.data = new In2206();
-                model.data.chrg_bchno = mod.input.chrg_bchno;
-                model.data.mdtrt_id = mod.input.mdtrt_id;
-                model.data.psn_no = mod.input.psn_no;
-                model.data.mdtrt_cert_type = "03";
-                model.data.mdtrt_cert_no = mod.input.mdtrt_cert_no;
-                model.data.med_type = mod.input.med_type;
-                model.data.medfee_sumamt = mod.input.medfee_sumamt;
-                model.data.psn_setlway = mod.input.psn_setlway;
-                model.data.acct_used_flag = mod.input.acct_used_flag;
-                model.data.insutype = mod.input.insutype;
+                model.data.chrg_bchno = opstructure.chrg_bchno;
+                model.data.mdtrt_id = opstructure.mdtrt_id;
+                model.data.psn_no = opstructure.Patient.psn_no;
+                model.data.mdtrt_cert_type = mod.Mdtrt_cert_type;
+                model.data.mdtrt_cert_no = mod.Mdtrt_cert_no;
+                model.data.med_type = "11";
+                model.data.medfee_sumamt = Math.Round(decimal.Parse(opstructure.Cost.ToString()),2);
+                model.data.psn_setlway = "02";
+                model.data.acct_used_flag = "1";
+                model.data.insutype = "310";
                 rd1.infno = "2206";
                 rd1.input = model;
                 rd.Data = rd1;//Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
@@ -574,32 +577,57 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         }
 
         /// <summary>
-        /// 门诊结算
+        /// 门诊预结算-解析报文
+        /// </summary>
+        /// <param name="mod"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<SYJS2206OutModel> JS2206Parse(SYBCommonParseModel<Out2206> mod)
+        {
+            BaseResponse<SYJS2206OutModel> result = new BaseResponse<SYJS2206OutModel>();
+            if (mod.Message.infcode == -1)
+            {
+                throw new MyException(mod.Message.err_msg);
+            }
+            result.Data = new SYJS2206OutModel();
+            result.Data.Cost = mod.Message.output.setlinfo.medfee_sumamt;
+            result.Data.Balc = mod.Message.output.setlinfo.balc;
+            result.Data.YBCost= mod.Message.output.setlinfo.acct_pay;
+            result.Data.CashCost = mod.Message.output.setlinfo.psn_cash_pay;
+            return result;
+        }
+
+
+        /// <summary>
+        /// 门诊结算-获取报文
         /// </summary>
         /// <param name="mod">复合结构</param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<InCommon> JS2207(SYBEasyCommon<In2207> mod){
+        public BaseResponse<InCommon> JS2207(SYJS2207Model mod){
             BaseResponse<InCommon> rd = new BaseResponse<InCommon>();
             try
             {
-                InCommon rd1 = bll.getComm(mod.fixmedins_code, mod.fixmedins_name, mod.opter, mod.opter_name, mod.sign_no);
+                //InCommon rd1 = bll.getComm(mod.fixmedins_code, mod.fixmedins_name, mod.opter, mod.opter_name, mod.sign_no);
+                InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId);
+                Outpatient opbll = new Outpatient();
+                var opstructure = opbll.getStructure(mod.TenantId, mod.OutpatientId);                
                 In2207data model = new In2207data();
                 model.data = new In2207();
-                model.data.psn_no = mod.input.psn_no;
-                model.data.mdtrt_cert_type = "03";
-                model.data.med_type = mod.input.med_type;
-                model.data.medfee_sumamt = mod.input.medfee_sumamt;
-                model.data.psn_setlway = mod.input.psn_setlway;
-                model.data.mdtrt_id = mod.input.mdtrt_id;
-                model.data.chrg_bchno = mod.input.chrg_bchno;
-                model.data.insutype = mod.input.insutype;
-                model.data.mdtrt_cert_no = mod.input.mdtrt_cert_no;
-                model.data.acct_used_flag = mod.input.acct_used_flag;
-                model.data.fulamt_ownpay_amt = mod.input.fulamt_ownpay_amt;
-                model.data.overlmt_selfpay = mod.input.overlmt_selfpay;
-                model.data.preselfpay_amt = mod.input.preselfpay_amt;
-                model.data.inscp_scp_amt = mod.input.inscp_scp_amt;
+                model.data.psn_no = opstructure.Patient.psn_no;
+                model.data.mdtrt_cert_type = mod.Mdtrt_cert_type;
+                model.data.med_type = "11";
+                model.data.medfee_sumamt = Math.Round(decimal.Parse(opstructure.Cost.ToString()), 2); ;
+                model.data.psn_setlway = "02";
+                model.data.mdtrt_id = opstructure.mdtrt_id;
+                model.data.chrg_bchno = opstructure.chrg_bchno;
+                model.data.insutype = "310";
+                model.data.mdtrt_cert_no = mod.Mdtrt_cert_no;
+                model.data.acct_used_flag ="1";
+                model.data.fulamt_ownpay_amt = mod.fulamt_ownpay_amt;
+                model.data.overlmt_selfpay = mod.overlmt_selfpay;
+                model.data.preselfpay_amt = mod.preselfpay_amt;
+                model.data.inscp_scp_amt = mod.inscp_scp_amt;
                 rd1.infno = "2207";
                 rd1.input = model;
                 rd.Data = rd1;//Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
@@ -612,21 +640,47 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         }
 
         /// <summary>
-        /// 门诊结算撤销
+        /// 门诊结算-解析报文
         /// </summary>
-        /// <param name="mod">复合结构</param>
+        /// <param name="mod"></param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<InCommon> JS2208(SYBEasyCommon<In2208> mod){
+        public BaseResponse<SYJS2207OutModel> JS2207Parse(SYBCommonParseModel<Out2207> mod)
+        {
+            BaseResponse<SYJS2207OutModel> result = new BaseResponse<SYJS2207OutModel>();
+            if (mod.Message.infcode == -1)
+            {
+                throw new MyException(mod.Message.err_msg);
+            }
+            result.Data = new SYJS2207OutModel();
+            result.Data.setl_id = mod.Message.output.setlinfo.setl_id;
+            result.Data.Cost = mod.Message.output.setlinfo.medfee_sumamt;
+            result.Data.Balc = mod.Message.output.setlinfo.balc;
+            result.Data.YBCost = mod.Message.output.setlinfo.acct_pay;
+            result.Data.CashCost = mod.Message.output.setlinfo.psn_cash_pay;
+            return result;
+        }
+
+
+        /// <summary>
+        /// 门诊结算撤销-获取报文
+        /// </summary>
+        /// <param name="mod"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<InCommon> JS2208(SYB2208Model mod){
             BaseResponse<InCommon> rd = new BaseResponse<InCommon>();
             try
             {
-                InCommon rd1 = bll.getComm(mod.fixmedins_code, mod.fixmedins_name, mod.opter, mod.opter_name, mod.sign_no);
+                //InCommon rd1 = bll.getComm(mod.fixmedins_code, mod.fixmedins_name, mod.opter, mod.opter_name, mod.sign_no);
+                InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId);
+                Outpatient opbll = new Outpatient();
+                var opstructure = opbll.getStructure(mod.TenantId, mod.OutpatientId);
                 In2208data model = new In2208data();
                 model.data = new In2208();
-                model.data.psn_no = mod.input.psn_no;
-                model.data.mdtrt_id = mod.input.mdtrt_id;
-                model.data.setl_id = mod.input.setl_id;
+                model.data.psn_no = opstructure.Patient.psn_no;
+                model.data.mdtrt_id = opstructure.mdtrt_id;
+                model.data.setl_id = opstructure.setl_id;
                 rd1.infno = "2208";
                 rd1.input = model;
                 rd.Data = rd1;//Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
@@ -636,6 +690,22 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             {
                 return rd.sysException(ex.Message);
             }
+        }
+
+        /// <summary>
+        /// 门诊结算撤销-解析报文
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<bool> JS2208Parse(SYBCommonParseModel<Out2208> mod)
+        {
+            BaseResponse<bool> result = new BaseResponse<bool>();
+            if (mod.Message.infcode == -1)
+            {
+                throw new MyException(mod.Message.err_msg);
+            }
+            result.Data = true;
+            return result;
         }
 
         /// <summary>

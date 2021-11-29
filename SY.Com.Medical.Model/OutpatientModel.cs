@@ -31,6 +31,10 @@ namespace SY.Com.Medical.Model
 		/// </summary>
 		public string chrg_bchno { get; set; }
 		/// <summary>
+		/// 医保结算号--非医保为空
+		/// </summary>
+		public string setl_id { get; set; }
+		/// <summary>
 		/// 挂号Id-无挂号直接门诊此值为0
 		/// </summary>
 		public int RegisterId { get; set; }
@@ -473,6 +477,14 @@ namespace SY.Com.Medical.Model
 		/// 门诊ID
 		/// </summary>
 		public int OutpatientId { get; set; }
+		/// <summary>
+		/// 医保结算ID-非医保为空
+		/// </summary>
+		public string setl_id { get; set; }
+		/// <summary>
+		/// 医保余额-非医保为0
+		/// </summary>
+		public double Balc { get; set; }
 		/// <summary>
 		/// 实收
 		/// </summary>

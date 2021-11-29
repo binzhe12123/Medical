@@ -134,8 +134,8 @@ namespace SY.Com.Medical.BLL.Clinic
             {
 				throw new MyException("该门诊已经收费");
             }
-			//修改支付状态
-			db.UpdateIsPay(mod.TenantId, mod.OutpatientId);
+			//修改支付状态和医保结算时,医保结算号,医保余额
+			db.UpdateIsPay(mod.TenantId, mod.OutpatientId,mod.setl_id,Convert.ToInt64(mod.Balc * 1000));
 
 			//保存退费记录
 			ChargeRecord chargebll = new ChargeRecord();
