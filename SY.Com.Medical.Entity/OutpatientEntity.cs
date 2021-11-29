@@ -39,6 +39,10 @@ namespace SY.Com.Medical.Entity
 		///
 		///</summary> 
 		public int DoctorId {get;set;} 
+		/// <summary>
+		/// 
+		/// </summary>
+		public string DoctorName { get; set; }
 		///<summary> 
 		///
 		///</summary> 
@@ -75,5 +79,15 @@ namespace SY.Com.Medical.Entity
 		///
 		///</summary> 
 		public long PayYBAfter {get;set;} 
+		/// <summary>
+		/// 
+		/// </summary>
+		public string SearchKey { get; set; }
+		/// <summary>
+		/// 
+		/// </summary>
+		public long Cost { get; set; }
 	}
+
+
 } 

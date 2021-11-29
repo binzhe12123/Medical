@@ -145,11 +145,11 @@ namespace SY.Com.Medical.Model
 			///<summary> 
 			///
 			///</summary> 
-			public DateTime? CreateTime {get;set;} 
+			public DateTime? CreateTime {get;set;}
 			///<summary> 
 			///是否退号,1未退号,2已退号
 			///</summary> 
-			public int IsEnable {get;set;} 
+		public int IsEnable {get;set;} 
 			///<summary> 
 			///
 			///</summary> 
@@ -169,6 +169,10 @@ namespace SY.Com.Medical.Model
 		/// 医生id
 		/// </summary>
 		public int DoctorId { get; set; }
+		/// <summary>
+		/// 根据使用情况筛选挂号,0:查看所有挂号,-1:查看未使用挂号,1:查看已使用挂号
+		/// </summary>
+		public int IsUsed { get; set; }
 		/// <summary>
 		/// 挂号时间-开始
 		/// </summary>

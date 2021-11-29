@@ -92,7 +92,7 @@ using System.Threading.Tasks;
             txt.Append("\r\n///<summary>");
             txt.Append($"\r\n/// {ClassName}模型");
             txt.Append("\r\n/// </summary>");
-            txt.Append($"\r\npublic class {ClassName}{className} : { (className == "Request" ? "PageModel" : "BaseModel")   } ");
+            txt.Append($"\r\n\tpublic class {ClassName}{className} : { (className == "Request" ? "PageModel" : "BaseModel")   } ");
             txt.Append("\r\n\t{ ");
             // 数据库读出表信息
             var columns = db.getString(TableName);

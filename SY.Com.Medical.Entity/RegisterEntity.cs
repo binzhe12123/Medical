@@ -80,5 +80,9 @@ namespace SY.Com.Medical.Entity
 		/// 
 		/// </summary>
 		public string mdtrt_id { get; set; }
+		/// <summary>
+		/// 是否使用1:已使用,-1未使用
+		/// </summary>
+		public int IsUsed { get; set; }
 	}
 } 

@@ -130,6 +130,34 @@ namespace SY.Com.Medical.Extension
             return target;
         }
 
+        public static T DeepCopyByReflection<S,T>(S source, T target)
+        {
+            //if (source is string || source.GetType().IsValueType)
+            //{
+            //    target = source;
+            //    return target;
+            //}                
+            foreach (var sourceProp in source.GetType().GetProperties())
+            {
+                var targetProp = target.GetType().GetProperty(sourceProp.Name);
+                if (targetProp == null)
+                {
+                    continue;
+                }
+                //引用类型继续递归,值类型复制值
+                if (targetProp.PropertyType.IsClass && targetProp.PropertyType.FullName != "System.String")
+                {
+                    targetProp.SetValue(target, DeepCopyByReflection(sourceProp.GetValue(source), Activator.CreateInstance(targetProp.PropertyType)));
+                }
+                else
+                {
+                    targetProp.SetValue(target, sourceProp.GetValue(source));
+                }
+            }
+
+            return target;
+        }
+
         /// <summary>
         /// Entity转Dto
         /// List-->List

@@ -202,6 +202,31 @@
             <param name="request"></param>
             <returns></returns>
         </member>
+        <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.OutpatientController">
+            <summary>
+            控制器
+            </summary>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.OutpatientController.Save(SY.Com.Medical.Model.OutpatientAddStructure)">
+            <summary>
+            保存门诊
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.OutpatientController.getNoPaid(SY.Com.Medical.Model.OutpatientSearchModel)">
+            <summary>
+            查询挂单处方-列表-分页
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.OutpatientController.getHistory(SY.Com.Medical.Model.OutpatientSearchModel)">
+            <summary>
+            查询历史处方-列表-分页
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.PatientController">
             <summary>
             患者信息
@@ -276,6 +301,46 @@
             </summary>
             <param name="request"></param>
             <returns></returns>
+        </member>
+        <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.PrescriptionController">
+            <summary>
+            控制器
+            </summary>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PrescriptionController.get(System.Int32)">
+            <summary> 
+            获取详情记录
+            </summary> 
+            <param name="id"></param>
+             <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PrescriptionController.gets(SY.Com.Medical.Model.PrescriptionRequest)">
+            <summary> 
+            获取列表-分页
+            </summary> 
+            <param name="request"></param>
+             <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PrescriptionController.add(SY.Com.Medical.Model.PrescriptionAdd)">
+            <summary> 
+            新增
+            </summary> 
+            <param name="request"></param>
+             <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PrescriptionController.update(SY.Com.Medical.Model.PrescriptionUpdate)">
+            <summary> 
+            修改
+            </summary> 
+            <param name="request"></param>
+             <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PrescriptionController.delete(SY.Com.Medical.Model.PrescriptionDelete)">
+            <summary> 
+            删除
+            </summary> 
+            <param name="request"></param>
+             <returns></returns>
         </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.PurchasesGoodController">
             <summary>
@@ -464,11 +529,18 @@
             <param name="mod"></param>
             <returns></returns>
         </member>
-        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.MZ2203(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.ZJ2203.In2203})">
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.MZ2203(SY.Com.Medical.Model.SYBMZUploadModel)">
             <summary>
             门诊就诊信息上传
             </summary>
             <param name="mod">复合结构</param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.MZ2203Parse(SY.Com.Medical.Model.SYBCommonParseModel)">
+            <summary>
+            门诊就诊信息解析
+            </summary>
+            <param name="mod"></param>
             <returns></returns>
         </member>
         <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.MZ2204(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.ZJ2204.In2204})">

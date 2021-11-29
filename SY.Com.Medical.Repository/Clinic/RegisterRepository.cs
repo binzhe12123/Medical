@@ -13,8 +13,17 @@ namespace SY.Com.Medical.Repository.Clinic
     /// </summary>
     public class RegisterRepository : BaseRepository<RegisterEntity> 
 	{ 
-
-        public Tuple<IEnumerable<RegisterEntity>, int> SearchPage(int tenantId,int pageSize,int pageIndex,string searchkey,DateTime? start,DateTime? end)
+        /// <summary>
+        /// 挂号分页查询
+        /// </summary>
+        /// <param name="tenantId"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="searchkey"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <returns></returns>
+        public Tuple<IEnumerable<RegisterEntity>, int> SearchPage(int tenantId,int pageSize,int pageIndex,string searchkey,DateTime? start,DateTime? end,int IsUsed = 0)
         {
             string sql = @" Select * From Registers Where TenantId = @TenantId ";
             string where = "";
@@ -29,6 +38,13 @@ namespace SY.Com.Medical.Repository.Clinic
             if (end != null)
             {
                 where += " And CreateTime <= '" + end.Value + "' ";
+            }
+            if(IsUsed == -1)
+            {
+                where += " And IsUsed=-1 ";
+            }else if(IsUsed == 1)
+            {
+                where += " And IsUsed=1 ";
             }
 
             string sqlpage = @$" 

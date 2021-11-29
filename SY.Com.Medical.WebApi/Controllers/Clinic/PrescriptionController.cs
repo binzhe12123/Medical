@@ -14,7 +14,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
     /// <summary>
     /// 控制器
     /// </summary>
-    [Route("api /[controller] /[action]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     [Authorize]
     [Api_Tenant]

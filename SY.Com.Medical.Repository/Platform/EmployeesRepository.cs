@@ -13,6 +13,9 @@ namespace SY.Com.Medical.Repository.Platform
     /// </summary>
     public class EmployeesRepository : BaseRepository<EmployeeEntity>
     {
+        public EmployeesRepository() : base() { }
+        public EmployeesRepository(string connection) : base(connection) { }
+
 
         /// <summary>
         /// 获取诊所的员工

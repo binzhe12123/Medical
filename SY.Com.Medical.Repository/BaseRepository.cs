@@ -22,7 +22,7 @@ namespace SY.Com.Medical.Repository
     {
         public static object obj = new object();
         protected IDbConnection _db;
-        private IDbConnection _dbid;
+        protected IDbConnection _dbid;
         private string strconnection;
 
 
@@ -49,6 +49,7 @@ namespace SY.Com.Medical.Repository
             _dbid = new SqlConnection(ReadConfig.GetConfigSection("Medical_Platform"));
 
         }
+
 
         //制定数据库
         public BaseRepository(string strconnection)

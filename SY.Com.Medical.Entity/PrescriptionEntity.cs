@@ -46,11 +46,11 @@ namespace SY.Com.Medical.Entity
 		///<summary> 
 		///
 		///</summary> 
-		public string GOodsNorm {get;set;} 
+		public string GoodsNorm {get;set;} 
 		///<summary> 
 		///
 		///</summary> 
-		public long GoodsPirce {get;set;} 
+		public long GoodsPrice {get;set;} 
 		///<summary> 
 		///
 		///</summary> 
@@ -60,23 +60,23 @@ namespace SY.Com.Medical.Entity
 		///</summary> 
 		public long GoodsCost {get;set;} 
 		///<summary> 
-		///
+		///用法
 		///</summary> 
 		public string GoodsUsage {get;set;} 
 		///<summary> 
-		///
+		///每天用量（频度）
 		///</summary> 
 		public string GoodsEveryDay {get;set;} 
 		///<summary> 
-		///
+		///用药天数
 		///</summary> 
 		public int GoodsDays {get;set;} 
 		///<summary> 
-		///
+		///计价单位
 		///</summary> 
 		public string GoodsSalesUnit {get;set;} 
 		///<summary> 
-		///
+		///中药-副数
 		///</summary> 
 		public int Pair {get;set;} 
 		///<summary> 

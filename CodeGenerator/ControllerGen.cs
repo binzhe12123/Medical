@@ -77,7 +77,7 @@ using System.Threading.Tasks;
     /// <summary>
     /// 控制器
     /// </summary>
-    [Route(""api /[controller] /[action]"")]
+    [Route(""api/[controller]/[action]"")]
     [ApiController]
     [Authorize]
     [Api_Tenant]

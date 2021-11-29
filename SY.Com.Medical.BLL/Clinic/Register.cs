@@ -79,7 +79,9 @@ namespace SY.Com.Medical.BLL.Clinic
 			radd.DoctorName = employeemodel.EmployeeName;
 			radd.DepartmentName = employeemodel.Departments;
 			radd.SearchKey = mod.Name.GetPinYin() + mod.Phone;
-			var registerid = db.Create(radd.DtoToEntity<RegisterEntity>());
+			var entity = radd.DtoToEntity<RegisterEntity>();
+			entity.IsUsed = -1;
+			var registerid = db.Create(entity);
 
 			//保存收费记录
 			ChargeRecordEntity chargeentity = new ChargeRecordEntity();
