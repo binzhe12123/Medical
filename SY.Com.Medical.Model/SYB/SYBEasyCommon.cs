@@ -50,8 +50,7 @@ namespace SY.Com.Medical.Model
 
     /// <summary>
     /// 
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// </summary>    
     public class SYBCommonModel : BaseModel
     {
         /// <summary>
@@ -96,8 +95,7 @@ namespace SY.Com.Medical.Model
 
     /// <summary>
     /// 解析报文-医保返回报文-无报文体的时候使用
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// </summary>    
     public class SYBCommonParseModel : BaseModel
     {
         /// <summary>
@@ -153,8 +151,7 @@ namespace SY.Com.Medical.Model
 
     /// <summary>
     /// 解析报文-医保返回报文
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// </summary>    
     public class SYB2205ParseModel : BaseModel
     {
         /// <summary>
