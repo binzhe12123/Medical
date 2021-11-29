@@ -98,10 +98,6 @@ namespace SY.Com.Medical.Model
 		/// </summary>
 		public string mdtrt_id { get; set; }
 		/// <summary>
-		/// 医保流水号--非医保为空
-		/// </summary>
-		public string chrg_bchno { get; set; }
-		/// <summary>
 		/// 挂号Id-无挂号直接门诊此值为0
 		/// </summary>
 		public int RegisterId { get; set; }
@@ -314,6 +310,14 @@ namespace SY.Com.Medical.Model
 		/// 部位或者牙位
 		/// </summary>
 		public string Place { get; set; }
+		/// <summary>
+		/// 医保编码
+		/// </summary>
+		public string GoodsYBCode { get; set; }
+		/// <summary>
+		/// 机构编码
+		/// </summary>
+		public string GoodsYBSelfCode { get; set; }
 	}
 
 	/// <summary>
@@ -386,6 +390,14 @@ namespace SY.Com.Medical.Model
 		/// 部位或者牙位
 		/// </summary>
 		public string Place { get; set; }
+		/// <summary>
+		/// 医保编码
+		/// </summary>
+		public string GoodsYBCode { get; set; }
+		/// <summary>
+		/// 机构编码
+		/// </summary>
+		public string GoodsYBSelfCode { get; set; }
 	}
 
 	///<summary>
@@ -451,5 +463,35 @@ namespace SY.Com.Medical.Model
 		public DateTime? end { get; set; }
 
 	}
-	
+
+	/// <summary>
+	/// 结算入参
+	/// </summary>
+	public class OutpatientChargeModel:BaseModel
+    {
+		/// <summary>
+		/// 门诊ID
+		/// </summary>
+		public int OutpatientId { get; set; }
+		/// <summary>
+		/// 实收
+		/// </summary>
+		public double Cost { get; set; }
+		/// <summary>
+		/// 医保实收
+		/// </summary>
+		public double YBCost { get; set; }
+		/// <summary>
+		/// 自费实收
+		/// </summary>
+		public double CashCost { get; set; }
+		/// <summary>
+		/// 支付方式0:现金,1:微信,2:支付宝,3:银行卡,4:医保卡标记
+		/// </summary>
+		public int PayWay { get; set; }
+
+
+    }
+
+
 } 

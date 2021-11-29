@@ -101,7 +101,7 @@ namespace SY.Com.Medical.Model
     public class SYBCommonParseModel : BaseModel
     {
         /// <summary>
-        /// 
+        /// 操作人员ID
         /// </summary>
         public int EmployeeId { get; set; }
         /// <summary>
@@ -112,7 +112,7 @@ namespace SY.Com.Medical.Model
 
 
     /// <summary>
-    /// 
+    /// 门诊就诊信息上传
     /// </summary>
     public class SYBMZUploadModel : BaseModel
     {
@@ -135,4 +135,35 @@ namespace SY.Com.Medical.Model
 
     }
 
+    /// <summary>
+    /// 门诊费用明细上传
+    /// </summary>
+    public class SYBMZ2204Model : BaseModel
+    {
+        /// <summary>
+        /// 操作者Id
+        /// </summary>
+        public int EmployeeId { get; set; }
+        /// <summary>
+        /// 门诊Id
+        /// </summary>
+        public int OutpatientId { get; set; }
+    }
+
+
+    /// <summary>
+    /// 解析报文-医保返回报文
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public class SYB2205ParseModel : BaseModel
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public int OutpatientId { get; set; }
+        /// <summary>
+        /// 具体报文
+        /// </summary>
+        public OutCommon Message { get; set; }
+    }
 }

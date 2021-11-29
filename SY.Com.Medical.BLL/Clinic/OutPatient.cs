@@ -122,7 +122,61 @@ namespace SY.Com.Medical.BLL.Clinic
 			return db.UpdateStructure(structure);
         }
 
+		/// <summary>
+		/// 门诊收费
+		/// </summary>
+		/// <param name="mod"></param>
+		/// <returns></returns>
+		public int Charge(OutpatientChargeModel mod)
+        {
+			var entity = db.Get(mod.OutpatientId);
+			if(entity.IsPay == 1 || entity.IsBack == 1)
+            {
+				throw new MyException("该门诊已经收费");
+            }
+			//修改支付状态
+			db.UpdateIsPay(mod.TenantId, mod.OutpatientId);
 
+			//保存退费记录
+			ChargeRecord chargebll = new ChargeRecord();
+			ChargeRecordEntity chargeentity = new ChargeRecordEntity();
+			chargeentity.TenantId = mod.TenantId;
+			chargeentity.PatientId = entity.PatientId;
+			chargeentity.RegisterId = 0;
+			chargeentity.SeeDoctorId = mod.OutpatientId;
+			chargeentity.Price = Convert.ToInt64(mod.Cost * 1000);
+			chargeentity.ChargeType = "门诊收费";
+			if (!string.IsNullOrEmpty(entity.mdtrt_id))
+			{
+				chargeentity.PayYB = Convert.ToInt64(mod.YBCost * 1000);
+				chargeentity.PayCash = Convert.ToInt64(mod.CashCost * 1000);
+			}
+			else if(mod.PayWay == 0)
+			{
+				chargeentity.PayCash = chargeentity.Price;
+			}else if(mod.PayWay == 1)
+            {
+				chargeentity.PayWx = chargeentity.Price;
+			}else if(mod.PayWay == 2)
+            {
+				chargeentity.PayAli = chargeentity.Price;
+			}else if(mod.PayWay == 3)
+            {
+				chargeentity.PayBank = chargeentity.Price;
+			}
+			int chargeid = chargebll.add(chargeentity);
+			return chargeid;
+        }
+
+		/// <summary>
+		/// 医保费用明细撤销时修改chrg_bchno
+		/// </summary>
+		/// <param name="tenantId"></param>
+		/// <param name="outpatientId"></param>
+		public void Updatechrgbchno(int tenantId, int outpatientId)
+        {
+			db.Updatechrgbchno(tenantId, outpatientId);
+        }
 
 	}
 } 

@@ -80,8 +80,16 @@ namespace SY.Com.Medical.Entity
 		///</summary> 
 		public int Pair {get;set;} 
 		///<summary> 
-		///
+		///部位
 		///</summary> 
 		public string Place {get;set;} 
+		/// <summary>
+		/// 医保编码
+		/// </summary>
+		public string GoodsYBCode { get; set; }
+		/// <summary>
+		/// 机构编码
+		/// </summary>
+		public string GoodsYBSelfCode { get; set; }
 	}
 } 

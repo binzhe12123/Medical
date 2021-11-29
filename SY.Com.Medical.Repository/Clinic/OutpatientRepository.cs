@@ -166,6 +166,8 @@ namespace SY.Com.Medical.Repository.Clinic
                         GoodsEveryDay = item.GoodsEveryDay,
                         GoodsDays = item.GoodsDays,
                         GoodsSalesUnit = item.GoodsSalesUnit,
+                        GoodsYBCode = item.GoodsYBCode,
+                        GoodsYBSelfCode = item.GoodsYBSelfCode,
                         Place = item.Place                        
                     });                    
                 }
@@ -216,8 +218,10 @@ namespace SY.Com.Medical.Repository.Clinic
             //修改register为已使用            
             string regupdate = " Update Registers Set IsUsed = 1 Where TenantId = @TenantId And RegisterId=@RegisterId ";
             _db.Execute(regupdate, new { TenantId = structure.TenantId, RegisterId = structure.RegisterId });
-            
 
+            //获取机构信息
+            TenantRepository tenant_db = new TenantRepository(ReadConfig.GetConfigSection("Medical_Platform"));
+            var tenant_entity = tenant_db.getById(structure.TenantId);
             //获取Doctor信息
             EmployeesRepository emp_db = new EmployeesRepository(ReadConfig.GetConfigSection("Medical_Platform"));
             var doc_entity = emp_db.Get(structure.DoctorId);
@@ -231,8 +235,8 @@ namespace SY.Com.Medical.Repository.Clinic
                 CaseBookId = structure.CaseBook.CaseBookId,
                 DoctorId = structure.DoctorId,
                 DoctorName = doc_entity.EmployeeName,
-                mdtrt_id = structure.mdtrt_id,
-                chrg_bchno = structure.chrg_bchno,
+                mdtrt_id = structure.mdtrt_id,                
+                chrg_bchno = tenant_entity.YBCode + DateTime.Now.ToString("yyyyMMddHHmmssfff") + "1",
                 PrescriptionCount = structure.Prescriptions.Count,
                 IsPay = -1,
                 IsBack = -1,
@@ -283,6 +287,8 @@ namespace SY.Com.Medical.Repository.Clinic
                     pres_entity.GoodsSalesUnit = node.GoodsSalesUnit;
                     pres_entity.Place = node.Place;
                     pres_entity.Pair = item.Pair;
+                    pres_entity.GoodsYBCode = node.GoodsYBCode;
+                    pres_entity.GoodsYBSelfCode = node.GoodsYBSelfCode;
                     pres_entitys.Add(pres_entity);
                 }
             }
@@ -323,12 +329,12 @@ namespace SY.Com.Medical.Repository.Clinic
             EmployeesRepository emp_db = new EmployeesRepository(ReadConfig.GetConfigSection("Medical_Platform"));
             var doc_entity = emp_db.Get(structure.DoctorId);
             string sql = @" Update Outpatients 
-                            Set PatientId=@PatientId,DoctorId=@DoctorId,DoctorName=@DoctorName,mdtrt_id=@mdtrt_id,chrg_bchno=@chrg_bchno,PrescriptionCount=@PrescriptionCount
+                            Set PatientId=@PatientId,DoctorId=@DoctorId,DoctorName=@DoctorName,mdtrt_id=@mdtrt_id,PrescriptionCount=@PrescriptionCount
                                 ,Cost=@Cost,SearchKey=@SearchKey
                             Where TenantId=@TenantId And OutpatientId = @OutpatientId ";
             _db.Execute(sql,new { TenantId=structure.TenantId, OutpatientId= structure.OutpatientId,PatientId= structure.Patient.PatienId
                 ,DoctorId = structure.DoctorId,DoctorName= doc_entity.EmployeeName,
-                mdtrt_id= structure.mdtrt_id,chrg_bchno= structure.chrg_bchno,
+                mdtrt_id= structure.mdtrt_id,
                 PrescriptionCount= structure.Prescriptions.Count,
                 Cost= Convert.ToInt64(structure.Prescriptions.Sum(x => x.Details.Sum(y => (y.GoodsPrice * y.GoodsNum) * 1000))),
                 SearchKey= structure.Patient.PatientName + structure.Patient.PatientName.GetPinYin() + "|" + structure.Patient.Phone
@@ -374,6 +380,8 @@ namespace SY.Com.Medical.Repository.Clinic
                     pres_entity.GoodsSalesUnit = node.GoodsSalesUnit;
                     pres_entity.Place = node.Place;
                     pres_entity.Pair = item.Pair;
+                    pres_entity.GoodsYBCode = node.GoodsYBCode;
+                    pres_entity.GoodsYBSelfCode = node.GoodsYBSelfCode;
                     pres_entitys.Add(pres_entity);
                 }
             }
@@ -381,6 +389,41 @@ namespace SY.Com.Medical.Repository.Clinic
             return outpatientId;
         }        
 
+        /// <summary>
+        /// 支付时修改状态
+        /// </summary>
+        /// <param name="tenantId"></param>
+        /// <param name="outpatientId"></param>
+        public void UpdateIsPay(int tenantId,int outpatientId)
+        {
+            string sql = @" Update Outpatients Set IsPay = 1 Where TenantId = @TenantId And OutpatientId = @OutpatientId ";
+            _db.Execute(sql, new { TenantId = tenantId, OutpatientId = outpatientId });
+        }
+
+        /// <summary>
+        /// 退费时修改状态
+        /// </summary>
+        /// <param name="tenantId"></param>
+        /// <param name="outpatientId"></param>
+        public void UpdateIsBack(int tenantId, int outpatientId)
+        {
+            string sql = @" Update Outpatients Set IsBack = 1 Where TenantId = @TenantId And OutpatientId = @OutpatientId ";
+            _db.Execute(sql, new { TenantId = tenantId, OutpatientId = outpatientId });
+        }
+
+        /// <summary>
+        /// 门诊费用明细撤销时修改chrg_bchno
+        /// </summary>
+        /// <param name="tenantId"></param>
+        /// <param name="outpatientId"></param>
+        public void Updatechrgbchno(int tenantId, int outpatientId)
+        {
+            //获取机构信息
+            TenantRepository tenant_db = new TenantRepository(ReadConfig.GetConfigSection("Medical_Platform"));
+            var tenant_entity = tenant_db.getById(tenantId);
+            string sql = @" Update Outpatients Set chrg_bchno = @chrg_bchno Where TenantId = @TenantId And OutpatientId = @OutpatientId ";
+            _db.Execute(sql, new { TenantId = tenantId, OutpatientId = outpatientId, chrg_bchno= tenant_entity.YBCode + DateTime.Now.ToString("yyyyMMddHHmmssfff") + "1" });
+        }
 
     }
 } 

@@ -355,7 +355,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
 
 
         /// <summary>
-        /// 门诊就诊信息上传
+        /// 门诊就诊信息上传-获取报文
         /// </summary>
         /// <param name="mod">复合结构</param>
         /// <returns></returns>
@@ -402,7 +402,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         }
 
         /// <summary>
-        /// 门诊就诊信息解析
+        /// 门诊就诊信息上传-解析报文
         /// </summary>
         /// <param name="mod"></param>
         /// <returns></returns>
@@ -420,23 +420,49 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
 
 
         /// <summary>
-        /// 门诊费用上传
+        /// 门诊费用上传-获取报文
         /// </summary>
         /// <param name="mod"></param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<InCommon> MZ2204(SYBEasyCommon<In2204> mod)
+        public BaseResponse<InCommon> MZ2204(SYBMZ2204Model mod)
         {
             BaseResponse<InCommon> rd = new BaseResponse<InCommon>();
             try
             {
-                InCommon rd1 = bll.getComm(mod.fixmedins_code, mod.fixmedins_name, mod.opter, mod.opter_name, mod.sign_no);
-                In2204 model = new In2204();
-                foreach(var item in mod.input.feedetail)
+                //InCommon rd1 = bll.getComm(mod.fixmedins_code, mod.fixmedins_name, mod.opter, mod.opter_name, mod.sign_no);
+                InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId);
+                Outpatient opbll = new Outpatient();
+                var opstructure= opbll.getStructure(mod.TenantId, mod.OutpatientId);
+                var department = bll.getYBDepartment(opstructure.Doctor.Department);
+                List <FeeDetail> fdlist = new List<FeeDetail>();
+                foreach(var item in opstructure.Prescriptions)
                 {
-                    item.fee_ocur_time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                    foreach(var node in item.Details)
+                    {
+                        FeeDetail fdmod = new FeeDetail();
+                        fdmod.feedetl_sn = rd1.fixmedins_code + DateTime.Now.ToString("yyyyMMddHHmmss") + (9999 - fdlist.Count).ToString();
+                        fdmod.mdtrt_id = opstructure.mdtrt_id;
+                        fdmod.psn_no = opstructure.Patient.psn_no;
+                        fdmod.chrg_bchno = opstructure.chrg_bchno;
+                        fdmod.rxno = rd1.fixmedins_code + DateTime.Now.ToString("yyyyMMddHHmmssfff") + item.PreNo;
+                        fdmod.rx_circ_flag = "0";
+                        fdmod.fee_ocur_time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                        fdmod.med_list_codg = node.GoodsYBCode;
+                        fdmod.medins_list_codg = node.GoodsYBSelfCode;
+                        fdmod.det_item_fee_sumamt = Math.Round(decimal.Parse(node.GoodsCost.ToString()),2);
+                        fdmod.cnt = node.GoodsNum;
+                        fdmod.pric = Math.Round(decimal.Parse(node.GoodsPrice.ToString()), 4);
+                        fdmod.bilg_dept_codg = department.code;
+                        fdmod.bilg_dept_name = department.name;
+                        fdmod.bilg_dr_codg = opstructure.Doctor.YBCode;
+                        fdmod.bilg_dr_name = opstructure.Doctor.EmployeeName;
+                        fdmod.hosp_appr_flag = "1";
+                        fdlist.Add(fdmod);
+                    }
                 }
-                model.feedetail = mod.input.feedetail;                
+                In2204 model = new In2204();
+                model.feedetail = fdlist;
                 rd1.infno = "2204";
                 rd1.input = model;
                 rd.Data = rd1;// Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
@@ -449,7 +475,23 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         }
 
         /// <summary>
-        /// 门诊费用撤销
+        /// 门诊费用上传-解析报文
+        /// </summary>
+        /// <param name="mod"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<bool> MZ2204Parse(SYBCommonParseModel<ZJ2204> mod)
+        {
+            BaseResponse<bool> result = new BaseResponse<bool>();
+            if (mod.Message.infcode == -1)
+            {
+                throw new MyException(mod.Message.err_msg);
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 门诊费用撤销-获取报文
         /// </summary>
         /// <param name="mod">复合结构</param>
         /// <returns></returns>
@@ -461,7 +503,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 InCommon rd1 = bll.getComm(mod.fixmedins_code, mod.fixmedins_name, mod.opter, mod.opter_name, mod.sign_no);
                 In2205data model = new In2205data();
                 model.data = new In2205();
-                model.data.chrg_bchno = mod.input.chrg_bchno;
+                model.data.chrg_bchno = "0000";
                 model.data.mdtrt_id = mod.input.mdtrt_id;
                 model.data.psn_no = mod.input.psn_no;
                 rd1.infno = "2205";
@@ -474,6 +516,28 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 return rd.sysException(ex.Message);
             }
         }
+
+
+        /// <summary>
+        /// 门诊费用撤销-解析报文
+        /// </summary>
+        /// <param name="mod"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<bool> MZ2205Parse(SYB2205ParseModel mod)
+        {
+            BaseResponse<bool> result = new BaseResponse<bool>();
+            if (mod.Message.infcode == -1)
+            {
+                throw new MyException(mod.Message.err_msg);
+            }
+            //更新门诊的chrg_bchno,可以再次收费
+            Outpatient opbll = new Outpatient();
+            opbll.Updatechrgbchno(mod.TenantId, mod.OutpatientId);
+            result.Data = true;
+            return result;
+        }
+
 
         /// <summary>
         /// 门诊预结算

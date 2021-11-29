@@ -62,6 +62,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
+        [HttpPost]
         public BaseResponse<List<OutpatientListModel>> getHistory(OutpatientSearchModel request)
         {
             BaseResponse<List<OutpatientListModel>> result = new BaseResponse<List<OutpatientListModel>>();
@@ -71,6 +72,18 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             return result;
         }
 
+        /// <summary>
+        /// 门诊收费
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<int> OutpatientCharge(OutpatientChargeModel request)
+        {
+            BaseResponse<int> result = new BaseResponse<int>();
+            result.Data = bll.Charge(request);
+            return result;
+        }
 
 
 

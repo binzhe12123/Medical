@@ -1,5 +1,6 @@
 ﻿using SY.Com.Medical.BLL.Platform;
 using SY.Com.Medical.Entity;
+using SY.Com.Medical.Infrastructure;
 using SY.Com.Medical.Model;
 using SY.Com.Medical.Repository.Clinic;
 using System;
@@ -89,7 +90,7 @@ namespace SY.Com.Medical.BLL.Clinic
         /// <returns></returns>
         public UserTenantResponse getTenantById(int tenantId)
         {
-            Tenant tenantbll = new Tenant();
+            Tenant tenantbll = new Tenant(ReadConfig.GetConfigSection("Medical_Platform"));
             var mod = tenantbll.getById(tenantId);
             if(mod == null)
             {

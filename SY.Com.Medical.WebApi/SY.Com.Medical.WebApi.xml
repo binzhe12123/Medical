@@ -227,6 +227,13 @@
             <param name="request"></param>
             <returns></returns>
         </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.OutpatientController.OutpatientCharge(SY.Com.Medical.Model.OutpatientChargeModel)">
+            <summary>
+            门诊收费
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.PatientController">
             <summary>
             患者信息
@@ -531,30 +538,44 @@
         </member>
         <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.MZ2203(SY.Com.Medical.Model.SYBMZUploadModel)">
             <summary>
-            门诊就诊信息上传
+            门诊就诊信息上传-获取报文
             </summary>
             <param name="mod">复合结构</param>
             <returns></returns>
         </member>
         <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.MZ2203Parse(SY.Com.Medical.Model.SYBCommonParseModel)">
             <summary>
-            门诊就诊信息解析
+            门诊就诊信息上传-解析报文
             </summary>
             <param name="mod"></param>
             <returns></returns>
         </member>
-        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.MZ2204(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.ZJ2204.In2204})">
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.MZ2204(SY.Com.Medical.Model.SYBMZ2204Model)">
             <summary>
-            门诊费用上传
+            门诊费用上传-获取报文
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.MZ2204Parse(SY.Com.Medical.Model.SYBCommonParseModel{SZSI_Smart.Model.SYB.ZJ2204})">
+            <summary>
+            门诊费用上传-解析报文
             </summary>
             <param name="mod"></param>
             <returns></returns>
         </member>
         <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.MZ2205(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.ZJ2205.In2205})">
             <summary>
-            门诊费用撤销
+            门诊费用撤销-获取报文
             </summary>
             <param name="mod">复合结构</param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.MZ2205Parse(SY.Com.Medical.Model.SYB2205ParseModel)">
+            <summary>
+            门诊费用撤销-解析报文
+            </summary>
+            <param name="mod"></param>
             <returns></returns>
         </member>
         <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.JS2206(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.YJS2206.In2206})">

@@ -2738,11 +2738,6 @@
             医保门诊号--非医保为空
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.OutpatientAddStructure.chrg_bchno">
-            <summary>
-            医保流水号--非医保为空
-            </summary>
-        </member>
         <member name="P:SY.Com.Medical.Model.OutpatientAddStructure.RegisterId">
             <summary>
             挂号Id-无挂号直接门诊此值为0
@@ -2988,6 +2983,16 @@
             部位或者牙位
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.PrescriptionDetailStructure.GoodsYBCode">
+            <summary>
+            医保编码
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrescriptionDetailStructure.GoodsYBSelfCode">
+            <summary>
+            机构编码
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.PrescriptionAddStructure">
             <summary>
             门诊内处方结构
@@ -3068,6 +3073,16 @@
             部位或者牙位
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.PrescriptionDetailAddStructure.GoodsYBCode">
+            <summary>
+            医保编码
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrescriptionDetailAddStructure.GoodsYBSelfCode">
+            <summary>
+            机构编码
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.OutpatientListModel">
             <summary>
              Outpatient模型
@@ -3136,6 +3151,36 @@
         <member name="P:SY.Com.Medical.Model.OutpatientSearchModel.end">
             <summary>
             搜索-结束日期
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.OutpatientChargeModel">
+            <summary>
+            结算入参
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientChargeModel.OutpatientId">
+            <summary>
+            门诊ID
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientChargeModel.Cost">
+            <summary>
+            实收
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientChargeModel.YBCost">
+            <summary>
+            医保实收
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientChargeModel.CashCost">
+            <summary>
+            自费实收
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientChargeModel.PayWay">
+            <summary>
+            支付方式0:现金,1:微信,2:支付宝,3:银行卡,4:医保卡标记
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.PageModel">
@@ -6142,7 +6187,7 @@
         </member>
         <member name="P:SY.Com.Medical.Model.SYBCommonParseModel.EmployeeId">
             <summary>
-            
+            操作人员ID
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.SYBCommonParseModel.Message">
@@ -6152,7 +6197,7 @@
         </member>
         <member name="T:SY.Com.Medical.Model.SYBMZUploadModel">
             <summary>
-            
+            门诊就诊信息上传
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.SYBMZUploadModel.EmployeeId">
@@ -6173,6 +6218,37 @@
         <member name="P:SY.Com.Medical.Model.SYBMZUploadModel.Diagnosis">
             <summary>
             诊断信息
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYBMZ2204Model">
+            <summary>
+            门诊费用明细上传
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBMZ2204Model.EmployeeId">
+            <summary>
+            操作者Id
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBMZ2204Model.OutpatientId">
+            <summary>
+            门诊Id
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYB2205ParseModel">
+            <summary>
+            解析报文-医保返回报文
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB2205ParseModel.OutpatientId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB2205ParseModel.Message">
+            <summary>
+            具体报文
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.Up9101">

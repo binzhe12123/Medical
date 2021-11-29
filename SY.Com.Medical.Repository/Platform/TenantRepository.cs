@@ -16,6 +16,9 @@ namespace SY.Com.Medical.Repository.Platform
     public class TenantRepository : BaseRepository<TenantEntity>
     {
 
+        public TenantRepository() : base() { }
+        public TenantRepository(string connection) : base(connection) { }
+
         /// <summary>
         /// 获取用户关联的租户
         /// </summary>

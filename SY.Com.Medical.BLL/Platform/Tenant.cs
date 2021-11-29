@@ -17,6 +17,12 @@ namespace SY.Com.Medical.BLL.Platform
     public class Tenant
     {
         private TenantRepository db;
+
+        public Tenant(string connection)
+        {
+            db = new TenantRepository(connection);
+        }
+
         public Tenant()
         {
             db = new TenantRepository();
