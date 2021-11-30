@@ -3347,6 +3347,16 @@
             电话（手机号）    
             </summary>       
         </member>
+        <member name="T:SY.Com.Medical.Model.PatientSearchPage">
+            <summary>
+            患者分页查询模型
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientSearchPage.SearchKey">
+            <summary>
+            搜索   
+            </summary>    
+        </member>
         <member name="T:SY.Com.Medical.Model.PatientAdddto">
             <summary>
             添加
@@ -5000,6 +5010,16 @@
             <summary> 
             
             </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterModel.ipt_otp_no">
+            <summary>
+            医保流水号-非医保字段为空
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterModel.mdtrt_id">
+            <summary>
+            医保挂号id号-非医保字段为空
+            </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.Register1Request">
             <summary>
@@ -13491,17 +13511,18 @@
         </member>
         <member name="P:SZSI_Smart.Model.SYB.In1101data.mdtrt_cert_type">
             <summary>
-            
+             就诊凭证类型“01”时填写电子凭证令牌，为“02”时填写身份证号，为“03”时填写社会保障卡卡号
+             根据页面选择的卡类型
             </summary>
         </member>
         <member name="P:SZSI_Smart.Model.SYB.In1101data.mdtrt_cert_no">
             <summary>
-            
+            读取到的卡信息，可能是医保卡号或者身份证号或者电子医保卡号
             </summary>
         </member>
         <member name="P:SZSI_Smart.Model.SYB.In1101data.card_sn">
             <summary>
-            
+            卡识别码,就诊凭证类型为“03”时必填
             </summary>
         </member>
         <member name="P:SZSI_Smart.Model.SYB.In1101data.begntime">
@@ -13511,7 +13532,7 @@
         </member>
         <member name="P:SZSI_Smart.Model.SYB.In1101data.psn_cert_type">
             <summary>
-            
+            人员证件类型,暂时都输入1
             </summary>
         </member>
         <member name="P:SZSI_Smart.Model.SYB.In1101data.certno">

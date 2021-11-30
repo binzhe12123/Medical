@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Web;
 
 namespace SZSI_Smart.Model.SYB
@@ -21,32 +22,36 @@ namespace SZSI_Smart.Model.SYB
     public class In1101data
     {
         /// <summary>
-        /// 
+        ///  就诊凭证类型“01”时填写电子凭证令牌，为“02”时填写身份证号，为“03”时填写社会保障卡卡号
+        ///  根据页面选择的卡类型
         /// </summary>
         public string mdtrt_cert_type { get; set; }// 就诊凭证类型	字符型	“01”时填写电子凭证令牌，为“02”时填写身份证号，为“03”时填写社会保障卡卡号
         /// <summary>
-        /// 
+        /// 读取到的卡信息，可能是医保卡号或者身份证号或者电子医保卡号
         /// </summary>
         public string mdtrt_cert_no { get; set; }// 就诊凭证编号  字符型	Y 
         /// <summary>
-        /// 
+        /// 卡识别码,就诊凭证类型为“03”时必填
         /// </summary>
         public string card_sn { get; set; }// 卡识别码 字符型	32			就诊凭证类型为“03”时必填
         /// <summary>
         /// 
         /// </summary>
+        [JsonIgnore]
         public DateTime begntime { get; set; } //   开始时间 日期时间型               获取历史参保信息时传入
         /// <summary>
-        /// 
+        /// 人员证件类型,暂时都输入1
         /// </summary>
         public string psn_cert_type { get; set; } //  人员证件类型 字符型	6	Y
         /// <summary>
         /// 
         /// </summary>
+        [JsonIgnore]
         public string certno { get; set; }//  证件号码 字符型	50		
         /// <summary>
         /// 
         /// </summary>
+        [JsonIgnore]
         public string psn_name { get; set; }// 人员姓名    字符型	50		
     }
     /// <summary>

@@ -24,6 +24,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
 	    Outpatient bll = new Outpatient();
         Good goodsbll = new Good();
         Register regbll = new Register();
+        Patient patbll = new Patient();
 
         /// <summary>
         /// 保存门诊
@@ -150,6 +151,68 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             BaseResponse<List<RegisterDoctor>> result = new BaseResponse<List<RegisterDoctor>>();
             result.Data = regbll.getDoctors(request.TenantId);
             return result;
+        }
+
+        /// <summary>
+        /// 模糊搜索租户患者信息
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<List<PatientModel>> searchPatient(PatientSearchPage request)
+        {
+            BaseResponse<List<PatientModel>> result = new BaseResponse<List<PatientModel>>();
+            try
+            {
+                PatientPage page = new PatientPage();
+                page.PageSize = 5;
+                page.PageIndex = 1;
+                page.SearchKey = request.SearchKey;
+                var tuple =  patbll.gets(page);
+                result.Data = tuple.Item1;
+                result.CalcPage(tuple.Item2,1, 1);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                if (ex is MyException)
+                {
+                    return result.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
+                }
+                else
+                {
+                    return result.sysException(ex.Message);
+                }
+            }
+        }
+        
+        /// <summary>
+        /// 查找未被使用的挂号
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<List<RegisterModel>> findRegister(Register1Request request)
+        {
+            BaseResponse<List<RegisterModel>> result = new BaseResponse<List<RegisterModel>>();
+            try
+            {
+                var tuple = regbll.gets(request.TenantId, request.PageSize, request.PageIndex, request.SearchKey, request.start, request.end,-1);
+                result.Data = tuple.Item1.ToList();
+                result.CalcPage(tuple.Item2, request.PageIndex, request.PageSize);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                if (ex is MyException)
+                {
+                    return result.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
+                }
+                else
+                {
+                    return result.sysException(ex.Message);
+                }
+            }
         }
 
     }

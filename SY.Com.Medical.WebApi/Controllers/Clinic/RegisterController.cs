@@ -20,7 +20,8 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
     [Api_Tenant]
     public class RegisterController : ControllerBase 
 	{
-		 Register bll = new Register();
+		Register bll = new Register();
+		Patient patbll = new Patient();
 		RegisterProject rpbll = new RegisterProject();
 
 		/// <summary>
@@ -108,6 +109,38 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
 		}
 
 
+		/// <summary>
+		/// 模糊搜索租户患者信息
+		/// </summary>
+		/// <param name="request"></param>
+		/// <returns></returns>
+		[HttpPost]
+		public BaseResponse<List<PatientModel>> searchPatient(PatientSearchPage request)
+		{
+			BaseResponse<List<PatientModel>> result = new BaseResponse<List<PatientModel>>();
+			try
+			{
+				PatientPage page = new PatientPage();
+				page.PageSize = 5;
+				page.PageIndex = 1;
+				page.SearchKey = request.SearchKey;
+				var tuple = patbll.gets(page);
+				result.Data = tuple.Item1;
+				result.CalcPage(tuple.Item2, 1, 1);
+				return result;
+			}
+			catch (Exception ex)
+			{
+				if (ex is MyException)
+				{
+					return result.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
+				}
+				else
+				{
+					return result.sysException(ex.Message);
+				}
+			}
+		}
 
 	}
 } 

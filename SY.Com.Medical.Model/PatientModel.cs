@@ -114,6 +114,18 @@ namespace SY.Com.Medical.Model
     }
 
     /// <summary>
+    /// 患者分页查询模型
+    /// </summary>
+    public class PatientSearchPage : BaseModel
+    {
+        /// <summary>
+        /// 搜索   
+        /// </summary>    
+        public string SearchKey { get; set; }
+
+    }
+
+    /// <summary>
     /// 添加
     /// </summary>
     public class PatientAdddto : BaseModel

@@ -308,6 +308,20 @@
             <param name="request"></param>
             <returns></returns>
         </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.OutpatientController.searchPatient(SY.Com.Medical.Model.PatientSearchPage)">
+            <summary>
+            模糊搜索租户患者信息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.OutpatientController.findRegister(SY.Com.Medical.Model.Register1Request)">
+            <summary>
+            查找未被使用的挂号
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.PatientController">
             <summary>
             患者信息
@@ -455,6 +469,13 @@
             </summary> 
             <param name="request"></param>
              <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.RegisterController.searchPatient(SY.Com.Medical.Model.PatientSearchPage)">
+            <summary>
+            模糊搜索租户患者信息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
         </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.RegisterProjectController">
             <summary>

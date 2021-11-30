@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 namespace SY.Com.Medical.Model
 {
@@ -88,73 +89,82 @@ namespace SY.Com.Medical.Model
 	/// Register模型
 	/// </summary>
 	public class RegisterModel : BaseModel 
-		{ 
-			///<summary> 
-			///挂号id
-			///</summary> 
-			public long RegisterId {get;set;} 
-			///<summary> 
-			///
-			///</summary> 
-			public long PatientId {get;set;} 
-			///<summary> 
-			///
-			///</summary> 
-			public string psn_no {get;set;} 
-			///<summary> 
-			///患者姓名
-			///</summary> 
-			public string Name {get;set;} 
-			///<summary> 
-			///患者性别
-			///</summary> 
-			public int Sex {get;set;} 
-			///<summary> 
-			///
-			///</summary> 
-			public DateTime? CSRQ {get;set;} 
-			///<summary> 
-			///
-			///</summary> 
-			public string SFZH {get;set;} 
-			///<summary> 
-			///
-			///</summary> 
-			public string Phone {get;set;} 
-			///<summary> 
-			///
-			///</summary> 
-			public string Addr {get;set;} 	
-			///<summary> 
-			///
-			///</summary> 
-			public string DoctorName {get;set;} 
-			///<summary> 
-			///
-			///</summary> 
-			public string DepartmentName {get;set;} 
-			///<summary> 
-			///
-			///</summary> 
-			public string GoodsName {get;set;} 
-			///<summary> 
-			///
-			///</summary> 
-			public long GoodsPrice {get;set;} 
+	{ 
+		///<summary> 
+		///挂号id
+		///</summary> 
+		public long RegisterId {get;set;} 
+		///<summary> 
+		///
+		///</summary> 
+		public long PatientId {get;set;} 
+		///<summary> 
+		///
+		///</summary> 
+		public string psn_no {get;set;} 
+		///<summary> 
+		///患者姓名
+		///</summary> 
+		public string Name {get;set;} 
+		///<summary> 
+		///患者性别
+		///</summary> 
+		public int Sex {get;set;} 
+		///<summary> 
+		///
+		///</summary> 
+		public DateTime? CSRQ {get;set;} 
+		///<summary> 
+		///
+		///</summary> 
+		public string SFZH {get;set;} 
+		///<summary> 
+		///
+		///</summary> 
+		public string Phone {get;set;} 
+		///<summary> 
+		///
+		///</summary> 
+		public string Addr {get;set;} 	
+		///<summary> 
+		///
+		///</summary> 
+		public string DoctorName {get;set;} 
+		///<summary> 
+		///
+		///</summary> 
+		public string DepartmentName {get;set;} 
+		///<summary> 
+		///
+		///</summary> 
+		public string GoodsName {get;set;} 
+		///<summary> 
+		///
+		///</summary> 
+		public long GoodsPrice {get;set;} 
 			
-			///<summary> 
-			///
-			///</summary> 
-			public DateTime? CreateTime {get;set;}
-			///<summary> 
-			///是否退号,1未退号,2已退号
-			///</summary> 
+		///<summary> 
+		///
+		///</summary> 
+		public DateTime? CreateTime {get;set;}
+		///<summary> 
+		///是否退号,1未退号,2已退号
+		///</summary> 
 		public int IsEnable {get;set;} 
-			///<summary> 
-			///
-			///</summary> 
-			public int IsDelete {get;set;} 
-		}
+		///<summary> 
+		///
+		///</summary> 
+		public int IsDelete {get;set;} 
+		/// <summary>
+		/// 医保流水号-非医保字段为空
+		/// </summary>
+		public string ipt_otp_no { get; set; }
+		/// <summary>
+		/// 医保挂号id号-非医保字段为空
+		/// </summary>
+		public string mdtrt_id { get; set; }
+
+	}
 	
 	///<summary>
 	/// Register模型
@@ -172,6 +182,7 @@ namespace SY.Com.Medical.Model
 		/// <summary>
 		/// 根据使用情况筛选挂号,0:查看所有挂号,-1:查看未使用挂号,1:查看已使用挂号
 		/// </summary>
+		[JsonIgnore]
 		public int IsUsed { get; set; }
 		/// <summary>
 		/// 挂号时间-开始

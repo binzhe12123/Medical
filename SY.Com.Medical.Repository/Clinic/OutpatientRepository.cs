@@ -17,13 +17,13 @@ namespace SY.Com.Medical.Repository.Clinic
     /// </summary>
     public class OutpatientRepository : BaseRepository<OutpatientEntity> 
 	{ 
-        //调用挂单处方
+        //查询挂单处方
         public Tuple<List<OutpatientEntity>, int> getNoPaid(int tenantId,int pageSize,int pageIndex,string searchKey,DateTime? start,DateTime? end,int doctorId=0)
         {
             return getList(tenantId, pageSize, pageIndex, searchKey, start, end,doctorId,1);
         }
 
-        //调用历史处方
+        //查询历史处方
         public Tuple<List<OutpatientEntity>, int> getHistoryPaid(int tenantId,int pageSize,int pageIndex,string searchKey,DateTime? start,DateTime? end,int doctorId=0)
         {
             return getList(tenantId, pageSize, pageIndex, searchKey, start, end,doctorId,2);

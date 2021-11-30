@@ -176,9 +176,9 @@ namespace SY.Com.Medical.BLL.Clinic
 		///</summary> 
 		///<param name="request"></param>
 		/// <returns></returns>
-		public Tuple<List<RegisterModel>,int> gets(int request,int pageSize,int pageIndex,string searchKey,DateTime? start,DateTime? end)
+		public Tuple<List<RegisterModel>,int> gets(int request,int pageSize,int pageIndex,string searchKey,DateTime? start,DateTime? end,int isUsed = 0)
 		{
-			var datas  = db.SearchPage(request,pageSize,pageIndex,searchKey,start,end);
+			var datas  = db.SearchPage(request,pageSize,pageIndex,searchKey,start,end,isUsed);
 			if(datas.Item1 == null || !datas.Item1.Any())
             {
 				Tuple<List<RegisterModel>, int> result1 = new(new List<RegisterModel>(), datas.Item2);
