@@ -13,6 +13,16 @@ namespace SY.Com.Medical.Repository.Clinic
     /// </summary>
     public class ChargeRecordRepository : BaseRepository<ChargeRecordEntity> 
 	{ 
-        
+        public ChargeRecordEntity getByOutpatientId(int tenantId,int outpatientId,string chargetype)
+        {
+            string sql = @" Select * From ChargeRecords 
+                            Where TenantId=@TenantId And PatientId=@PatientId And ChargeType= '"+ chargetype + "' ";
+            var mods =_db.Query<ChargeRecordEntity>(sql, new { TenantId = tenantId, PatientId = outpatientId });
+            if(mods!=null && mods.Any())
+            {
+                return mods.FirstOrDefault();
+            }
+            return null;
+        }
 	}
 } 

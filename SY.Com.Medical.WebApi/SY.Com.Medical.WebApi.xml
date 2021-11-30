@@ -4,6 +4,59 @@
         <name>SY.Com.Medical.WebApi</name>
     </assembly>
     <members>
+        <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.ChargeRecordController">
+            <summary>
+            收费管理
+            </summary>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.ChargeRecordController.getNoPaid(SY.Com.Medical.Model.OutpatientSearch2Model)">
+            <summary>
+            查询代收费门诊处方列表-列表-分页
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.ChargeRecordController.getHistory(SY.Com.Medical.Model.OutpatientSearch2Model)">
+            <summary>
+            查询已收费门诊处方-列表-分页
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.ChargeRecordController.getBackList(SY.Com.Medical.Model.OutpatientSearch2Model)">
+            <summary>
+            查询退费门诊处方-列表-分页
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.ChargeRecordController.getDoctors(SY.Com.Medical.Model.BaseModel)">
+            <summary>
+            收费管理时时获取医生下拉框
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.ChargeRecordController.getDetail(SY.Com.Medical.Model.OutpatientStructureRequest)">
+            <summary>
+            获取具体一个门诊+处方详细信息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.ChargeRecordController.BackCharge(SY.Com.Medical.Model.OutpatientStructureRequest)">
+            <summary>
+            退费
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.ChargeRecordController.getChargeByOutpatient(SY.Com.Medical.Model.OutpatientStructureRequest)">
+            <summary>
+            获取门诊收费详情
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.GoodController">
             <summary>
             物料控制器(药品、项目、材料)
@@ -204,7 +257,7 @@
         </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.OutpatientController">
             <summary>
-            控制器
+            门诊+处方控制器
             </summary>
         </member>
         <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.OutpatientController.Save(SY.Com.Medical.Model.OutpatientAddStructure)">
@@ -227,9 +280,30 @@
             <param name="request"></param>
             <returns></returns>
         </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.OutpatientController.getDetail(SY.Com.Medical.Model.OutpatientStructureRequest)">
+            <summary>
+            获取具体一个门诊+处方详细信息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
         <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.OutpatientController.OutpatientCharge(SY.Com.Medical.Model.OutpatientChargeModel)">
             <summary>
             门诊收费
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.OutpatientController.getsGoods(SY.Com.Medical.Model.GoodsRequest)">
+            <summary>
+            获取药品和材料列表-分页
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.OutpatientController.getDoctors(SY.Com.Medical.Model.BaseModel)">
+            <summary>
+            收费管理时时获取医生下拉框
             </summary>
             <param name="request"></param>
             <returns></returns>
@@ -309,46 +383,6 @@
             <param name="request"></param>
             <returns></returns>
         </member>
-        <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.PrescriptionController">
-            <summary>
-            控制器
-            </summary>
-        </member>
-        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PrescriptionController.get(System.Int32)">
-            <summary> 
-            获取详情记录
-            </summary> 
-            <param name="id"></param>
-             <returns></returns>
-        </member>
-        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PrescriptionController.gets(SY.Com.Medical.Model.PrescriptionRequest)">
-            <summary> 
-            获取列表-分页
-            </summary> 
-            <param name="request"></param>
-             <returns></returns>
-        </member>
-        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PrescriptionController.add(SY.Com.Medical.Model.PrescriptionAdd)">
-            <summary> 
-            新增
-            </summary> 
-            <param name="request"></param>
-             <returns></returns>
-        </member>
-        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PrescriptionController.update(SY.Com.Medical.Model.PrescriptionUpdate)">
-            <summary> 
-            修改
-            </summary> 
-            <param name="request"></param>
-             <returns></returns>
-        </member>
-        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PrescriptionController.delete(SY.Com.Medical.Model.PrescriptionDelete)">
-            <summary> 
-            删除
-            </summary> 
-            <param name="request"></param>
-             <returns></returns>
-        </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.PurchasesGoodController">
             <summary>
             控制器
@@ -391,7 +425,7 @@
         </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.RegisterController">
             <summary>
-            控制器
+            挂号控制器
             </summary>
         </member>
         <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.RegisterController.Save(SY.Com.Medical.Model.RegisterSaveModel)">
@@ -506,7 +540,7 @@
             获取人员信息-解析报文
             </summary>
             <param name="mod"></param>
-            <returns></returns>
+            <returns></returns>        
         </member>
         <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.GH2201(SY.Com.Medical.Model.SYBCommonModel{SZSI_Smart.Model.SYB.In2201data})">
             <summary>
@@ -578,25 +612,45 @@
             <param name="mod"></param>
             <returns></returns>
         </member>
-        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.JS2206(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.YJS2206.In2206})">
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.JS2206(SY.Com.Medical.Model.SYJS2206Model)">
             <summary>
-            门诊预结算
+            门诊预结算-获取报文
             </summary>
             <param name="mod"></param>
             <returns></returns>
         </member>
-        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.JS2207(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.JS2207.In2207})">
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.JS2206Parse(SY.Com.Medical.Model.SYBCommonParseModel{SZSI_Smart.Model.SYB.YJS2206.Out2206})">
             <summary>
-            门诊结算
+            门诊预结算-解析报文
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.JS2207(SY.Com.Medical.Model.SYJS2207Model)">
+            <summary>
+            门诊结算-获取报文
             </summary>
             <param name="mod">复合结构</param>
             <returns></returns>
         </member>
-        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.JS2208(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.ZJCX2208.In2208})">
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.JS2207Parse(SY.Com.Medical.Model.SYBCommonParseModel{SZSI_Smart.Model.SYB.JS2207.Out2207})">
             <summary>
-            门诊结算撤销
+            门诊结算-解析报文
             </summary>
-            <param name="mod">复合结构</param>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.JS2208(SY.Com.Medical.Model.SYB2208Model)">
+            <summary>
+            门诊结算撤销-获取报文
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.JS2208Parse(SY.Com.Medical.Model.SYBCommonParseModel{SZSI_Smart.Model.SYB.ZJCX2208.Out2208})">
+            <summary>
+            门诊结算撤销-解析报文
+            </summary>
             <returns></returns>
         </member>
         <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.JY2601(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.YBJS.CZ2601.In2601})">
@@ -634,7 +688,7 @@
             <param name="mod"></param>
             <returns></returns>
         </member>
-        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.KSBG3402(SY.Com.Medical.Model.SYBEasyCommon{SY.Com.Medical.Model.KS3402.Deptinfo})">
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.KSBG3402(SY.Com.Medical.Model.SYBEasyCommon{SY.Com.Medical.Model.KS3402.Deptinfo1})">
             <summary>
             科室信息变更
             </summary>

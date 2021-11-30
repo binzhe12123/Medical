@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace SY.Com.Medical.WebApi.Controllers.Clinic
 {
     /// <summary>
-    /// 控制器
+    /// 挂号控制器
     /// </summary>
     [Route("api/[controller]/[action]")]
     [ApiController]

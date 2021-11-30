@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using SY.Com.Medical.Attribute;
 using SY.Com.Medical.BLL;
 using SY.Com.Medical.BLL.Clinic;
+using SY.Com.Medical.Extension;
 using SY.Com.Medical.Model;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 namespace SY.Com.Medical.WebApi.Controllers.Clinic
 {
     /// <summary>
-    /// 控制器
+    /// 门诊+处方控制器
     /// </summary>
     [Route("api/[controller]/[action]")]
     [ApiController]
@@ -21,6 +22,8 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
     public class OutpatientController : ControllerBase 
 	{
 	    Outpatient bll = new Outpatient();
+        Good goodsbll = new Good();
+        Register regbll = new Register();
 
         /// <summary>
         /// 保存门诊
@@ -73,6 +76,19 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         }
 
         /// <summary>
+        /// 获取具体一个门诊+处方详细信息
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<OutpatientStructure> getDetail(OutpatientStructureRequest request)
+        {
+            BaseResponse<OutpatientStructure> result = new BaseResponse<OutpatientStructure>();
+            result.Data = bll.getStructure(request.TenantId, request.OutpatientId);
+            return result;
+        }
+
+        /// <summary>
         /// 门诊收费
         /// </summary>
         /// <param name="request"></param>
@@ -85,7 +101,56 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             return result;
         }
 
+        /// <summary>
+        /// 获取药品和材料列表-分页
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<List<GoodModels>> getsGoods(GoodsRequest request)
+        {
+            BaseResponse<List<GoodModels>> result = new BaseResponse<List<GoodModels>>();
+            try
+            {
+                //（枚举1:西药,2:中成药,3:中药,4:诊疗项目,5:材料）
+                if (request.GoodType == 1)
+                {
+                    request.GoodType = 7;
+                }
+                var tuple = goodsbll.getGoods(request.TenantId, request.PageSize, request.PageIndex, request.GoodType,0, request.SearchKey);
+                if (tuple.Item2 == 0)
+                {
+                    return new BaseResponse<List<GoodModels>>();
+                }
+                result.Data = tuple.Item1.ToList().Mapping<GoodModels>();
+                result.CalcPage(tuple.Item2, request.PageIndex, request.PageSize);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                if (ex is MyException)
+                {
+                    return result.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
+                }
+                else
+                {
+                    return result.sysException(ex.Message);
+                }
+            }
+        }
 
+        /// <summary>
+        /// 收费管理时时获取医生下拉框
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<List<RegisterDoctor>> getDoctors(BaseModel request)
+        {
+            BaseResponse<List<RegisterDoctor>> result = new BaseResponse<List<RegisterDoctor>>();
+            result.Data = regbll.getDoctors(request.TenantId);
+            return result;
+        }
 
     }
 } 

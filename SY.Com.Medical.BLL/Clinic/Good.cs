@@ -55,6 +55,8 @@ namespace SY.Com.Medical.BLL.Clinic
                 mod.Usage = x.Usage;
                 mod.Single = x.Single;
                 mod.EveryDay = x.EveryDay;
+                mod.InsuranceCode = x.InsuranceCode;
+                mod.CustomerCode = x.CustomerCode;
                 mods.Add(mod);
             });
             Tuple<List<GoodBllModels>, int> result = new Tuple<List<GoodBllModels>, int>(mods, total);

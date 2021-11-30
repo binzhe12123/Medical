@@ -20,19 +20,6 @@ namespace SY.Com.Medical.BLL.Clinic
 		{
 			db = new ChargeRecordRepository();
 		}
-
-		/// <summary>
-		/// 获取收费
-		/// </summary>
-		/// <param name="tenantId"></param>
-		/// <param name="outpatientId"></param>
-		/// <returns></returns>
-		public ChargeRecordEntity getByOutpatientId(int tenantId, int outpatientId,string chargetype = "门诊收费")
-		{
-
-			return db.getByOutpatientId(tenantId, outpatientId,chargetype);
-        }
-
 		///<summary> 
 		///获取详情记录
 		///</summary> 
@@ -58,9 +45,9 @@ namespace SY.Com.Medical.BLL.Clinic
 		///</summary> 
 		///<param name="request"></param>
 		/// <returns></returns>
-		public int add(ChargeRecordEntity request)
+		public int add(ChargeRecordAdd request)
 		{
-			return db.Create(request);
+			return db.Create(request.DtoToEntity<ChargeRecordEntity>());
 		}
 		///<summary> 
 		///修改

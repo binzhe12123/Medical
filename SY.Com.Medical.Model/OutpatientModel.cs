@@ -8,6 +8,16 @@ using System.Threading.Tasks;
 namespace SY.Com.Medical.Model
 {
 
+	/// <summary>
+	/// 获取门诊详情入参
+	/// </summary>
+	public class OutpatientStructureRequest : BaseModel
+    {
+		/// <summary>
+		/// 门诊ID
+		/// </summary>
+		public int OutpatientId { get; set; }
+    }
 
 	/// <summary>
 	/// 门诊复合结构-查询
@@ -317,11 +327,11 @@ namespace SY.Com.Medical.Model
 		/// <summary>
 		/// 医保编码
 		/// </summary>
-		public string GoodsYBCode { get; set; }
+		public string InsuranceCode { get; set; }
 		/// <summary>
 		/// 机构编码
 		/// </summary>
-		public string GoodsYBSelfCode { get; set; }
+		public string CustomerCode { get; set; }
 	}
 
 	/// <summary>
@@ -397,11 +407,11 @@ namespace SY.Com.Medical.Model
 		/// <summary>
 		/// 医保编码
 		/// </summary>
-		public string GoodsYBCode { get; set; }
+		public string InsuranceCode { get; set; }
 		/// <summary>
 		/// 机构编码
 		/// </summary>
-		public string GoodsYBSelfCode { get; set; }
+		public string CustomerCode { get; set; }
 	}
 
 	///<summary>
@@ -469,6 +479,30 @@ namespace SY.Com.Medical.Model
 	}
 
 	/// <summary>
+	/// Outpatient搜索模型
+	/// </summary>
+	public class OutpatientSearch2Model : PageModel
+	{
+		/// <summary>
+		/// 搜索词
+		/// </summary>
+		public string searchKey { get; set; }
+		/// <summary>
+		/// 搜索-开始日期
+		/// </summary>
+		public DateTime? start { get; set; }
+		/// <summary>
+		/// 搜索-结束日期
+		/// </summary>
+		public DateTime? end { get; set; }
+		/// <summary>
+		/// 医生ID
+		/// </summary>
+		public int DoctorId { get; set; }
+
+	}
+
+	/// <summary>
 	/// 结算入参
 	/// </summary>
 	public class OutpatientChargeModel:BaseModel
@@ -490,15 +524,15 @@ namespace SY.Com.Medical.Model
 		/// </summary>
 		public double Cost { get; set; }
 		/// <summary>
-		/// 医保实收
+		/// 医保实收-非医保为0
 		/// </summary>
 		public double YBCost { get; set; }
 		/// <summary>
-		/// 自费实收
+		/// 自费实收-非医保时此值需要和Cost相等,医保时根据医保接口返回设置
 		/// </summary>
 		public double CashCost { get; set; }
 		/// <summary>
-		/// 支付方式0:现金,1:微信,2:支付宝,3:银行卡,4:医保卡标记
+		/// 自费支付方式0:现金,1:微信,2:支付宝,3:银行卡,4:医保卡标记
 		/// </summary>
 		public int PayWay { get; set; }
 

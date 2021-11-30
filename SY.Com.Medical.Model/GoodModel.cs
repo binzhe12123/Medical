@@ -563,12 +563,29 @@ namespace SY.Com.Medical.Model
 		///<summary> 
 		///类型（枚举1:西药,2:中成药,3:中药,4:诊疗项目,5:材料）
 		///</summary> 
-		public int GoodType { get; set; }
-		///<summary> 
-		///分类:自定义,和字典表进行关联
-		///</summary> 
-		public int GoodSort { get; set; }				
+		public int GoodType { get; set; }	
+		/// <summary>
+		/// 分类
+		/// </summary>
+		public int GoodSort { get; set; }
 	}
+
+	/// <summary>
+	/// 药品列表入参
+	/// </summary>
+	public class GoodsRequest : PageModel
+	{
+		///<summary> 
+		///搜索字段
+		///</summary> 
+		public string SearchKey { get; set; }
+
+		///<summary> 
+		///类型（枚举1:西药,3:中药,4:诊疗项目）
+		///</summary> 
+		public int GoodType { get; set; }
+	}
+
 	/// <summary>
 	/// 单个药品/项目/材料信息入参
 	/// </summary>

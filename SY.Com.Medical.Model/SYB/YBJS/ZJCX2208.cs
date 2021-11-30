@@ -46,16 +46,16 @@ namespace SZSI_Smart.Model.SYB
             /// <summary>
             /// 
             /// </summary>
-            public SetlInfo setlinfo { get; set; }
+            public SetlInfo3 setlinfo { get; set; }
             /// <summary>
             /// 
             /// </summary>
-            public SetlDetail setldetail { get; set; }
+            public SetlDetail3 setldetail { get; set; }
         }
         /// <summary>
         /// 
         /// </summary>
-        public class SetlInfo
+        public class SetlInfo3
         {
             /// <summary>
             /// 
@@ -166,7 +166,7 @@ namespace SZSI_Smart.Model.SYB
         /// <summary>
         /// 
         /// </summary>
-        public class SetlDetail
+        public class SetlDetail3
         {
             /// <summary>
             /// 

@@ -448,8 +448,8 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                         fdmod.rxno = rd1.fixmedins_code + DateTime.Now.ToString("yyyyMMddHHmmssfff") + item.PreNo;
                         fdmod.rx_circ_flag = "0";
                         fdmod.fee_ocur_time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                        fdmod.med_list_codg = node.GoodsYBCode;
-                        fdmod.medins_list_codg = node.GoodsYBSelfCode;
+                        fdmod.med_list_codg = node.InsuranceCode;
+                        fdmod.medins_list_codg = node.CustomerCode;
                         fdmod.det_item_fee_sumamt = Math.Round(decimal.Parse(node.GoodsCost.ToString()),2);
                         fdmod.cnt = node.GoodsNum;
                         fdmod.pric = Math.Round(decimal.Parse(node.GoodsPrice.ToString()), 4);
@@ -903,14 +903,14 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         /// <param name="mod"></param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<InCommon> KSBG3402(SYBEasyCommon<KS3402.Deptinfo> mod)
+        public BaseResponse<InCommon> KSBG3402(SYBEasyCommon<KS3402.Deptinfo1> mod)
         {
             BaseResponse<InCommon> rd = new BaseResponse<InCommon>();
             try
             {
                 InCommon rd1 = bll.getComm(mod.fixmedins_code, mod.fixmedins_name, mod.opter, mod.opter_name, mod.sign_no);
                 In3402 model = new In3402();
-                model.deptinfo = new KS3402.Deptinfo();
+                model.deptinfo = new KS3402.Deptinfo1();
                 model.deptinfo.aprv_bed_cnt = 0;
                 model.deptinfo.hi_crtf_bed_cnt = 0;
                 //model.deptinfo.begntime = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd"));
@@ -1053,6 +1053,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         /// </summary>
         /// <param name="mod"></param>
         /// <returns></returns>
+        [HttpPost]
         public BaseResponse<InCommon> RY5206(SYBEasyCommon<In5206> mod)
         {
             BaseResponse<InCommon> rd = new BaseResponse<InCommon>();
@@ -1079,6 +1080,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         /// </summary>
         /// <param name="mod"></param>
         /// <returns></returns>
+        [HttpPost]
         public BaseResponse<InCommon> RY5302(SYBEasyCommon<In5302> mod)
         {
             BaseResponse<InCommon> rd = new BaseResponse<InCommon>();
@@ -1570,6 +1572,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         /// </summary>
         /// <param name="mod"></param>
         /// <returns></returns>
+        [HttpPost]
         public BaseResponse<InCommon> CFCX7105(SYBEasyCommon<In7105> mod)
         {
             BaseResponse<InCommon> rd = new BaseResponse<InCommon>();

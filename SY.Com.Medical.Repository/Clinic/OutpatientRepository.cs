@@ -18,15 +18,53 @@ namespace SY.Com.Medical.Repository.Clinic
     public class OutpatientRepository : BaseRepository<OutpatientEntity> 
 	{ 
         //调用挂单处方
-        public Tuple<List<OutpatientEntity>, int> getNoPaid(int tenantId,int pageSize,int pageIndex,string searchKey,DateTime? start,DateTime? end)
+        public Tuple<List<OutpatientEntity>, int> getNoPaid(int tenantId,int pageSize,int pageIndex,string searchKey,DateTime? start,DateTime? end,int doctorId=0)
         {
-            return getList(tenantId, pageSize, pageIndex, searchKey, start, end,1);
+            return getList(tenantId, pageSize, pageIndex, searchKey, start, end,doctorId,1);
         }
 
         //调用历史处方
-        public Tuple<List<OutpatientEntity>, int> getHistoryPaid(int tenantId,int pageSize,int pageIndex,string searchKey,DateTime? start,DateTime? end)
+        public Tuple<List<OutpatientEntity>, int> getHistoryPaid(int tenantId,int pageSize,int pageIndex,string searchKey,DateTime? start,DateTime? end,int doctorId=0)
         {
-            return getList(tenantId, pageSize, pageIndex, searchKey, start, end,2);
+            return getList(tenantId, pageSize, pageIndex, searchKey, start, end,doctorId,2);
+        }
+
+
+        //调用退费处方
+        public Tuple<List<OutpatientEntity>, int> getBackPaid(int tenantId, int pageSize, int pageIndex, string searchKey, DateTime? start, DateTime? end, int doctorId = 0)
+        {
+            string sql = @" Select * From Outpatients Where TenantId = @TenantId And IsBack = 1 ";
+            string where = "";
+            if (string.IsNullOrEmpty(searchKey))
+            {
+                where += " And SearchKey like '%" + searchKey + "%' ";
+            }
+            if (start != null)
+            {
+                where += " And BackTime >= '%" + start.Value + "%' ";
+            }
+            if (end != null)
+            {
+                where += " And BackTime <= '%" + end.Value + "%' ";
+            }
+            if (doctorId != 0)
+            {
+                where += " And DoctorId = " + doctorId + " ";
+            }
+            string sqlpage = @$" 
+            Select  count(1) as nums From Outpatients Where TenantId = @TenantId And IsDelete = 1 {where}
+            Select * From
+            (
+                Select  ROW_NUMBER() over(order by CreateTime desc) as row_id,* From Outpatients
+                Where TenantId = @TenantId And IsDelete = 1 {where}
+            )t
+            Where t.row_id between {(pageIndex - 1) * pageSize + 1} and { pageIndex * pageSize }
+            ";
+            var multi = _db.QueryMultiple(sql, new { TenantId = tenantId });
+            int count = multi.Read<int>().First();
+            List<OutpatientEntity> datas = multi.Read<OutpatientEntity>()?.ToList();
+            Tuple<List<OutpatientEntity>, int> result = new Tuple<List<OutpatientEntity>, int>(datas, count);
+            return result;
         }
 
         /// <summary>
@@ -40,7 +78,7 @@ namespace SY.Com.Medical.Repository.Clinic
         /// <param name="end"></param>
         /// <param name="isNoPaid"></param>
         /// <returns></returns>
-        private Tuple<List<OutpatientEntity>,int> getList(int tenantId, int pageSize, int pageIndex, string searchKey, DateTime? start, DateTime? end,int isNoPaid = 0 )
+        private Tuple<List<OutpatientEntity>,int> getList(int tenantId, int pageSize, int pageIndex, string searchKey, DateTime? start, DateTime? end,int doctorId = 0,int isNoPaid = 0 )
         {
             string sql = @" Select * From Outpatients Where TenantId = @TenantId ";
             string where = "";
@@ -62,6 +100,10 @@ namespace SY.Com.Medical.Repository.Clinic
             }else if(isNoPaid == 2)
             {
                 where += " And IsPay = 1 ";
+            }
+            if(doctorId != 0)
+            {
+                where += " And DoctorId = "+ doctorId +" ";
             }
             string sqlpage = @$" 
             Select  count(1) as nums From Outpatients Where TenantId = @TenantId And IsDelete = 1 {where}
@@ -166,8 +208,8 @@ namespace SY.Com.Medical.Repository.Clinic
                         GoodsEveryDay = item.GoodsEveryDay,
                         GoodsDays = item.GoodsDays,
                         GoodsSalesUnit = item.GoodsSalesUnit,
-                        GoodsYBCode = item.GoodsYBCode,
-                        GoodsYBSelfCode = item.GoodsYBSelfCode,
+                        InsuranceCode = item.InsuranceCode,
+                        CustomerCode = item.CustomerCode,
                         Place = item.Place                        
                     });                    
                 }
@@ -287,8 +329,8 @@ namespace SY.Com.Medical.Repository.Clinic
                     pres_entity.GoodsSalesUnit = node.GoodsSalesUnit;
                     pres_entity.Place = node.Place;
                     pres_entity.Pair = item.Pair;
-                    pres_entity.GoodsYBCode = node.GoodsYBCode;
-                    pres_entity.GoodsYBSelfCode = node.GoodsYBSelfCode;
+                    pres_entity.InsuranceCode = node.InsuranceCode;
+                    pres_entity.CustomerCode = node.CustomerCode;
                     pres_entitys.Add(pres_entity);
                 }
             }
@@ -380,8 +422,8 @@ namespace SY.Com.Medical.Repository.Clinic
                     pres_entity.GoodsSalesUnit = node.GoodsSalesUnit;
                     pres_entity.Place = node.Place;
                     pres_entity.Pair = item.Pair;
-                    pres_entity.GoodsYBCode = node.GoodsYBCode;
-                    pres_entity.GoodsYBSelfCode = node.GoodsYBSelfCode;
+                    pres_entity.InsuranceCode = node.InsuranceCode;
+                    pres_entity.CustomerCode = node.CustomerCode;
                     pres_entitys.Add(pres_entity);
                 }
             }
@@ -407,7 +449,7 @@ namespace SY.Com.Medical.Repository.Clinic
         /// <param name="outpatientId"></param>
         public void UpdateIsBack(int tenantId, int outpatientId)
         {
-            string sql = @" Update Outpatients Set IsBack = 1 Where TenantId = @TenantId And OutpatientId = @OutpatientId ";
+            string sql = @" Update Outpatients Set IsBack = 1,BackTime=getdate() Where TenantId = @TenantId And OutpatientId = @OutpatientId ";
             _db.Execute(sql, new { TenantId = tenantId, OutpatientId = outpatientId });
         }
 

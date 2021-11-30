@@ -13,7 +13,7 @@ namespace SY.Com.Medical.Model
         /// <summary>
         /// 
         /// </summary>
-        public class Deptinfo
+        public class Deptinfo1
         {
             /// <summary>
             /// 
@@ -97,7 +97,7 @@ namespace SY.Com.Medical.Model
             /// <summary>
             /// 
             /// </summary>
-            public Deptinfo deptinfo { get; set; }
+            public Deptinfo1 deptinfo { get; set; }
 
 
         }

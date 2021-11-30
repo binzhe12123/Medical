@@ -62,6 +62,13 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
             try
             {
                 response.Data = tenantbll.GetTenant(request);
+                if(response.Data != null)
+                {
+                    if (string.IsNullOrEmpty(response.Data.YBUrl))
+                    {
+                        response.Data.YBUrl = "http://localhost:8001/";
+                    }
+                }
                 return response;
             }
             catch (Exception ex)

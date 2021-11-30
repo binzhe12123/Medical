@@ -139,6 +139,71 @@
             患者导航属性
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Entity.ChargeRecordEntity">
+            <summary>
+            实体
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.ChargeRecordEntity.ChargeRecordId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.ChargeRecordEntity.TenantId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.ChargeRecordEntity.PatientId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.ChargeRecordEntity.RegisterId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.ChargeRecordEntity.SeeDoctorId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.ChargeRecordEntity.Price">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.ChargeRecordEntity.ChargeType">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.ChargeRecordEntity.PayYB">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.ChargeRecordEntity.PayCash">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.ChargeRecordEntity.PayWx">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.ChargeRecordEntity.PayBank">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.ChargeRecordEntity.PayAli">
+            <summary> 
+            
+            </summary> 
+        </member>
         <member name="T:SY.Com.Medical.Entity.DepartmentEntity">
             <summary>
              科室实体    
@@ -489,6 +554,106 @@
             图标名称
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Entity.OutpatientEntity">
+            <summary>
+            实体
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.OutpatientEntity.OutpatientId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.OutpatientEntity.TenantId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.OutpatientEntity.PatientId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.OutpatientEntity.RegisterId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.OutpatientEntity.CaseBookId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.OutpatientEntity.DoctorId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.OutpatientEntity.DoctorName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.OutpatientEntity.mdtrt_id">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.OutpatientEntity.chrg_bchno">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.OutpatientEntity.PrescriptionCount">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.OutpatientEntity.IsPay">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.OutpatientEntity.IsBack">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.OutpatientEntity.PayYB">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.OutpatientEntity.PayCash">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.OutpatientEntity.PayYBBefor">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.OutpatientEntity.PayYBAfter">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.OutpatientEntity.SearchKey">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.OutpatientEntity.Cost">
+            <summary>
+            费用
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.OutpatientEntity.setl_id">
+            <summary>
+            医保结算ID
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Entity.PatientEntity">
             <summary>
              患者实体    
@@ -549,6 +714,11 @@
             地址    
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Entity.PatientEntity.psn_no">
+            <summary>
+            医保编号
+            </summary>
+        </member>
         <member name="P:SY.Com.Medical.Entity.PlatformsEntity.PlatformId">
             <summary>
             主键id    
@@ -597,6 +767,106 @@
         <member name="P:SY.Com.Medical.Entity.PlatformsEntity.VersionId">
             <summary>
             版本id    
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Entity.PrescriptionEntity">
+            <summary>
+            实体
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PrescriptionEntity.PrescriptionId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PrescriptionEntity.TenantId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PrescriptionEntity.OutpatientId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PrescriptionEntity.PreNo">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PrescriptionEntity.PreName">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PrescriptionEntity.GoodsId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PrescriptionEntity.GoodsName">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PrescriptionEntity.GoodsNorm">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PrescriptionEntity.GoodsPrice">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PrescriptionEntity.GoodsNum">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PrescriptionEntity.GoodsCost">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PrescriptionEntity.GoodsUsage">
+            <summary> 
+            用法
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PrescriptionEntity.GoodsEveryDay">
+            <summary> 
+            每天用量（频度）
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PrescriptionEntity.GoodsDays">
+            <summary> 
+            用药天数
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PrescriptionEntity.GoodsSalesUnit">
+            <summary> 
+            计价单位
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PrescriptionEntity.Pair">
+            <summary> 
+            中药-副数
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PrescriptionEntity.Place">
+            <summary> 
+            部位
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PrescriptionEntity.InsuranceCode">
+            <summary>
+            医保编码
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PrescriptionEntity.CustomerCode">
+            <summary>
+            机构编码
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Entity.PurchaseEntity">
@@ -723,6 +993,131 @@
             <summary>
             比率
             </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Entity.RegisterEntity">
+            <summary>
+            实体
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.RegisterEntity.RegisterId">
+            <summary> 
+            挂号id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.RegisterEntity.TenantId">
+            <summary> 
+            租户id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.RegisterEntity.PatientId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.RegisterEntity.psn_no">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.RegisterEntity.Name">
+            <summary> 
+            患者姓名
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.RegisterEntity.Sex">
+            <summary> 
+            患者性别
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.RegisterEntity.CSRQ">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.RegisterEntity.SFZH">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.RegisterEntity.Phone">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.RegisterEntity.Addr">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.RegisterEntity.DoctorName">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.RegisterEntity.DepartmentName">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.RegisterEntity.GoodsName">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.RegisterEntity.GoodsPrice">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.RegisterEntity.ipt_otp_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.RegisterEntity.mdtrt_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.RegisterEntity.IsUsed">
+            <summary>
+            是否使用1:已使用,-1未使用
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Entity.RegisterProjectEntity">
+            <summary>
+            实体
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.RegisterProjectEntity.ProjectId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.RegisterProjectEntity.TenantId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.RegisterProjectEntity.ProjectName">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.RegisterProjectEntity.ProjectAgencyCode">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.RegisterProjectEntity.ProjectSelfCode">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.RegisterProjectEntity.ProjectPrice">
+            <summary> 
+            
+            </summary> 
         </member>
         <member name="T:SY.Com.Medical.Entity.RoleEntity">
             <summary>

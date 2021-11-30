@@ -1580,8 +1580,23 @@
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Model.GoodRequest.GoodSort">
+            <summary>
+            分类
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.GoodsRequest">
+            <summary>
+            药品列表入参
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodsRequest.SearchKey">
             <summary> 
-            分类:自定义,和字典表进行关联
+            搜索字段
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodsRequest.GoodType">
+            <summary> 
+            类型（枚举1:西药,3:中药,4:诊疗项目）
             </summary> 
         </member>
         <member name="T:SY.Com.Medical.Model.GoodOneRequest">
@@ -2633,6 +2648,16 @@
             菜单名称
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Model.OutpatientStructureRequest">
+            <summary>
+            获取门诊详情入参
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientStructureRequest.OutpatientId">
+            <summary>
+            门诊ID
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.OutpatientStructure">
             <summary>
             门诊复合结构-查询
@@ -2656,6 +2681,11 @@
         <member name="P:SY.Com.Medical.Model.OutpatientStructure.chrg_bchno">
             <summary>
             医保流水号--非医保为空
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientStructure.setl_id">
+            <summary>
+            医保结算号--非医保为空
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.OutpatientStructure.RegisterId">
@@ -2983,12 +3013,12 @@
             部位或者牙位
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.PrescriptionDetailStructure.GoodsYBCode">
+        <member name="P:SY.Com.Medical.Model.PrescriptionDetailStructure.InsuranceCode">
             <summary>
             医保编码
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.PrescriptionDetailStructure.GoodsYBSelfCode">
+        <member name="P:SY.Com.Medical.Model.PrescriptionDetailStructure.CustomerCode">
             <summary>
             机构编码
             </summary>
@@ -3073,12 +3103,12 @@
             部位或者牙位
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.PrescriptionDetailAddStructure.GoodsYBCode">
+        <member name="P:SY.Com.Medical.Model.PrescriptionDetailAddStructure.InsuranceCode">
             <summary>
             医保编码
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.PrescriptionDetailAddStructure.GoodsYBSelfCode">
+        <member name="P:SY.Com.Medical.Model.PrescriptionDetailAddStructure.CustomerCode">
             <summary>
             机构编码
             </summary>
@@ -3153,6 +3183,31 @@
             搜索-结束日期
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Model.OutpatientSearch2Model">
+            <summary>
+            Outpatient搜索模型
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientSearch2Model.searchKey">
+            <summary>
+            搜索词
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientSearch2Model.start">
+            <summary>
+            搜索-开始日期
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientSearch2Model.end">
+            <summary>
+            搜索-结束日期
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientSearch2Model.DoctorId">
+            <summary>
+            医生ID
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.OutpatientChargeModel">
             <summary>
             结算入参
@@ -3163,6 +3218,16 @@
             门诊ID
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientChargeModel.setl_id">
+            <summary>
+            医保结算ID-非医保为空
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientChargeModel.Balc">
+            <summary>
+            医保余额-非医保为0
+            </summary>
+        </member>
         <member name="P:SY.Com.Medical.Model.OutpatientChargeModel.Cost">
             <summary>
             实收
@@ -3170,17 +3235,17 @@
         </member>
         <member name="P:SY.Com.Medical.Model.OutpatientChargeModel.YBCost">
             <summary>
-            医保实收
+            医保实收-非医保为0
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.OutpatientChargeModel.CashCost">
             <summary>
-            自费实收
+            自费实收-非医保时此值需要和Cost相等,医保时根据医保接口返回设置
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.OutpatientChargeModel.PayWay">
             <summary>
-            支付方式0:现金,1:微信,2:支付宝,3:银行卡,4:医保卡标记
+            自费支付方式0:现金,1:微信,2:支付宝,3:银行卡,4:医保卡标记
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.PageModel">
@@ -6248,6 +6313,166 @@
             具体报文
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Model.SYJS2206Model">
+            <summary>
+            预结算获取报文入参
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYJS2206Model.EmployeeId">
+            <summary>
+            操作员工Id
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYJS2206Model.OutpatientId">
+            <summary>
+            门诊id
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYJS2206Model.Mdtrt_cert_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYJS2206Model.Mdtrt_cert_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYJS2206OutModel">
+            <summary>
+            预结算出参
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYJS2206OutModel.Cost">
+            <summary>
+            实收
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYJS2206OutModel.Balc">
+            <summary>
+            余额
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYJS2206OutModel.YBCost">
+            <summary>
+            医保实收
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYJS2206OutModel.CashCost">
+            <summary>
+            自费实收
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYJS2206OutModel.fulamt_ownpay_amt">
+            <summary>
+            全自费金额
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYJS2206OutModel.overlmt_selfpay">
+            <summary>
+            超限价自费费用
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYJS2206OutModel.preselfpay_amt">
+            <summary>
+            先行自付金额
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYJS2206OutModel.inscp_scp_amt">
+            <summary>
+            符合政策范围金额
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYJS2207Model">
+            <summary>
+            结算获取报文入参
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYJS2207Model.EmployeeId">
+            <summary>
+            操作员工Id
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYJS2207Model.OutpatientId">
+            <summary>
+            门诊id
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYJS2207Model.Mdtrt_cert_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYJS2207Model.Mdtrt_cert_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYJS2207Model.fulamt_ownpay_amt">
+            <summary>
+            全自费金额
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYJS2207Model.overlmt_selfpay">
+            <summary>
+            超限价金额
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYJS2207Model.preselfpay_amt">
+            <summary>
+            先行自付金额
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYJS2207Model.inscp_scp_amt">
+            <summary>
+            符合政策范围金额
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYJS2207OutModel">
+            <summary>
+            预结算出参
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYJS2207OutModel.setl_id">
+            <summary>
+            结算ID
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYJS2207OutModel.Cost">
+            <summary>
+            实收
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYJS2207OutModel.Balc">
+            <summary>
+            余额
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYJS2207OutModel.YBCost">
+            <summary>
+            医保实收
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYJS2207OutModel.CashCost">
+            <summary>
+            自费实收
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYB2208Model">
+            <summary>
+            
+            </summary>    
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB2208Model.EmployeeId">
+            <summary>
+            操作人员Id
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB2208Model.OutpatientId">
+            <summary>
+            门诊ID
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.Up9101">
             <summary>
             
@@ -7843,97 +8068,97 @@
             
             </summary>
         </member>
-        <member name="T:SY.Com.Medical.Model.KS3402.Deptinfo">
+        <member name="T:SY.Com.Medical.Model.KS3402.Deptinfo1">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo.hosp_dept_codg">
+        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo1.hosp_dept_codg">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo.hosp_dept_name">
+        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo1.hosp_dept_name">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo.begntime">
+        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo1.begntime">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo.endtime">
+        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo1.endtime">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo.itro">
+        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo1.itro">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo.dept_resper_name">
+        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo1.dept_resper_name">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo.dept_resper_tel">
+        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo1.dept_resper_tel">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo.dept_med_serv_scp">
+        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo1.dept_med_serv_scp">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo.caty">
+        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo1.caty">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo.dept_estbdat">
+        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo1.dept_estbdat">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo.aprv_bed_cnt">
+        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo1.aprv_bed_cnt">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo.hi_crtf_bed_cnt">
+        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo1.hi_crtf_bed_cnt">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo.poolarea_no">
+        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo1.poolarea_no">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo.dr_psncnt">
+        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo1.dr_psncnt">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo.phar_psncnt">
+        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo1.phar_psncnt">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo.nurs_psncnt">
+        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo1.nurs_psncnt">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo.tecn_psncnt">
+        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo1.tecn_psncnt">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo.memo">
+        <member name="P:SY.Com.Medical.Model.KS3402.Deptinfo1.memo">
             <summary>
             
             </summary>
@@ -16844,247 +17069,247 @@
             
             </summary>
         </member>
-        <member name="T:SZSI_Smart.Model.SYB.JS2207.SetlInfo">
+        <member name="T:SZSI_Smart.Model.SYB.JS2207.SetlInfo2">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.mdtrt_id">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.mdtrt_id">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.setl_id">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.setl_id">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.psn_no">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.psn_no">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.psn_name">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.psn_name">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.psn_cert_type">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.psn_cert_type">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.certno">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.certno">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.gend">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.gend">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.naty">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.naty">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.brdy">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.brdy">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.age">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.age">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.insutype">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.insutype">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.psn_type">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.psn_type">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.cvlserv_flag">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.cvlserv_flag">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.setl_time">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.setl_time">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.mdtrt_cert_type">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.mdtrt_cert_type">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.med_type">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.med_type">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.medfee_sumamt">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.medfee_sumamt">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.fulamt_ownpay_amt">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.fulamt_ownpay_amt">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.overlmt_selfpay">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.overlmt_selfpay">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.preselfpay_amt">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.preselfpay_amt">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.inscp_scp_amt">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.inscp_scp_amt">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.act_pay_dedc">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.act_pay_dedc">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.hifp_pay">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.hifp_pay">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.pool_prop_selfpay">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.pool_prop_selfpay">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.cvlserv_pay">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.cvlserv_pay">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.hifes_pay">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.hifes_pay">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.hifmi_pay">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.hifmi_pay">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.hifob_pay">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.hifob_pay">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.maf_pay">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.maf_pay">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.oth_pay">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.oth_pay">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.fund_pay_sumamt">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.fund_pay_sumamt">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.psn_part_amt">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.psn_part_amt">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.acct_pay">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.acct_pay">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.psn_cash_pay">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.psn_cash_pay">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.hosp_part_amt">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.hosp_part_amt">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.balc">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.balc">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.acct_mulaid_pay">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.acct_mulaid_pay">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.medins_setl_id">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.medins_setl_id">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.clr_optins">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.clr_optins">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.clr_way">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.clr_way">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo.clr_type">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlInfo2.clr_type">
             <summary>
             
             </summary>
         </member>
-        <member name="T:SZSI_Smart.Model.SYB.JS2207.SetlDetail">
+        <member name="T:SZSI_Smart.Model.SYB.JS2207.SetlDetail2">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlDetail.fund_pay_type">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlDetail2.fund_pay_type">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlDetail.inscp_scp_amt">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlDetail2.inscp_scp_amt">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlDetail.crt_payb_lmt_amt">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlDetail2.crt_payb_lmt_amt">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlDetail.fund_payamt">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlDetail2.fund_payamt">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlDetail.fund_pay_type_name">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlDetail2.fund_pay_type_name">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlDetail.setl_proc_info">
+        <member name="P:SZSI_Smart.Model.SYB.JS2207.SetlDetail2.setl_proc_info">
             <summary>
             
             </summary>
@@ -17107,6 +17332,11 @@
         <member name="T:SZSI_Smart.Model.SYB.YJS2206.In2206">
             <summary>
             
+            </summary>
+        </member>
+        <member name="P:SZSI_Smart.Model.SYB.YJS2206.In2206.OutPatientId">
+            <summary>
+            门诊ID
             </summary>
         </member>
         <member name="P:SZSI_Smart.Model.SYB.YJS2206.In2206.psn_no">
@@ -17904,172 +18134,172 @@
             
             </summary>
         </member>
-        <member name="T:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo">
+        <member name="T:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo3">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo.mdtrt_id">
+        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo3.mdtrt_id">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo.setl_id">
+        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo3.setl_id">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo.clr_optins">
+        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo3.clr_optins">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo.setl_time">
+        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo3.setl_time">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo.medfee_sumamt">
+        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo3.medfee_sumamt">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo.fulamt_ownpay_amt">
+        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo3.fulamt_ownpay_amt">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo.overlmt_selfpay">
+        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo3.overlmt_selfpay">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo.preselfpay_amt">
+        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo3.preselfpay_amt">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo.inscp_scp_amt">
+        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo3.inscp_scp_amt">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo.act_pay_dedc">
+        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo3.act_pay_dedc">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo.hifp_pay">
+        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo3.hifp_pay">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo.pool_prop_selfpay">
+        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo3.pool_prop_selfpay">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo.cvlserv_pay">
+        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo3.cvlserv_pay">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo.hifes_pay">
+        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo3.hifes_pay">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo.hifmi_pay">
+        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo3.hifmi_pay">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo.hifob_pay">
+        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo3.hifob_pay">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo.maf_pay">
+        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo3.maf_pay">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo.oth_pay">
+        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo3.oth_pay">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo.fund_pay_sumamt">
+        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo3.fund_pay_sumamt">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo.psn_part_amt">
+        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo3.psn_part_amt">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo.acct_pay">
+        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo3.acct_pay">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo.balc">
+        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo3.balc">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo.acct_mulaid_pay">
+        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo3.acct_mulaid_pay">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo.hosp_part_amt">
+        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo3.hosp_part_amt">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo.medins_setl_id">
+        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo3.medins_setl_id">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo.pdn_cash_pay">
+        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlInfo3.pdn_cash_pay">
             <summary>
             
             </summary>
         </member>
-        <member name="T:SZSI_Smart.Model.SYB.ZJCX2208.SetlDetail">
+        <member name="T:SZSI_Smart.Model.SYB.ZJCX2208.SetlDetail3">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlDetail.fund_pay_type">
+        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlDetail3.fund_pay_type">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlDetail.inscp_scp_amt">
+        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlDetail3.inscp_scp_amt">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlDetail.crt_payb_lmt_amt">
+        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlDetail3.crt_payb_lmt_amt">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlDetail.fund_payamt">
+        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlDetail3.fund_payamt">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlDetail.fund_pay_type_name">
+        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlDetail3.fund_pay_type_name">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlDetail.setl_proc_info">
+        <member name="P:SZSI_Smart.Model.SYB.ZJCX2208.SetlDetail3.setl_proc_info">
             <summary>
             
             </summary>

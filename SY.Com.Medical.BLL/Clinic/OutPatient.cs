@@ -31,11 +31,11 @@ namespace SY.Com.Medical.BLL.Clinic
 		/// <param name="start"></param>
 		/// <param name="end"></param>
 		/// <returns></returns>
-		public Tuple<List<OutpatientListModel>, int> getNoPaid(int tenantId, int pageSize, int pageIndex, string searchKey, DateTime? start, DateTime? end)
+		public Tuple<List<OutpatientListModel>, int> getNoPaid(int tenantId, int pageSize, int pageIndex, string searchKey, DateTime? start, DateTime? end,int doctorId = 0)
         {
 			List<OutpatientListModel> modellist = new List<OutpatientListModel>();
 			Patient pat = new Patient();			
-			var tuple = db.getNoPaid(tenantId, pageSize, pageIndex, searchKey, start, end);
+			var tuple = db.getNoPaid(tenantId, pageSize, pageIndex, searchKey, start, end,doctorId);
 			tuple.Item1.ForEach(x =>
 			{
 				OutpatientListModel mod = new OutpatientListModel();
@@ -66,11 +66,47 @@ namespace SY.Com.Medical.BLL.Clinic
 		/// <param name="start"></param>
 		/// <param name="end"></param>
 		/// <returns></returns>
-		public Tuple<List<OutpatientListModel>, int> getHistory(int tenantId, int pageSize, int pageIndex, string searchKey, DateTime? start, DateTime? end)
+		public Tuple<List<OutpatientListModel>, int> getHistory(int tenantId, int pageSize, int pageIndex, string searchKey, DateTime? start, DateTime? end,int doctorId = 0)
         {
 			List<OutpatientListModel> modellist = new List<OutpatientListModel>();
 			Patient pat = new Patient();
-			var tuple = db.getHistoryPaid(tenantId, pageSize, pageIndex, searchKey, start, end);
+			var tuple = db.getHistoryPaid(tenantId, pageSize, pageIndex, searchKey, start, end,doctorId);
+			tuple.Item1.ForEach(x =>
+			{
+				OutpatientListModel mod = new OutpatientListModel();
+				var pamod = pat.get(x.PatientId);
+				mod.OutpatientId = x.OutpatientId;
+				mod.TenantId = x.TenantId;
+				mod.PatientName = pamod.PatientName;
+				mod.Sex = pamod.Sex == 1 ? "男" : "女";
+				mod.Age = pamod.Age;
+				mod.Phone = pamod.Phone;
+				mod.Cost = x.Cost;
+				mod.DoctorName = x.DoctorName;
+				mod.CreateTime = x.CreateTime;
+				mod.PrescriptionCount = x.PrescriptionCount;
+				modellist.Add(mod);
+			});
+			Tuple<List<OutpatientListModel>, int> result = new Tuple<List<OutpatientListModel>, int>(modellist, tuple.Item2);
+			return result;
+		}
+
+		/// <summary>
+		/// 退费门诊
+		/// </summary>
+		/// <param name="tenantId"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="pageIndex"></param>
+		/// <param name="searchKey"></param>
+		/// <param name="start"></param>
+		/// <param name="end"></param>
+		/// <param name="doctorId"></param>
+		/// <returns></returns>
+		public Tuple<List<OutpatientListModel>, int> getBackList(int tenantId, int pageSize, int pageIndex, string searchKey, DateTime? start, DateTime? end, int doctorId = 0)
+		{
+			List<OutpatientListModel> modellist = new List<OutpatientListModel>();
+			Patient pat = new Patient();
+			var tuple = db.getBackPaid(tenantId, pageSize, pageIndex, searchKey, start, end, doctorId);
 			tuple.Item1.ForEach(x =>
 			{
 				OutpatientListModel mod = new OutpatientListModel();
@@ -137,7 +173,7 @@ namespace SY.Com.Medical.BLL.Clinic
 			//修改支付状态和医保结算时,医保结算号,医保余额
 			db.UpdateIsPay(mod.TenantId, mod.OutpatientId,mod.setl_id,Convert.ToInt64(mod.Balc * 1000));
 
-			//保存退费记录
+			//保存收费记录
 			ChargeRecord chargebll = new ChargeRecord();
 			ChargeRecordEntity chargeentity = new ChargeRecordEntity();
 			chargeentity.TenantId = mod.TenantId;
@@ -167,6 +203,42 @@ namespace SY.Com.Medical.BLL.Clinic
 			int chargeid = chargebll.add(chargeentity);
 			return chargeid;
         }
+
+		/// <summary>
+		/// 门诊退费
+		/// </summary>
+		/// <param name="tenantId"></param>
+		/// <param name="OutpatientId"></param>
+		/// <returns></returns>
+		public int BackCharge(int tenantId,int OutpatientId)
+        {
+			var entity = db.Get(OutpatientId);
+			if ( entity.IsBack == 1)
+			{
+				throw new MyException("该门诊已退费");
+			}
+			//修改退费状态,修改退费时间
+			db.UpdateIsBack(tenantId, OutpatientId);
+
+			//保存退费记录
+			ChargeRecord chargebll = new ChargeRecord();
+			var charge_entity = chargebll.getByOutpatientId(tenantId, OutpatientId);
+
+			ChargeRecordEntity chargeentity = new ChargeRecordEntity();
+			chargeentity.TenantId = tenantId;
+			chargeentity.PatientId = entity.PatientId;
+			chargeentity.RegisterId = 0;
+			chargeentity.SeeDoctorId = OutpatientId;
+			chargeentity.Price = -entity.Cost;
+			chargeentity.ChargeType = "门诊退费";
+			chargeentity.PayYB = -charge_entity.PayYB;
+			chargeentity.PayCash = -charge_entity.PayCash;
+			chargeentity.PayWx = -charge_entity.PayWx;
+			chargeentity.PayAli = -charge_entity.PayAli;
+			chargeentity.PayBank = -charge_entity.PayBank;
+			int chargeid = chargebll.add(chargeentity);
+			return chargeid;
+		}
 
 		/// <summary>
 		/// 医保费用明细撤销时修改chrg_bchno
