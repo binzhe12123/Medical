@@ -26,7 +26,7 @@ namespace SY.Com.Medical.Repository.Clinic
         public Tuple<int,List<GoodEntity>> getPagesByWhere(int tenantId,int pageSize,int pageIndex,int goodType = 0,int goodSort = 0 ,string searchKey = "",bool stockBigzero = false)
         {
             Tuple<int, List<GoodEntity>> result;
-            string sql = " Select ROW_NUMBER() over(order by goodid desc) row_id,* From Goods Where tenantId = @TenantId ";
+            string sql = " Select ROW_NUMBER() over(order by goodid desc) row_id,* From Goods Where tenantId = @TenantId And IsDelete = 1 ";
             string sqlwhere = "";
             if(goodType > 0 && goodType < 6)
             {

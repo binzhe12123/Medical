@@ -52,15 +52,15 @@ namespace SY.Com.Medical.Repository.Clinic
                 where += " And DoctorId = " + doctorId + " ";
             }
             string sqlpage = @$" 
-            Select  count(1) as nums From Outpatients Where TenantId = @TenantId And IsDelete = 1 {where}
+            Select  count(1) as nums From Outpatients Where TenantId = @TenantId And IsDelete = 1 And IsBack = 1 {where}
             Select * From
             (
                 Select  ROW_NUMBER() over(order by CreateTime desc) as row_id,* From Outpatients
-                Where TenantId = @TenantId And IsDelete = 1 {where}
+                Where TenantId = @TenantId And IsDelete = 1 And IsBack = 1 {where}
             )t
             Where t.row_id between {(pageIndex - 1) * pageSize + 1} and { pageIndex * pageSize }
             ";
-            var multi = _db.QueryMultiple(sql, new { TenantId = tenantId });
+            var multi = _db.QueryMultiple(sqlpage, new { TenantId = tenantId });
             int count = multi.Read<int>().First();
             List<OutpatientEntity> datas = multi.Read<OutpatientEntity>()?.ToList();
             Tuple<List<OutpatientEntity>, int> result = new Tuple<List<OutpatientEntity>, int>(datas, count);
@@ -79,8 +79,7 @@ namespace SY.Com.Medical.Repository.Clinic
         /// <param name="isNoPaid"></param>
         /// <returns></returns>
         private Tuple<List<OutpatientEntity>,int> getList(int tenantId, int pageSize, int pageIndex, string searchKey, DateTime? start, DateTime? end,int doctorId = 0,int isNoPaid = 0 )
-        {
-            string sql = @" Select * From Outpatients Where TenantId = @TenantId ";
+        {            
             string where = "";
             if (string.IsNullOrEmpty(searchKey))
             {
@@ -114,7 +113,7 @@ namespace SY.Com.Medical.Repository.Clinic
             )t
             Where t.row_id between {(pageIndex - 1) * pageSize + 1} and { pageIndex * pageSize }
             ";
-            var multi = _db.QueryMultiple(sql, new { TenantId = tenantId });
+            var multi = _db.QueryMultiple(sqlpage, new { TenantId = tenantId });
             int count = multi.Read<int>().First();
             List<OutpatientEntity> datas = multi.Read<OutpatientEntity>()?.ToList();
             Tuple<List<OutpatientEntity>, int> result = new Tuple<List<OutpatientEntity>, int>(datas, count);            

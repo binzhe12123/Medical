@@ -32,7 +32,7 @@ namespace SY.Com.Medical.Enum
         /// 诊疗项目=4
         /// </summary>
         [JsonIgnore]
-        诊疗项目=4,
+        项目=4,
         /// <summary>
         /// 材料=5
         /// </summary>

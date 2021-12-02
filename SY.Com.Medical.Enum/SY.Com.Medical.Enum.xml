@@ -229,7 +229,7 @@
             中药=3
             </summary>
         </member>
-        <member name="F:SY.Com.Medical.Enum.GoodType.诊疗项目">
+        <member name="F:SY.Com.Medical.Enum.GoodType.项目">
             <summary>
             诊疗项目=4
             </summary>
