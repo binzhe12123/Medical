@@ -29,13 +29,16 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<List<EmployeeModel>> getList(EmployeeGetModel request)
+        public BaseResponse<List<EmployeeModel>> getList(EmployeeGetsModel request)
         {
             BaseResponse<List<EmployeeModel>> result = new BaseResponse<List<EmployeeModel>>();
             try
             {
-                result.Data = bll.getEmployees(request.TenantId);
-                result.Data.AddRange(bll.getEmployeesClose(request.TenantId));
+                var tuple = bll.getEmployees(request.TenantId,request.PageSize,request.PageIndex,request.searchKey,request.Department);
+                result.Data = tuple.Item1;
+                var closemods = bll.getEmployeesClose(request.TenantId);
+                result.Data.AddRange(closemods);
+                result.CalcPage(tuple.Item2 + closemods.Count, request.PageIndex, request.PageSize);
                 return result;
             }
             catch (Exception ex)

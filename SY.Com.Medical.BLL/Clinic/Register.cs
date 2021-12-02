@@ -149,7 +149,8 @@ namespace SY.Com.Medical.BLL.Clinic
 		public List<RegisterDoctor> getDoctors(int tenantId)
         {
 			List<RegisterDoctor> result = new List<RegisterDoctor>();
-			var mods = employeebll.getEmployees(tenantId);
+			var tuple = employeebll.getEmployees(tenantId);
+			var mods = tuple.Item1;
 			if (mods != null && mods.Any())
             {
 				foreach(var node in mods)

@@ -27,11 +27,11 @@ namespace SY.Com.Medical.BLL.Platform
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public List<EmployeeModel> getEmployees(int tenantId)
+        public Tuple<List<EmployeeModel>,int>  getEmployees(int tenantId,int pageSize=100,int pageIndex=1,string searchKey ="",string department="")
         {
-            List<EmployeeModel> result = new List<EmployeeModel>();
-            var entitys = db.getTenant(tenantId);
-            return entitys.EntityToDto<EmployeeModel>();
+            var tuple = db.getTenant(tenantId, pageSize, pageIndex, searchKey, department);
+            Tuple<List<EmployeeModel>, int> result = new Tuple<List<EmployeeModel>, int>(tuple.Item1.EntityToDto<EmployeeModel>(), tuple.Item2);
+            return result;
         }
 
         /// <summary>

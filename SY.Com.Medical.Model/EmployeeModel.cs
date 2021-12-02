@@ -68,6 +68,21 @@ namespace SY.Com.Medical.Model
     }
 
     /// <summary>
+    /// 获取员工列表入参
+    /// </summary>
+    public class EmployeeGetsModel:PageModel
+    {
+        /// <summary>
+        /// 搜索关键词
+        /// </summary>
+        public string searchKey { get; set; }
+        /// <summary>
+        /// 科室
+        /// </summary>
+        public string Department { get; set; }
+    }
+
+    /// <summary>
     /// 邀请员工dto
     /// </summary>
     public class EmployeeInvity : BaseModel

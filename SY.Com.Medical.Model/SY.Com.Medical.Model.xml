@@ -917,6 +917,21 @@
             用户Id
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Model.EmployeeGetsModel">
+            <summary>
+            获取员工列表入参
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.EmployeeGetsModel.searchKey">
+            <summary>
+            搜索关键词
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.EmployeeGetsModel.Department">
+            <summary>
+            科室
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.EmployeeInvity">
             <summary>
             邀请员工dto

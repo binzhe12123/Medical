@@ -22,10 +22,32 @@ namespace SY.Com.Medical.Repository.Platform
         /// </summary>
         /// <param name="TenantId"></param>
         /// <returns></returns>
-        public IEnumerable<EmployeeEntity> getTenant(int TenantId)
+        public Tuple<IEnumerable<EmployeeEntity>, int> getTenant(int tenantId, int pageSize,int pageIndex,string searchKey = "",string deparment = "")
         {
-            string sql = " Select * From Employees Where TenantId = @TenantId And IsEnable=@IsEnable ";
-            return _db.Query<EmployeeEntity>(sql, new { TenantId = TenantId, IsEnable=Enum.Enable.启用});
+            string sql = " Select * From Employees Where TenantId = @TenantId And IsEnable=@IsEnable And IsDelete = 1 ";
+            string where = "";
+            if(!string.IsNullOrEmpty(searchKey))
+            {
+                where += " And EmployeeName like '%"+ searchKey +"%' ";
+            }
+            if(!string.IsNullOrEmpty(deparment))
+            {
+                where += " And Departments like '%"+ deparment +"%' ";
+            }
+            string sqlpage = @$" 
+            Select  count(1) as nums From Employees Where TenantId = @TenantId And IsEnable=@IsEnable And IsDelete = 1 {where}
+            Select * From
+            (
+                Select  ROW_NUMBER() over(order by CreateTime desc) as row_id,* From Employees
+                Where TenantId = @TenantId And IsEnable=@IsEnable And IsDelete = 1 {where} 
+            )t
+            Where t.row_id between {(pageIndex - 1) * pageSize + 1} and { pageIndex * pageSize }
+            ";
+            var multi = _db.QueryMultiple(sqlpage, new { TenantId = tenantId, IsEnable = Enum.Enable.启用 });
+            int count = multi.Read<int>().First();
+            IEnumerable<EmployeeEntity> datas = multi.Read<EmployeeEntity>();
+            Tuple<IEnumerable<EmployeeEntity>, int> result = new Tuple<IEnumerable<EmployeeEntity>, int>(datas, count);
+            return result;
         }
 
         /// <summary>

@@ -56,7 +56,7 @@ namespace SY.Com.Medical.Repository.Clinic
             )t
             Where t.row_id between {(pageIndex - 1) * pageSize + 1} and { pageIndex * pageSize }
             ";
-            var multi = _db.QueryMultiple(sql, new { TenantId = tenantId });
+            var multi = _db.QueryMultiple(sqlpage, new { TenantId = tenantId });
             int count = multi.Read<int>().First();
             IEnumerable<RegisterEntity> datas = multi.Read<RegisterEntity>();
             Tuple<IEnumerable<RegisterEntity>, int> result = new Tuple<IEnumerable<RegisterEntity>, int>(datas, count);
