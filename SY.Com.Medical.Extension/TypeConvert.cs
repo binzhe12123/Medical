@@ -121,6 +121,14 @@ namespace SY.Com.Medical.Extension
                 {
                     targetProp.SetValue(target, DeepCopyByReflection(sourceProp.GetValue(source), Activator.CreateInstance(targetProp.PropertyType)));
                 }
+                else if (sourceProp.PropertyType.FullName.IndexOf("Double") >= 0 && targetProp.PropertyType.FullName.IndexOf("Int") >= 0)
+                {
+                    //价格转换
+                    targetProp.SetValue(target, Convert.ToInt64(Convert.ToDouble(sourceProp.GetValue(source).ToString()) * 1000));
+                }else if(targetProp.PropertyType.FullName.IndexOf("Double") >= 0 && sourceProp.PropertyType.FullName.IndexOf("Int") >= 0)
+                {
+                    targetProp.SetValue(target, Convert.ToDouble(Convert.ToInt64(sourceProp.GetValue(source).ToString()) / 1000.00));
+                }
                 else
                 {
                     targetProp.SetValue(target, sourceProp.GetValue(source));
@@ -148,6 +156,15 @@ namespace SY.Com.Medical.Extension
                 if (targetProp.PropertyType.IsClass && targetProp.PropertyType.FullName != "System.String")
                 {
                     targetProp.SetValue(target, DeepCopyByReflection(sourceProp.GetValue(source), Activator.CreateInstance(targetProp.PropertyType)));
+                }
+                else if(sourceProp.PropertyType.FullName.IndexOf("Double") >= 0 && targetProp.PropertyType.FullName.IndexOf("Int") >= 0)
+                {
+                    //价格转换
+                    targetProp.SetValue(target,Convert.ToInt64( Convert.ToDouble(sourceProp.GetValue(source).ToString()) * 1000));
+                }
+                else if (targetProp.PropertyType.FullName.IndexOf("Double") >= 0 && sourceProp.PropertyType.FullName.IndexOf("Int") >= 0)
+                {
+                    targetProp.SetValue(target, Convert.ToDouble(Convert.ToInt64(sourceProp.GetValue(source).ToString()) / 1000.00));
                 }
                 else
                 {

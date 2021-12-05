@@ -5173,22 +5173,27 @@
         </member>
         <member name="P:SY.Com.Medical.Model.RegisterProjectModel.ProjectId">
             <summary> 
-            
+            ID
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Model.RegisterProjectModel.ProjectName">
             <summary> 
-            
+            名称
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Model.RegisterProjectModel.ProjectAgencyCode">
             <summary> 
-            
+            医保编码
             </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterProjectModel.ProjectSelfCode">
+            <summary>
+            机构编码
+            </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.RegisterProjectModel.ProjectPrice">
             <summary> 
-            
+            价格
             </summary> 
         </member>
         <member name="T:SY.Com.Medical.Model.RegisterProjectRequest">
@@ -5196,44 +5201,24 @@
              RegisterProject模型
              </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.RegisterProjectRequest.ProjectId">
-            <summary> 
-            
-            </summary> 
-        </member>
         <member name="P:SY.Com.Medical.Model.RegisterProjectRequest.ProjectName">
             <summary> 
-            
+            名称
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Model.RegisterProjectRequest.ProjectAgencyCode">
             <summary> 
-            
+            医保编码
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Model.RegisterProjectRequest.ProjectSelfCode">
             <summary> 
-            
+            机构编码
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Model.RegisterProjectRequest.ProjectPrice">
             <summary> 
-            
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.RegisterProjectRequest.CreateTime">
-            <summary> 
-            
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.RegisterProjectRequest.IsEnable">
-            <summary> 
-            
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.RegisterProjectRequest.IsDelete">
-            <summary> 
-            
+            价格
             </summary> 
         </member>
         <member name="T:SY.Com.Medical.Model.RegisterProjectAdd">
@@ -5241,44 +5226,24 @@
              RegisterProject模型
              </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.RegisterProjectAdd.ProjectId">
-            <summary> 
-            
-            </summary> 
-        </member>
         <member name="P:SY.Com.Medical.Model.RegisterProjectAdd.ProjectName">
             <summary> 
-            
+            名称
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Model.RegisterProjectAdd.ProjectAgencyCode">
             <summary> 
-            
+            医保编码
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Model.RegisterProjectAdd.ProjectSelfCode">
             <summary> 
-            
+            机构编码
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Model.RegisterProjectAdd.ProjectPrice">
             <summary> 
-            
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.RegisterProjectAdd.CreateTime">
-            <summary> 
-            
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.RegisterProjectAdd.IsEnable">
-            <summary> 
-            
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.RegisterProjectAdd.IsDelete">
-            <summary> 
-            
+            价格
             </summary> 
         </member>
         <member name="T:SY.Com.Medical.Model.RegisterProjectUpdate">
@@ -5288,42 +5253,27 @@
         </member>
         <member name="P:SY.Com.Medical.Model.RegisterProjectUpdate.ProjectId">
             <summary> 
-            
+            ID
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Model.RegisterProjectUpdate.ProjectName">
             <summary> 
-            
+            名称
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Model.RegisterProjectUpdate.ProjectAgencyCode">
             <summary> 
-            
+            医保编码
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Model.RegisterProjectUpdate.ProjectSelfCode">
             <summary> 
-            
+            机构编码
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Model.RegisterProjectUpdate.ProjectPrice">
             <summary> 
-            
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.RegisterProjectUpdate.CreateTime">
-            <summary> 
-            
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.RegisterProjectUpdate.IsEnable">
-            <summary> 
-            
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.RegisterProjectUpdate.IsDelete">
-            <summary> 
-            
+            价格
             </summary> 
         </member>
         <member name="T:SY.Com.Medical.Model.RegisterProjectDelete">
@@ -5333,42 +5283,7 @@
         </member>
         <member name="P:SY.Com.Medical.Model.RegisterProjectDelete.ProjectId">
             <summary> 
-            
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.RegisterProjectDelete.ProjectName">
-            <summary> 
-            
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.RegisterProjectDelete.ProjectAgencyCode">
-            <summary> 
-            
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.RegisterProjectDelete.ProjectSelfCode">
-            <summary> 
-            
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.RegisterProjectDelete.ProjectPrice">
-            <summary> 
-            
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.RegisterProjectDelete.CreateTime">
-            <summary> 
-            
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.RegisterProjectDelete.IsEnable">
-            <summary> 
-            
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.RegisterProjectDelete.IsDelete">
-            <summary> 
-            
+            ID
             </summary> 
         </member>
         <member name="T:SY.Com.Medical.Model.RoleModel">

@@ -84,5 +84,9 @@ namespace SY.Com.Medical.Entity
 		/// 是否使用1:已使用,-1未使用
 		/// </summary>
 		public int IsUsed { get; set; }
+		/// <summary>
+		/// 搜索字段
+		/// </summary>
+		public string SearchKey { get; set; }
 	}
 } 

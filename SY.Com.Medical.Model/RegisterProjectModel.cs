@@ -14,177 +14,109 @@ namespace SY.Com.Medical.Model
 public class RegisterProjectModel : BaseModel 
 	{ 
 		///<summary> 
-		///
+		///ID
 		///</summary> 
 		public int ProjectId {get;set;} 
 		///<summary> 
-		///
+		///名称
 		///</summary> 
 		public string ProjectName {get;set;} 
 		///<summary> 
-		///
+		///医保编码
 		///</summary> 
 		public string ProjectAgencyCode {get;set;} 
+		/// <summary>
+		/// 机构编码
+		/// </summary>
+		public string ProjectSelfCode { get; set; }
 		///<summary> 
-		///
+		///价格
 		///</summary> 
 		public long ProjectPrice {get;set;} 
 	}
 	
-///<summary>
-/// RegisterProject模型
-/// </summary>
-public class RegisterProjectRequest : PageModel 
+	///<summary>
+	/// RegisterProject模型
+	/// </summary>
+	public class RegisterProjectRequest : PageModel 
 	{ 
 		///<summary> 
-		///
-		///</summary> 
-		public int ProjectId {get;set;} 
-		///<summary> 
-		///
+		///名称
 		///</summary> 
 		public string ProjectName {get;set;} 
 		///<summary> 
-		///
+		///医保编码
 		///</summary> 
 		public string ProjectAgencyCode {get;set;} 
 		///<summary> 
-		///
+		///机构编码
 		///</summary> 
 		public string ProjectSelfCode {get;set;} 
 		///<summary> 
-		///
+		///价格
 		///</summary> 
 		public long ProjectPrice {get;set;} 
-		///<summary> 
-		///
-		///</summary> 
-		public DateTime? CreateTime {get;set;} 
-		///<summary> 
-		///
-		///</summary> 
-		public int IsEnable {get;set;} 
-		///<summary> 
-		///
-		///</summary> 
-		public int IsDelete {get;set;} 
 	}
 	
-///<summary>
-/// RegisterProject模型
-/// </summary>
-public class RegisterProjectAdd : BaseModel 
+	///<summary>
+	/// RegisterProject模型
+	/// </summary>
+	public class RegisterProjectAdd : BaseModel 
 	{ 
 		///<summary> 
-		///
-		///</summary> 
-		public int ProjectId {get;set;} 
-		///<summary> 
-		///
+		///名称
 		///</summary> 
 		public string ProjectName {get;set;} 
 		///<summary> 
-		///
+		///医保编码
 		///</summary> 
 		public string ProjectAgencyCode {get;set;} 
 		///<summary> 
-		///
+		///机构编码
 		///</summary> 
 		public string ProjectSelfCode {get;set;} 
 		///<summary> 
-		///
+		///价格
 		///</summary> 
 		public long ProjectPrice {get;set;} 
-		///<summary> 
-		///
-		///</summary> 
-		public DateTime? CreateTime {get;set;} 
-		///<summary> 
-		///
-		///</summary> 
-		public int IsEnable {get;set;} 
-		///<summary> 
-		///
-		///</summary> 
-		public int IsDelete {get;set;} 
 	}
 	
-///<summary>
-/// RegisterProject模型
-/// </summary>
-public class RegisterProjectUpdate : BaseModel 
+	///<summary>
+	/// RegisterProject模型
+	/// </summary>
+	public class RegisterProjectUpdate : BaseModel 
 	{ 
 		///<summary> 
-		///
+		///ID
 		///</summary> 
 		public int ProjectId {get;set;} 
 		///<summary> 
-		///
+		///名称
 		///</summary> 
 		public string ProjectName {get;set;} 
 		///<summary> 
-		///
+		///医保编码
 		///</summary> 
 		public string ProjectAgencyCode {get;set;} 
 		///<summary> 
-		///
+		///机构编码
 		///</summary> 
 		public string ProjectSelfCode {get;set;} 
 		///<summary> 
-		///
+		///价格
 		///</summary> 
 		public long ProjectPrice {get;set;} 
-		///<summary> 
-		///
-		///</summary> 
-		public DateTime? CreateTime {get;set;} 
-		///<summary> 
-		///
-		///</summary> 
-		public int IsEnable {get;set;} 
-		///<summary> 
-		///
-		///</summary> 
-		public int IsDelete {get;set;} 
 	}
 	
-///<summary>
-/// RegisterProject模型
-/// </summary>
-public class RegisterProjectDelete : BaseModel 
+	///<summary>
+	/// RegisterProject模型
+	/// </summary>
+	public class RegisterProjectDelete : BaseModel 
 	{ 
 		///<summary> 
-		///
+		///ID
 		///</summary> 
-		public int ProjectId {get;set;} 
-		///<summary> 
-		///
-		///</summary> 
-		public string ProjectName {get;set;} 
-		///<summary> 
-		///
-		///</summary> 
-		public string ProjectAgencyCode {get;set;} 
-		///<summary> 
-		///
-		///</summary> 
-		public string ProjectSelfCode {get;set;} 
-		///<summary> 
-		///
-		///</summary> 
-		public long ProjectPrice {get;set;} 
-		///<summary> 
-		///
-		///</summary> 
-		public DateTime? CreateTime {get;set;} 
-		///<summary> 
-		///
-		///</summary> 
-		public int IsEnable {get;set;} 
-		///<summary> 
-		///
-		///</summary> 
-		public int IsDelete {get;set;} 
+		public int ProjectId {get;set;}  
 	}
 	
 } 

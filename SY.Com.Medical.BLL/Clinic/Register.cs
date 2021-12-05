@@ -78,9 +78,9 @@ namespace SY.Com.Medical.BLL.Clinic
 			radd = mod.Mapping<RegisterAdd>();
 			radd.DoctorName = employeemodel.EmployeeName;
 			radd.DepartmentName = employeemodel.Departments;
-			radd.SearchKey = mod.Name.GetPinYin() + mod.Phone;
+			radd.SearchKey = mod.Name.GetPinYin() + mod.Phone + mod.psn_no + mod.SFZH;
 			var entity = radd.DtoToEntity<RegisterEntity>();
-			entity.IsUsed = -1;
+			entity.IsUsed = -1;			
 			var registerid = db.Create(entity);
 
 			//保存收费记录
@@ -158,6 +158,7 @@ namespace SY.Com.Medical.BLL.Clinic
 					RegisterDoctor mod = new RegisterDoctor();
 					mod.DoctorId = node.EmployeeId;
 					mod.DoctorName = node.EmployeeName;
+					result.Add(mod);
 				}
             }
 			return result;
