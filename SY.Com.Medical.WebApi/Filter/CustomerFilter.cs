@@ -79,7 +79,7 @@ namespace SY.Com.Medical.WebApi.Filter
                             throw new MyException("TenantId非法");
                         }
                     }
-                }
+                }                
                 foreach (var item in context.ActionArguments)
                 {
                     //继承自BaseModel

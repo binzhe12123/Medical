@@ -1084,6 +1084,11 @@
             是否使用1:已使用,-1未使用
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Entity.RegisterEntity.SearchKey">
+            <summary>
+            搜索字段
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Entity.RegisterProjectEntity">
             <summary>
             实体

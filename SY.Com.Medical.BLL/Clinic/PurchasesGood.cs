@@ -65,6 +65,7 @@ namespace SY.Com.Medical.BLL.Clinic
 			mod.ForEach(x =>
 			{
 				PurchasesGoodEntity entity = new PurchasesGoodEntity();
+				entity.TenantId = x.TenantId;
 				entity.GoodId = x.GoodId;
 				entity.GoodName = x.GoodName;
 				entity.Norm = x.Norm;

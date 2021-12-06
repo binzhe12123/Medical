@@ -35,10 +35,9 @@ namespace SY.Com.Medical.Repository.Clinic
         /// <param name="entitys"></param>
         /// <returns></returns>
         public int UpdateStockAndPrice(List<PurchasesGoodEntity> entitys)
-        {
-            var strGooids = string.Join(',', entitys.Select(x => x.GoodId).ToList());
+        {            
             string sqlprice = @" Select GoodId,SellPrice From PurchasesGoods Where TenantId=@TenantId And Consume > 0 And IsDelete = 1 And GoodId in@GoodId Order By PurchaseId Asc  ";
-            var purchaseprice = _db.Query<PurchasesGoodEntity>(sqlprice, new { TenantId = entitys.First().TenantId, GoodId = strGooids });
+            var purchaseprice = _db.Query<PurchasesGoodEntity>(sqlprice, new { TenantId = entitys.First().TenantId, GoodId = entitys.Select(x => x.GoodId).ToList() });
             string sql = "";
             if (purchaseprice == null || !purchaseprice.Any())
             {
@@ -49,7 +48,7 @@ namespace SY.Com.Medical.Repository.Clinic
                 {
                     x.SellPrice = purchaseprice.ToList().Find(y=>y.GoodId == x.GoodId).SellPrice;
                 });
-                sql = @" Update Goods Set Stock = Stock + @Stock,Price = @Price  Where TenantId=@TenantId And PurchaseId=@PurchaseId And GoodId=@GoodId ";
+                sql = @" Update Goods Set Stock = Stock + @Stock,Price = @SellPrice  Where TenantId=@TenantId  And GoodId=@GoodId ";
 
             }            
             return _db.Execute(sql, entitys);

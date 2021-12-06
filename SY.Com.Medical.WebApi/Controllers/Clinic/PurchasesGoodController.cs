@@ -56,6 +56,15 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
 		[HttpPost]
 		public BaseResponse<bool> Purchase(List<PurchasesGoodModel> request)
         {
+			var tenantid = HttpContext.Request.Headers["TenantId"].ToString();
+			if(string.IsNullOrEmpty(tenantid))
+            {
+				throw new MyException("TenantId非法");
+			}
+			foreach(var item in request)
+            {
+				item.TenantId = int.Parse(tenantid);
+            }
 			BaseResponse<bool> result = new BaseResponse<bool>();
 			result.Data =bll.Purchases(request);
 			return result;
