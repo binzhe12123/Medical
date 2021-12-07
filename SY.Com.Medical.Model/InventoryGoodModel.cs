@@ -69,6 +69,10 @@ namespace SY.Com.Medical.Model
 		/// 库存剩余
 		/// </summary>
 		public int Stock { get; set; }
+		/// <summary>
+		/// 当前单价价格
+		/// </summary>
+		public double Price { get; set; }
 	}
 
 	///<summary>

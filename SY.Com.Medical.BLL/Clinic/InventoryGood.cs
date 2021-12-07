@@ -42,6 +42,7 @@ namespace SY.Com.Medical.BLL.Clinic
 					mod.Factory = x.Factory;
 					mod.SalesUnit = x.SalesUnit;
 					mod.Stock = x.Stock;
+					mod.Price = Math.Round(x.Price / 1000.00, 3);
 					resp.Add(mod);
 				});
 			}

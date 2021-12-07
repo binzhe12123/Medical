@@ -2109,6 +2109,11 @@
             库存剩余
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.InventoryGoodSearchResponse.Price">
+            <summary>
+            当前单价价格
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.InventoryGoodRequest">
             <summary>
              盘点
