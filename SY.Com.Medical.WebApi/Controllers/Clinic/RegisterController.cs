@@ -121,8 +121,8 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
 			try
 			{
 				PatientPage page = new PatientPage();
-				page.PageSize = 5;
-				page.PageIndex = 1;
+				page.PageSize = page.PageSize;
+				page.PageIndex = page.PageIndex;
 				page.SearchKey = request.SearchKey;
 				var tuple = patbll.gets(page);
 				result.Data = tuple.Item1;

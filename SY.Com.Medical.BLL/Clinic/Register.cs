@@ -46,6 +46,7 @@ namespace SY.Com.Medical.BLL.Clinic
 				padd.SFZ = mod.SFZH;
 				padd.Phone = mod.Phone;
 				padd.Addr = mod.Addr;
+				padd.TenantId = mod.TenantId;
 				int patientid = patientbll.add(padd);
 				mod.PatientId = patientid;
 
@@ -61,6 +62,7 @@ namespace SY.Com.Medical.BLL.Clinic
 				pupd.SFZ = mod.SFZH;
 				pupd.Phone = mod.Phone;
 				pupd.Addr = mod.Addr;
+				pupd.TenantId = mod.TenantId;
 				patientbll.update(pupd);
 			}
 			//获取医生信息和科室信息

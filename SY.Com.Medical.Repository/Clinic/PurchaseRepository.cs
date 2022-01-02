@@ -15,7 +15,8 @@ namespace SY.Com.Medical.Repository.Clinic
 	{ 
         public Tuple<IEnumerable<PurchaseEntity>, int> page(long tenantId,int pageSize,int pageIndex,DateTime? start,DateTime? end,string goodName)
         {
-            string sql = " Select * From Purchases Where TenantId="+ tenantId +" ";
+            string sql1 = " Select * From Purchases Where TenantId="+ tenantId +" ";
+            string sql2 = " Select ROW_NUMBER() over(order by purchaseid) row_id,* From Purchases Where TenantId=" + tenantId + " ";
             string sqlwhere = "  ";
             if (start != null)
             {
@@ -29,9 +30,9 @@ namespace SY.Com.Medical.Repository.Clinic
             {
                 sqlwhere += " And PurchaseId In( Select PurchaseId From PurchasesGoods Where TenantId="+ tenantId + " And GoodName like '%"+ goodName +"%' ) ";
             }
-            string sqlcommon = @" select count(1) as nums from ( " + sql + sqlwhere + @" )t;
-                                ; Select ROW_NUMBER() over(order by purchaseid) row_id,* From ( " + sql + sqlwhere + " )t where row_id between "+ ((pageIndex-1)*pageSize) +" and "+ (pageIndex * pageSize) +" ";
-            var grid = _db.QueryMultiple(sql);
+            string sqlcommon = @" select count(1) as nums from ( " + sql1 + sqlwhere + @" )t;
+                                ; Select * From ( " + sql2 + sqlwhere + " )t where row_id between "+ ((pageIndex-1)*pageSize) +" and "+ (pageIndex * pageSize) +" ";
+            var grid = _db.QueryMultiple(sqlcommon);
             var total = grid.Read<int>().FirstOrDefault();
             var entitys = grid.Read<PurchaseEntity>();
             Tuple<IEnumerable<PurchaseEntity>, int> result = new Tuple<IEnumerable<PurchaseEntity>, int>(entitys, total);

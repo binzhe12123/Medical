@@ -116,7 +116,7 @@ namespace SY.Com.Medical.Model
     /// <summary>
     /// 患者分页查询模型
     /// </summary>
-    public class PatientSearchPage : BaseModel
+    public class PatientSearchPage : PageModel
     {
         /// <summary>
         /// 搜索   
