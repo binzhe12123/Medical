@@ -102,9 +102,10 @@ namespace SY.Com.Medical.BLL.Clinic
         {
 			List<PurchasesGoodResponse> result = new List<PurchasesGoodResponse>();
 			var entity = db.getPurchasesById(tenantId, purchaseId);
-			if(entity == null || entity.Any())
+			if(entity == null || !entity.Any())
             {
-				throw new MyException("无数据");
+				return new List<PurchasesGoodResponse>();
+				//throw new MyException("无数据");
             }
 			entity.ForEach(x =>
 			{

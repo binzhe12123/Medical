@@ -32,7 +32,7 @@ namespace SY.Com.Medical.Repository.Clinic
         /// <returns></returns>
         public bool UpdateGoodStockAndPrice(List<InventoryGoodEntity> entitys)
         {
-            var strGooids = string.Join(',', entitys.Select(x => x.GoodId).ToList());
+            var strGooids = entitys.Select(x => x.GoodId).ToList();//= string.Join(',', entitys.Select(x => x.GoodId).ToList());
             var tenantid = entitys.First().TenantId;
             string sqlpurchase = @" Select GoodId,Consume,id,TenantId,PurchaseId From PurchasesGoods Where TenantId=@TenantId And Consume > 0 And IsDelete = 1 And GoodId in@GoodId Order By PurchaseId Asc ";
             var purchase = _db.Query<PurchasesGoodEntity>(sqlpurchase, new { TenantId = tenantid, GoodId = strGooids });
