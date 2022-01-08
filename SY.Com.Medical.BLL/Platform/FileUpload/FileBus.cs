@@ -10,8 +10,8 @@ namespace SY.Com.Medical.BLL.Platform
     /// 静态文件上传所属的业务
     /// </summary>
     public class FileBus
-    {
-        public virtual string getPath()
+    {                
+        public virtual string getPath(params string[] parms)
         {
             return "/default/";
         }
@@ -22,7 +22,7 @@ namespace SY.Com.Medical.BLL.Platform
     /// </summary>
     public class UserImgFileBus : FileBus
     {        
-        public override string getPath()
+        public override string getPath(params string[] parms)
         {            
             return "/user/logo/";
         }
@@ -33,9 +33,25 @@ namespace SY.Com.Medical.BLL.Platform
     /// </summary>
     public class TenantImgFileBus : FileBus
     {        
-        public override string getPath()
+        public override string getPath(params string[] parms)
         {
             return "/tenant/logo/";
+        }
+    }
+
+    public class TenantPrintView : FileBus
+    {
+        public override string getPath(params string[] parms)
+        {
+            string str = "/PrintView/";
+            if(parms != null)
+            {
+                for (int i = 0; i < parms.Length; i++)
+                {
+                    str += $"{parms[i]}/";
+                }
+            }
+            return str;
         }
     }
 

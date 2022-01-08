@@ -397,6 +397,31 @@
             <param name="request"></param>
             <returns></returns>
         </member>
+        <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.PrintViewController">
+            <summary>
+            控制器
+            </summary>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PrintViewController.get(System.Int32)">
+            <summary> 
+            获取详情记录
+            </summary> 
+            <param name="id"></param>
+             <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PrintViewController.getStyle">
+            <summary>
+            获取打印视图的所有分类
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PrintViewController.gets(SY.Com.Medical.Model.PrintViewRequest)">
+            <summary> 
+            获取某个类型的视图
+            </summary> 
+            <param name="request"></param>
+             <returns></returns>
+        </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.PurchasesGoodController">
             <summary>
             控制器
@@ -1040,6 +1065,15 @@
             <param name="files">Form表单提交图片</param>
             <param name="staticFileType">文件类型枚举</param>
             <param name="staticFileBusiness">上传业务枚举</param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.StaticFileController.PrintFile(System.Collections.Generic.List{Microsoft.AspNetCore.Http.IFormFile},System.Int32,System.Int32)">
+            <summary>
+            上传打印视图
+            </summary>
+            <param name="files">grf文件</param>
+            <param name="TenantId">租户Id</param>
+            <param name="Style">打印视图类型Id</param>
             <returns></returns>
         </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Platform.TenantController">

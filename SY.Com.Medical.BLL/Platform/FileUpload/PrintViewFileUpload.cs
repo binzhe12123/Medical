@@ -7,14 +7,11 @@ using System.Threading.Tasks;
 
 namespace SY.Com.Medical.BLL.Platform
 {
-    /// <summary>
-    /// 图片上传
-    /// </summary>
-    public class ImgFileUpload : FileUpload
+    public class PrintViewFileUpload : FileUpload
     {
         private string[] filepathextent;
-        private List<string> format = new List<string> { ".jpeg",".jpg", ".png", ".gif", ".bmp",".grf" };
-        public ImgFileUpload(FileBus filebus,string extension,params string[] filepathparam) : base(filebus)
+        private List<string> format = new List<string> { ".jpeg", ".jpg", ".png", ".gif", ".bmp", ".grf" };
+        public PrintViewFileUpload(FileBus filebus, string extension, params string[] filepathparam) : base(filebus)
         {
             filepathextent = filepathparam;
             if (!format.Contains(extension))
@@ -31,16 +28,16 @@ namespace SY.Com.Medical.BLL.Platform
         /// <returns></returns>
         public override string SaveFile(MemoryStream mstream)
         {
-            if(mstream.Length > 1024 * 1024 * 10)//超过10M的文件不允许
+            if (mstream.Length > 1024 * 1024 * 10)//超过10M的文件不允许
             {
                 throw new MyException("图片不能超过10M");
             }
-            
+
             string dir = System.Environment.CurrentDirectory + "/wwwroot/";
             string sortpath = fb.getPath(filepathextent);//获取路径
             string strDateTime = DateTime.Now.ToString("yyMMddhhmmssfff"); //取得时间字符串
             string strRan = Convert.ToString(new Random().Next(100, 999)); //生成三位随机数
-            string filename = strDateTime + strRan + _extension;
+            string filename = "Print" + _extension;
             string filepath = dir + sortpath;
             if (!Directory.Exists(filepath))
             {

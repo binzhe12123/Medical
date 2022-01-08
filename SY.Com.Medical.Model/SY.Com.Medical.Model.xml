@@ -4181,6 +4181,151 @@
             
             </summary> 
         </member>
+        <member name="T:SY.Com.Medical.Model.PrintViewModel">
+            <summary>
+             PrintView模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintViewModel.PrintViewId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintViewModel.PrintViewName">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintViewModel.Style">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintViewModel.Url">
+            <summary>
+            打印视图文件地址(不带域名)
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintViewModel.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintViewModel.IsEnable">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.PrintStyleModel">
+            <summary>
+            打印视图类型
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintStyleModel.Id">
+            <summary>
+            类型Id,1:挂号打印，2:退号打印,3:中药处方打印,4:西药处方打印,5:项目处方打印,6:收费打印,7:退费打印,8:治疗单打印,9:病历打印
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintStyleModel.Name">
+            <summary>
+            类型Id,1:挂号打印，2:退号打印,3:中药处方打印,4:西药处方打印,5:项目处方打印,6:收费打印,7:退费打印,8:治疗单打印,9:病历打印
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.PrintViewRequest">
+            <summary>
+             PrintView模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintViewRequest.Style">
+            <summary> 
+             打印视图Id，可使用getStyle接口获取
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.PrintViewAdd">
+            <summary>
+             PrintView模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintViewAdd.Style">
+            <summary> 
+            打印视图类型Id
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.PrintViewUpdate">
+            <summary>
+             PrintView模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintViewUpdate.PrintViewId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintViewUpdate.PrintViewName">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintViewUpdate.Style">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintViewUpdate.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintViewUpdate.IsEnable">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.PrintViewDelete">
+            <summary>
+             PrintView模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintViewDelete.PrintViewId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintViewDelete.PrintViewName">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintViewDelete.Style">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintViewDelete.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintViewDelete.IsEnable">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.PrintUpload">
+            <summary>
+            打印视图上传
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintUpload.TenantId">
+            <summary>
+            租户Id
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintUpload.Style">
+            <summary>
+            类型Id
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.PurchaseModel">
             <summary>
              Purchase模型
@@ -5364,6 +5509,11 @@
         <member name="P:SY.Com.Medical.Model.StaticFileModel.fileExtension">
             <summary>
             文件后缀名
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.StaticFileModel.filepathExtension">
+            <summary>
+            文件路径扩展
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.Down9102">

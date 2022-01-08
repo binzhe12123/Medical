@@ -24,7 +24,7 @@ namespace SY.Com.Medical.Repository.Platform
         /// <returns></returns>
         public Tuple<IEnumerable<EmployeeEntity>, int> getTenant(int tenantId, int pageSize,int pageIndex,string searchKey = "",string deparment = "")
         {
-            string sql = " Select * From Employees Where TenantId = @TenantId And IsEnable=@IsEnable And IsDelete = 1 ";
+            //string sql = " Select * From Employees Where TenantId = @TenantId And IsEnable=@IsEnable And IsDelete = 1 ";
             string where = "";
             if(!string.IsNullOrEmpty(searchKey))
             {

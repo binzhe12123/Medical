@@ -27,5 +27,11 @@ namespace SY.Com.Medical.Model
         [JsonIgnore]
         public string fileExtension { get; set; }
 
+        /// <summary>
+        /// 文件路径扩展
+        /// </summary>
+        [JsonIgnore]
+        public string filepathExtension { get; set; }
+
     }
 }

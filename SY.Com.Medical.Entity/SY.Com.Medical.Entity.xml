@@ -869,6 +869,31 @@
             机构编码
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Entity.PrintViewEntity">
+            <summary>
+            实体
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PrintViewEntity.PrintViewId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PrintViewEntity.TenantId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PrintViewEntity.PrintViewName">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.PrintViewEntity.Style">
+            <summary> 
+            
+            </summary> 
+        </member>
         <member name="T:SY.Com.Medical.Entity.PurchaseEntity">
             <summary>
             实体
