@@ -78,7 +78,7 @@ namespace SY.Com.Medical.Model
 	///<summary>
 	/// 盘点
 	/// </summary>
-	public class InventoryGoodRequest : BaseModel 
+	public class InventoryGoodRequest  : BaseModel
 	{
 		///<summary> 
 		///盘点单id

@@ -5126,6 +5126,11 @@
             
             </summary> 
         </member>
+        <member name="P:SY.Com.Medical.Model.RegisterModel.Age">
+            <summary>
+            年龄
+            </summary>
+        </member>
         <member name="P:SY.Com.Medical.Model.RegisterModel.SFZH">
             <summary> 
             
@@ -5143,8 +5148,13 @@
         </member>
         <member name="P:SY.Com.Medical.Model.RegisterModel.DoctorName">
             <summary> 
-            
+            医生Id
             </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterModel.DoctorId">
+            <summary>
+            医生Id
+            </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.RegisterModel.DepartmentName">
             <summary> 

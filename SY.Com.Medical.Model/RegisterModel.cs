@@ -113,7 +113,41 @@ namespace SY.Com.Medical.Model
 		///<summary> 
 		///
 		///</summary> 
-		public DateTime? CSRQ {get;set;} 
+		public DateTime? CSRQ {get;set;}
+		/// <summary>
+		/// 年龄
+		/// </summary>
+		public string Age
+		{
+			get
+			{
+				if(CSRQ == null)
+                {
+					return "未知";
+                }
+				var totalMonth = (DateTime.Now.Year - CSRQ?.Year) * 12 - CSRQ?.Month + DateTime.Now.Month;
+				if (totalMonth < 2)
+				{
+					return $"{(DateTime.Now - CSRQ.Value).Days}天";
+				}
+				else if (totalMonth >= 24)
+				{
+					return $"{totalMonth / 12}岁";
+				}
+				else
+				{
+					if (totalMonth >= 12)
+					{
+						return $"{totalMonth / 12}岁{totalMonth % 12}月";
+					}
+					else
+					{
+						return $"{totalMonth}月";
+					}
+				}
+			}
+		}
+
 		///<summary> 
 		///
 		///</summary> 
@@ -127,9 +161,13 @@ namespace SY.Com.Medical.Model
 		///</summary> 
 		public string Addr {get;set;} 	
 		///<summary> 
-		///
+		///医生Id
 		///</summary> 
 		public string DoctorName {get;set;} 
+		/// <summary>
+		/// 医生Id
+		/// </summary>
+		public int DoctorId { get; set; }
 		///<summary> 
 		///
 		///</summary> 

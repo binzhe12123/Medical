@@ -195,5 +195,10 @@ namespace SY.Com.Medical.BLL.Clinic
 			}
 		}
 
+		public List<EmployeeModel> getDoctorIds(int tenantid,List<string> names)
+        {
+			return db.getDoctorIds(tenantid, names).ToList().EntityToDto<EmployeeModel>();
+		}
+
 	}
 };

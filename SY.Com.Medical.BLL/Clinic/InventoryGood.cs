@@ -65,6 +65,7 @@ namespace SY.Com.Medical.BLL.Clinic
 				entity.Norm = model.Norm;
 				entity.Factory = model.Factory;
 				entity.SalesUnit = model.SalesUnit;
+				entity.TenantId = model.TenantId;
 				if(model.StockAfter < 0)
                 {
 					throw new MyException("盘点库存不能小于0");

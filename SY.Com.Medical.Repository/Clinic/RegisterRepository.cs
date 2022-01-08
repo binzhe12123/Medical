@@ -76,5 +76,17 @@ namespace SY.Com.Medical.Repository.Clinic
 
         }
 
+        /// <summary>
+        /// 获取医生id
+        /// </summary>
+        /// <param name="tenantid"></param>
+        /// <param name="names"></param>
+        /// <returns></returns>
+        public IEnumerable<EmployeeEntity> getDoctorIds(int tenantid,List<string> names)
+        {
+            string sql = @" select * From Employees Where TenantId = @tenandid And EmployeeName in@names And IsDelete = 1 And IsEnable = 1 ";
+            return _dbid.Query<EmployeeEntity>(sql, new { tenandid = tenantid, names = names });
+        }
+
 	}
 } 

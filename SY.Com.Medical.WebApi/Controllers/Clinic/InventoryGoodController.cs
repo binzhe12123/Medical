@@ -57,6 +57,15 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
 		[HttpPost]
 		public BaseResponse<bool> Inventory(List<InventoryGoodRequest> requst)
         {
+			var tenantid = HttpContext.Request.Headers["TenantId"].ToString();
+			if (string.IsNullOrEmpty(tenantid))
+			{
+				throw new MyException("TenantId非法");
+			}
+			foreach (var item in requst)
+			{
+				item.TenantId = int.Parse(tenantid);
+			}
 			BaseResponse<bool> result = new BaseResponse<bool>();
 			result.Data = bll.Inventory(requst);
 			return result;

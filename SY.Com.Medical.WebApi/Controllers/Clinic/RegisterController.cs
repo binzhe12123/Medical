@@ -89,23 +89,42 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
 		[HttpPost]
 		public BaseResponse<List<RegisterModel>> gets(Register1Request request)
 		{
-				BaseResponse<List<RegisterModel>> result = new BaseResponse<List<RegisterModel>>();
-				try{
-					var tuple = bll.gets(request.TenantId,request.PageSize,request.PageIndex,request.SearchKey,request.start,request.end);
-					result.Data = tuple.Item1.ToList();
-					result.CalcPage(tuple.Item2, request.PageIndex, request.PageSize);
-					return result;
-				}catch(Exception ex)
+			BaseResponse<List<RegisterModel>> result = new BaseResponse<List<RegisterModel>>();
+			try{
+				var tuple = bll.gets(request.TenantId,request.PageSize,request.PageIndex,request.SearchKey,request.start,request.end);
+				if (tuple.Item1 != null && tuple.Item1.Count > 0)
 				{
-					if (ex is MyException)
+					//获取医生Id和科室Id
+					var doctornames = bll.getDoctorIds(tuple.Item1.First().TenantId, tuple.Item1.Select(x => x.DoctorName).ToList());
+					if (doctornames != null && doctornames.Any())
 					{
-						return result.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
-					}
-					else
-					{
-						return result.sysException(ex.Message);
+						foreach (var item in tuple.Item1)
+						{
+
+						}
+						tuple.Item1.ToList().ForEach(x =>
+						{
+							if (doctornames.ToList().Find(y => y.EmployeeName == x.DoctorName) != null)
+							{
+								x.DoctorId = doctornames.ToList().Find(y => y.EmployeeName == x.DoctorName).EmployeeId;
+							}
+						});
 					}
 				}
+			result.Data = tuple.Item1.ToList();
+				result.CalcPage(tuple.Item2, request.PageIndex, request.PageSize);
+				return result;
+			}catch(Exception ex)
+			{
+				if (ex is MyException)
+				{
+					return result.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
+				}
+				else
+				{
+					return result.sysException(ex.Message);
+				}
+			}
 		}
 
 
