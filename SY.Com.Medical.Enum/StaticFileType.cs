@@ -46,6 +46,10 @@ namespace SY.Com.Medical.Enum
         /// <summary>
         /// 其他类型文件
         /// </summary>
-        其他=8
+        其他=8,
+        /// <summary>
+        /// 打印模板,后缀grf
+        /// </summary>
+        Print=9,
     }
 }

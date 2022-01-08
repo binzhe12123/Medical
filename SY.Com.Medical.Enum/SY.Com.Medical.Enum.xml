@@ -259,6 +259,11 @@
             租户图片上传
             </summary>
         </member>
+        <member name="F:SY.Com.Medical.Enum.StaticFileBusiness.租户打印视图">
+            <summary>
+            住户打印视图
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Enum.StaticFileType">
             <summary>
             静态文件类型
@@ -307,6 +312,11 @@
         <member name="F:SY.Com.Medical.Enum.StaticFileType.其他">
             <summary>
             其他类型文件
+            </summary>
+        </member>
+        <member name="F:SY.Com.Medical.Enum.StaticFileType.Print">
+            <summary>
+            打印模板,后缀grf
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Enum.TenantType">

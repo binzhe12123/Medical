@@ -25,7 +25,7 @@ namespace SY.Com.Medical.Repository.Clinic
         /// <returns></returns>
         public Tuple<IEnumerable<RegisterEntity>, int> SearchPage(int tenantId,int pageSize,int pageIndex,string searchkey,DateTime? start,DateTime? end,int IsUsed = 0)
         {
-            string sql = @" Select * From Registers Where TenantId = @TenantId ";
+            //string sql = @" Select * From Registers Where TenantId = @TenantId ";
             string where = "";
             if(!string.IsNullOrEmpty(searchkey))
             {

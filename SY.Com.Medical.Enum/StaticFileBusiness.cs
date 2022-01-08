@@ -22,6 +22,10 @@ namespace SY.Com.Medical.Enum
         /// <summary>
         /// 租户图片上传
         /// </summary>
-        租户图片上传 = 2
+        租户图片上传 = 2,
+        /// <summary>
+        /// 住户打印视图
+        /// </summary>
+        租户打印视图=3
     }
 }

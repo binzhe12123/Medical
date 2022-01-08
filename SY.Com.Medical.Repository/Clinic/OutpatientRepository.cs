@@ -33,7 +33,7 @@ namespace SY.Com.Medical.Repository.Clinic
         //调用退费处方
         public Tuple<List<OutpatientEntity>, int> getBackPaid(int tenantId, int pageSize, int pageIndex, string searchKey, DateTime? start, DateTime? end, int doctorId = 0)
         {
-            string sql = @" Select * From Outpatients Where TenantId = @TenantId And IsBack = 1 ";
+            //string sql = @" Select * From Outpatients Where TenantId = @TenantId And IsBack = 1 ";
             string where = "";
             if (string.IsNullOrEmpty(searchKey))
             {
