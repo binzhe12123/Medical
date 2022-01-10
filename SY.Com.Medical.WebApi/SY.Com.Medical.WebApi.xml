@@ -940,6 +940,13 @@
             <param name="request"></param>
             <returns></returns>
         </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.EmployeeController.getCloseList(SY.Com.Medical.Model.EmployeeGetsModel)">
+            <summary>
+            获取租户的员工-禁用
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
         <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.EmployeeController.get(System.Int32)">
             <summary>
             获取单个员工信息
@@ -1011,7 +1018,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.RoleController.insert(SY.Com.Medical.Model.RoleInsertModel)">
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.RoleController.insert(SY.Com.Medical.Model.RoleUpdateMenuModel)">
             <summary>
             租户新增角色
             </summary>

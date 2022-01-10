@@ -54,6 +54,36 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
             }
         }
 
+
+        /// <summary>
+        /// 获取租户的员工-禁用
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<List<EmployeeModel>> getCloseList(EmployeeGetsModel request)
+        {
+            BaseResponse<List<EmployeeModel>> result = new BaseResponse<List<EmployeeModel>>();
+            try
+            {
+                var tuple = bll.getEmployeesClose(request.TenantId, request.PageSize, request.PageIndex, request.searchKey, request.Department);
+                result.Data = tuple.Item1;
+                result.CalcPage(tuple.Item2, request.PageIndex, request.PageSize);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                if (ex is MyException)
+                {
+                    return result.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
+                }
+                else
+                {
+                    return result.sysException(ex.Message);
+                }
+            }
+        }
+
         /// <summary>
         /// 获取单个员工信息
         /// </summary>

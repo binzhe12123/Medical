@@ -48,9 +48,23 @@ namespace SY.Com.Medical.BLL.Platform
         /// </summary>
         /// <param name="mod"></param>
         /// <returns></returns>
-        public bool InsertRole(RoleInsertModel mod)
+        //public bool InsertRole(RoleInsertModel mod)
+        //{
+        //    return db.insertRoles(mod.DtoToEntity<RoleEntity>()) >0;
+        //}
+
+        public bool InsertRole(RoleUpdateMenuModel mod)
         {
-            return db.insertRoles(mod.DtoToEntity<RoleEntity>()) >0;
+            var roleid = db.getID("Roles");
+            mod.RoleId = roleid;
+            db.insertRoles(mod.DtoToEntity<RoleEntity>());
+            RoleModel rm = new RoleModel();
+            rm.RoleId = mod.RoleId;
+            rm.TenantId = mod.TenantId;
+            rm.RoleName = mod.RoleName;
+            rm.UserId = mod.UserId;
+            updateMenu(rm, mod.MenuIds);
+            return true;
         }
 
 

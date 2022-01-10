@@ -38,7 +38,7 @@ namespace SY.Com.Medical.Repository.Platform
         public int insertRoles(RoleEntity entity)
         {
             string sql = @" Insert Into Roles(RoleId,TenantId,RoleName,CreateTime,IsEnable,IsDelete)
-                                       Values(@RoleId,@TenantId,@RoleName,getdate(),1,1)";
+                                       Values(@RoleId,@TenantId,@RoleName,getdate(),1,1)";            
             return _db.Execute(sql, new { RoleId = (entity.RoleId == 0 ? getID("Roles") : entity.RoleId), TenantId=entity.TenantId, RoleName=entity.RoleName });
         }
 

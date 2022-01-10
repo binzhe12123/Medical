@@ -35,6 +35,23 @@ namespace SY.Com.Medical.BLL.Platform
         }
 
         /// <summary>
+        /// 获取诊所的员工信息(禁用)
+        /// </summary>
+        /// <param name="tenantId"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="searchKey"></param>
+        /// <param name="department"></param>
+        /// <returns></returns>
+        public Tuple<List<EmployeeModel>, int> getEmployeesClose(int tenantId, int pageSize = 100, int pageIndex = 1, string searchKey = "", string department = "")
+        {
+            var tuple = db.getTenantClose(tenantId, pageSize, pageIndex, searchKey, department);
+            Tuple<List<EmployeeModel>, int> result = new Tuple<List<EmployeeModel>, int>(tuple.Item1.EntityToDto<EmployeeModel>(), tuple.Item2);
+            return result;
+        }
+        
+
+        /// <summary>
         /// 获取诊所员工信息(禁用)
         /// </summary>
         /// <param name="tenantId"></param>

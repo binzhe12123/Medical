@@ -43,8 +43,21 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
+        //[HttpPost]
+        //public BaseResponse<bool> insert(RoleInsertModel request)
+        //{
+        //    BaseResponse<bool> result = new BaseResponse<bool>();
+        //    result.Data = bll.InsertRole(request);
+        //    return result;
+        //}
+
+        /// <summary>
+        /// 租户新增角色
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [HttpPost]
-        public BaseResponse<bool> insert(RoleInsertModel request)
+        public BaseResponse<bool> insert(RoleUpdateMenuModel request)
         {
             BaseResponse<bool> result = new BaseResponse<bool>();
             result.Data = bll.InsertRole(request);

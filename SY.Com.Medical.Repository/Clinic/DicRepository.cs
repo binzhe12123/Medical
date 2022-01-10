@@ -58,7 +58,7 @@ namespace SY.Com.Medical.Repository.Clinic
             {
                 sqlwhere += " And KeyFirst= '" + keyFirst + "' ";
             }
-            if (!string.IsNullOrEmpty(keySecond))
+            if (!string.IsNullOrEmpty(keySecond) && keySecond != "无")
             {
                 sqlwhere += " And KeySecond= '" + keySecond + "' ";
             }
