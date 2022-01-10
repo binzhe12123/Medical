@@ -47,7 +47,6 @@ namespace SY.Com.Medical.Repository
             }
             _db = new SqlConnection(strconnection);
             _dbid = new SqlConnection(ReadConfig.GetConfigSection("Medical_Platform"));
-
         }
 
 
