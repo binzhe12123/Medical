@@ -166,6 +166,10 @@ namespace SY.Com.Medical.BLL.Clinic
 		public int Charge(OutpatientChargeModel mod)
         {
 			var entity = db.Get(mod.OutpatientId);
+			if(entity == null)
+            {
+				throw new MyException("未查询到门诊记录,请检查OutpatientId");
+			}
 			if(entity.IsPay == 1 || entity.IsBack == 1)
             {
 				throw new MyException("该门诊已经收费");
