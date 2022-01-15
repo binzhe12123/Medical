@@ -291,4 +291,27 @@ namespace SY.Com.Medical.Model
         public int PatientId { get; set; }
     }
 
+    /// <summary>
+    /// 医生科室
+    /// </summary>
+    public class CaseBookDoctorDepart : BaseModel
+    {
+        /// <summary>
+        /// 医生Id
+        /// </summary>
+        public int DoctorId { get; set; }
+        /// <summary>
+        /// 姓名
+        /// </summary>
+        public string DoctorName { get; set; }
+        /// <summary>
+        /// 科室
+        /// </summary>
+        public string Departments { get; set; }
+        /// <summary>
+        /// 科室Id
+        /// </summary>
+        public int DepartmentId { get; set; }
+    }
+
 }

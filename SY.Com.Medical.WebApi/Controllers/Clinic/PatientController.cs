@@ -302,5 +302,18 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             }
         }
 
+        /// <summary>
+        /// 新增病历是获取医生和科室
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<List<CaseBookDoctorDepart>> getDoctors(BaseModel request)
+        {
+            BaseResponse<List<CaseBookDoctorDepart>> result = new BaseResponse<List<CaseBookDoctorDepart>>();
+            result.Data = cbbll.getDoctors(request.TenantId);
+            return result;
+        }
+
     }
 }

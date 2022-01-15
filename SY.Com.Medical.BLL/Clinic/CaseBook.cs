@@ -88,7 +88,34 @@ namespace SY.Com.Medical.BLL.Clinic
             db.Delete(entity);
         }
 
+        /// <summary>
+        /// 获取医生下拉框
+        /// </summary>
+        /// <param name="tenantId"></param>
+        /// <returns></returns>
+        public List<CaseBookDoctorDepart> getDoctors(int tenantId)
+        {
+            List<CaseBookDoctorDepart> result = new List<CaseBookDoctorDepart>();
+            Employee employeebll = new Employee();
+            var tuple = employeebll.getEmployees(tenantId);
+            Department depart = new Department();
 
+            var departs = depart.getDepartment(new DepartmentModel() { TenantId = tenantId });
+            var mods = tuple.Item1;
+            if (mods != null && mods.Any())
+            {
+                foreach (var node in mods)
+                {
+                    CaseBookDoctorDepart mod = new CaseBookDoctorDepart();
+                    mod.DoctorId = node.EmployeeId;
+                    mod.DoctorName = node.EmployeeName;
+                    mod.Departments = node.Departments;
+                    mod.DepartmentId = departs.Find(x => x.DepartmentName == mod.Departments) == null ? 0 : departs.Find(x => x.DepartmentName == mod.Departments).DepartmentId;
+                    result.Add(mod);
+                }
+            }
+            return result;
+        }
 
     }
 }

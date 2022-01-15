@@ -397,6 +397,13 @@
             <param name="request"></param>
             <returns></returns>
         </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PatientController.getDoctors(SY.Com.Medical.Model.BaseModel)">
+            <summary>
+            新增病历是获取医生和科室
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.PrintViewController">
             <summary>
             控制器

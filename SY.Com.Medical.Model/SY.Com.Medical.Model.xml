@@ -372,6 +372,31 @@
             患者ID    
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Model.CaseBookDoctorDepart">
+            <summary>
+            医生科室
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookDoctorDepart.DoctorId">
+            <summary>
+            医生Id
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookDoctorDepart.DoctorName">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookDoctorDepart.Departments">
+            <summary>
+            科室
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookDoctorDepart.DepartmentId">
+            <summary>
+            科室Id
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.ChargeRecordModel">
             <summary>
              ChargeRecord模型
