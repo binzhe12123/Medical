@@ -300,6 +300,7 @@ namespace SY.Com.Medical.Repository.Clinic
             PrescriptionRepository pres_db = new PrescriptionRepository();
             DicRepository dic_db = new DicRepository();
             List<PrescriptionEntity> pres_entitys = new List<PrescriptionEntity>();
+            int preno = 1;
             foreach(var item in structure.Prescriptions)
             {
                 foreach(var node in item.Details)
@@ -307,7 +308,7 @@ namespace SY.Com.Medical.Repository.Clinic
                     PrescriptionEntity pres_entity = new PrescriptionEntity();
                     pres_entity.TenantId = structure.TenantId;
                     pres_entity.OutpatientId = outpatientId;
-                    pres_entity.PreNo = item.PreNo;
+                    pres_entity.PreNo = preno++;//item.PreNo;
                     pres_entity.PreName = item.PreName;
                     pres_entity.GoodsId = node.GoodsId;
                     pres_entity.GoodsName = node.GoodsName;
@@ -392,6 +393,7 @@ namespace SY.Com.Medical.Repository.Clinic
             PrescriptionRepository pres_db = new PrescriptionRepository();
             DicRepository dic_db = new DicRepository();
             List<PrescriptionEntity> pres_entitys = new List<PrescriptionEntity>();
+            int preno = 1;
             foreach (var item in structure.Prescriptions)
             {
                 foreach (var node in item.Details)
@@ -399,7 +401,7 @@ namespace SY.Com.Medical.Repository.Clinic
                     PrescriptionEntity pres_entity = new PrescriptionEntity();
                     pres_entity.TenantId = structure.TenantId;
                     pres_entity.OutpatientId = outpatientId;
-                    pres_entity.PreNo = item.PreNo;
+                    pres_entity.PreNo = preno++;//item.PreNo;
                     pres_entity.PreName = item.PreName;
                     pres_entity.GoodsId = node.GoodsId;
                     pres_entity.GoodsName = node.GoodsName;
