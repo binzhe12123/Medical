@@ -142,6 +142,10 @@ namespace SY.Com.Medical.Repository.Clinic
                 var case_entity = case_db.Get(entity.CaseBookId);
                 PrescriptionRepository prescription_db = new PrescriptionRepository();
                 var pres_entitys = prescription_db.getByOutpatientId(tenantId, outpatientId);
+                if(pres_entitys == null || pres_entitys.Count < 1)
+                {
+                    throw new Exception("该门诊没有处方,数据错误");
+                }
                 #region 组装数据
                 result.OutpatientId = entity.OutpatientId;
                 result.TenantId = entity.TenantId;
@@ -237,8 +241,10 @@ namespace SY.Com.Medical.Repository.Clinic
         {
             //插入或修改Patient
             PatientRepository patient_db = new PatientRepository();
+            structure.Patient.TenantId = structure.TenantId;
+            structure.CaseBook.TenantId = structure.TenantId;
             if (structure.Patient.PatienId == 0)
-            {
+            {                
                 var patientId = patient_db.Create(TypeConvert.DeepCopyByReflection(structure.Patient, new PatientEntity()));
                 structure.Patient.PatienId = patientId;
             }
@@ -248,7 +254,7 @@ namespace SY.Com.Medical.Repository.Clinic
             //插入或修改病历
             CaseBookRepository case_db = new CaseBookRepository();
             if(structure.CaseBook.CaseBookId == 0)
-            {
+            {                
                 var caseboodId = case_db.Create(TypeConvert.DeepCopyByReflection(structure.CaseBook, new CaseBookEntity()));
                 structure.CaseBook.CaseBookId = caseboodId;
             }

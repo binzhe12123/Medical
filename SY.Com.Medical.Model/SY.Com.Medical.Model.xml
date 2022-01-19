@@ -2843,6 +2843,11 @@
             门诊内患者结构
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.PatientStructure.TenantId">
+            <summary>
+            租户Id
+            </summary>
+        </member>
         <member name="P:SY.Com.Medical.Model.PatientStructure.PatienId">
             <summary>
             患者ID
@@ -2911,6 +2916,11 @@
         <member name="T:SY.Com.Medical.Model.CaseBookStructure">
             <summary>
             门诊内病历结构
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookStructure.TenantId">
+            <summary>
+            租户Id
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.CaseBookStructure.CaseBookId">

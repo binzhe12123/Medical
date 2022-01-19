@@ -108,9 +108,9 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<List<GoodModels>> getsGoods(GoodsRequest request)
+        public BaseResponse<List<GoodBllModels>> getsGoods(GoodsRequest request)
         {
-            BaseResponse<List<GoodModels>> result = new BaseResponse<List<GoodModels>>();
+            BaseResponse<List<GoodBllModels>> result = new BaseResponse<List<GoodBllModels>>();
             try
             {
                 //（枚举1:西药,2:中成药,3:中药,4:诊疗项目,5:材料）
@@ -121,9 +121,9 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 var tuple = goodsbll.getGoods(request.TenantId, request.PageSize, request.PageIndex, request.GoodType,0, request.SearchKey);
                 if (tuple.Item2 == 0)
                 {
-                    return new BaseResponse<List<GoodModels>>();
+                    return new BaseResponse<List<GoodBllModels>>();
                 }
-                result.Data = tuple.Item1.ToList().Mapping<GoodModels>();
+                result.Data = tuple.Item1.ToList().Mapping<GoodBllModels>();
                 result.CalcPage(tuple.Item2, request.PageIndex, request.PageSize);
                 return result;
             }

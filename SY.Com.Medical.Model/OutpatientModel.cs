@@ -139,6 +139,10 @@ namespace SY.Com.Medical.Model
 	public class PatientStructure
 	{
 		/// <summary>
+		/// 租户Id
+		/// </summary>
+		public int TenantId { get; set; }
+		/// <summary>
 		/// 患者ID
 		/// </summary>
 		public int PatienId { get; set; }
@@ -199,6 +203,10 @@ namespace SY.Com.Medical.Model
 	/// </summary>
 	public class CaseBookStructure
 	{
+		/// <summary>
+		/// 租户Id
+		/// </summary>
+		public int TenantId { get; set; }
 		/// <summary>
 		/// 病历id
 		/// </summary>
