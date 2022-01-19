@@ -34,6 +34,10 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         [HttpPost]
         public BaseResponse<int> Save(OutpatientAddStructure request)
         {
+            if(request.Prescriptions == null || request.Prescriptions.Count < 1)
+            {
+                throw new Exception("请上传处方");
+            }
             BaseResponse<int> result = new BaseResponse<int>();
             if(request.OutpatientId == 0)
             {

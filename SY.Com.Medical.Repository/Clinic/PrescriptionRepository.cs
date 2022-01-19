@@ -42,11 +42,11 @@ namespace SY.Com.Medical.Repository.Clinic
                 return 0;
             }
             string sql = @" Insert Into Prescriptions(PrescriptionId,TenantId,OutpatientId,PreNo,PreName,GoodsId,GoodsName
-                                                      ,GoodsNorm,GoodsPirce,GoodsNum,GoodsCost,GoodsUsage,GoodsEveryDay,GoodsDays
-                                                      ,GoodsSalesUnit,Pair,Place)
+                                                      ,GoodsNorm,GoodsPrice,GoodsNum,GoodsCost,GoodsUsage,GoodsEveryDay,GoodsDays
+                                                      ,GoodsSalesUnit,Pair,Place,IsEnable,IsDelete,CreateTime)
                             Values(@PrescriptionId,@TenantId,@OutpatientId,@PreNo,@PreName,@GoodsId,@GoodsName
-                                                      ,@GoodsNorm,@GoodsPirce,@GoodsNum,@GoodsCost,@GoodsUsage,@GoodsEveryDay,@GoodsDays
-                                                      ,@GoodsSalesUnit,@Pair,@Place) ";
+                                                      ,@GoodsNorm,@GoodsPrice,@GoodsNum,@GoodsCost,@GoodsUsage,@GoodsEveryDay,@GoodsDays
+                                                      ,@GoodsSalesUnit,@Pair,@Place,1,1,getdate()) ";
             var maxid = getID("Prescriptions", mod.Count);
             foreach (var item in mod)
             {

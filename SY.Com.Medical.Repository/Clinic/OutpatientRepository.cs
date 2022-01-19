@@ -238,7 +238,7 @@ namespace SY.Com.Medical.Repository.Clinic
         /// <param name="structure"></param>
         /// <returns>返回门诊id</returns>
         public int AddStructure(OutpatientAddStructure structure)
-        {
+        {            
             //插入或修改Patient
             PatientRepository patient_db = new PatientRepository();
             structure.Patient.TenantId = structure.TenantId;
