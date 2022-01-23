@@ -44,6 +44,11 @@ namespace SY.Com.Medical.BLL.Clinic
             return db.Get(patientId).EntityToDto<PatientModel>();
         }
 
+        public PatientModel getContainDelete(int patientId)
+        {
+            return db.GetDelete(patientId).EntityToDto<PatientModel>();
+        }
+
         /// <summary>
         /// 添加患者
         /// </summary>

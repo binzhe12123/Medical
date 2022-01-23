@@ -77,6 +77,20 @@ namespace SY.Com.Medical.Repository
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
+        public virtual T GetDelete(int id)
+        {
+            Type t = typeof(T);
+            string tableName = ReadAttribute<DB_TableAttribute>.getKey(t).ToString();//获取表名
+            string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(t).ToString();
+            string sql = $" Select * From {tableName} Where {tablekey} = @Id  ";
+            return _db.QueryFirstOrDefault<T>(sql, new { Id = id });
+        }
+
+        /// <summary>
+        /// 单表单记录查询
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
         public virtual T Get(int id,string tableName,string tablekey)
         {
             Type t = typeof(T);            
@@ -104,7 +118,7 @@ namespace SY.Com.Medical.Repository
             string sql = @$" Select {tableName}.*,{tableName2}.* 
                              From  {tableName}
                              Inner Join {tableName2} On {tableName}.{OnSplit} = {tableName2}.{OnSplit}
-                             Where {tableName}.{tablekey} = @id And {tableName}.IsDelete = 0 ";
+                             Where {tableName}.{tablekey} = @id And {tableName}.IsDelete = 1 ";
             if (OnSplit == "")
             {
                 OnSplit = tablekey2;

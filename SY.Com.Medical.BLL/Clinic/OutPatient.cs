@@ -39,7 +39,7 @@ namespace SY.Com.Medical.BLL.Clinic
 			tuple.Item1.ForEach(x =>
 			{
 				OutpatientListModel mod = new OutpatientListModel();
-				var pamod = pat.get(x.PatientId);
+				var pamod = pat.getContainDelete(x.PatientId);
 				mod.OutpatientId = x.OutpatientId;
 				mod.TenantId = x.TenantId;				
 				mod.PatientName = pamod.PatientName;
