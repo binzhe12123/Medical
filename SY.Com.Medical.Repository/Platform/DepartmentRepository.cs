@@ -15,6 +15,13 @@ namespace SY.Com.Medical.Repository.Platform
     /// </summary>
     public class DepartmentRepository : BaseRepository<DepartmentEntity>
     {
+        public DepartmentRepository():base()
+        {
+
+        }
+
+        public DepartmentRepository(string strconnection) : base(strconnection)
+        { }
         /// <summary>
         /// 读取科室
         /// </summary>

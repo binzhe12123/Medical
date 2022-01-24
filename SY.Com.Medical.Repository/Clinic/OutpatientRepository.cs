@@ -238,7 +238,8 @@ namespace SY.Com.Medical.Repository.Clinic
         /// <param name="structure"></param>
         /// <returns>返回门诊id</returns>
         public int AddStructure(OutpatientAddStructure structure)
-        {            
+        {
+            var dbidstr = _dbid.ConnectionString;
             //插入或修改Patient
             PatientRepository patient_db = new PatientRepository();
             structure.Patient.TenantId = structure.TenantId;
@@ -253,7 +254,10 @@ namespace SY.Com.Medical.Repository.Clinic
             }
             //插入或修改病历
             CaseBookRepository case_db = new CaseBookRepository();
-            if(structure.CaseBook.CaseBookId == 0)
+            structure.CaseBook.OutPatientId = structure.OutpatientId;
+            structure.CaseBook.PatientId = structure.Patient.PatienId;
+            structure.CaseBook.DoctorId = structure.DoctorId;            
+            if (structure.CaseBook.CaseBookId == 0)
             {                
                 var caseboodId = case_db.Create(TypeConvert.DeepCopyByReflection(structure.CaseBook, new CaseBookEntity()));
                 structure.CaseBook.CaseBookId = caseboodId;
@@ -295,6 +299,11 @@ namespace SY.Com.Medical.Repository.Clinic
                 SearchKey = structure.Patient.PatientName + "|" + structure.Patient.PatientName.GetPinYin() + "|" + structure.Patient.Phone
             };
             var outpatientId = Create(entity);
+            //更新病历
+            structure.CaseBook.OutPatientId = outpatientId;
+            var departs = new DepartmentRepository(dbidstr).getTenantDepartment(structure.TenantId);            
+            structure.CaseBook.DepartmentId = departs.ToList().Find(x=> x.DepartmentName.ToLower() == doc_entity.Departments.ToLower()).DepartmentId ;
+            case_db.Update(TypeConvert.DeepCopyByReflection(structure.CaseBook, new CaseBookEntity()));
 
             //插入Prescriptions
             PrescriptionRepository pres_db = new PrescriptionRepository();

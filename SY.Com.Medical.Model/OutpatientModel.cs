@@ -212,6 +212,22 @@ namespace SY.Com.Medical.Model
 		/// </summary>
 		public int CaseBookId { get; set; }
 		/// <summary>
+		/// 门诊Id
+		/// </summary>
+		public int OutPatientId { get; set; }
+		/// <summary>
+		/// 患者Id
+		/// </summary>
+		public int PatientId { get; set; }
+		/// <summary>
+		/// 医生Id
+		/// </summary>
+		public int DoctorId { get; set; }
+		/// <summary>
+		/// 科室Id
+		/// </summary>
+		public int DepartmentId { get; set; }
+		/// <summary>
 		/// 主诉
 		/// </summary>
 		public string Complaint { get; set; }

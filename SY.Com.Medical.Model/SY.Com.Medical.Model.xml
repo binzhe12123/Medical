@@ -2928,6 +2928,26 @@
             病历id
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookStructure.OutPatientId">
+            <summary>
+            门诊Id
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookStructure.PatientId">
+            <summary>
+            患者Id
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookStructure.DoctorId">
+            <summary>
+            医生Id
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookStructure.DepartmentId">
+            <summary>
+            科室Id
+            </summary>
+        </member>
         <member name="P:SY.Com.Medical.Model.CaseBookStructure.Complaint">
             <summary>
             主诉
