@@ -30,6 +30,17 @@ namespace SY.Com.Medical.BLL.Clinic
         public Tuple<IEnumerable<CaseBookModel>,int> gets(int patientId,int pageSize,int pageIndex)
         {
             var datas = db.getPages(new CaseBookEntity { PatientId = patientId }, pageSize, pageIndex);
+            if(datas.Item1 != null && datas.Item1.Any())
+            {
+                Department depart = new Department();
+                var departs = depart.getDepartment(new DepartmentModel() { TenantId = datas.Item1.First().TenantId });
+                foreach (var data in datas.Item1)
+                {
+                    var empmod = new Employee().getEmployee(data.DoctorId);
+                    data.DoctorName = empmod.EmployeeName;
+                    data.DepartmentName = departs.Find(x => x.DepartmentId == data.DepartmentId) == null ? "" : departs.Find(x => x.DepartmentId == data.DepartmentId).DepartmentName; ;
+                }
+            }
             Tuple<IEnumerable<CaseBookModel>, int> result = new (datas.Item1.EntityToDto<CaseBookModel>(), datas.Item2);
             return result;
         }

@@ -32,12 +32,10 @@ namespace SY.Com.Medical.Model
         /// 医生ID,对应Role是医生的EmployeeId    
         /// </summary>
         public int DoctorId { get; set; }
-
         /// <summary>
         /// 科室id    
         /// </summary>
         public int DepartmentId { get; set; }
-
         /// <summary>
         /// 病历类型枚举ID    
         /// </summary>

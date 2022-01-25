@@ -197,7 +197,7 @@ namespace SY.Com.Medical.Repository.Clinic
                 {
                     if(!predic.ContainsKey(item.PreNo + "|" + item.PreName + "|" + item.Pair.ToString()))
                     {
-                        predic.Add(item.PreNo + "|" + item.PreName + "|" + item.Pair.ToString(), null);
+                        predic.Add(item.PreNo + "|" + item.PreName + "|" + item.Pair.ToString(), new List<PrescriptionDetailStructure>());
                     }
                     predic[item.PreNo + "|" + item.PreName + "|" + item.Pair.ToString()].Add(new PrescriptionDetailStructure
                     {
@@ -301,8 +301,16 @@ namespace SY.Com.Medical.Repository.Clinic
             var outpatientId = Create(entity);
             //更新病历
             structure.CaseBook.OutPatientId = outpatientId;
-            var departs = new DepartmentRepository(dbidstr).getTenantDepartment(structure.TenantId);            
-            structure.CaseBook.DepartmentId = departs.ToList().Find(x=> x.DepartmentName.ToLower() == doc_entity.Departments.ToLower()).DepartmentId ;
+            var departs = new DepartmentRepository(dbidstr).getTenantDepartment(structure.TenantId);
+            var depid = 0;
+            if(string.IsNullOrEmpty(doc_entity.Departments) || !int.TryParse(doc_entity.Departments,out depid))
+            {
+                structure.CaseBook.DepartmentId = 0;
+            }
+            else
+            {
+                structure.CaseBook.DepartmentId = departs.ToList().Find(x => x.DepartmentId == int.Parse(doc_entity.Departments)).DepartmentId;
+            }            
             case_db.Update(TypeConvert.DeepCopyByReflection(structure.CaseBook, new CaseBookEntity()));
 
             //插入Prescriptions
