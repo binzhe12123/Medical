@@ -87,11 +87,11 @@ namespace SY.Com.Medical.Repository.Clinic
             }
             if(start != null)
             {
-                where += " And CreateTime >= '%"+ start.Value +"%' ";
+                where += " And CreateTime >= '"+ start.Value +"' ";
             }
             if(end != null)
             {
-                where += " And CreateTime <= '%"+ end.Value +"%' ";
+                where += " And CreateTime <= '"+ end.Value +"' ";
             }
             if(isNoPaid == 1)
             {
@@ -160,6 +160,8 @@ namespace SY.Com.Medical.Repository.Clinic
                 result.PayYBBefor = Math.Round(entity.PayYBBefor / 1000.00, 3);
                 result.PayYBAfter = Math.Round(entity.PayYBAfter / 1000.00, 3);
                 result.Cost = Math.Round(entity.Cost / 1000.00, 3);
+                result.RealCost = result.Cost;
+                result.DiscountCost = 0.00;
                 result.Patient = new PatientStructure
                 {
                     PatienId = patient_entity.PatientId,

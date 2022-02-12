@@ -81,6 +81,14 @@ namespace SY.Com.Medical.Model
 		/// </summary>
 		public double Cost { get; set; }
 		/// <summary>
+		/// 实收
+		/// </summary>
+		public double RealCost { get; set; }
+		/// <summary>
+		/// 优惠
+		/// </summary>
+		public double DiscountCost { get; set; }
+		/// <summary>
 		/// 患者信息
 		/// </summary>
 		public PatientStructure Patient { get; set; }

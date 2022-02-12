@@ -2778,6 +2778,16 @@
             门诊总费用
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientStructure.RealCost">
+            <summary>
+            实收
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientStructure.DiscountCost">
+            <summary>
+            优惠
+            </summary>
+        </member>
         <member name="P:SY.Com.Medical.Model.OutpatientStructure.Patient">
             <summary>
             患者信息
