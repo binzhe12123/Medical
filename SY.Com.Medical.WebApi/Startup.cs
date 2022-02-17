@@ -138,7 +138,7 @@ namespace SY.Com.Medical.WebApi
             }
             //Ìí¼ÓMIME
             var provider = new FileExtensionContentTypeProvider();
-            provider.Mappings[".properties"] = "grf/gridreport";
+            provider.Mappings[".grf"] = "grf/gridreport";
             app.UseStaticFiles(new StaticFileOptions
             {
                 ContentTypeProvider = provider
