@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
@@ -135,7 +136,14 @@ namespace SY.Com.Medical.WebApi
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseStaticFiles(); //静态文件服务            
+            //添加MIME
+            var provider = new FileExtensionContentTypeProvider();
+            provider.Mappings[".properties"] = "grf/gridreport";
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                ContentTypeProvider = provider
+            });
+            //app.UseStaticFiles(); //静态文件服务            
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
