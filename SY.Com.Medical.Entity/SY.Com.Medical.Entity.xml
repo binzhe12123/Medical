@@ -1259,6 +1259,11 @@
             logo图片路径
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Entity.TenantEntity.Boss">
+            <summary>
+            诊所老板Id
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Entity.TenantMenuEntity">
             <summary>
              租户菜单    

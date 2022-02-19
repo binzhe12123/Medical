@@ -73,6 +73,7 @@ namespace SY.Com.Medical.BLL.Platform
         {
 
             var entity = request.DtoToEntity<TenantEntity>();
+            entity.Boss = request.UserId;
             entity.TenantServiceStart = DateTime.Now;
             entity.TenantServiceEnd = DateTime.Now.AddDays(double.Parse(ReadConfig.GetConfigSection("TenantTryDay")));
             int TenantID = db.Create(entity);
@@ -120,6 +121,12 @@ namespace SY.Com.Medical.BLL.Platform
             db.DeleteTenant(TenantId, UserId);            
         }
 
+        public void DisableTenant(int TenantId,int enable)
+        {
+            var e = (Enum.Enable)enable;
+            db.DisableTenant(TenantId, e);
+        }
+
         /// <summary>
         /// 点击进入租户
         /// 根据用户信息获取员工信息
@@ -154,6 +161,19 @@ namespace SY.Com.Medical.BLL.Platform
             else {
                 return entity.EntityToDto<UserTenantResponse>();
             }
+        }
+
+        public List<TenantAllSearchResponse> getAllPlatform(TenantAllSearchRequest request)
+        {
+            return db.getAllPaltform(request.TenantName, request.TenantIds, request.BossName
+                , request.TenantServiceEndStart,request.TenantServiceEndEnd
+                ,request.CreateTimeStart,request.CreateTimeEnd);
+        }
+
+        public bool BuyServiceTime(TenantBuyRequest request)
+        {
+            int result = db.BuyServiceTime(request);
+            return result > 0;
         }
 
     }

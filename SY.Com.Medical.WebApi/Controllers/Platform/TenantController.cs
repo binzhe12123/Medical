@@ -199,5 +199,88 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
             }
         }
 
+        /// <summary>
+        /// 搜索全网租户信息
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<List<TenantAllSearchResponse>> getAllTenants(TenantAllSearchRequest request)
+        {
+            BaseResponse<List<TenantAllSearchResponse>> response = new BaseResponse<List<TenantAllSearchResponse>>();
+            try {
+                response.Data = tenantbll.getAllPlatform(request);
+                return response;
+            }
+            catch(Exception ex)
+            {
+                if (ex is MyException)
+                {
+                    return response.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
+                }
+                else
+                {
+                    return response.sysException(ex.Message);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 禁用租户
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Api_Tenant]
+        public BaseResponse<bool> disableTenant(TernantOperationEnable request)
+        {
+            BaseResponse<bool> response = new BaseResponse<bool>();
+            try
+            {
+                tenantbll.DisableTenant(request.TenantId, request.isEnable);
+                response.Data = true;
+                return response;
+            }
+            catch (Exception ex)
+            {
+                if (ex is MyException)
+                {
+                    return response.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
+                }
+                else
+                {
+                    return response.sysException(ex.Message);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 租户充值
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Api_Tenant]
+        public BaseResponse<bool> BuyServiceTime(TenantBuyRequest request)
+        {
+            BaseResponse<bool> response = new BaseResponse<bool>();
+            try
+            {
+                response.Data = tenantbll.BuyServiceTime(request);
+                return response;
+            }
+            catch (Exception ex)
+            {
+                if (ex is MyException)
+                {
+                    return response.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
+                }
+                else
+                {
+                    return response.sysException(ex.Message);
+                }
+            }
+        }
+
     }
 }

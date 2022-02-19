@@ -9968,6 +9968,136 @@
             邀请员工出参
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Model.TenantAllSearchRequest">
+            <summary>
+            全网搜索租户信息
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantAllSearchRequest.TenantName">
+            <summary>
+            租户名称
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantAllSearchRequest.TenantIds">
+            <summary>
+            诊所编号,多个编号使用空格隔开
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantAllSearchRequest.BossName">
+            <summary>
+            老板名称
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantAllSearchRequest.TenantServiceEndStart">
+            <summary>
+            服务到期时间-开始
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantAllSearchRequest.TenantServiceEndEnd">
+            <summary>
+            服务到期时间-结束
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantAllSearchRequest.CreateTimeStart">
+            <summary>
+            创建时间-开始
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantAllSearchRequest.CreateTimeEnd">
+            <summary>
+            创建时间-结束
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.TenantAllSearchResponse">
+            <summary>
+            全网搜索租户信息列表返回
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantAllSearchResponse.TenantId">
+            <summary>
+            租户Id
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantAllSearchResponse.TenantName">
+            <summary>
+            租户名称
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantAllSearchResponse.EmployeeName">
+            <summary>
+            创建者名称
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantAllSearchResponse.CreateTime">
+            <summary>
+            创建日期
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantAllSearchResponse.TenantServiceEnd">
+            <summary>
+            到期日期
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantAllSearchResponse.TenantServiceStart">
+            <summary>
+            到期日期
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantAllSearchResponse.IsEnable">
+            <summary>
+            状态:1:启动,0:禁用
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.TernantOperationEnable">
+            <summary>
+            禁用启用
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TernantOperationEnable.isEnable">
+            <summary>
+            1:启用,0:禁用
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.TenantBuyRequest">
+            <summary>
+            租户充值
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantBuyRequest.BuyTime">
+            <summary>
+             充值时间
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantBuyRequest.TimeUnit">
+            <summary>
+            时间单位,年、月、日
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantBuyRequest.BuyUser">
+            <summary>
+             充值人
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantBuyRequest.BuyStaff">
+            <summary>
+            充值员工
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantBuyRequest.Price">
+            <summary>
+            充值金额
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantBuyRequest.Way">
+            <summary>
+            充值方式
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantBuyRequest.Code">
+            <summary>
+             充值编号
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.UserModel">
             <summary>
             用户模型

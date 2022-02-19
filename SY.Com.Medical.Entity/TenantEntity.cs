@@ -61,6 +61,10 @@ namespace SY.Com.Medical.Entity
         /// logo图片路径
         /// </summary>
         public string LogoImg { get; set; }
+        /// <summary>
+        /// 诊所老板Id
+        /// </summary>
+        public int Boss { get; set; }
 
     }
 

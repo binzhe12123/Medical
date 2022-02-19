@@ -1137,6 +1137,27 @@
             <param name="request"></param>
             <returns></returns>
         </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.TenantController.getAllTenants(SY.Com.Medical.Model.TenantAllSearchRequest)">
+            <summary>
+            搜索全网租户信息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.TenantController.disableTenant(SY.Com.Medical.Model.TernantOperationEnable)">
+            <summary>
+            禁用租户
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.TenantController.BuyServiceTime(SY.Com.Medical.Model.TenantBuyRequest)">
+            <summary>
+            租户充值
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Platform.UserController">
             <summary>
             用户控制器

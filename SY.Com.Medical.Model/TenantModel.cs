@@ -2,6 +2,7 @@
 using SY.Com.Medical.Enum;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
@@ -200,6 +201,128 @@ namespace SY.Com.Medical.Model
     /// </summary>
     public class TenantInivteResponse : BaseModel
     {
+
+    }
+
+    /// <summary>
+    /// 全网搜索租户信息
+    /// </summary>
+    public class TenantAllSearchRequest
+    {
+        /// <summary>
+        /// 租户名称
+        /// </summary>
+        public string TenantName { get; set; }
+        /// <summary>
+        /// 诊所编号,多个编号使用空格隔开
+        /// </summary>
+        public string TenantIds { get; set; }
+        /// <summary>
+        /// 老板名称
+        /// </summary>
+        public string BossName { get; set; }
+        /// <summary>
+        /// 服务到期时间-开始
+        /// </summary>
+        public DateTime? TenantServiceEndStart { get; set; }
+        /// <summary>
+        /// 服务到期时间-结束
+        /// </summary>
+        public DateTime? TenantServiceEndEnd { get; set; }
+        /// <summary>
+        /// 创建时间-开始
+        /// </summary>
+        public DateTime? CreateTimeStart { get; set; }
+        /// <summary>
+        /// 创建时间-结束
+        /// </summary>
+        public DateTime? CreateTimeEnd { get; set; }
+
+        
+
+
+    }
+    /// <summary>
+    /// 全网搜索租户信息列表返回
+    /// </summary>
+    public class TenantAllSearchResponse
+    {
+        /// <summary>
+        /// 租户Id
+        /// </summary>
+        public int TenantId { get; set; }
+        /// <summary>
+        /// 租户名称
+        /// </summary>
+        public string TenantName { get; set; }
+        /// <summary>
+        /// 创建者名称
+        /// </summary>
+        public string EmployeeName { get; set; }
+        /// <summary>
+        /// 创建日期
+        /// </summary>
+        public DateTime CreateTime { get; set; }
+        /// <summary>
+        /// 到期日期
+        /// </summary>
+        public DateTime TenantServiceEnd { get; set; }
+        /// <summary>
+        /// 到期日期
+        /// </summary>
+        public DateTime TenantServiceStart { get; set; }
+        /// <summary>
+        /// 状态:1:启动,0:禁用
+        /// </summary>
+        public int IsEnable { get; set; }
+    }
+
+    /// <summary>
+    /// 禁用启用
+    /// </summary>
+    public class TernantOperationEnable:BaseModel
+    {
+        /// <summary>
+        /// 1:启用,0:禁用
+        /// </summary>
+        public int isEnable { get; set; }
+    }
+
+    /// <summary>
+    /// 租户充值
+    /// </summary>
+    public class TenantBuyRequest : BaseModel
+    {
+        /// <summary>
+        ///  充值时间
+        /// </summary>
+        [Range(1,100)]
+        public int BuyTime { get; set; } 
+        /// <summary>
+        /// 时间单位,年、月、日
+        /// </summary>
+        public string TimeUnit { get; set; }
+        /// <summary>
+        ///  充值人
+        /// </summary>
+        public string BuyUser { get; set; }
+        /// <summary>
+        /// 充值员工
+        /// </summary>
+        public string BuyStaff { get; set; }
+        /// <summary>
+        /// 充值金额
+        /// </summary>
+        [Range(0,1000000)]
+        public decimal Price { get; set; }
+        /// <summary>
+        /// 充值方式
+        /// </summary>
+        public string Way { get; set; }
+        /// <summary>
+        ///  充值编号
+        /// </summary>
+        public string Code { get; set; }
 
     }
 
