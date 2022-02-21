@@ -4246,6 +4246,251 @@
             
             </summary> 
         </member>
+        <member name="T:SY.Com.Medical.Model.PrintRegisterRequestModel">
+            <summary>
+            挂号打印模板入参
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintRegisterRequestModel.RegisterId">
+            <summary>
+            挂号Id
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.PrintRegisterResponseModel">
+            <summary>
+            挂号打印模板输出
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintRegisterResponseModel.ViewPath">
+            <summary>
+            模板路径-相对
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintRegisterResponseModel.RegisterId">
+            <summary>
+            挂号Id
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintRegisterResponseModel.PatientId">
+            <summary> 
+            人员系统Id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintRegisterResponseModel.psn_no">
+            <summary> 
+            医保人员编号
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintRegisterResponseModel.Name">
+            <summary> 
+            患者姓名
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintRegisterResponseModel.Sex">
+            <summary> 
+            患者性别
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintRegisterResponseModel.CSRQ">
+            <summary> 
+            出生日期
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintRegisterResponseModel.SFZH">
+            <summary> 
+            省份证号
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintRegisterResponseModel.Phone">
+            <summary> 
+            电话号码
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintRegisterResponseModel.Addr">
+            <summary> 
+            地址
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintRegisterResponseModel.DoctorName">
+            <summary> 
+            医生姓名
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintRegisterResponseModel.DepartmentName">
+            <summary> 
+            科室名称
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintRegisterResponseModel.GoodsName">
+            <summary> 
+            项目名称
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintRegisterResponseModel.GoodsPrice">
+            <summary> 
+            金额
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintRegisterResponseModel.ipt_otp_no">
+            <summary>
+            医保ipt_otp_no
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintRegisterResponseModel.mdtrt_id">
+            <summary>
+            医保mdtrt_id
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintRegisterResponseModel.IsUsed">
+            <summary>
+            是否使用1:已使用,-1未使用
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintRegisterResponseModel.SearchKey">
+            <summary>
+            搜索字段
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.PrintPrescriptionRequestModel">
+            <summary>
+            处方打印入参
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintPrescriptionRequestModel.OutpatientId">
+            <summary>
+            门诊Id
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintPrescriptionRequestModel.PreNo">
+            <summary>
+            处方PreNo
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintPrescriptionRequestModel.Type">
+            <summary>
+            中药处方:1,西药处方:2,项目处方:3,治疗单:4
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.PrintPrescriptionResponseModel">
+            <summary>
+            处方打印模板输出
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintPrescriptionResponseModel.ViewPath">
+            <summary>
+            模板路径-相对
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintPrescriptionResponseModel.Data">
+            <summary>
+            具体数据
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.ChargeRecordRequestModel">
+            <summary>
+            打印收费退费输入
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordRequestModel.OutPatientId">
+            <summary>
+            门诊Id
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordRequestModel.ChargeType">
+            <summary>
+            类型,门诊收费,门诊退费
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.ChargeRecordResponseModel">
+            <summary>
+            打印收费退费输出
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordResponseModel.ViewPath">
+            <summary>
+            模板路径
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordResponseModel.ChargeRecordId">
+            <summary> 
+            收费记录Id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordResponseModel.PatientId">
+            <summary> 
+             患者Id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordResponseModel.RegisterId">
+            <summary> 
+             挂号Id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordResponseModel.SeeDoctorId">
+            <summary> 
+            门诊Id		
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordResponseModel.Price">
+            <summary> 
+            金额
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordResponseModel.ChargeType">
+            <summary> 
+            类型
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordResponseModel.PayYB">
+            <summary> 
+            医保支付
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordResponseModel.PayCash">
+            <summary> 
+            现金支付
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordResponseModel.PayWx">
+            <summary> 
+            微信支付
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordResponseModel.PayBank">
+            <summary> 
+            银行卡支付
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordResponseModel.PayAli">
+            <summary> 
+            支付宝支付
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.CaseBookRequestModel">
+            <summary>
+            打印病历输入
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookRequestModel.CaseBookId">
+            <summary>
+            病历Id
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.CaseBookResponseModel">
+            <summary>
+            打印病历输出
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.ViewPath">
+            <summary>
+            打印模板路径
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.Data">
+            <summary>
+            打印数据
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.PrintViewModel">
             <summary>
              PrintView模型
@@ -10006,6 +10251,16 @@
         <member name="P:SY.Com.Medical.Model.TenantAllSearchRequest.CreateTimeEnd">
             <summary>
             创建时间-结束
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantAllSearchRequest.PageSize">
+            <summary>
+            每页数量
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantAllSearchRequest.PageIndex">
+            <summary>
+            第几页
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.TenantAllSearchResponse">

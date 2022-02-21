@@ -163,11 +163,12 @@ namespace SY.Com.Medical.BLL.Platform
             }
         }
 
-        public List<TenantAllSearchResponse> getAllPlatform(TenantAllSearchRequest request)
+        public Tuple<List<TenantAllSearchResponse>,int> getAllPlatform(TenantAllSearchRequest request)
         {
-            return db.getAllPaltform(request.TenantName, request.TenantIds, request.BossName
-                , request.TenantServiceEndStart,request.TenantServiceEndEnd
-                ,request.CreateTimeStart,request.CreateTimeEnd);
+            var tuple = db.getAllPaltform(request.TenantName, request.TenantIds, request.BossName
+                , request.TenantServiceEndStart, request.TenantServiceEndEnd
+                , request.CreateTimeStart, request.CreateTimeEnd,request.PageSize,request.PageIndex);
+            return new Tuple<List<TenantAllSearchResponse>, int>(tuple.Item1.ToList(), tuple.Item2);
         }
 
         public bool BuyServiceTime(TenantBuyRequest request)

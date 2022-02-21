@@ -237,9 +237,18 @@ namespace SY.Com.Medical.Model
         /// 创建时间-结束
         /// </summary>
         public DateTime? CreateTimeEnd { get; set; }
-
-        
-
+        /// <summary>
+        /// 每页数量
+        /// </summary>
+        [Required]
+        [Range(1, 200)]
+        public int PageSize { get; set; }
+        /// <summary>
+        /// 第几页
+        /// </summary>
+        [Required]
+        [Range(1, 100000)]
+        public int PageIndex { get; set; }
 
     }
     /// <summary>

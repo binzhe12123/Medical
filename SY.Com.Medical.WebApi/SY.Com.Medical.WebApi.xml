@@ -404,6 +404,46 @@
             <param name="request"></param>
             <returns></returns>
         </member>
+        <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.PrintPreViewController">
+            <summary>
+            打印报表控制器
+            </summary>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PrintPreViewController.PrintRegister(SY.Com.Medical.Model.PrintRegisterRequestModel)">
+            <summary>
+            挂号打印
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PrintPreViewController.PrintBackRegister(SY.Com.Medical.Model.PrintRegisterRequestModel)">
+            <summary>
+            退号打印
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PrintPreViewController.PrintPrescriptions(SY.Com.Medical.Model.PrintPrescriptionRequestModel)">
+            <summary>
+            打印处方和治疗单
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PrintPreViewController.PrintCharge(SY.Com.Medical.Model.ChargeRecordRequestModel)">
+            <summary>
+            打印收费退费
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PrintPreViewController.PrintCaseBook(SY.Com.Medical.Model.CaseBookRequestModel)">
+            <summary>
+            打印病历
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.PrintViewController">
             <summary>
             控制器

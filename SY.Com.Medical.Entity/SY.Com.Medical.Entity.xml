@@ -1036,12 +1036,12 @@
         </member>
         <member name="P:SY.Com.Medical.Entity.RegisterEntity.PatientId">
             <summary> 
-            
+            人员系统Id
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Entity.RegisterEntity.psn_no">
             <summary> 
-            
+            医保人员编号
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Entity.RegisterEntity.Name">
@@ -1056,52 +1056,52 @@
         </member>
         <member name="P:SY.Com.Medical.Entity.RegisterEntity.CSRQ">
             <summary> 
-            
+            出生日期
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Entity.RegisterEntity.SFZH">
             <summary> 
-            
+            省份证号
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Entity.RegisterEntity.Phone">
             <summary> 
-            
+            电话号码
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Entity.RegisterEntity.Addr">
             <summary> 
-            
+            地址
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Entity.RegisterEntity.DoctorName">
             <summary> 
-            
+            医生姓名
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Entity.RegisterEntity.DepartmentName">
             <summary> 
-            
+            科室名称
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Entity.RegisterEntity.GoodsName">
             <summary> 
-            
+            项目名称
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Entity.RegisterEntity.GoodsPrice">
             <summary> 
-            
+            金额
             </summary> 
         </member>
         <member name="P:SY.Com.Medical.Entity.RegisterEntity.ipt_otp_no">
             <summary>
-            
+            医保ipt_otp_no
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Entity.RegisterEntity.mdtrt_id">
             <summary>
-            
+            医保mdtrt_id
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Entity.RegisterEntity.IsUsed">

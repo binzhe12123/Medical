@@ -209,7 +209,9 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
         {
             BaseResponse<List<TenantAllSearchResponse>> response = new BaseResponse<List<TenantAllSearchResponse>>();
             try {
-                response.Data = tenantbll.getAllPlatform(request);
+                var tuple = tenantbll.getAllPlatform(request);
+                response.Data = tuple.Item1.ToList();
+                response.CalcPage(tuple.Item2, request.PageIndex, request.PageSize);
                 return response;
             }
             catch(Exception ex)
