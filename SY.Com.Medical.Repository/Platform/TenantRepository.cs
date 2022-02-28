@@ -146,20 +146,20 @@ namespace SY.Com.Medical.Repository.Platform
             }
             string sql = @" Select * From
                             (
-                                Select ROW_NUMBER() over(order by createtime desc) as rowid, a.TenantId,a.TenantName,a.TenantServiceStart,a.TenantServiceEnd
+                                Select ROW_NUMBER() over(order by a.Createtime desc) as rowid, a.TenantId,a.TenantName,a.TenantServiceStart,a.TenantServiceEnd
                                 , a.IsEnable,a.CreateTime,c.EmployeeName
                                     From Tenants as a
                                 Inner Join UserTenants as b on a.TenantId = b.TenantId And b.IsBoss = 1
                                 Inner Join Employees as c on b.UserId = c.EmployeeId
                                 Where a.IsDelete = 1  " + where 
-                            + ") Where rowid between "+ ((pageIndex - 1) * pageSize + 1) +" And "+ pageIndex * pageSize +";" +
+                            + ")as T Where rowid between " + ((pageIndex - 1) * pageSize + 1) +" And "+ pageIndex * pageSize +";" +
                             @" Select count(1) as nums From  Tenants as a
                                 Inner Join UserTenants as b on a.TenantId = b.TenantId And b.IsBoss = 1
                                 Inner Join Employees as c on b.UserId = c.EmployeeId
                                 Where a.IsDelete = 1  " + where;
-            var multi = _db.QueryMultiple(sql);            
-            int count = multi.Read<int>().First();
+            var multi = _db.QueryMultiple(sql);                        
             IEnumerable<TenantAllSearchResponse> datas = multi.Read<TenantAllSearchResponse>();
+            int count = multi.Read<int>().First();
             Tuple<IEnumerable<TenantAllSearchResponse>, int> result = new Tuple<IEnumerable<TenantAllSearchResponse>, int>(datas, count);
             return result;            
         }

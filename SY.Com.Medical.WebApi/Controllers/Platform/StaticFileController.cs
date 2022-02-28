@@ -136,5 +136,57 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
             }
 
         }
+
+        /// <summary>
+        /// 导入物料Excel
+        /// </summary>
+        /// <param name="files"></param>
+        /// <param name="TenantId"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<List<string>> GoodExcel([FromForm] List<IFormFile> files, int TenantId)
+        {
+            BaseResponse<List<string>> result = new BaseResponse<List<string>>();
+            result.Data = new List<string>();
+            try
+            {
+
+                StaticFileModel request = new StaticFileModel() { StaticFileType = StaticFileType.Excel, StaticFileBusiness = StaticFileBusiness.物料导入Excel, filepathExtension = TenantId.ToString() };
+                if (files.Count < 1)
+                {
+                    throw new MyException("为上传任何文件");
+                }
+                foreach (var item in files)
+                {
+                    if (item != null)
+                    {
+                        //文件后缀
+                        request.fileExtension = Path.GetExtension(item.FileName);
+                        //获取文件操作类
+                        var fileupload = FileUploadFactory.getInstance(request);
+                        MemoryStream ms = new MemoryStream();
+                        item.CopyTo(ms);
+                        ms.Flush();
+                        //执行文件保存
+                        string filepath = fileupload.SaveFile(ms);
+                        ms.Close();
+                        result.Data.Add("http://" + Request.Host.Value + filepath);
+                    }
+                }
+                //返回文件路径
+                return result;
+            }
+            catch (Exception ex)
+            {
+                if (ex is MyException)
+                {
+                    return result.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
+                }
+                else
+                {
+                    return result.sysException(ex.Message);
+                }
+            }
+        }
     }
 }

@@ -264,6 +264,11 @@
             住户打印视图
             </summary>
         </member>
+        <member name="F:SY.Com.Medical.Enum.StaticFileBusiness.物料导入Excel">
+            <summary>
+            物料导入
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Enum.StaticFileType">
             <summary>
             静态文件类型

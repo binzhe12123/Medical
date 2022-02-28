@@ -10289,7 +10289,7 @@
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.TenantAllSearchResponse.TenantServiceEnd">
-            <summary>
+            <summary> 
             到期日期
             </summary>
         </member>

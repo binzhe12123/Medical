@@ -129,6 +129,7 @@ namespace SY.Com.Medical.BLL.Clinic
             entity.CustomerCode = request.CustomerCode;
             entity.SalesUnit = dicbll.getValueById(request.TenantId, request.SalesUnit, "Unit", "");
             entity.StockUnit = dicbll.getValueById(request.TenantId, request.StockUnit, "Unit", "");
+            entity.Ratio = request.Ratio;
             entity.CreateTime = DateTime.Now;
             entity.Price = request.Price == null ? 0 : Convert.ToInt64(request.Price * 1000);
             entity.Stock = 0;
@@ -138,6 +139,30 @@ namespace SY.Com.Medical.BLL.Clinic
             entity.Single = request.Single;                       
             entity.EveryDay = dicbll.getValueById(request.TenantId, request.EveryDay, "EveryDay", "");
             return db.Create(entity);
+        }
+
+        /// <summary>
+        /// 批量插入Entity
+        /// </summary>
+        /// <param name="goods"></param>
+        /// <returns></returns>
+        public int add(List<GoodEntity> goods )
+        {
+            List<GoodEntity> datas = new List<GoodEntity>();
+            foreach(var ge in goods)
+            {
+                var olddata = db.Gets(ge);
+                if (olddata != null && olddata.Any())
+                {
+                    continue;
+                }
+                datas.Add(ge);
+            }
+            if(datas.Any())
+            {
+                db.Insert(datas);
+            }
+            return datas.Count;
         }
 
         /// <summary>

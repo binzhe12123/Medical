@@ -26,6 +26,10 @@ namespace SY.Com.Medical.Enum
         /// <summary>
         /// 住户打印视图
         /// </summary>
-        租户打印视图=3
+        租户打印视图=3,
+        /// <summary>
+        /// 物料导入
+        /// </summary>
+        物料导入Excel=4,
     }
 }

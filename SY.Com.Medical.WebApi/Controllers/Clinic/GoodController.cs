@@ -574,5 +574,32 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 }
             }
         }
+
+        /// <summary>
+        /// 下载物料
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<string> getDownloadUrl(BaseModel request)
+        {
+            BaseResponse<string> result = new BaseResponse<string>();
+            try
+            {
+                result.Data = "http://" + Request.Host.Value + "/GoodTemplate/物料模板.xlsx";
+                return result;
+            }
+            catch (Exception ex)
+            {
+                if (ex is MyException)
+                {
+                    return result.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
+                }
+                else
+                {
+                    return result.sysException(ex.Message);
+                }
+            }
+        }
     }
 }

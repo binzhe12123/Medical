@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="DotNetCore.NPOI" Version="1.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\SY.Com.Medical.Entity\SY.Com.Medical.Entity.csproj" />
     <ProjectReference Include="..\SY.Com.Medical.Enum\SY.Com.Medical.Enum.csproj" />
     <ProjectReference Include="..\SY.Com.Medical.Extension\SY.Com.Medical.Extension.csproj" />

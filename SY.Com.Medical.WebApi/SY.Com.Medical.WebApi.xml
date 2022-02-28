@@ -210,6 +210,13 @@
             <param name="request"></param>
             <returns></returns>
         </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.GoodController.getDownloadUrl(SY.Com.Medical.Model.BaseModel)">
+            <summary>
+            下载物料
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.InventoryController">
             <summary>
             控制器
@@ -1128,6 +1135,14 @@
             <param name="files">grf文件</param>
             <param name="TenantId">租户Id</param>
             <param name="Style">打印视图类型Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.StaticFileController.GoodExcel(System.Collections.Generic.List{Microsoft.AspNetCore.Http.IFormFile},System.Int32)">
+            <summary>
+            导入物料Excel
+            </summary>
+            <param name="files"></param>
+            <param name="TenantId"></param>
             <returns></returns>
         </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Platform.TenantController">

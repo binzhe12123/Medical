@@ -55,5 +55,21 @@ namespace SY.Com.Medical.BLL.Platform
         }
     }
 
+    public class TenantGoodExcel : FileBus
+    {
+        public override string getPath(params string[] parms)
+        {
+            string str = "/GoodExcel/";
+            if (parms != null)
+            {
+                for (int i = 0; i < parms.Length; i++)
+                {
+                    str += $"{parms[i]}/";
+                }
+            }
+            return str;
+        }
+    }
+
 
 }

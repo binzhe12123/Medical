@@ -272,7 +272,7 @@ namespace SY.Com.Medical.Model
         /// 创建日期
         /// </summary>
         public DateTime CreateTime { get; set; }
-        /// <summary>
+        /// <summary> 
         /// 到期日期
         /// </summary>
         public DateTime TenantServiceEnd { get; set; }
