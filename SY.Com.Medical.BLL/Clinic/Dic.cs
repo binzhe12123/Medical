@@ -46,7 +46,13 @@ namespace SY.Com.Medical.BLL.Clinic
 
 		public int getIdByValue(int tenantId, string value, string keyFirst, string keySecond)
         {
-			return db.getIdByValue(tenantId, value, keyFirst, keySecond);
+			var result = db.getIdByValue(tenantId, value, keyFirst, keySecond);
+			if(result == 0)
+            {
+				var id = Insert(tenantId, value, keyFirst, keySecond);
+				return id;
+			}
+			return result;
         }
 
 		public int Insert(int tenantId,string value,string keyFirst,string keySecond)

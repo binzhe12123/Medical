@@ -141,17 +141,21 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
         /// 导入物料Excel
         /// </summary>
         /// <param name="files"></param>
-        /// <param name="TenantId"></param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<List<string>> GoodExcel([FromForm] List<IFormFile> files, int TenantId)
+        public BaseResponse<List<string>> GoodExcel([FromForm] List<IFormFile> files)
         {
+            var tenantid = Request.Headers["TenantId"].ToString();
             BaseResponse<List<string>> result = new BaseResponse<List<string>>();
+            if (string.IsNullOrEmpty(tenantid))
+            {
+                return result.busExceptino(Enum.ErrorCode.业务逻辑错误, "TenantId为空");
+            }
             result.Data = new List<string>();
             try
             {
 
-                StaticFileModel request = new StaticFileModel() { StaticFileType = StaticFileType.Excel, StaticFileBusiness = StaticFileBusiness.物料导入Excel, filepathExtension = TenantId.ToString() };
+                StaticFileModel request = new StaticFileModel() { StaticFileType = StaticFileType.Excel, StaticFileBusiness = StaticFileBusiness.物料导入Excel, filepathExtension = tenantid };
                 if (files.Count < 1)
                 {
                     throw new MyException("为上传任何文件");

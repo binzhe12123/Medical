@@ -1137,12 +1137,11 @@
             <param name="Style">打印视图类型Id</param>
             <returns></returns>
         </member>
-        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.StaticFileController.GoodExcel(System.Collections.Generic.List{Microsoft.AspNetCore.Http.IFormFile},System.Int32)">
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.StaticFileController.GoodExcel(System.Collections.Generic.List{Microsoft.AspNetCore.Http.IFormFile})">
             <summary>
             导入物料Excel
             </summary>
             <param name="files"></param>
-            <param name="TenantId"></param>
             <returns></returns>
         </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Platform.TenantController">
