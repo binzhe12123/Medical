@@ -41,7 +41,7 @@ namespace SY.Com.Medical.BLL.Platform
                 string sortpath = fb.getPath(filepathextent);//获取路径
                 string strDateTime = DateTime.Now.ToString("yyMMddhhmmssfff"); //取得时间字符串
                 string strRan = Convert.ToString(new Random().Next(100, 999)); //生成三位随机数
-                string filename = "Print" + _extension;
+                string filename = strDateTime + strRan + _extension;
                 string filepath = dir + sortpath;
                 if (!Directory.Exists(filepath))
                 {

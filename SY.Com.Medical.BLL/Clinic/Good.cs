@@ -160,6 +160,12 @@ namespace SY.Com.Medical.BLL.Clinic
             }
             if(datas.Any())
             {
+                foreach(var data in datas)
+                {
+                    data.CreateTime = DateTime.Now;
+                    data.IsDelete = Enum.Delete.正常;
+                    data.IsEnable = Enum.Enable.启用;
+                }
                 db.Insert(datas);
             }
             return datas.Count;
