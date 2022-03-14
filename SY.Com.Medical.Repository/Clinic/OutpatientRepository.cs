@@ -41,11 +41,11 @@ namespace SY.Com.Medical.Repository.Clinic
             }
             if (start != null)
             {
-                where += " And BackTime >= '%" + start.Value + "%' ";
+                where += " And BackTime >= '" + start.Value + "' ";
             }
             if (end != null)
             {
-                where += " And BackTime <= '%" + end.Value + "%' ";
+                where += " And BackTime <= '" + end.Value + "' ";
             }
             if (doctorId != 0)
             {
