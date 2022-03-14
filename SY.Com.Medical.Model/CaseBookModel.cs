@@ -67,6 +67,11 @@ namespace SY.Com.Medical.Model
         public DateTime? OutPatientDate { get; set; }
 
         /// <summary>
+        /// 门诊入诊日期    
+        /// </summary>
+        public DateTime? CreateTime { get; set; }
+
+        /// <summary>
         /// 医嘱    
         /// </summary>
         public string CaseOrder { get; set; }
