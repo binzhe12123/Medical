@@ -88,6 +88,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             BaseResponse<PrintPrescriptionResponseModel> result = new BaseResponse<PrintPrescriptionResponseModel>();
             try
             {
+                result.Data = new PrintPrescriptionResponseModel();
                 result.Data.Data = bll.getOutpatient(request.TenantId,request.OutpatientId);
                 switch (request.Type)
                 {
