@@ -162,6 +162,11 @@
             门诊日期    
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookModel.CreateTime">
+            <summary>
+            门诊入诊日期    
+            </summary>
+        </member>
         <member name="P:SY.Com.Medical.Model.CaseBookModel.CaseOrder">
             <summary>
             医嘱    
@@ -10346,7 +10351,7 @@
         <member name="P:SY.Com.Medical.Model.TenantBuyRequest.Way">
             <summary>
             充值方式
-            </summary>
+            </summary>        
         </member>
         <member name="P:SY.Com.Medical.Model.TenantBuyRequest.Code">
             <summary>
