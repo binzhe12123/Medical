@@ -33,6 +33,10 @@ using static SZSI_Smart.Model.SYB.ZJ2205;
 using static SZSI_Smart.Model.SYB.ZJCX2208;
 using SY.Com.Medical.BLL;
 using SY.Com.Medical.Extension;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using RestSharp;
 
 namespace SY.Com.Medical.WebApi.Controllers.Clinic
 {
@@ -45,6 +49,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
     //[Api_Tenant]
     public partial class SYBController : ControllerBase
     {
+        private string syburl = "http://localhost:8002/api/SYB/Down";
         SYBbll bll = new SYBbll();
         Patient patientbll = new Patient();
 
@@ -98,6 +103,68 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         }
 
         /// <summary>
+        /// 签到接口Debug版本
+        /// </summary>
+        /// <param name="mod"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<bool> Message9001Debug(SYBCommonModel<In9001model> mod)
+        {
+            BaseResponse<InCommon> rd = new BaseResponse<InCommon>();
+            InCommon rd1 = new InCommon();
+            rd1 = bll.getComm(mod.TenantId, mod.EmployeeId);
+            try
+            {
+                rd1.infno = "9001";
+                In9001 qd = new In9001();
+                qd.signIn = new In9001model();
+                qd.signIn.mac = mod.input.mac;
+                qd.signIn.ip = HttpContext.Connection.RemoteIpAddress.ToString();
+                qd.signIn.opter_no = rd1.opter;
+                //rd1.input = Newtonsoft.Json.JsonConvert.SerializeObject(qd);
+                rd1.input = qd;
+                //rd.Data = Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
+                rd.Data = rd1;
+                //医保测试
+                {
+                    //var client = new RestClient("http://localhost:8002/api/SYB/Down");                
+                    //var request = new RestRequest();
+                    //request.Method = Method.Post;
+                    //request.AddHeader("Content-Type", "application/json");
+                    ////var body = @"""{\""infno\"":\""9001\"",\""msgid\"":\""202205052216222141\"",\""mdtrtarea_admvs\"":\""440300\"",\""insuplc_admdvs\"":\""440300\"",\""recer_sys_code\"":\""MK\"",\""dev_no\"":\""\"",\""dev_safe_info\"":\""\"",\""cainfo\"":\""\"",\""signtype\"":\""\"",\""infver\"":\""V1.0\"",\""opter_type\"":\""1\"",\""opter\"":\""编码\"",\""opter_name\"":\""医生1\"",\""inf_time\"":\""2022-05-05 22:16:22\"",\""fixmedins_code\"":null,\""fixmedins_name\"":null,\""sign_no\"":\""\"",\""input\"":{\""signIn\"":{\""opter_no\"":\""编码\"",\""mac\"":\""string\"",\""ip\"":\""::1\""}},\""departname\"":\""儿科\""}""";
+                    //var body = @"""fdafa""";
+                    //request.AddParameter("application/json", body, ParameterType.GetOrPost);
+                    //var response = client.ExecuteAsync(request);
+                    //string context = response.Result.Content;
+                }
+
+                {
+                    HttpClient client = new HttpClient();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/x-www-form-urlencoded"));
+                    string body1 =  Newtonsoft.Json.JsonConvert.SerializeObject(rd1);                    
+                    //HttpContent content = new StringContent(body1, Encoding.UTF8, "application/x-www-form-urlencoded");                    
+                    Dictionary<string, string> dic = new Dictionary<string, string>();
+                    dic.Add("", body1);
+                    HttpContent content = new FormUrlEncodedContent(dic);
+                    content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/x-www-form-urlencoded");
+                    string context = client.PostAsync(syburl, content).Result.Content.ReadAsStringAsync().Result;
+                    SYBCommonParseModel<Out9001> parsemodel = new SYBCommonParseModel<Out9001>();
+                    parsemodel.TenantId = mod.TenantId;
+                    parsemodel.UserId = mod.UserId;
+                    parsemodel.Message = Newtonsoft.Json.JsonConvert.DeserializeObject<OutCommon<Out9001>>(context);
+                    parsemodel.EmployeeId = mod.EmployeeId;
+                    return Message9001Parse(parsemodel);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<bool>() { ErrMes = ex.Message };
+            }
+
+        }
+
+        /// <summary>
         /// 签退-获取报文
         /// </summary>
         /// <param name="mod">复合结构</param>                
@@ -106,6 +173,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         public BaseResponse<InCommon> Messge9002(SYBCommonModel mod)
         {
             BaseResponse<InCommon> rd = new BaseResponse<InCommon>();
+
             InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId);
             //InCommon rd1 = bll.getComm(mod.fixmedins_code,mod.fixmedins_name,mod.opter,mod.opter_name,mod.sign_no);
             rd1.infno = "9002";            
@@ -144,6 +212,45 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             bll.SignOut(mod.TenantId, mod.EmployeeId);
             result.Data = true;
             return result;
+        }
+
+        /// <summary>
+        /// 签退-Debug版
+        /// </summary>
+        /// <param name="mod"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<bool> Messge9002Debug(SYBCommonModel mod)
+        {
+            BaseResponse<InCommon> rd = new BaseResponse<InCommon>();
+            InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId);
+            //InCommon rd1 = bll.getComm(mod.fixmedins_code,mod.fixmedins_name,mod.opter,mod.opter_name,mod.sign_no);
+            rd1.infno = "9002";
+            try
+            {
+
+                In9002 QT = new In9002();
+                QT.signOut = new In9002model();
+                QT.signOut.sign_no = rd1.sign_no;// mod.input.sign_no;
+                QT.signOut.opter_no = rd1.opter;//  mod.input.opter_no; ;
+                rd1.input = QT;// Newtonsoft.Json.JsonConvert.SerializeObject(QT);
+                rd.Data = rd1;// Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
+                //医保测试
+                HttpClient client = new HttpClient();
+                string content = client.PostAsync(syburl, new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(rd1))).Result.Content.ReadAsStringAsync().Result;
+                SYBCommonParseModel<Out9002> parsemodel = new SYBCommonParseModel<Out9002>();
+                parsemodel.TenantId = mod.TenantId;
+                parsemodel.UserId = mod.UserId;
+                parsemodel.Message = Newtonsoft.Json.JsonConvert.DeserializeObject<OutCommon<Out9002>>(content);
+                parsemodel.EmployeeId = mod.EmployeeId;
+                return Messge9002Parse(parsemodel);
+                //return rd;
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<bool>().sysException(ex.Message);
+            }
+
         }
 
 
@@ -240,6 +347,57 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         }
 
         /// <summary>
+        /// 获取人员信息-Debug版
+        /// </summary>
+        /// <param name="mod"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<PatientYBModel> Messge1101Debug(SYBCommonModel<In1101data> mod)
+        {
+            BaseResponse<InCommon> rd = new BaseResponse<InCommon>();
+            InCommon rd1 = new InCommon();
+            //rd1 = bll.getComm(mod.fixmedins_code,mod.fixmedins_name,mod.opter,mod.opter_name,mod.sign_no) ;            
+            rd1 = bll.getComm(mod.TenantId, mod.EmployeeId);
+            try
+            {
+                if (mod.input.mdtrt_cert_no == null)
+                {
+                    return new BaseResponse<PatientYBModel>().busExceptino(Enum.ErrorCode.业务逻辑错误, "就诊凭证编号不能为空");                    
+                }
+                if (mod.input.mdtrt_cert_type == "03" && mod.input.card_sn == null)
+                {
+                    return new BaseResponse<PatientYBModel>().busExceptino(Enum.ErrorCode.业务逻辑错误, "卡识别码不能为空");
+                }
+                In1101 model = new In1101();
+                model.data = new In1101data();
+                model.data.mdtrt_cert_type = mod.input.mdtrt_cert_type;//mod.input.data.mdtrt_cert_type;// 就诊凭证类型  字符型 3   Y Y
+                model.data.mdtrt_cert_no = mod.input.mdtrt_cert_no;// 就诊凭证编号  字符型 50 Y 就诊凭证类型为“01”时填写电子凭证令牌，为“02”时填写身份证号，为“03”时填写社会保障卡卡号
+                model.data.card_sn = mod.input.card_sn;// 卡识别码 字符型 32          就诊凭证类型为“03”时必填
+                model.data.begntime = DateTime.Now;//开始时间 日期时间型               获取历史参保信息时传入
+                model.data.psn_cert_type = "";//   人员证件类型 字符型 6   Y
+                model.data.certno = "";//  证件号码 字符型 50
+                model.data.psn_name = "";// 人员姓名    字符型 50
+                rd1.infno = "1101";
+                rd1.input = model;//Newtonsoft.Json.JsonConvert.SerializeObject(model);
+                rd.Data = rd1;//Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
+                //医保测试
+                HttpClient client = new HttpClient();
+                string content = client.PostAsync(syburl, new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(rd1))).Result.Content.ReadAsStringAsync().Result;
+                SYBCommonParseModel<Out1101> parsemodel = new SYBCommonParseModel<Out1101>();
+                parsemodel.TenantId = mod.TenantId;
+                parsemodel.UserId = mod.UserId;
+                parsemodel.Message = Newtonsoft.Json.JsonConvert.DeserializeObject<OutCommon<Out1101>>(content);
+                parsemodel.EmployeeId = mod.EmployeeId;
+                return Messge1101Parse(parsemodel);
+            }
+            catch (Exception e)
+            {
+                return new BaseResponse<PatientYBModel>().sysException(e.Message);
+            }
+            //return rd;
+        }
+
+        /// <summary>
         /// YB门诊挂号-获取报文
         /// </summary>
         /// <param name="mod"></param>
@@ -310,6 +468,63 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         }
 
         /// <summary>
+        /// 门诊挂号-Debug版
+        /// </summary>
+        /// <param name="mod"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<RegisterYBReturn> GH2201Debug(SYBCommonModel<In2201data> mod)
+        {
+            BaseResponse<InCommon> rd = new BaseResponse<InCommon>();
+            //InCommon rd1 = bll.getComm(mod.fixmedins_code,mod.fixmedins_name,mod.opter,mod.opter_name,mod.sign_no);
+            InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId);
+            InCommon rd2 = bll.getComm(mod.TenantId, mod.input.DoctorId);
+            YBDepartment department = bll.getYBDepartment(rd2.departname);
+            In2201 model = new In2201();
+            model.data = new In2201data();
+            try
+            {
+                if (mod.input.mdtrt_cert_no == null)
+                {
+                    return new BaseResponse<RegisterYBReturn>().busExceptino(Enum.ErrorCode.业务逻辑错误, "就诊凭证编号不能为空");
+                }
+                if (mod.input.mdtrt_cert_type == null)
+                {
+                    return new BaseResponse<RegisterYBReturn>().busExceptino(Enum.ErrorCode.业务逻辑错误, "就诊类型不能为空");
+                }
+                model.data.psn_no = mod.input.psn_no;
+                model.data.insutype = mod.input.insutype;
+                model.data.begntime = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+                model.data.ipt_otp_no = rd1.fixmedins_code + DateTime.Now.ToString("yyyyMMddHHmmss"); //ipt_otp_no  住院 / 门诊号  字符型 30      Y 院内唯一流水
+                model.data.atddr_no = rd2.opter; //mod.input.atddr_no;//atddr_no 医师编码    字符型 30      Y
+                model.data.dr_name = rd2.opter_name;//mod.input.dr_name;//由医生编号，查询姓名
+                model.data.mdtrt_cert_type = mod.input.mdtrt_cert_type;// 就诊凭证类型  字符型 3   Y Y
+                model.data.mdtrt_cert_no = mod.input.mdtrt_cert_no;// 就诊凭证编号  字符型 50 Y 就诊凭证类型为“01”时填写电子凭证令牌，为“02”时填写身份证号，为“03”时填写社会保障卡卡号                
+                model.data.dept_code = department.code;// mod.input.dept_code;
+                model.data.dept_name = department.name;//mod.input.dept_name;
+                model.data.caty = department.name;//mod.input.caty;
+                rd1.infno = "2201";
+                rd1.input = model;// Newtonsoft.Json.JsonConvert.SerializeObject(model);
+                rd.Data = rd1;//Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
+                //医保测试
+                HttpClient client = new HttpClient();
+                string content = client.PostAsync(syburl, new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(rd1))).Result.Content.ReadAsStringAsync().Result;
+                SYBCommonParseModel<Out2201data> parsemodel = new SYBCommonParseModel<Out2201data>();
+                parsemodel.TenantId = mod.TenantId;
+                parsemodel.UserId = mod.UserId;
+                parsemodel.Message = Newtonsoft.Json.JsonConvert.DeserializeObject<OutCommon<Out2201data>>(content);
+                parsemodel.EmployeeId = mod.EmployeeId;
+                return GH2201Parse(parsemodel);
+            }
+            catch (Exception e)
+            {
+                return new BaseResponse<RegisterYBReturn>().sysException(e.Message);
+            }            
+
+
+        }
+
+        /// <summary>
         /// 挂号撤销-获取报文
         /// </summary>
         /// <param name="mod">复合结构</param>
@@ -353,6 +568,38 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             return result;
         }
 
+        /// <summary>
+        /// 挂号撤销-Debug
+        /// </summary>
+        /// <param name="mod"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<string> GH2202Debug(SYBCommonModel<In2202data> mod)
+        {
+            BaseResponse<InCommon> rd = new BaseResponse<InCommon>();
+            try
+            {
+                //InCommon rd1 = bll.getComm(mod.fixmedins_code, mod.fixmedins_name, mod.opter, mod.opter_name, mod.sign_no);
+                InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId);
+                In2202 model = new In2202();
+                model.data = new In2202data();
+                model.data = new SZSI_Smart.Model.SYB.GH2202.In2202data();
+                model.data.psn_no = mod.input.psn_no;
+                model.data.mdtrt_id = mod.input.mdtrt_id;
+                model.data.ipt_otp_no = mod.input.ipt_otp_no;
+                rd1.input = model;
+                rd1.infno = "2202";
+                rd.Data = rd1;// Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
+                              //医保测试
+                HttpClient client = new HttpClient();
+                string content = client.PostAsync(syburl, new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(rd1))).Result.Content.ReadAsStringAsync().Result;
+                return new BaseResponse<string>() { Data = content };
+            }
+            catch (Exception e)
+            {
+                return new BaseResponse<string>().sysException(e.Message);
+            }
+        }
 
         /// <summary>
         /// 门诊就诊信息上传-获取报文
@@ -417,7 +664,58 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             return result;
         }
 
+        /// <summary>
+        /// 门诊就诊信息-Debug
+        /// </summary>
+        /// <param name="mod"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<string> MZ2203Debug(SYBMZUploadModel mod)
+        {
+            BaseResponse<InCommon> rd = new BaseResponse<InCommon>();
 
+            try
+            {
+                //11
+                //InCommon rd1 = bll.getComm(mod.fixmedins_code, mod.fixmedins_name, mod.opter, mod.opter_name, mod.sign_no);
+                InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId);
+                var rentity = bll.getRegisterById(mod.RegisterId);
+                var doctor = bll.getEmployeeById(mod.DoctorId);
+
+                In2203 model = new In2203();
+                MdtrtInfo mmod = new MdtrtInfo();
+                mmod.mdtrt_id = rentity.mdtrt_id;
+                mmod.psn_no = rentity.psn_no;
+                mmod.med_type = "11";
+                mmod.begntime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                List<ZJ2203.Diseinfo> dmods = new List<ZJ2203.Diseinfo>();
+                ZJ2203.Diseinfo dmod = new ZJ2203.Diseinfo();
+                dmod.diag_type = rentity.DepartmentName.IndexOf("中医") > 0 ? "3" : "1";
+                dmod.diag_srt_no = "1";
+                dmod.diag_code = bll.getDiagnosisCode(mod.Diagnosis);
+                dmod.diag_name = mod.Diagnosis;
+                dmod.diag_dept = bll.getYBDepartment(rentity.DepartmentName).code;
+                dmod.dise_dor_no = doctor.YBCode;
+                dmod.dise_dor_name = doctor.EmployeeName;
+                dmod.diag_time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                dmod.vali_flag = "1";
+                dmods.Add(dmod);
+                model.diseinfo = dmods;
+                model.mdtrtinfo = mmod;
+                //model.mdtrtInfo.birctrl_matn_date = DateTime.Now.ToString("yyyy-MM-dd");
+                rd1.infno = "2203";
+                rd1.input = model;
+                rd.Data = rd1;//Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
+                //医保测试
+                HttpClient client = new HttpClient();
+                string content = client.PostAsync(syburl, new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(rd1))).Result.Content.ReadAsStringAsync().Result;
+                return new BaseResponse<string>() { Data = content };
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<string>().sysException(ex.Message);
+            }
+        }
 
         /// <summary>
         /// 门诊费用上传-获取报文
@@ -488,6 +786,64 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 throw new MyException(mod.Message.err_msg);
             }
             return result;
+        }
+
+        /// <summary>
+        /// 门诊费用上传-Debug版
+        /// </summary>
+        /// <param name="mod"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<string> MZ2204Debug(SYBMZ2204Model mod)
+        {
+            BaseResponse<InCommon> rd = new BaseResponse<InCommon>();
+            try
+            {
+                //InCommon rd1 = bll.getComm(mod.fixmedins_code, mod.fixmedins_name, mod.opter, mod.opter_name, mod.sign_no);
+                InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId);
+                Outpatient opbll = new Outpatient();
+                var opstructure = opbll.getStructure(mod.TenantId, mod.OutpatientId);
+                var department = bll.getYBDepartment(opstructure.Doctor.Department);
+                List<FeeDetail> fdlist = new List<FeeDetail>();
+                foreach (var item in opstructure.Prescriptions)
+                {
+                    foreach (var node in item.Details)
+                    {
+                        FeeDetail fdmod = new FeeDetail();
+                        fdmod.feedetl_sn = rd1.fixmedins_code + DateTime.Now.ToString("yyyyMMddHHmmss") + (9999 - fdlist.Count).ToString();
+                        fdmod.mdtrt_id = opstructure.mdtrt_id;
+                        fdmod.psn_no = opstructure.Patient.psn_no;
+                        fdmod.chrg_bchno = opstructure.chrg_bchno;
+                        fdmod.rxno = rd1.fixmedins_code + DateTime.Now.ToString("yyyyMMddHHmmssfff") + item.PreNo;
+                        fdmod.rx_circ_flag = "0";
+                        fdmod.fee_ocur_time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                        fdmod.med_list_codg = node.InsuranceCode;
+                        fdmod.medins_list_codg = node.CustomerCode;
+                        fdmod.det_item_fee_sumamt = Math.Round(decimal.Parse(node.GoodsCost.ToString()), 2);
+                        fdmod.cnt = node.GoodsNum;
+                        fdmod.pric = Math.Round(decimal.Parse(node.GoodsPrice.ToString()), 4);
+                        fdmod.bilg_dept_codg = department.code;
+                        fdmod.bilg_dept_name = department.name;
+                        fdmod.bilg_dr_codg = opstructure.Doctor.YBCode;
+                        fdmod.bilg_dr_name = opstructure.Doctor.EmployeeName;
+                        fdmod.hosp_appr_flag = "1";
+                        fdlist.Add(fdmod);
+                    }
+                }
+                In2204 model = new In2204();
+                model.feedetail = fdlist;
+                rd1.infno = "2204";
+                rd1.input = model;
+                rd.Data = rd1;// Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
+                              //医保测试
+                HttpClient client = new HttpClient();
+                string content = client.PostAsync(syburl, new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(rd1))).Result.Content.ReadAsStringAsync().Result;
+                return new BaseResponse<string>() { Data = content };
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<string>().sysException(ex.Message);
+            }
         }
 
         /// <summary>

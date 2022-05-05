@@ -146,6 +146,14 @@ namespace Client.Controllers
         [HttpPost]
         public HttpResponseMessage Down([FromBody]string data)
         {
+            if (string.IsNullOrEmpty(data))
+            {
+                return new HttpResponseMessage { Content = new StringContent("入参为null", Encoding.GetEncoding("UTF-8"), "application/json") };
+            }
+            //else
+            //{
+            //    return new HttpResponseMessage { Content = new StringContent(data, Encoding.GetEncoding("UTF-8"), "application/json") };
+            //}            
             SYBCommon.OutCommon rd = new SYBCommon.OutCommon();
             ReturnData<SYBCommon.InCommon> rd1 = new ReturnData<SYBCommon.InCommon>();
             HttpResponseMessage responseMessage;

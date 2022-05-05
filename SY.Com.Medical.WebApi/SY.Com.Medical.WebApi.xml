@@ -614,6 +614,13 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.Message9001Debug(SY.Com.Medical.Model.SYBCommonModel{SY.Com.Medical.Model.In9001model})">
+            <summary>
+            签到接口Debug版本
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
         <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.Messge9002(SY.Com.Medical.Model.SYBCommonModel)">
             <summary>
             签退-获取报文
@@ -624,6 +631,13 @@
         <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.Messge9002Parse(SY.Com.Medical.Model.SYBCommonParseModel{SY.Com.Medical.Model.QT9002.Out9002})">
             <summary>
             签退-解析报文
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.Messge9002Debug(SY.Com.Medical.Model.SYBCommonModel)">
+            <summary>
+            签退-Debug版
             </summary>
             <param name="mod"></param>
             <returns></returns>
@@ -642,6 +656,13 @@
             <param name="mod"></param>
             <returns></returns>        
         </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.Messge1101Debug(SY.Com.Medical.Model.SYBCommonModel{SZSI_Smart.Model.SYB.In1101data})">
+            <summary>
+            获取人员信息-Debug版
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
         <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.GH2201(SY.Com.Medical.Model.SYBCommonModel{SZSI_Smart.Model.SYB.In2201data})">
             <summary>
             YB门诊挂号-获取报文
@@ -652,6 +673,13 @@
         <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.GH2201Parse(SY.Com.Medical.Model.SYBCommonParseModel{SZSI_Smart.Model.SYB.Out2201data})">
             <summary>
             YB门诊挂号-解析报文
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.GH2201Debug(SY.Com.Medical.Model.SYBCommonModel{SZSI_Smart.Model.SYB.In2201data})">
+            <summary>
+            门诊挂号-Debug版
             </summary>
             <param name="mod"></param>
             <returns></returns>
@@ -670,6 +698,13 @@
             <param name="mod"></param>
             <returns></returns>
         </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.GH2202Debug(SY.Com.Medical.Model.SYBCommonModel{SZSI_Smart.Model.SYB.GH2202.In2202data})">
+            <summary>
+            挂号撤销-Debug
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
         <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.MZ2203(SY.Com.Medical.Model.SYBMZUploadModel)">
             <summary>
             门诊就诊信息上传-获取报文
@@ -684,6 +719,13 @@
             <param name="mod"></param>
             <returns></returns>
         </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.MZ2203Debug(SY.Com.Medical.Model.SYBMZUploadModel)">
+            <summary>
+            门诊就诊信息-Debug
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
         <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.MZ2204(SY.Com.Medical.Model.SYBMZ2204Model)">
             <summary>
             门诊费用上传-获取报文
@@ -694,6 +736,13 @@
         <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.MZ2204Parse(SY.Com.Medical.Model.SYBCommonParseModel{SZSI_Smart.Model.SYB.ZJ2204})">
             <summary>
             门诊费用上传-解析报文
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.MZ2204Debug(SY.Com.Medical.Model.SYBMZ2204Model)">
+            <summary>
+            门诊费用上传-Debug版
             </summary>
             <param name="mod"></param>
             <returns></returns>

@@ -158,6 +158,6 @@ namespace SY.Com.Medical.Model
             public object output { get; set; }//  交易输出 字符型	40000			
 
         }
-
+        
     }
 }
