@@ -93,7 +93,7 @@ namespace SZSI_Smart.Model.SYB
             /// <summary>
             /// 
             /// </summary>
-            public SetlDetail setldetail { get; set; }
+            public List<SetlDetail> setldetail { get; set; }
         }
         /// <summary>
         /// 
@@ -131,11 +131,11 @@ namespace SZSI_Smart.Model.SYB
             /// <summary>
             /// 
             /// </summary>
-            public DateTime brdy { get; set; }//出生日期 日期型             yyyy-MM-dd
+            public DateTime? brdy { get; set; }//出生日期 日期型             yyyy-MM-dd
             /// <summary>
             /// 
             /// </summary>
-            public int age { get; set; }// 年龄 数值型	4,1	
+            public float age { get; set; }// 年龄 数值型	4,1	
             /// <summary>
             /// 
             /// </summary>
@@ -151,7 +151,7 @@ namespace SZSI_Smart.Model.SYB
             /// <summary>
             /// 
             /// </summary>
-            public DateTime setl_time { get; set; }// 结算时间    日期时间型 Y   yyyy-MM-dd HH:mm:ss
+            public DateTime? setl_time { get; set; }// 结算时间    日期时间型 Y   yyyy-MM-dd HH:mm:ss
             /// <summary>
             /// 
             /// </summary>

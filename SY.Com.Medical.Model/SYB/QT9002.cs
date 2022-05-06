@@ -43,7 +43,17 @@ namespace SY.Com.Medical.Model
             /// <summary>
             /// 
             /// </summary>
-            public DateTime sign_time { get; set; }// 签退时间    日期型 Y   yyyy-MM-dd HH:mm:ss
+            public Signoutoutb signoutoutb { get; set; }
+            /// <summary>
+            /// 
+            /// </summary>
+            public class Signoutoutb
+            {
+                /// <summary>
+                /// 
+                /// </summary>
+                public DateTime sign_time { get; set; }// 签退时间    日期型 Y   yyyy-MM-dd HH:mm:ss
+            }
         }
     }
 }

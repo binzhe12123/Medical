@@ -761,6 +761,13 @@
             <param name="mod"></param>
             <returns></returns>
         </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.MZ2205Debug(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.ZJ2205.In2205})">
+            <summary>
+            门诊费用撤销-解析报文
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
         <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.JS2206(SY.Com.Medical.Model.SYJS2206Model)">
             <summary>
             门诊预结算-获取报文
@@ -771,6 +778,13 @@
         <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.JS2206Parse(SY.Com.Medical.Model.SYBCommonParseModel{SZSI_Smart.Model.SYB.YJS2206.Out2206})">
             <summary>
             门诊预结算-解析报文
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.JS2206Debug(SY.Com.Medical.Model.SYJS2206Model)">
+            <summary>
+            门诊预结算-Debug版
             </summary>
             <param name="mod"></param>
             <returns></returns>
@@ -789,6 +803,13 @@
             <param name="mod"></param>
             <returns></returns>
         </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.JS2207Debug(SY.Com.Medical.Model.SYJS2207Model)">
+            <summary>
+            门诊结算-Debug版
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
         <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.JS2208(SY.Com.Medical.Model.SYB2208Model)">
             <summary>
             门诊结算撤销-获取报文
@@ -800,6 +821,13 @@
             <summary>
             门诊结算撤销-解析报文
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.JS2208Debug(SY.Com.Medical.Model.SYB2208Model)">
+            <summary>
+            门诊结算撤销-Debug版
+            </summary>
+            <param name="mod"></param>
             <returns></returns>
         </member>
         <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.JY2601(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.YBJS.CZ2601.In2601})">

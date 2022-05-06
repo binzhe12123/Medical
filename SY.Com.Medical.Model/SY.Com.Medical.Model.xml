@@ -6346,12 +6346,22 @@
             
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.Out9001.sign_time">
+        <member name="P:SY.Com.Medical.Model.Out9001.signinoutb">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.Out9001.sign_no">
+        <member name="T:SY.Com.Medical.Model.Out9001.Signinoutb">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.Out9001.Signinoutb.sign_time">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.Out9001.Signinoutb.sign_no">
             <summary>
             
             </summary>
@@ -6406,7 +6416,17 @@
             
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.QT9002.Out9002.sign_time">
+        <member name="P:SY.Com.Medical.Model.QT9002.Out9002.signoutoutb">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.QT9002.Out9002.Signoutoutb">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.QT9002.Out9002.Signoutoutb.sign_time">
             <summary>
             
             </summary>
@@ -17435,17 +17455,27 @@
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.Out2201data.mdtrt_id">
+        <member name="P:SZSI_Smart.Model.SYB.Out2201data.data">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.Out2201data.psn_no">
+        <member name="T:SZSI_Smart.Model.SYB.Out2201data.Data">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.Out2201data.ipt_otp_no">
+        <member name="P:SZSI_Smart.Model.SYB.Out2201data.Data.mdtrt_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SZSI_Smart.Model.SYB.Out2201data.Data.psn_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SZSI_Smart.Model.SYB.Out2201data.Data.ipt_otp_no">
             <summary>
             
             </summary>
@@ -18642,17 +18672,17 @@
         </member>
         <member name="P:SZSI_Smart.Model.SYB.ZJ2205.In2205.mdtrt_id">
             <summary>
-            
+            医保门诊号
             </summary>
         </member>
         <member name="P:SZSI_Smart.Model.SYB.ZJ2205.In2205.chrg_bchno">
             <summary>
-            
+            医保收费批次
             </summary>
         </member>
         <member name="P:SZSI_Smart.Model.SYB.ZJ2205.In2205.psn_no">
             <summary>
-            
+            医保人员编号
             </summary>
         </member>
         <member name="T:SZSI_Smart.Model.SYB.ZJCX2208">

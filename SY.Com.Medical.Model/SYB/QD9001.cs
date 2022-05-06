@@ -43,17 +43,29 @@ namespace SY.Com.Medical.Model
     /// 
     /// </summary>
     public class Out9001
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public Signinoutb signinoutb { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public class Signinoutb
         {
-        /// <summary>
-        /// 
-        /// </summary>
-        public DateTime sign_time { get; set; }//  签到时间 日期型         Y yyyy-MM-dd HH:mm:ss
-        /// <summary>
-        /// 
-        /// </summary>
-        public string sign_no { get; set; }// 签到编号 字符型	30		Y
-
+            /// <summary>
+            /// 
+            /// </summary>
+            public DateTime sign_time { get; set; }//  签到时间 日期型         Y yyyy-MM-dd HH:mm:ss
+            /// <summary>
+            /// 
+            /// </summary>
+            public string sign_no { get; set; }// 签到编号 字符型	30		Y
         }
+
+
+
+    }
     /// <summary>
     /// 
     /// </summary>

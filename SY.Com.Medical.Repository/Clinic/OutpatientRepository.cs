@@ -150,6 +150,7 @@ namespace SY.Com.Medical.Repository.Clinic
                 result.OutpatientId = entity.OutpatientId;
                 result.TenantId = entity.TenantId;
                 result.mdtrt_id = entity.mdtrt_id;
+                result.setl_id = entity.setl_id;
                 result.chrg_bchno = entity.chrg_bchno;
                 result.RegisterId = entity.RegisterId;
                 result.PrescriptionCount = entity.PrescriptionCount;

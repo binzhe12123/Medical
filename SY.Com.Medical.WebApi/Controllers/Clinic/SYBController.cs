@@ -53,6 +53,8 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         SYBbll bll = new SYBbll();
         Patient patientbll = new Patient();
 
+        #region 医保基本接口
+
         /// <summary>
         /// YB获取签到入参报文
         /// </summary>
@@ -97,7 +99,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 throw new MyException(mod.Message.err_msg);
             }
             //更新签到信息
-            bll.SignIn(mod.TenantId, mod.EmployeeId, mod.Message.output.sign_no);
+            bll.SignIn(mod.TenantId, mod.EmployeeId, mod.Message.output.signinoutb.sign_no);
             result.Data = true;
             return result;
         }
@@ -127,24 +129,11 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 rd.Data = rd1;
                 //医保测试
                 {
-                    //var client = new RestClient("http://localhost:8002/api/SYB/Down");                
-                    //var request = new RestRequest();
-                    //request.Method = Method.Post;
-                    //request.AddHeader("Content-Type", "application/json");
-                    ////var body = @"""{\""infno\"":\""9001\"",\""msgid\"":\""202205052216222141\"",\""mdtrtarea_admvs\"":\""440300\"",\""insuplc_admdvs\"":\""440300\"",\""recer_sys_code\"":\""MK\"",\""dev_no\"":\""\"",\""dev_safe_info\"":\""\"",\""cainfo\"":\""\"",\""signtype\"":\""\"",\""infver\"":\""V1.0\"",\""opter_type\"":\""1\"",\""opter\"":\""编码\"",\""opter_name\"":\""医生1\"",\""inf_time\"":\""2022-05-05 22:16:22\"",\""fixmedins_code\"":null,\""fixmedins_name\"":null,\""sign_no\"":\""\"",\""input\"":{\""signIn\"":{\""opter_no\"":\""编码\"",\""mac\"":\""string\"",\""ip\"":\""::1\""}},\""departname\"":\""儿科\""}""";
-                    //var body = @"""fdafa""";
-                    //request.AddParameter("application/json", body, ParameterType.GetOrPost);
-                    //var response = client.ExecuteAsync(request);
-                    //string context = response.Result.Content;
-                }
-
-                {
                     HttpClient client = new HttpClient();
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/x-www-form-urlencoded"));
-                    string body1 =  Newtonsoft.Json.JsonConvert.SerializeObject(rd1);                    
-                    //HttpContent content = new StringContent(body1, Encoding.UTF8, "application/x-www-form-urlencoded");                    
+                    string body =  Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
                     Dictionary<string, string> dic = new Dictionary<string, string>();
-                    dic.Add("", body1);
+                    dic.Add("", body);
                     HttpContent content = new FormUrlEncodedContent(dic);
                     content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/x-www-form-urlencoded");
                     string context = client.PostAsync(syburl, content).Result.Content.ReadAsStringAsync().Result;
@@ -235,16 +224,23 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 QT.signOut.opter_no = rd1.opter;//  mod.input.opter_no; ;
                 rd1.input = QT;// Newtonsoft.Json.JsonConvert.SerializeObject(QT);
                 rd.Data = rd1;// Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
-                //医保测试
-                HttpClient client = new HttpClient();
-                string content = client.PostAsync(syburl, new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(rd1))).Result.Content.ReadAsStringAsync().Result;
-                SYBCommonParseModel<Out9002> parsemodel = new SYBCommonParseModel<Out9002>();
-                parsemodel.TenantId = mod.TenantId;
-                parsemodel.UserId = mod.UserId;
-                parsemodel.Message = Newtonsoft.Json.JsonConvert.DeserializeObject<OutCommon<Out9002>>(content);
-                parsemodel.EmployeeId = mod.EmployeeId;
-                return Messge9002Parse(parsemodel);
-                //return rd;
+                {
+                    //医保测试                
+                    HttpClient client = new HttpClient();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/x-www-form-urlencoded"));
+                    string body = Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
+                    Dictionary<string, string> dic = new Dictionary<string, string>();
+                    dic.Add("", body);
+                    HttpContent content = new FormUrlEncodedContent(dic);
+                    content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/x-www-form-urlencoded");
+                    string context = client.PostAsync(syburl, content).Result.Content.ReadAsStringAsync().Result;
+                    SYBCommonParseModel<Out9002> parsemodel = new SYBCommonParseModel<Out9002>();
+                    parsemodel.TenantId = mod.TenantId;
+                    parsemodel.UserId = mod.UserId;
+                    parsemodel.Message = Newtonsoft.Json.JsonConvert.DeserializeObject<OutCommon<Out9002>>(context);
+                    parsemodel.EmployeeId = mod.EmployeeId;
+                    return Messge9002Parse(parsemodel);
+                }                
             }
             catch (Exception ex)
             {
@@ -283,7 +279,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 model.data.mdtrt_cert_type = mod.input.mdtrt_cert_type;//mod.input.data.mdtrt_cert_type;// 就诊凭证类型  字符型 3   Y Y
                 model.data.mdtrt_cert_no = mod.input.mdtrt_cert_no;// 就诊凭证编号  字符型 50 Y 就诊凭证类型为“01”时填写电子凭证令牌，为“02”时填写身份证号，为“03”时填写社会保障卡卡号
                 model.data.card_sn = mod.input.card_sn;// 卡识别码 字符型 32          就诊凭证类型为“03”时必填
-                model.data.begntime = DateTime.Now;//开始时间 日期时间型               获取历史参保信息时传入
+                model.data.begntime = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));//开始时间 日期时间型               获取历史参保信息时传入
                 model.data.psn_cert_type = "";//   人员证件类型 字符型 6   Y
                 model.data.certno = "";//  证件号码 字符型 50
                 model.data.psn_name = "";// 人员姓名    字符型 50
@@ -373,22 +369,31 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 model.data.mdtrt_cert_type = mod.input.mdtrt_cert_type;//mod.input.data.mdtrt_cert_type;// 就诊凭证类型  字符型 3   Y Y
                 model.data.mdtrt_cert_no = mod.input.mdtrt_cert_no;// 就诊凭证编号  字符型 50 Y 就诊凭证类型为“01”时填写电子凭证令牌，为“02”时填写身份证号，为“03”时填写社会保障卡卡号
                 model.data.card_sn = mod.input.card_sn;// 卡识别码 字符型 32          就诊凭证类型为“03”时必填
-                model.data.begntime = DateTime.Now;//开始时间 日期时间型               获取历史参保信息时传入
+                model.data.begntime = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));//开始时间 日期时间型               获取历史参保信息时传入
                 model.data.psn_cert_type = "";//   人员证件类型 字符型 6   Y
                 model.data.certno = "";//  证件号码 字符型 50
                 model.data.psn_name = "";// 人员姓名    字符型 50
                 rd1.infno = "1101";
                 rd1.input = model;//Newtonsoft.Json.JsonConvert.SerializeObject(model);
                 rd.Data = rd1;//Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
-                //医保测试
-                HttpClient client = new HttpClient();
-                string content = client.PostAsync(syburl, new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(rd1))).Result.Content.ReadAsStringAsync().Result;
-                SYBCommonParseModel<Out1101> parsemodel = new SYBCommonParseModel<Out1101>();
-                parsemodel.TenantId = mod.TenantId;
-                parsemodel.UserId = mod.UserId;
-                parsemodel.Message = Newtonsoft.Json.JsonConvert.DeserializeObject<OutCommon<Out1101>>(content);
-                parsemodel.EmployeeId = mod.EmployeeId;
-                return Messge1101Parse(parsemodel);
+                {
+                    //医保测试
+                    HttpClient client = new HttpClient();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/x-www-form-urlencoded"));
+                    string body = Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
+                    Dictionary<string, string> dic = new Dictionary<string, string>();
+                    dic.Add("", body);
+                    HttpContent content = new FormUrlEncodedContent(dic);
+                    content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/x-www-form-urlencoded");
+                    string context = client.PostAsync(syburl, content).Result.Content.ReadAsStringAsync().Result;
+                    SYBCommonParseModel<Out1101> parsemodel = new SYBCommonParseModel<Out1101>();
+                    parsemodel.TenantId = mod.TenantId;
+                    parsemodel.UserId = mod.UserId;
+                    parsemodel.Message = Newtonsoft.Json.JsonConvert.DeserializeObject<OutCommon<Out1101>>(context);
+                    parsemodel.EmployeeId = mod.EmployeeId;
+                    return Messge1101Parse(parsemodel);
+                }                                                
+
             }
             catch (Exception e)
             {
@@ -460,9 +465,9 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 throw new MyException(mod.Message.err_msg);
             }
             RegisterYBReturn model = new RegisterYBReturn();
-            model.ipt_otp_no = mod.Message.output.ipt_otp_no;
-            model.mdtrt_id = mod.Message.output.mdtrt_id;
-            model.psn_no = mod.Message.output.psn_no;
+            model.ipt_otp_no = mod.Message.output.data.ipt_otp_no;
+            model.mdtrt_id = mod.Message.output.data.mdtrt_id;
+            model.psn_no = mod.Message.output.data.psn_no;
             result.Data = model;
             return result;
         }
@@ -507,12 +512,19 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 rd1.input = model;// Newtonsoft.Json.JsonConvert.SerializeObject(model);
                 rd.Data = rd1;//Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
                 //医保测试
+
                 HttpClient client = new HttpClient();
-                string content = client.PostAsync(syburl, new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(rd1))).Result.Content.ReadAsStringAsync().Result;
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/x-www-form-urlencoded"));
+                string body = Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
+                Dictionary<string, string> dic = new Dictionary<string, string>();
+                dic.Add("", body);
+                HttpContent content = new FormUrlEncodedContent(dic);
+                content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/x-www-form-urlencoded");
+                string context = client.PostAsync(syburl, content).Result.Content.ReadAsStringAsync().Result;
                 SYBCommonParseModel<Out2201data> parsemodel = new SYBCommonParseModel<Out2201data>();
                 parsemodel.TenantId = mod.TenantId;
                 parsemodel.UserId = mod.UserId;
-                parsemodel.Message = Newtonsoft.Json.JsonConvert.DeserializeObject<OutCommon<Out2201data>>(content);
+                parsemodel.Message = Newtonsoft.Json.JsonConvert.DeserializeObject<OutCommon<Out2201data>>(context);
                 parsemodel.EmployeeId = mod.EmployeeId;
                 return GH2201Parse(parsemodel);
             }
@@ -590,10 +602,16 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 rd1.input = model;
                 rd1.infno = "2202";
                 rd.Data = rd1;// Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
-                              //医保测试
+                //医保测试
                 HttpClient client = new HttpClient();
-                string content = client.PostAsync(syburl, new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(rd1))).Result.Content.ReadAsStringAsync().Result;
-                return new BaseResponse<string>() { Data = content };
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/x-www-form-urlencoded"));
+                string body = Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
+                Dictionary<string, string> dic = new Dictionary<string, string>();
+                dic.Add("", body);
+                HttpContent content = new FormUrlEncodedContent(dic);
+                content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/x-www-form-urlencoded");
+                string context = client.PostAsync(syburl, content).Result.Content.ReadAsStringAsync().Result;
+                return new BaseResponse<string>() { Data = context };
             }
             catch (Exception e)
             {
@@ -707,9 +725,17 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 rd1.input = model;
                 rd.Data = rd1;//Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
                 //医保测试
-                HttpClient client = new HttpClient();
-                string content = client.PostAsync(syburl, new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(rd1))).Result.Content.ReadAsStringAsync().Result;
-                return new BaseResponse<string>() { Data = content };
+                {
+                    HttpClient client = new HttpClient();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/x-www-form-urlencoded"));
+                    string body = Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
+                    Dictionary<string, string> dic = new Dictionary<string, string>();
+                    dic.Add("", body);
+                    HttpContent content = new FormUrlEncodedContent(dic);
+                    content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/x-www-form-urlencoded");
+                    string context = client.PostAsync(syburl, content).Result.Content.ReadAsStringAsync().Result;
+                    return new BaseResponse<string>() { Data = context };
+                }                                                
             }
             catch (Exception ex)
             {
@@ -835,10 +861,17 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 rd1.infno = "2204";
                 rd1.input = model;
                 rd.Data = rd1;// Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
-                              //医保测试
+                //医保测试
+
                 HttpClient client = new HttpClient();
-                string content = client.PostAsync(syburl, new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(rd1))).Result.Content.ReadAsStringAsync().Result;
-                return new BaseResponse<string>() { Data = content };
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/x-www-form-urlencoded"));
+                string body = Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
+                Dictionary<string, string> dic = new Dictionary<string, string>();
+                dic.Add("", body);
+                HttpContent content = new FormUrlEncodedContent(dic);
+                content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/x-www-form-urlencoded");
+                string context = client.PostAsync(syburl, content).Result.Content.ReadAsStringAsync().Result;
+                return new BaseResponse<string>() { Data = context };
             }
             catch (Exception ex)
             {
@@ -894,6 +927,50 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             return result;
         }
 
+        /// <summary>
+        /// 门诊费用撤销-解析报文
+        /// </summary>
+        /// <param name="mod"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<bool> MZ2205Debug(SYBEasyCommon<In2205> mod)
+        {
+            BaseResponse<InCommon> rd = new BaseResponse<InCommon>();
+            try
+            {
+                InCommon rd1 = bll.getComm(mod.fixmedins_code, mod.fixmedins_name, mod.opter, mod.opter_name, mod.sign_no);
+                In2205data model = new In2205data();
+                model.data = new In2205();
+                model.data.chrg_bchno = "0000";
+                model.data.mdtrt_id = mod.input.mdtrt_id;
+                model.data.psn_no = mod.input.psn_no;
+                rd1.infno = "2205";
+                rd1.input = model;
+                rd.Data = rd1;// Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
+
+                {
+                    //医保测试
+                    HttpClient client = new HttpClient();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/x-www-form-urlencoded"));
+                    string body = Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
+                    Dictionary<string, string> dic = new Dictionary<string, string>();
+                    dic.Add("", body);
+                    HttpContent content = new FormUrlEncodedContent(dic);
+                    content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/x-www-form-urlencoded");
+                    string context = client.PostAsync(syburl, content).Result.Content.ReadAsStringAsync().Result;
+                    SYB2205ParseModel parsemodel = new SYB2205ParseModel();
+                    parsemodel.TenantId = mod.TenantId;
+                    parsemodel.UserId = mod.UserId;
+                    parsemodel.OutpatientId = 3;
+                    parsemodel.Message = Newtonsoft.Json.JsonConvert.DeserializeObject<OutCommon>(context);
+                    return MZ2205Parse(parsemodel);
+                }                
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<bool>().sysException(ex.Message);
+            }
+        }
 
         /// <summary>
         /// 门诊预结算-获取报文
@@ -953,6 +1030,60 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             return result;
         }
 
+        /// <summary>
+        /// 门诊预结算-Debug版
+        /// </summary>
+        /// <param name="mod"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<SYJS2206OutModel> JS2206Debug(SYJS2206Model mod)
+        {
+            BaseResponse<InCommon> rd = new BaseResponse<InCommon>();
+            try
+            {
+                //InCommon rd1 = bll.getComm(mod.fixmedins_code, mod.fixmedins_name, mod.opter, mod.opter_name, mod.sign_no);
+                InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId);
+                Outpatient opbll = new Outpatient();
+                var opstructure = opbll.getStructure(mod.TenantId, mod.OutpatientId);
+                In2206Data model = new In2206Data();
+                model.data = new In2206();
+                model.data.chrg_bchno = opstructure.chrg_bchno;
+                model.data.mdtrt_id = opstructure.mdtrt_id;
+                model.data.psn_no = opstructure.Patient.psn_no;
+                model.data.mdtrt_cert_type = mod.Mdtrt_cert_type;
+                model.data.mdtrt_cert_no = mod.Mdtrt_cert_no;
+                model.data.med_type = "11";
+                model.data.medfee_sumamt = Math.Round(decimal.Parse(opstructure.Cost.ToString()), 2);
+                model.data.psn_setlway = "02";
+                model.data.acct_used_flag = "1";
+                model.data.insutype = "310";
+                rd1.infno = "2206";
+                rd1.input = model;
+                rd.Data = rd1;//Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
+
+                {
+                    //医保测试
+                    HttpClient client = new HttpClient();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/x-www-form-urlencoded"));
+                    string body = Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
+                    Dictionary<string, string> dic = new Dictionary<string, string>();
+                    dic.Add("", body);
+                    HttpContent content = new FormUrlEncodedContent(dic);
+                    content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/x-www-form-urlencoded");
+                    string context = client.PostAsync(syburl, content).Result.Content.ReadAsStringAsync().Result;
+                    SYBCommonParseModel<Out2206> parsemodel = new SYBCommonParseModel<Out2206>();
+                    parsemodel.TenantId = mod.TenantId;
+                    parsemodel.UserId = mod.UserId;
+                    parsemodel.EmployeeId = mod.EmployeeId;
+                    parsemodel.Message = Newtonsoft.Json.JsonConvert.DeserializeObject<OutCommon<Out2206>>(context);
+                    return JS2206Parse(parsemodel);
+                }
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<SYJS2206OutModel>().sysException(ex.Message);
+            }
+        }
 
         /// <summary>
         /// 门诊结算-获取报文
@@ -1017,6 +1148,64 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             return result;
         }
 
+        /// <summary>
+        /// 门诊结算-Debug版
+        /// </summary>
+        /// <param name="mod"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<SYJS2207OutModel> JS2207Debug(SYJS2207Model mod)
+        {
+            BaseResponse<InCommon> rd = new BaseResponse<InCommon>();
+            try
+            {
+                //InCommon rd1 = bll.getComm(mod.fixmedins_code, mod.fixmedins_name, mod.opter, mod.opter_name, mod.sign_no);
+                InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId);
+                Outpatient opbll = new Outpatient();
+                var opstructure = opbll.getStructure(mod.TenantId, mod.OutpatientId);
+                In2207data model = new In2207data();
+                model.data = new In2207();
+                model.data.psn_no = opstructure.Patient.psn_no;
+                model.data.mdtrt_cert_type = mod.Mdtrt_cert_type;
+                model.data.med_type = "11";
+                model.data.medfee_sumamt = Math.Round(decimal.Parse(opstructure.Cost.ToString()), 2); ;
+                model.data.psn_setlway = "02";
+                model.data.mdtrt_id = opstructure.mdtrt_id;
+                model.data.chrg_bchno = opstructure.chrg_bchno;
+                model.data.insutype = "310";
+                model.data.mdtrt_cert_no = mod.Mdtrt_cert_no;
+                model.data.acct_used_flag = "1";
+                model.data.fulamt_ownpay_amt = mod.fulamt_ownpay_amt;
+                model.data.overlmt_selfpay = mod.overlmt_selfpay;
+                model.data.preselfpay_amt = mod.preselfpay_amt;
+                model.data.inscp_scp_amt = mod.inscp_scp_amt;
+                rd1.infno = "2207";
+                rd1.input = model;
+                rd.Data = rd1;//Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
+
+                {
+                    //医保测试
+                    HttpClient client = new HttpClient();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/x-www-form-urlencoded"));
+                    string body = Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
+                    Dictionary<string, string> dic = new Dictionary<string, string>();
+                    dic.Add("", body);
+                    HttpContent content = new FormUrlEncodedContent(dic);
+                    content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/x-www-form-urlencoded");
+                    string context = client.PostAsync(syburl, content).Result.Content.ReadAsStringAsync().Result;
+                    SYBCommonParseModel<Out2207> parsemodel = new SYBCommonParseModel<Out2207>();
+                    parsemodel.TenantId = mod.TenantId;
+                    parsemodel.UserId = mod.UserId;
+                    parsemodel.EmployeeId = mod.EmployeeId;
+                    parsemodel.Message = Newtonsoft.Json.JsonConvert.DeserializeObject<OutCommon<Out2207>>(context);
+                    return JS2207Parse(parsemodel);
+                }
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<SYJS2207OutModel>().sysException(ex.Message);
+            }
+        }
 
         /// <summary>
         /// 门诊结算撤销-获取报文
@@ -1064,6 +1253,57 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             return result;
         }
 
+        /// <summary>
+        /// 门诊结算撤销-Debug版
+        /// </summary>
+        /// <param name="mod"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<bool> JS2208Debug(SYB2208Model mod)
+        {
+            BaseResponse<InCommon> rd = new BaseResponse<InCommon>();
+            try
+            {
+                //InCommon rd1 = bll.getComm(mod.fixmedins_code, mod.fixmedins_name, mod.opter, mod.opter_name, mod.sign_no);
+                InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId);
+                Outpatient opbll = new Outpatient();
+                var opstructure = opbll.getStructure(mod.TenantId, mod.OutpatientId);
+                In2208data model = new In2208data();
+                model.data = new In2208();
+                model.data.psn_no = opstructure.Patient.psn_no;
+                model.data.mdtrt_id = opstructure.mdtrt_id;
+                model.data.setl_id = opstructure.setl_id;
+                rd1.infno = "2208";
+                rd1.input = model;
+                rd.Data = rd1;//Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
+                {
+                    //医保测试
+                    HttpClient client = new HttpClient();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/x-www-form-urlencoded"));
+                    string body = Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
+                    Dictionary<string, string> dic = new Dictionary<string, string>();
+                    dic.Add("", body);
+                    HttpContent content = new FormUrlEncodedContent(dic);
+                    content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/x-www-form-urlencoded");
+                    string context = client.PostAsync(syburl, content).Result.Content.ReadAsStringAsync().Result;
+                    SYBCommonParseModel<Out2208> parsemodel = new SYBCommonParseModel<Out2208>();
+                    parsemodel.TenantId = mod.TenantId;
+                    parsemodel.UserId = mod.UserId;
+                    parsemodel.EmployeeId = mod.EmployeeId;
+                    parsemodel.Message = Newtonsoft.Json.JsonConvert.DeserializeObject<OutCommon<Out2208>>(context);
+                    return JS2208Parse(parsemodel);
+                }
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<bool>().sysException(ex.Message);
+            }
+        }
+
+
+        #endregion
+
+        #region 带扩展接口
         /// <summary>
         /// 交易冲正
         /// </summary>
@@ -1957,6 +2197,8 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             }
             return rd;
         }
+
+        #endregion
     }
 
 
