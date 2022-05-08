@@ -100,7 +100,7 @@ namespace SZSI_Smart.Model.SYB
             /// <summary>
             /// 
             /// </summary>
-            public SetlDetail2 setldetail { get; set; }
+            public List<SetlDetail2> setldetail { get; set; }
         }
         /// <summary>
         /// 

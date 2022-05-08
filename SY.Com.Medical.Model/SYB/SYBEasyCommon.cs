@@ -148,6 +148,22 @@ namespace SY.Com.Medical.Model
         public int OutpatientId { get; set; }
     }
 
+    /// <summary>
+    /// 门诊费用明细撤销
+    /// </summary>
+    public class SYBMZ2205Model:BaseModel
+    {
+        /// <summary>
+        /// 操作者Id
+        /// </summary>
+        public int EmployeeId { get; set; }
+        /// <summary>
+        /// 门诊Id
+        /// </summary>
+        public int OutpatientId { get; set; }
+
+    }
+
 
     /// <summary>
     /// 解析报文-医保返回报文

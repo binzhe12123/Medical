@@ -6748,6 +6748,21 @@
             门诊Id
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Model.SYBMZ2205Model">
+            <summary>
+            门诊费用明细撤销
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBMZ2205Model.EmployeeId">
+            <summary>
+            操作者Id
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBMZ2205Model.OutpatientId">
+            <summary>
+            门诊Id
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.SYB2205ParseModel">
             <summary>
             解析报文-医保返回报文

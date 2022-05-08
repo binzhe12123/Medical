@@ -747,7 +747,7 @@
             <param name="mod"></param>
             <returns></returns>
         </member>
-        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.MZ2205(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.ZJ2205.In2205})">
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.MZ2205(SY.Com.Medical.Model.SYBMZ2205Model)">
             <summary>
             门诊费用撤销-获取报文
             </summary>
@@ -761,9 +761,9 @@
             <param name="mod"></param>
             <returns></returns>
         </member>
-        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.MZ2205Debug(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.ZJ2205.In2205})">
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.MZ2205Debug(SY.Com.Medical.Model.SYBMZ2205Model)">
             <summary>
-            门诊费用撤销-解析报文
+            门诊费用撤销-Debug
             </summary>
             <param name="mod"></param>
             <returns></returns>

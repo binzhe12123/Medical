@@ -152,7 +152,7 @@ namespace SZSI_Smart.Model.SYB
             /// <summary>
             /// 
             /// </summary>
-            public decimal hosp_part_amt { get; set; }//   医院负担金额 数值型	16,2		Y
+            public decimal? hosp_part_amt { get; set; }//   医院负担金额 数值型	16,2		Y
             /// <summary>
             /// 
             /// </summary>
@@ -179,7 +179,7 @@ namespace SZSI_Smart.Model.SYB
             /// <summary>
             /// 
             /// </summary>
-            public decimal crt_payb_lmt_amt { get; set; }//    本次可支付限额金额 数值型	16,2	　	Y
+            public decimal? crt_payb_lmt_amt { get; set; }//    本次可支付限额金额 数值型	16,2	　	Y
             /// <summary>
             /// 
             /// </summary>

@@ -885,16 +885,18 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         /// <param name="mod">复合结构</param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<InCommon> MZ2205(SYBEasyCommon<In2205> mod) {
+        public BaseResponse<InCommon> MZ2205(SYBMZ2205Model mod) {
             BaseResponse<InCommon> rd = new BaseResponse<InCommon>();
             try
             {
-                InCommon rd1 = bll.getComm(mod.fixmedins_code, mod.fixmedins_name, mod.opter, mod.opter_name, mod.sign_no);
+                InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId);
+                Outpatient opbll = new Outpatient();
+                var opstructure = opbll.getStructure(mod.TenantId, mod.OutpatientId);
                 In2205data model = new In2205data();
                 model.data = new In2205();
                 model.data.chrg_bchno = "0000";
-                model.data.mdtrt_id = mod.input.mdtrt_id;
-                model.data.psn_no = mod.input.psn_no;
+                model.data.mdtrt_id = opstructure.mdtrt_id;
+                model.data.psn_no = opstructure.Patient.psn_no;
                 rd1.infno = "2205";
                 rd1.input = model;
                 rd.Data = rd1;// Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
@@ -928,26 +930,27 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         }
 
         /// <summary>
-        /// 门诊费用撤销-解析报文
+        /// 门诊费用撤销-Debug
         /// </summary>
         /// <param name="mod"></param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<bool> MZ2205Debug(SYBEasyCommon<In2205> mod)
+        public BaseResponse<bool> MZ2205Debug(SYBMZ2205Model mod)
         {
             BaseResponse<InCommon> rd = new BaseResponse<InCommon>();
             try
             {
-                InCommon rd1 = bll.getComm(mod.fixmedins_code, mod.fixmedins_name, mod.opter, mod.opter_name, mod.sign_no);
+                InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId);
+                Outpatient opbll = new Outpatient();
+                var opstructure = opbll.getStructure(mod.TenantId, mod.OutpatientId);
                 In2205data model = new In2205data();
                 model.data = new In2205();
                 model.data.chrg_bchno = "0000";
-                model.data.mdtrt_id = mod.input.mdtrt_id;
-                model.data.psn_no = mod.input.psn_no;
+                model.data.mdtrt_id = opstructure.mdtrt_id;
+                model.data.psn_no = opstructure.Patient.psn_no;
                 rd1.infno = "2205";
                 rd1.input = model;
-                rd.Data = rd1;// Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
-
+                rd.Data = rd1;
                 {
                     //医保测试
                     HttpClient client = new HttpClient();
