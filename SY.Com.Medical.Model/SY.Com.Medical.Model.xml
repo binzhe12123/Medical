@@ -3171,7 +3171,7 @@
         <member name="P:SY.Com.Medical.Model.PrescriptionDetailAddStructure.GoodsUsage">
             <summary>
             用法
-            </summary>
+            </summary>				
         </member>
         <member name="P:SY.Com.Medical.Model.PrescriptionDetailAddStructure.GoodsEveryDay">
             <summary>
