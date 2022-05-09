@@ -20,6 +20,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
     public class LoginController : ControllerBase
     {
         User userbll = new User();
+        UserManager managerbll = new UserManager();
 
         /// <summary>
         /// 用户登录
@@ -35,6 +36,38 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
             {
                 result.Data = new LoginResponse();
                 var usermodel = userbll.Login(request);
+                result.Data.access_token = JWTTokenValidationParameters.getSecurityToken(usermodel.UserId, usermodel.Account);
+                result.Data.Account = usermodel.Account;
+                result.Data.LogoImg = usermodel.LogoImg;
+                return result;
+            }
+            catch (Exception ex)
+            {
+                if (ex is MyException)
+                {
+                    return result.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
+                }
+                else
+                {
+                    return result.sysException(ex.Message);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 后台管理系统登录
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>       
+        [HttpPost]
+        [AllowAnonymous]
+        public BaseResponse<LoginResponse> loginSystem(LoginRequest request)
+        {
+            BaseResponse<LoginResponse> result = new BaseResponse<LoginResponse>();
+            try
+            {
+                result.Data = new LoginResponse();                
+                var usermodel = managerbll.Login(request);
                 result.Data.access_token = JWTTokenValidationParameters.getSecurityToken(usermodel.UserId, usermodel.Account);
                 result.Data.Account = usermodel.Account;
                 result.Data.LogoImg = usermodel.LogoImg;

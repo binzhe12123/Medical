@@ -10393,6 +10393,181 @@
              充值编号
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Model.UserManagerModel">
+            <summary>
+             UserManager模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerModel.Id">
+            <summary> 
+            主键Id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerModel.Account">
+            <summary> 
+            账号
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerModel.Pwd">
+            <summary> 
+            密码
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerModel.CreateTime">
+            <summary> 
+            创建日期
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerModel.IsEnablef">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerModel.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.UserManagerRequest">
+            <summary>
+             UserManager模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerRequest.Id">
+            <summary> 
+            主键Id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerRequest.Acount">
+            <summary> 
+            账号
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerRequest.Pwd">
+            <summary> 
+            密码
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerRequest.CreateTime">
+            <summary> 
+            创建日期
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerRequest.IsEnablef">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerRequest.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.UserManagerAdd">
+            <summary>
+             UserManager模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerAdd.Id">
+            <summary> 
+            主键Id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerAdd.Acount">
+            <summary> 
+            账号
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerAdd.Pwd">
+            <summary> 
+            密码
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerAdd.CreateTime">
+            <summary> 
+            创建日期
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerAdd.IsEnablef">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerAdd.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.UserManagerUpdate">
+            <summary>
+             UserManager模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerUpdate.Id">
+            <summary> 
+            主键Id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerUpdate.Acount">
+            <summary> 
+            账号
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerUpdate.Pwd">
+            <summary> 
+            密码
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerUpdate.CreateTime">
+            <summary> 
+            创建日期
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerUpdate.IsEnablef">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerUpdate.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.UserManagerDelete">
+            <summary>
+             UserManager模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerDelete.Id">
+            <summary> 
+            主键Id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerDelete.Acount">
+            <summary> 
+            账号
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerDelete.Pwd">
+            <summary> 
+            密码
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerDelete.CreateTime">
+            <summary> 
+            创建日期
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerDelete.IsEnablef">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerDelete.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
         <member name="T:SY.Com.Medical.Model.UserModel">
             <summary>
             用户模型
