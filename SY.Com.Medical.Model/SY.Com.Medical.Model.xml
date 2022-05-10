@@ -162,6 +162,11 @@
             门诊日期    
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookModel.CreateTime">
+            <summary>
+            门诊入诊日期    
+            </summary>
+        </member>
         <member name="P:SY.Com.Medical.Model.CaseBookModel.CaseOrder">
             <summary>
             医嘱    
@@ -3166,7 +3171,7 @@
         <member name="P:SY.Com.Medical.Model.PrescriptionDetailAddStructure.GoodsUsage">
             <summary>
             用法
-            </summary>
+            </summary>				
         </member>
         <member name="P:SY.Com.Medical.Model.PrescriptionDetailAddStructure.GoodsEveryDay">
             <summary>
@@ -6341,12 +6346,22 @@
             
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.Out9001.sign_time">
+        <member name="P:SY.Com.Medical.Model.Out9001.signinoutb">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.Out9001.sign_no">
+        <member name="T:SY.Com.Medical.Model.Out9001.Signinoutb">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.Out9001.Signinoutb.sign_time">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.Out9001.Signinoutb.sign_no">
             <summary>
             
             </summary>
@@ -6401,7 +6416,17 @@
             
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.QT9002.Out9002.sign_time">
+        <member name="P:SY.Com.Medical.Model.QT9002.Out9002.signoutoutb">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.QT9002.Out9002.Signoutoutb">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.QT9002.Out9002.Signoutoutb.sign_time">
             <summary>
             
             </summary>
@@ -6719,6 +6744,21 @@
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.SYBMZ2204Model.OutpatientId">
+            <summary>
+            门诊Id
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYBMZ2205Model">
+            <summary>
+            门诊费用明细撤销
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBMZ2205Model.EmployeeId">
+            <summary>
+            操作者Id
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBMZ2205Model.OutpatientId">
             <summary>
             门诊Id
             </summary>
@@ -10346,12 +10386,187 @@
         <member name="P:SY.Com.Medical.Model.TenantBuyRequest.Way">
             <summary>
             充值方式
-            </summary>
+            </summary>        
         </member>
         <member name="P:SY.Com.Medical.Model.TenantBuyRequest.Code">
             <summary>
              充值编号
             </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.UserManagerModel">
+            <summary>
+             UserManager模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerModel.Id">
+            <summary> 
+            主键Id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerModel.Account">
+            <summary> 
+            账号
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerModel.Pwd">
+            <summary> 
+            密码
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerModel.CreateTime">
+            <summary> 
+            创建日期
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerModel.IsEnablef">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerModel.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.UserManagerRequest">
+            <summary>
+             UserManager模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerRequest.Id">
+            <summary> 
+            主键Id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerRequest.Acount">
+            <summary> 
+            账号
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerRequest.Pwd">
+            <summary> 
+            密码
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerRequest.CreateTime">
+            <summary> 
+            创建日期
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerRequest.IsEnablef">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerRequest.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.UserManagerAdd">
+            <summary>
+             UserManager模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerAdd.Id">
+            <summary> 
+            主键Id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerAdd.Acount">
+            <summary> 
+            账号
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerAdd.Pwd">
+            <summary> 
+            密码
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerAdd.CreateTime">
+            <summary> 
+            创建日期
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerAdd.IsEnablef">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerAdd.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.UserManagerUpdate">
+            <summary>
+             UserManager模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerUpdate.Id">
+            <summary> 
+            主键Id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerUpdate.Acount">
+            <summary> 
+            账号
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerUpdate.Pwd">
+            <summary> 
+            密码
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerUpdate.CreateTime">
+            <summary> 
+            创建日期
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerUpdate.IsEnablef">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerUpdate.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.UserManagerDelete">
+            <summary>
+             UserManager模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerDelete.Id">
+            <summary> 
+            主键Id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerDelete.Acount">
+            <summary> 
+            账号
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerDelete.Pwd">
+            <summary> 
+            密码
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerDelete.CreateTime">
+            <summary> 
+            创建日期
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerDelete.IsEnablef">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.UserManagerDelete.IsDelete">
+            <summary> 
+            
+            </summary> 
         </member>
         <member name="T:SY.Com.Medical.Model.UserModel">
             <summary>
@@ -17430,17 +17645,27 @@
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.Out2201data.mdtrt_id">
+        <member name="P:SZSI_Smart.Model.SYB.Out2201data.data">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.Out2201data.psn_no">
+        <member name="T:SZSI_Smart.Model.SYB.Out2201data.Data">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SZSI_Smart.Model.SYB.Out2201data.ipt_otp_no">
+        <member name="P:SZSI_Smart.Model.SYB.Out2201data.Data.mdtrt_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SZSI_Smart.Model.SYB.Out2201data.Data.psn_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SZSI_Smart.Model.SYB.Out2201data.Data.ipt_otp_no">
             <summary>
             
             </summary>
@@ -18637,17 +18862,17 @@
         </member>
         <member name="P:SZSI_Smart.Model.SYB.ZJ2205.In2205.mdtrt_id">
             <summary>
-            
+            医保门诊号
             </summary>
         </member>
         <member name="P:SZSI_Smart.Model.SYB.ZJ2205.In2205.chrg_bchno">
             <summary>
-            
+            医保收费批次
             </summary>
         </member>
         <member name="P:SZSI_Smart.Model.SYB.ZJ2205.In2205.psn_no">
             <summary>
-            
+            医保人员编号
             </summary>
         </member>
         <member name="T:SZSI_Smart.Model.SYB.ZJCX2208">

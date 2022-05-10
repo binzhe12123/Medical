@@ -93,15 +93,26 @@ namespace SZSI_Smart.Model.SYB
         /// <summary>
         /// 
         /// </summary>
-        public string mdtrt_id { get; set; }// 就诊ID    字符型	30	　	Y 医保返回唯一流水
+        public Data data { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public string psn_no { get; set; } //人员编号    字符型	30	　	Y
-        /// <summary>
-        /// 
-        /// </summary>
-        public string ipt_otp_no { get; set; }//  住院/门诊号 字符型	30	　	Y 院内唯一流水
+        public class Data
+        {
+            /// <summary>
+            /// 
+            /// </summary>
+            public string mdtrt_id { get; set; }// 就诊ID    字符型	30	　	Y 医保返回唯一流水
+            /// <summary>
+            /// 
+            /// </summary>
+            public string psn_no { get; set; } //人员编号    字符型	30	　	Y
+            /// <summary>
+            /// 
+            /// </summary>
+            public string ipt_otp_no { get; set; }//  住院/门诊号 字符型	30	　	Y 院内唯一流水
+        }
+
 
     }
     /// <summary>

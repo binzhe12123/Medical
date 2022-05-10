@@ -136,11 +136,11 @@ namespace SZSI_Smart.Model.SYB
         /// <summary>
         /// 
         /// </summary>
-        public DateTime psn_insu_date { get; set; }//   个人参保日期 日期型
+        public DateTime? psn_insu_date { get; set; }//   个人参保日期 日期型
         /// <summary>
         /// 
         /// </summary>
-        public DateTime paus_insu_date { get; set; }// 暂停参保日期  日期型
+        public DateTime? paus_insu_date { get; set; }// 暂停参保日期  日期型
         /// <summary>
         /// 
         /// </summary>
@@ -175,11 +175,11 @@ namespace SZSI_Smart.Model.SYB
         /// <summary>
         /// 
         /// </summary>
-        public DateTime begntime { get; set; }// 开始时间    日期时间型 Y   yyyy-MM-dd HH:mm:ss
+        public DateTime? begntime { get; set; }// 开始时间    日期时间型 Y   yyyy-MM-dd HH:mm:ss
         /// <summary>
         /// 
         /// </summary>
-        public DateTime endtime { get; set; }// 结束时间 日期时间型               yyyy-MM-dd HH:mm:ss
+        public DateTime? endtime { get; set; }// 结束时间 日期时间型               yyyy-MM-dd HH:mm:ss
 
     }
 }

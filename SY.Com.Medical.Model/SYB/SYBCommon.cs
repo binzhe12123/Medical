@@ -111,11 +111,11 @@ namespace SY.Com.Medical.Model
             /// <summary>
             /// 
             /// </summary>
-            public DateTime refmsg_time { get; set; }// 接收报文时间 字符型	17			格式：yyyyMMddHHmmssSSS
+            public string refmsg_time { get; set; }// 接收报文时间 字符型	17			格式：yyyyMMddHHmmssSSS
             /// <summary>
             /// 
             /// </summary>
-            public DateTime respond_time { get; set; }//   响应报文时间 字符型	17			格式：yyyyMMddHHmmssSSS
+            public string respond_time { get; set; }//   响应报文时间 字符型	17			格式：yyyyMMddHHmmssSSS
             /// <summary>
             /// 
             /// </summary>
@@ -143,11 +143,11 @@ namespace SY.Com.Medical.Model
             /// <summary>
             /// 
             /// </summary>
-            public DateTime refmsg_time { get; set; }// 接收报文时间 字符型	17			格式：yyyyMMddHHmmssSSS
+            public string refmsg_time { get; set; }// 接收报文时间 字符型	17			格式：yyyyMMddHHmmssSSS
             /// <summary>
             /// 
             /// </summary>
-            public DateTime respond_time { get; set; }//   响应报文时间 字符型	17			格式：yyyyMMddHHmmssSSS
+            public string respond_time { get; set; }//   响应报文时间 字符型	17			格式：yyyyMMddHHmmssSSS
             /// <summary>
             /// 
             /// </summary>
@@ -158,6 +158,6 @@ namespace SY.Com.Medical.Model
             public object output { get; set; }//  交易输出 字符型	40000			
 
         }
-
+        
     }
 }

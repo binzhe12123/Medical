@@ -19,7 +19,7 @@ namespace SY.Com.Medical.Repository.Clinic
         public PatientEntity getBypsnNo(int tenantId,string psn_no)
         {
             string sql = " Select * From Patients Where TenantId = @TenantId And psn_no=@Psn_no And IsDelete = 1 ";
-            var mods = _db.Query(sql, new { TenantId = tenantId, Psn_no = psn_no });
+            var mods = _db.Query<PatientEntity>(sql, new { TenantId = tenantId, Psn_no = psn_no });
             if(mods == null || !mods.Any())
             {
                 return null;

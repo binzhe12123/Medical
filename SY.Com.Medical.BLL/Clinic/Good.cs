@@ -178,6 +178,7 @@ namespace SY.Com.Medical.BLL.Clinic
         public void update(GoodUpdate request)
         {            
             GoodEntity entity = new GoodEntity();
+            var oldgood = getGood(request.TenantId, request.GoodId);
             entity.GoodId = request.GoodId;
             entity.TenantId = request.TenantId;
             entity.GoodName = request.GoodName;
@@ -192,7 +193,7 @@ namespace SY.Com.Medical.BLL.Clinic
             entity.StockUnit = dicbll.getValueById(request.TenantId, request.StockUnit, "Unit", "");
             entity.CreateTime = DateTime.Now;
             entity.Price = request.Price == null ? 0 : Convert.ToInt64(request.Price * 1000);
-            entity.Stock = 0;
+            entity.Stock = oldgood.Stock;
             entity.BarCode = request.BarCode;
             entity.SearchKey = request.GoodName + request.GoodName.GetPinYinHead() + request.InsuranceCode + request.GoodStandard;
             entity.Usage = dicbll.getValueById(request.TenantId, request.Usage, "Usage", entity.GoodType.ToString());

@@ -418,8 +418,8 @@ namespace SY.Com.Medical.Model
 		public double GoodsPrice { get; set; }
 		/// <summary>
 		/// 用法
-		/// </summary>
-		public int GoodsUsage { get; set; }
+		/// </summary>				
+		public int GoodsUsage { get; set; }//public string GoodsUsage { get; set; }
 		/// <summary>
 		/// 频度
 		/// </summary>
